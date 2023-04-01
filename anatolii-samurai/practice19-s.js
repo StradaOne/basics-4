@@ -55,7 +55,7 @@ const list = {
     }
 
 
-//   changeStatus("create a new practice task","Done");
+    changeStatus("create a new practice task","Done");
   addTask("have a walk","In progress"); // добавляет новую задачу
   deleteTask("have a walk"); // удаляет задачу
   showList();  
