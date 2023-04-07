@@ -1,2 +1,2 @@
-# basics-4 
-https://strada.one/help/how-to/get-code-review
+В файле main.js - обычный код
+В файле main2.js - код с комментариями
