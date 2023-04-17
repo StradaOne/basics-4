@@ -1,0 +1,45 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+.calc__form {
+  height: 33px;
+  display: flex;
+}
+
+.calc__form * {
+  border: 1px solid #000;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.calc__form-input {
+  width: 95px;
+  font-size: 20px;
+  line-height: 24px;
+  padding-left: 5px;
+}
+
+.calc__form-select {
+  width: 35px;
+}
+
+.calc__form-button {
+  padding: 5px 12px;
+}
+
+.calc__form--output {
+  border: none;
+  font-size: 20px;
+  align-self: center;
+}
