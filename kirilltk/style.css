@@ -1,0 +1,25 @@
+* {
+    margin: 3px;
+    padding: 0;
+}
+
+
+#calculator {
+    display: flex;
+    justify-content: center;
+    padding-top: 50vh;
+}
+
+#first_number, #second_number {
+    border: 1px solid #000000;
+    width: 95px;
+    height: 33px;
+}
+
+#buttonEquals {
+    width: 39px;
+    height: 35px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background-color: white;
+}
