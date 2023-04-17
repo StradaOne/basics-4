@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>#36 Калькулятор UI</title>
+    <link rel='stylesheet' href='css/reset.css' />
+    <link rel='stylesheet' href='css/style.css' />
+</head>
+
+<body>
+    <div class='container'>
+
+        <div class='calculator'>
+            <form action='#'>
+                <label for='input_number_one'></label>
+                <input class='input_number_one' type='number' id='input_number_one' />
+
+                <label for='operators'></label>
+                <select class='operators' id='operators'>
+                    <option value='add' selected>+</option>
+                    <option value='subtract'>-</option>
+                    <option value='multi'>*</option>
+                    <option value='div'>/</option>
+                </select>
+
+                <label for='input_number_two'></label>
+                <input class='input_number_two' type='numbe' id='input_number_two' />
+
+                <button class='calc_result' type='button'>=</button>
+                <span class='result'>0</span>
+            </form>
+        </div>
+
+    </div>
+    <script src='./js/main.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+.container {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.input_number_one {
+  box-sizing: border-box;
+  width: 95px;
+  height: 33px;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 24.2px;
+  border: 1px solid;
+}
+
+.input_number_two {
+  box-sizing: border-box;
+  width: 95px;
+  height: 33px;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 24.2px;
+  border: 1px solid;
+}
+
+.operators {
+  font-size: 20px;
+  border: 1px solid;
+  border-radius: 4px;
+  background: #dedede;
+}
+
+.calc_result {
+  box-sizing: border-box;
+  width: 39px;
+  height: 33px;
+  background: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 24.2px;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.result {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 24.2px;
+}
