@@ -1,0 +1,47 @@
+@font-face {
+	font-family: NunitoRegular; /* Гарнитура шрифта */
+	src: url(/fonts/Nunito-Regular.ttf);
+ }
+
+.container{
+	display: flex;
+	align-items: center;
+	height: 100vh;
+	justify-content: center;
+}
+body{
+	font-family: 'NunitoRegular';
+	background-color: rgb(231, 231, 231);
+}
+
+.time{
+	display: flex;
+	justify-content: center;
+	font-size: 40px;
+}
+
+.block{
+	padding: 20px 20px;
+	-webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+	-moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+	border-radius: 20px;
+	background-color: #fff;
+}
+
+.buttons{
+	display: flex;
+	gap: 10px;
+}
+
+.buttons button{
+	background: none;
+	cursor: pointer;
+	border: none;
+	margin-top: 20px;
+}
+
+.buttons button img{
+	height: 40px;
+	width: 40px;
+}
