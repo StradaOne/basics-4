@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Calculator</title>
+   <link rel="stylesheet" href="/calc/style.css">
+</head>
+
+<body>
+   <div class="container">
+      <input type="number" class="calc-num">
+      <select>
+         <option value="+">+</option>
+         <option value="-">-</option>
+         <option value="*">*</option>
+         <option value="/">/</option>
+      </select>
+      <input type="number" class="calc-num">
+      <button id="myButton">=</button>
+      <script>
+         var button = document.getElementById('myButton');
+         function butonClickHandler() {
+            alert('Кнопка нажата');
+         }
+         button.addEventListener('click', butonClickHandler);
+      </script>
+      <div class="result"></div>
+   </div>
+</body>
+
+</html>
