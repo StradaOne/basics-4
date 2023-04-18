@@ -1,0 +1,10 @@
+#timer {
+    margin: 30px 0 0 30px;
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+}
+
+#timer:hover {
+    cursor: pointer;
+}
