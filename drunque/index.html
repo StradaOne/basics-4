@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calculator">
+    <input class="rectangle" type="number">
+    <div class="square select" id="select">
+      <div class="current">
+        <div data-value="add">+</div>
+      </div>
+      <div class="options disabled">
+        <div class="square" data-value="add">+</div>
+        <div class="square" data-value="sub">-</div>
+        <div class="square" data-value="mul">*</div>
+        <div class="square" data-value="div">/</div>
+      </div>
+    </div>
+    <input class="rectangle" type="number">
+    <span class="square">=</span>
+    <p class="rectangle square" id="result"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
