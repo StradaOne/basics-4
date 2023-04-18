@@ -1,0 +1,20 @@
+body {
+    background-image: url('https://i.ytimg.com/vi/q1S2v3JQG7Y/maxresdefault.jpg');
+}
+
+#tick-tock {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50vh;
+    height: 80px;
+    width: 200px;
+    background-color: aqua;
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 30px;
+}
+
+#tick-tock:active {
+    background-color: rgb(211, 89, 105);
+    transition: 0.5 all;
+}
