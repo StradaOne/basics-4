@@ -1,0 +1,38 @@
+input {
+    height: 30px;
+    width: 80px;
+    background-color:cornsilk;
+    border: 2px solid;
+}
+
+select {
+    height: 105px;  
+    width: 40px;
+    font-size: 20px;
+    vertical-align: top;
+    background-color:darkgray;
+    overflow: hidden;
+}
+
+button {
+    height: 36px;
+    width: 36px; 
+    vertical-align: top;
+    background-color:chartreuse;
+    border: 2px solid;
+}
+
+output {
+    text-align: right;
+    height: 36px;
+    width: 36px; 
+    font-size: 20px;
+}
+
+option {
+    text-align: center;
+}
+
+
+
+
