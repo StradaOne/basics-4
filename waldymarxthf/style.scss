@@ -1,0 +1,61 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 400px;
+	margin-left: 300px;
+}
+
+#firstNumber {
+	width: 95px;
+	height: 33px;
+	background: #FFFFFF;
+	border: 1px solid #000000;
+	color: #000000;
+	margin-right: 30px;
+	text-align: center;
+}
+
+#secondNumber {
+	width: 95px;
+	height: 33px;
+	background: #FFFFFF;
+	border: 1px solid #000000;
+	color: #000000;
+	margin-right: 30px;
+	text-align: center;
+}
+
+#mathSymbol {
+	width: 50px;
+	height: 33px;
+	color: #000000;
+	background-color: #FFFFFF;
+	margin-right: 30px;
+	cursor: pointer;
+	border-radius: 10px;
+	text-align: center;
+	border-color: #000000;
+}
+
+#button {
+	width: 39px;
+	height: 33px;
+	background: #FFFFFF;
+	border: 1px solid #000000;
+	border-radius: 4px;
+	color: #000000;
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+#answer{
+	width: 300px;
+	font-weight: 700;
+	font-size: 16px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
