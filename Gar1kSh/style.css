@@ -1,0 +1,29 @@
+body {
+    position: fixed;
+    left: 48%;
+    top: 46%;
+    transform: translate(-50%, -50%);
+    background: #bcb8b8;
+    color: #fff;
+    user-select: none;
+  }
+
+  .counter {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    color: black
+    
+  }
+  .btn1 {
+    width: 70px;
+    background: #85eb6b;
+    cursor: pointer;
+  }
+  
+  .btn2 {
+    width: 70px;
+    background: #ce5151;
+    cursor: pointer;
+  }
+  
