@@ -1,0 +1,29 @@
+button {
+
+    height: 60px;
+    width: 60px;
+    line-height: 1.2em;
+    padding: 0;
+    vertical-align: top;
+
+    /* border: 1px solid #000000; */
+    border-radius: 17px;
+    position: relative;
+}
+
+img {
+    width: 60px; 
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+}
+
+output {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 35px;
+    color: dimgrey;
+    margin-left: 25px;
+}

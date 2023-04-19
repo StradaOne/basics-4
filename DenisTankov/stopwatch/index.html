@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>секундомер</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main>
+    <button id="stopwatchButton"><img src="./play.png"></button>
+    <button id="pauseButton"><img src="./pause.png"></button>
+    <button id="refreshButton"><img src="./refresh.png"></button>
+    <output id="result">0</output>
+
+    <script>
+      var timer;
+      let count = 0;
+
+      document.getElementById('stopwatchButton').addEventListener('click', function () {
+        timer = setInterval(() => result.value = ++count, 1000); 
+        document.getElementById('stopwatchButton').disabled = true;
+        document.getElementById('stopwatchButton').style.opacity = 0.5;
+      });   
+
+      document.getElementById('pauseButton').addEventListener('click', function () {
+        timer = clearInterval(timer);
+        document.getElementById('stopwatchButton').disabled = false;
+        document.getElementById('stopwatchButton').style.opacity = 1;
+      });
+
+      document.getElementById('refreshButton').addEventListener('click', function () {
+        count = 0;
+        result.value = 0;
+        timer = clearInterval(timer);
+        document.getElementById('stopwatchButton').disabled = false;
+        document.getElementById('stopwatchButton').style.opacity = 1;
+      });
+    </script>  
+  </main>
+</body>
+</html>
