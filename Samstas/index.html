@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <link rel="stylesheet" href="./calc.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <input class="first-number" type="number">
+
+        <select name="calculation" id="select-calc">
+            <option id="addition" value="add" selected>+</option>
+            <option id="subtraction" value="sub">-</option>
+            <option id="multiplication" value="mult">*</option>
+            <option id="division" value="div">/</option>
+        </select>
+
+        <input class="second-number" type="number">
+
+        <button id="equal" type="button">=</button>
+        <output id="output-number" name="output">0</output>
+
+    </div>
+    
+    <script src="./main.js"></script>
+</body>
+</html>
