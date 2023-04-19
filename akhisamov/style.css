@@ -1,0 +1,23 @@
+#stopwatch {
+    width: 150px;
+    height: 100px;
+    margin: 200px auto;
+    text-align: center;
+    background: yellowgreen;
+    padding-top: 50px;
+}
+
+#hour, #minute, #second {
+    background: yellow;
+    color: black;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+#buttonStop, #buttonStart, #buttonReset {
+    background: aqua;
+}
+
+#buttonStop, #buttonStart {
+    margin-top: 10px;
+}
