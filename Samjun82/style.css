@@ -1,0 +1,10 @@
+div {
+    text-align: center;
+    margin-top: 50px;
+}
+
+span {
+    border: 1px solid black;
+    margin-left: 2px;
+    padding: 0 5px 2px 5px ;
+}
