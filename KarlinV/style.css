@@ -1,0 +1,55 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100vh;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 24px;
+	color: #000000;
+}
+
+.calc {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	max-width: 350px;
+	width: 100%;
+}
+
+.calc input,
+.action,
+.btn {
+	height: 33px;
+	font: inherit;
+}
+
+.calc input {
+	width: 95px;
+	height: 33px;
+	max-width: 100%;
+	flex-shrink: 1;
+	font: inherit;
+}
+
+.action {
+	height: 33px;
+	font: inherit;
+}
+
+.btn {
+	width: 40px;
+	height: 33px;
+	font: inherit;
+}
