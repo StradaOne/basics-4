@@ -1,0 +1,27 @@
+#main{
+  display: flex;
+  
+}
+#result{
+  margin-left: 15px;
+}
+
+#firstNumber{
+  width: 170px;
+  height: max-content;
+}
+#calc_operation{
+  width: max-content;
+  height: 21px;
+}
+#secondNumber{
+  width: 170px;
+  height: max-content;
+}
+#result{
+  width: max-content;
+  height: max-content;
+}
+#resButton{
+  height: 21px;
+}
