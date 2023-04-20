@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap");
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#242424, #121212);
+  color: white;
+  flex-direction: column;
+  font-family: "JetBrains Mono", monospace;
+}
+
+body > p {
+  display: none;
+}
+
+h1 {
+  font-size: 3rem;
+  position: relative;
+  bottom: 5rem;
+}
+
+.calculator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.calculator > * {
+  height: 2.5rem;
+}
+
+.rectangle {
+  height: 2.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  background-color: #242424;
+  transition: background-color 0.3s;
+}
+
+.square {
+  background-color: #242424;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  width: 2.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.disabled {
+  display: none;
+}
+
+.select {
+  position: relative;
+  user-select: none;
+  padding: 0;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.options {
+  position: absolute;
+  bottom: -11rem;
+}
+
+.options .square {
+  border-bottom: none;
+}
+
+.options .square:last-of-type {
+  border-bottom: 1px solid #ccc;
+}
+
+.current {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#result {
+  text-align: right;
+  overflow: hidden;
+  width: 15rem;
+}
+
+input:focus,
+.select:focus {
+  border: 1px solid white;
+}
+
+.rectangle:hover,
+.square:hover {
+  background-color: #202020;
+}
+
+@media (max-width: 1000px) {
+  .calculator {
+    display: none;
+  }
+  body > p {
+    display: block;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}

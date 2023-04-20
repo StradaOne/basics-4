@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Calculator</h1>
+  <div class="calculator">
+    <input class="rectangle" type="number">
+    <div class="square select" tabindex="-1" id="select">
+      <div class="current">
+        <div data-value="add">+</div>
+      </div>
+      <div class="options disabled">
+        <div class="square" data-value="add">+</div>
+        <div class="square" data-value="sub">-</div>
+        <div class="square" data-value="mul">*</div>
+        <div class="square" data-value="div">/</div>
+      </div>
+    </div>
+    <input class="rectangle" type="number">
+    <button id="result-button" class="square">=</button>
+    <p class="rectangle" id="result"></p>
+  </div>
+  <p>пока что нет поддержки для устройств, шириной меньше 1000px, и врядли будет *мнгтч*</p>
+  <script src="select.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
