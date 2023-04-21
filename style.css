@@ -1,0 +1,77 @@
+@font-face {
+	font-family: NunitoRegular; /* Гарнитура шрифта */
+	src: url(/basics-4/fonts/Nunito-Regular.ttf);
+ }
+
+.container{
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.history{
+	display: flex;
+	gap: 10px;
+	margin-top: 20px;
+	padding: 20px 20px;
+	-webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+	-moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+	border-radius: 20px;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	transition: all .5s;
+	max-width: 440px;
+	flex-wrap: wrap;
+	font-size: 18px;
+}
+
+.added{
+	cursor: pointer;
+	transition: all .5s;
+}
+
+.block{
+	padding: 20px 20px;
+	-webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+	-moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+	border-radius: 20px;
+	background-color: #fff;
+	display: flex;
+	height: 30px;
+	align-items: center;
+	gap: 10px;
+	transition: all .5s;
+}
+body{
+	background-color: rgb(231, 231, 231);
+	font-family: 'NunitoRegular';
+}
+
+input{
+	border: none;
+	height: 25px;
+	font-size: 20px;
+	width: 150px;
+}
+
+select{
+	border: none;
+	font-size: 20px;
+}
+
+button{
+	border: none;
+	background: #Fff;
+	font-size: 20px;
+}
+
+.result{
+	font-size: 23px;
+}
+
