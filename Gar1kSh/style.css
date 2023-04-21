@@ -1,0 +1,60 @@
+body {
+    background-color: white;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.change-btn {
+    margin-top: 23px;
+    margin-right: 1%;
+    background-color: rgb(201, 199, 247);
+    width: 120px;
+    height: 32px;
+    display: flex;
+    border-color: rgb(61, 52, 31);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.default-btn {
+    margin-top: 23px;
+    margin-right: 1%;
+    background-color: rgb(201, 199, 247);
+    width: 120px;
+    height: 32px;
+    display: flex;
+    border-color: rgb(61, 52, 31);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.random-btn {
+    margin-top: 23px;
+    margin-right: 1%;
+    background-color: rgb(201, 199, 247);
+    width: 120px;
+    height: 32px;
+    display: flex;
+    border-color: rgb(61, 52, 31);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.change-btn:hover {
+    color: rgb(73, 73, 31);
+}
+
+.default-btn:hover {
+    color: rgb(73, 73, 31);
+}
+
+.random-btn:hover {
+    color: rgb(73, 73, 31);
+}
