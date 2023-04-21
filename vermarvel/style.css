@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 30px;
+  width: 300px;
+  height: 300px;
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: pink;
+}
+
+.box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 30px;
+  width: 300px;
+  height: 300px;
+  /* flex-direction: column; */
+}
+
+#star {
+  padding-bottom: 40px;
+  font-size: 350px;
+}
+
+button {
+  width: 80px;
+  height: 50px;
+  background-color: rgb(242, 101, 148);
+  color: white;
+  margin-top: 30px;
+}
