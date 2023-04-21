@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <button id="change-bg" data-color="#e6e6e6">Изменить фон</button>
+   <script>
+      const bodyElement = document.body;
+      const elem = document.getElementById('change-bg');
+      const value = elem.getAttribute('data-color');
+      elem.setAttribute('onclick', 'changeColor()');
+      function changeColor(value) {
+         document.body.style.background = value;
+      }
+
+      elem.onclick = () => {
+         changeColor(value);
+      }
+   </script>
+</body>
+
+</html>
