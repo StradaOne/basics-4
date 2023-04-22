@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalcUI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calc">
+            <input type="number" id="num-1" class="calc_num">
+
+            <select class="calc_operation" name="operation" id="operation">
+                <option value="+" >+</option>
+                <option value="-" >-</option>
+                <option value="*" >*</option>
+                <option value="/" >/</option>
+            </select>
+
+            <input type="number" id="num-2" class="calc_num">
+
+            <button class="calc_result_btn">=</button>
+
+            <div class="calc_result_block" ></div>
+        </div>
+        <div class="block_result">
+            <ul class="block_result_list"></ul>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
