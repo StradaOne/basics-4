@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Calc</title>
+</head>
+<body>
+	<div class="main">
+		<div class="calc">
+			<input class="operand_a" type="number" placeholder="Enter a number">
+			<select class="operation" name="operation">
+				<option class="addition" value="+">+</option>
+				<option class="subtraction" value="-">-</option>
+				<option class="multiplication" value="*">*</option>
+				<option class="division" value="/">/</option>
+			</select>
+			<input class="operand_b" type="number" placeholder="Enter a number">
+			<button class="button">=</button>
+			<span class="result"></span>
+		</div>
+		<div class="history">
+			<p>History of results:</p>
+		</div>
+	</div>
+	<script type="module" src="./main.js"></script>
+</body>
+</html>
