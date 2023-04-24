@@ -1,0 +1,32 @@
+.main{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.js-select-operation {
+    margin-left: 8px;
+    width: 30px;
+    height: 20px;
+
+
+}
+option{
+    color: rgb(24, 25, 26);
+}
+input{
+    margin-left: 8px;
+}
+button{
+    margin-left: 8px;
+}
+.result{
+    margin-left: 8px;
+}
+.history{
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 5px;
+  align-content: center;
+}
