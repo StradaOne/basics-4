@@ -1,0 +1,200 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: 0;
+}
+
+body {
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vw;
+  font-family: Montserrat, sans-serif;
+  color: rgb(11, 11, 11);
+}
+
+.container {
+  background: white;
+  display: flex;
+  min-width: 300px;
+  flex-direction: column;
+  gap: 5px;
+  width: 50vw;
+  height: auto;
+}
+
+.box {
+  margin: 5px;
+  border: 1px solid rgb(205, 203, 203);
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.low-container {
+  margin-bottom: 30px;
+}
+
+.category-name-high,
+.category-name-low {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add-high,
+.add-low {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid rgb(205, 203, 203);
+}
+
+.add-task {
+  height: 30px;
+}
+
+.form {
+  width: 83%;
+  flex: 9;
+}
+
+input {
+  background-color: white;
+  font-family: sans-serif;
+  width: 90%;
+  margin-top: 5px;
+  margin-left: 5px;
+  border: none;
+  flex: 10;
+  height: 23px;
+}
+
+button {
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+
+  color: black;
+
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  color: rgb(12, 12, 12);
+  opacity:100%;
+}
+button:active {
+  font-size: calc(100% + 2px);
+}
+.plus,
+.delete {
+  width: 10%;
+  font-size: 20px;
+  border: none;
+  opacity: 50%;
+  flex: 1;
+}
+
+.plus {
+  padding-right: 6px;
+  margin-bottom: 10px;
+}
+
+.add {
+  /* margin-top: 10px; */
+  flex: 9;
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.complete {
+  background-color: rgba(245, 240, 240, 0.637);
+}
+
+.radio-wrapper {
+  padding-left: 10px;
+  padding-top: 5px;
+  align-self: flex-start;
+width: 10%
+  flex: 1;
+}
+
+.radio {
+  opacity: 50%;
+}
+
+.text {
+  width: 80%;
+  flex: 8;
+}
+
+.delete {
+  align-self: flex-start;
+}
+.delete {
+  flex: 1;
+}
+.task {
+  display: flex;
+  align-items: center;
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 10px;
+}
+
+/*checkbox re-design*/
+
+input[type="checkbox"] {
+  display: none;
+}
+
+label.checkmark {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  margin-right: 30px;
+  opacity: 30%;
+}
+
+input[type="checkbox"]:checked + label.checkmark:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+button {
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0;
+  font-size: 16px;
+}
+
+button:active {
+  transform: scale(1.05);
+  font-size: 18px;
+  outline: none;
+  box-shadow: none;
+}
