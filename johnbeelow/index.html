@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#43 TODO UI</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="todo_container">
+        <div class="task_high_container">
+          <p class="priority">HIGH</p>
+
+          <div class="add_task">
+            <label for="task_input_high">
+              <input type="text" placeholder="Добавить важных дел" />
+            </label>
+            <div class="button_add_task">+</div>
+          </div>
+
+          <div class="task">
+            <label for="task">
+              <input class="checkbox" type="checkbox" />Вот вам и супер
+              интересная тема. Вы наверняка заметили что ваши файлы с кодом
+              становятся все объемнее, что хочется вынести некоторые вещи
+              куда-то за пределы основной программы.
+            </label>
+            <div class="button_close_task">&times;</div>
+          </div>
+
+          <div class="task">
+            <label for="task2">
+              <input class="checkbox" type="checkbox" />Сверстать этот TODO list
+            </label>
+            <div class="button_close_task">&times;</div>
+          </div>
+
+          <div class="task">
+            <label for="task3">
+              <input class="checkbox" type="checkbox" />Начать делать задачу
+            </label>
+            <div class="button_close_task">&times;</div>
+          </div>
+        </div>
+
+        <div class="task_low_container">
+          <p class="priority">LOW</p>
+
+          <div class="add_task">
+            <label for="task_input_low">
+              <input type="text" placeholder="Добавить важных дел" />
+            </label>
+            <div class="button_add_task">+</div>
+          </div>
+
+          <div class="task">
+            <label for="task4">
+              <input class="checkbox" type="checkbox" />Посмотреть ютубчик
+            </label>
+            <div class="button_close_task">&times;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
