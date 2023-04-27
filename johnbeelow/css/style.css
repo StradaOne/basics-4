@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+body {
+  background: #252525;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  height: auto;
+  width: 420px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-60%, -60%);
+}
+
+.todo_container {
+  width: 476px;
+  height: auto;
+  border-radius: 15px;
+  background: rgb(28, 28, 28);
+  backdrop-filter: blur(35px);
+  border: 2px solid rgba(92, 92, 92, 0.205);
+  padding: 15px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.priority {
+  display: flex;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 21px;
+  justify-content: center;
+  color: rgba(225, 222, 202, 0.921);
+}
+
+.task {
+  padding: 5px;
+  display: flex;
+  border: 1px solid rgb(46, 46, 46);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #272626;
+}
+
+.task:hover {
+  padding: 5px;
+  display: flex;
+  border: 1px solid rgba(229, 223, 194, 0.483);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: 0.6s;
+}
+
+.task label {
+  font-size: 18px;
+  color: #ded9c7c0;
+  width: 435px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.add_task {
+  padding: 5px;
+  display: flex;
+  border: 1px solid rgb(44, 44, 44);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #161616;
+}
+
+.add_task input {
+  font-size: 18px;
+  color: #cfcdba;
+  border: 0px;
+  outline: none;
+  width: 400px;
+  background: rgba(0, 0, 0, 0);
+}
+
+.add_task:hover {
+  padding: 5px;
+  display: flex;
+  border: 1px solid rgb(229, 223, 194);
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: 0.6s;
+}
+
+.add_task label {
+  width: 435px;
+  display: flex;
+}
+
+.button_add_task {
+  width: 38px;
+  height: 60px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 200;
+  font-size: 43px;
+  transition: 0.4s;
+  user-select: none;
+  color: rgba(229, 223, 194, 0.287);
+}
+
+.button_add_task:hover {
+  color: rgb(229, 223, 194);
+}
+
+.button_close_task {
+  width: 34px;
+  height: 55px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 200;
+  font-size: 43px;
+  transition: 0.4s;
+  user-select: none;
+  color: rgba(229, 223, 194, 0.287);
+}
+
+.button_close_task:hover {
+  color: rgb(213, 93, 93);
+}
+
+.checkbox {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: rgba(227, 223, 187, 0.229);
+  border-radius: 50%;
+  border: 1px solid rgb(18, 18, 18);
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  background-color: rgb(155, 192, 46);
+  transition: 0.3s;
+}
