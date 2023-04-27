@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/c823499ef3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="to-do-list">
+        
+          <h1 class="heading">to-do list</h1>
+          <!-- CREATING FORM FOR ADD A NEW TASK  -->
+            <form class="task-form" onsubmit="return false">
+              <input class="create-task" id="input-box" type="text" placeholder="Добавить задачу"/>
+              <button onclick="addTask()" id="submit-button" type="submit"><i class="fas fa-plus"></i></button>
+            </form>
+
+            <!-- LIST OF TASKS  -->
+          <ul id="list-container" class="task-list">
+            
+            <!-- <li class="task-item">
+              <input class="checkbox" type="checkbox" />
+              <p class="task-content"></p>
+              <i class="fa-solid fa-xmark"></i>
+            </li> -->
+            
+          </ul>
+          
+      </div>
+    
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
