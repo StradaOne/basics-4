@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="ToDo">
+            <div class="ToDo_high">
+                <h1 class="ToDo_high_title">high</h1>
+
+                <form class="ToDo_high_input">
+                    <input id="high-input" type="text" placeholder="Добавить важных дел" required>
+                    <button type="submit"></button>
+                </form>
+
+                <div class="ToDo_high_block_tasks">
+                    <div class="ToDo_high_task">
+                        <label class="ToDo_high_task_check">
+                            <input class="ToDo_high_task_check_inp" type="checkbox" ></input>
+                        </label>
+                        <div class="ToDo_high_task_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui in fuga veniam eius dolor eligendi consectetur soluta neque repellendus. Nulla illum ea, excepturi inventore cum quas blanditiis in facilis dolorem!</div>
+                        <button class="ToDo_high_task_delete"></button>
+                    </div>
+    
+                    <div class="ToDo_high_task bc_grey">
+                        <label class="ToDo_high_task_check">
+                            <input class="ToDo_high_task_check_inp" type="checkbox" ></input>
+                        </label>
+                        <div class="ToDo_high_task_text">Lorem ipsum dolor sit amet consectetur </div>
+                        <button class="ToDo_high_task_delete"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ToDo_low">
+                <h2 class="ToDo_low_title">low</h2>
+
+                <form class="ToDo_low_input">
+                    <input id="low-input" type="text" placeholder="Добавить" required>
+                    <button type="submit"></button>
+                </form>
+                
+                <div class="ToDo_low_block_tasks">
+                    <div class="ToDo_low_task">
+                        <label class="ToDo_low_task_check">
+                            <input class="ToDo_low_task_check_inp" type="checkbox" ></input>
+                        </label>
+                        <div class="ToDo_low_task_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui in fuga veniam eius dolor eligendi consectetur soluta neque repellendus. Nulla illum ea, excepturi inventore cum quas blanditiis in facilis dolorem!</div>
+                        <button class="ToDo_low_task_delete"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
