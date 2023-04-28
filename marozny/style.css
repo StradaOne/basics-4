@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+input {
+    width: 95px;
+    height: 33px;
+}
+button {
+    height: 33px;
+    width: 39px;
+    margin: 10px;
+}
+#operations {
+    height: 33px;
+    margin: 10px;
+}
