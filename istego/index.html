@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO UI</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="todo-block">
+            <div class="todo-block__priority priority-high">
+                <p class="todo-block__priority-title">
+                    ВЫСОКИЙ
+                </p>
+                <div class="todo-block__priority-task--add task-add">
+                    <form class="form-high">
+                        <input type="text" class="input-add-high" name="task-value" placeholder="Добавить" data-priority="high">
+                        <button type="submit" class="btn-add">
+                            <img src="./source/icons/add.svg" alt="иконка кнопки">
+                        </button>
+                    </form>
+                </div>
+                <div class="todo-block__priority-tasks list-tasks-high">
+                </div>
+            </div>
+            <div class="todo-block__priority priority-low">
+                <p class="todo-block__priority-title">
+                    НИЗКИЙ
+                </p>
+                <div class="todo-block__priority-task--add task-add">
+                    <form class="form-low">
+                        <input type="text" name="task-value" class="input-add-low" placeholder="Добавить" data-priority="low">
+                        <button type="submit" class="btn-add">
+                            <img src="./source/icons/add.svg" alt="иконка кнопки">
+                        </button>
+                    </form>
+                </div>
+                <div class="todo-block__priority-tasks list-tasks-low">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>

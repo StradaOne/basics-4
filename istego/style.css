@@ -1,0 +1,257 @@
+/*Обнуление*/
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 16px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+/* input::-ms-clear {
+    display: none;
+} */
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+/*--------------------*/
+
+/* шрифт */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+.wrapper {
+    overflow: hidden;
+    min-height: 100%;
+    padding: 15px 10px;
+}
+
+button {
+    background: none;
+}
+
+.input-add-high, .input-add-low  {
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    padding: 0 15px;
+    font-size: 18px;
+}
+
+.form-high, .form-low {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.todo-block {
+    width: 100%;
+    max-width: 476px;
+    height: 700px;
+    background-color: aquamarine;
+    margin: 0 auto;
+
+    border-radius: 10px;
+    padding: 25px 10px;
+    box-shadow: 0px 0px 20px 1px #acaaaa;
+}
+
+.priority-high {
+    margin-bottom: 15px;
+}
+
+.todo-block__priority {
+    min-height: 200px;
+}
+
+.todo-block__priority-title {
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 12px;
+}
+
+.task-add {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding-right: 5px;
+    margin-bottom: 10px;
+}
+
+.btn-add,
+.btn-delete {
+    min-width: 30px;
+    height: 30px;
+}
+
+.btn-add img,
+.btn-delete img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition-duration: 0.2s;
+}
+
+.btn-add img:hover {
+    transition-duration: 0.2s;
+    transform: rotate(90deg);
+}
+
+.btn-delete img:hover {
+    transition-duration: 0.2s;
+    transform: rotate(90deg);
+}
+
+.todo-block__priority-tasks {
+    max-height: 220px;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.task {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    min-height: 45px;
+    background-color: #ffffff;
+    padding: 10px 5px 10px 15px;
+    border-radius: 10px;
+    column-gap: 10px;
+    overflow-x: hidden;
+}
+
+.task.done {
+    background-color: #cbcfd0;
+    text-decoration: line-through;
+}
+
+
+.task:not(:last-child) {
+margin-bottom: 8px;
+}
+
+.task__content {
+    width: 100%;
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    word-break: break-word;
+}
+
+
+.task__check-input {
+    appearance: none;
+    height: 25px;
+    width: 25px;
+    border: 1px solid #bbb9b9;
+    cursor: pointer;
+    border-radius: 50%;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.1s;
+}
+
+.task__check-input:checked {
+    background-color: #7fffd4;
+    transition-duration: 0.1s;
+    border: none;
+}
+
+.task__check-input:checked:hover {
+    background-color: #74e5bf;
+    transition-duration: 0.1s;
+}
+
+.task__check-input:checked::before {
+    content: '';
+    transition-duration: 0.1s;
+    position: absolute;
+    width: 18px;
+    height: 19px;
+    background-image: url(./source/icons/check-mark.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 18px 19px;
+}
