@@ -1,0 +1,34 @@
+.disabled {
+  display: none !important;
+}
+
+.select {
+  position: relative;
+  user-select: none;
+  background-color: white;
+}
+
+.current {
+  border: 1px solid black;
+  padding: 0 .5rem;
+  width: 6rem;
+  background-color: white;
+}
+
+.options {
+  position: absolute;
+  border: 1px solid black;
+  bottom: -7rem;
+  padding: 0 .5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  width: 6rem;
+  background-color: white;
+  z-index: 1;
+}
+
+.option {
+  padding: .5rem 0;
+}
+
