@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(233, 236, 236);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: 476px;
+    padding: 0px 8px;
+    overflow-y:visible;
+}
+
+.header {
+    text-align: center;
+    font-size: 20px;
+    padding: 25px 0px;
+}
+
+
+.toDoList_addTask {
+    width: 100%;
+    border: 1px solid #989898;
+    border-radius: 6px;
+    padding: 12px 0px 12px 12px;
+    line-height: 21px;
+}
+form {
+    display: flex;
+}
+form .add_input{
+    border: none;
+    width: 400px;
+    outline: none;
+}
+.toDoList_task {
+    display: flex;
+    border: 1px solid #989898;
+    border-radius: 6px;
+    margin: 8px 0px;
+    padding-left: 12px;
+    word-break: break-word;
+}
+
+.toDoList_task input {
+    position: relative;
+}
+.toDoList_task label{
+    padding: 12px 12px;
+    width: 95%;
+}
+img{
+    padding: 0px 12px;
+}
+
+span {
+    margin-left: 12px;
+}
+.text {
+    display: inline;
+}
+input:checked + label {
+    background-color: #fc0;
+   }
+.btn-add, .btn-del {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.done {
+    background-color: rgb(176, 176, 202);
+}
