@@ -1,0 +1,113 @@
+* {
+	box-sizing: border-box;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+:active, :hover, :focus {
+	outline: 0;
+	outline-offset: 0;
+}
+
+body {
+	font-weight: 400;
+	font-size: 18px;	
+	line-height: 21px;
+	background-color: #E5E5E5;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	background-color: #FFF;
+}
+
+#main {
+	margin: 25px auto;
+	padding: 13px 8px;
+	width: 476px;
+	height: 688px;
+	background-color: #FFF;
+}
+
+#title {
+	margin-top: 12px;
+	margin-bottom: 12px;
+	text-align: center;
+}
+
+#addTask {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 14px 12px 10px;
+	width: 460px;
+	height: 45px;
+	border: 1px solid #989898;
+	border-radius: 6px;
+}
+
+#taskName {
+	width: 230px;
+	border: none;
+}
+#taskName2 {
+	width: 230px;
+	border: none;
+}
+
+input::placeholder {
+	font-size: 15px;
+    color: #BBBBBB;
+}
+
+#tasks {
+	margin: 8px 0;
+}
+
+#task {
+	padding: 12px;
+	border: 1px solid #989898;
+	border-radius: 6px;
+}
+
+#task {
+	margin-top: 8px;
+}
+
+#task form {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+#task label {
+	display: flex;
+}
+
+#task p {
+	width: 370px;
+}
+
+
+/* Скрыть оригинальный чекбокс */
+input[type=checkbox] {
+    display: none;
+}
+
+  /* Оформление чекбокса */
+input[type=checkbox] + span.checkmark {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #eee;
+}
+
+  /* Изменение внешнего вида чекбокса при его активации (выборе) */
+input[type=checkbox]:checked + span.checkmark {
+    background-color: #ffd770;
+}
