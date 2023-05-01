@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&#128425;</title>
+    <link rel="stylesheet" href="./calc.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>c a l c u l a t o r</h1>
+        <input type="number" class="first-number" placeholder="" />
+        <div>
+            <select id="select-calc">
+              <option value="add" selected>+</option>
+              <option value="sub">-</option>
+              <option value="mult">*</option>
+              <option value="div">/</option>
+            </select>
+        </div>
+        <input type="number" class="second-number" placeholder="" />
+        
+        <button id="equal">=</button>
+    
+        <div id="output">
+          <span id="output-number"></span>
+        </div>
+    
+        <div class="results-window">
+          <div id="results"></div>
+        </div>
+    </div>
+    
+    <script src="./func-result.js" type="module"></script>
+    <script src="./main.js" type="module"></script>
+</body>
+</html>
