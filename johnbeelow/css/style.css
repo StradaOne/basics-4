@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+body {
+  background-color: #252525;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+input[type='text'] {
+  background-color: #c4c1c1;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  font-size: 22px;
+  outline: none;
+  margin: 10px;
+}
+
+.input_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result_button {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  padding: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  background: #030303;
+  
+  cursor: pointer;
+  font-size: 20px;
+  color: #c2c1c1;
+  transition: 0.1s;
+  
+}
+
+.result_button:hover {
+
+  background: #ffffffa2;
+  color: #292929;
+}
+
+.result_name {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  font-size: 18px;
+  color: #b6b6b6;
+}
+
+.result_male {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  font-size: 18px;
+  color: #5d9ae9;
+}
+
+.result_female {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  font-size: 18px;
+  color: #de8ce0;
+}
+
+.result_null {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  font-size: 18px;
+  color: #f32727;
+}
+
+.button_add_task {
+  width: 38px;
+  height: 60px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 200;
+  font-size: 43px;
+  transition: 0.4s;
+  user-select: none;
+  color: rgba(229, 223, 194, 0.287);
+}
