@@ -1,0 +1,327 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(65, 134, 134);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+}
+
+.container {
+  background-color: white;
+  width: 500px;
+  height: 400px;
+}
+
+.search-bar {
+  width: 100%;
+  border: black solid 1px;
+  height: 40px;
+}
+
+.form {
+  background-color: white;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  background-color: white;
+  padding-left: 5px;
+  opacity: 30%;
+}
+
+#search-input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+}
+
+button {
+  width: 50px;
+  height: 30px;
+  background-color: white;
+  border: none;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left,
+.right {
+  width: 50%;
+  height: 360px;
+  border: black solid 1px;
+  display: flex;
+  border-top: none;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.screen {
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+}
+
+.now-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.details-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.current-city {
+  height: 15%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 10px;
+  padding-top: 15px;
+  font-size: 20px;
+}
+.details {
+  display: flex;
+  padding-left: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  height: 85%;
+  width: 100%;
+  font-size: 20px;
+}
+.forecast-page {
+  width: 100%;
+  height: 150%;
+  display: flex;
+  font-size: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-left: none;
+}
+
+.lower {
+  height: 50px;
+  width: 100%;
+  border: black solid 1px;
+  display: flex;
+}
+
+.tab {
+  border: none;
+  flex: 0 1 34%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-right: black solid 1px;
+  border-left: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.tab:hover {
+  background-color: black;
+  color: white;
+}
+.forecast {
+  border-right: none;
+}
+.upper {
+  height: 47px;
+  width: 100%;
+  border-bottom: black solid 1px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.fav-city {
+  border: none;
+  width: 100%;
+  height: 10%;
+  padding-left: 10px;
+}
+.now-page-item {
+  width: 100%;
+  height: 30%;
+}
+.temp {
+  display: block;
+  font-size: 56px;
+  height: 110px;
+}
+
+.cloud {
+  height: 150px;
+
+  font-size: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+}
+.city-heart {
+  height: 60px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.city {
+  height: 100%;
+  width: 50%;
+
+  padding-left: 5px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.heart {
+  height: 100%;
+  width: 50%;
+  font-size: 20px;
+  padding-right: 5px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.forecast-current {
+  height: 15%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 10px;
+  padding-top: 15px;
+  font-size: 20px;
+}
+.forecast-list-container {
+  font-size: 15px;
+  height: 85%;
+  width: 100%;
+}
+.forecast-day {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 100px;
+  width: 90%;
+  border: 1px solid black;
+
+  font-size: 12px;
+}
+ul {
+  list-style-type: none;
+}
+.row {
+  padding-left: 5px;
+  padding-right: 5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 33%;
+  width: 100%;
+}
+/* .above {
+
+}
+.mid {
+
+}
+.below {
+
+} */
+
+.above-left {
+  height: 100%;
+  width: 60%;
+}
+.above-right {
+  width: 40%;
+  height: 100%;
+  text-align: end;
+}
+.mid-left {
+  height: 100%;
+  width: 60%;
+}
+.mid-right {
+  width: 40%;
+  height: 100%;
+  text-align: end;
+}
+
+.below-left {
+  height: 100%;
+  width: 60%;
+}
+.below-right {
+  width: 40%;
+  height: 100%;
+  text-align: end;
+  font-size: 25px;
+}
+
+/* <div class="above-right">12:00</div>
+</div>
+<div class="row mid">
+<div class="mid-left">Temperature 13℃</div>
+<div class="mid-right">Rain</div>
+</div>
+<div class="row below">
+<div class="below-left">Feels like: 10℃</div>
+<div class="below-right">🌧</div> */
+.hidden {
+  display: none;
+}
