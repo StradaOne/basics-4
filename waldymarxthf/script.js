@@ -1,5 +1,6 @@
 const tabs = document.querySelectorAll('.tabs__item');
 const weatherBlocks = document.querySelectorAll('.weather__block');
+const form = document.querySelector('.weather__search')
 
 tabs.forEach((tab, index) => {
 	tab.addEventListener('click', () => {
@@ -10,3 +11,7 @@ tabs.forEach((tab, index) => {
 		weatherBlocks[index].classList.add('active');
 	});
 });
+
+form.addEventListener('submit', (event) => {
+	event.preventDefault()
+})

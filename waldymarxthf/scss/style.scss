@@ -32,14 +32,11 @@ body{
 	display: block;
 	background: white;
 	&__search {
-		position: relative;
 		width: 599px;
 		height: 44px;
 		border-bottom: 1px solid #000000;
+		display: flex;
 		input[type="text"] {
-			position: absolute;
-			top: -1px;
-			left: -1px;
 			width: 600px;
 			height: 45px;
 			outline: none;
@@ -50,21 +47,20 @@ body{
 			line-height: 21px;
 			color: #696969;
 			background-color: transparent;
-			border: 1px solid #000000;
+			border: none;
 		}
 		input[placeholder="Search"] {
 			padding-left: 16px;
 		}
 		button[type="submit"] {
 			border: none;
-			background-color: transparent;
+			width: 30px;
+			height: 30px;
+			margin: 0 auto;
+			background: url(../assets/svg/search.svg) no-repeat;
 			padding: 0;
-			img {
-				position: absolute;
-				right: 10px;
-				top: 7px;
-				cursor: pointer;
-			}
+			margin: 7px 17px;
+			cursor: pointer;
 		}
 	}
 	.active{
