@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода</title>
+    <link rel="stylesheet" href="./styles/css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <main class="main">
+            <div class="weather">
+                <form class="form-find weather__find">
+                    <input type="text" name="find-city" class="weather__find-input" placeholder="Orenburg">
+                    <button type="submit" class="weather__find-btn"></button>
+                </form>
+                <div class="weather__content">
+                    <div class="weather__content-left content-left">
+                        <div class="content-left__content">
+                            <div class="now" id="now">
+                                <div class="now__degree">
+                                    <span class="now__degree-text">
+                                        ...
+                                    </span>
+                                    <span>&#176;</span>
+                                </div>
+                                <div class="now__icon">
+                                    <div class="now__icon-container">
+                                        <img src="./source/isons/iconCloud.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="now__city">
+                                    <p class="now__city-name city-name">
+                                        ...
+                                    </p>
+                                    <div class="now__city-favorites">
+                                        <button type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="details" id="details">
+                                <div class="details__city">
+                                    <p class="datails__city-name city-name">
+                                        ...
+                                    </p>
+                                </div>
+                                <div class="details__info">
+                                    <ul class="details__info-list">
+                                        <li class="details__info-list-item details-item">
+                                            <span class="details-item__title">
+                                                Temperature:
+                                            </span>
+                                            <span class="details-item__content ">
+                                                <span class="details-temperature">
+                                                    ... 
+                                                </span>
+                                                <span>
+                                                    &#176;
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="details__info-list-item">
+                                            <span class="details-item__title">
+                                                Feels like:
+                                            </span>
+                                            <span class="details-item__content">
+                                                <span class="details-feels-like">
+                                                    ... 
+                                                </span>
+                                                <span>
+                                                    &#176;
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="details__info-list-item">
+                                            <span class="details-item__title">
+                                                Weather:
+                                            </span>
+                                            <span class="details-item__content details-weather">
+                                                ...
+                                            </span>
+                                        </li>
+                                        <li class="details__info-list-item">
+                                            <span class="details-item__title">
+                                                Sunrise:
+                                            </span>
+                                            <span class="details-item__content details-sunrise">
+                                                ...
+                                            </span>
+                                        </li>
+                                        <li class="details__info-list-item">
+                                            <span class="details-item__title">
+                                                Sunset:
+                                            </span>
+                                            <span class="details-item__content details-sunset">
+                                                ...
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="forecast" id="forecast">
+                                <div class="forecast__city">
+                                    <p class="forecast__city-name city-name">
+                                        Actobe
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="content-left__nav">
+                            <ul>
+                                <li>
+                                    <a href="#now" class="btn-nav active-btn ">
+                                        Now
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#details" class="btn-nav">
+                                        Details
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#forecast" class="btn-nav">
+                                        Forecast
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="weather__content-right content-right">
+                        <div class="content-right__title">
+                            <p>
+                                Added Locations:
+                            </p>
+                        </div>
+                        <ul class="content-right__list">
+                            <li class="content-right__list-item">
+                                <a href="#">
+                                    Amur
+                                </a>
+                            </li>
+                            <li class="content-right__list-item">
+                                <a href="#">
+                                    Samara
+                                </a>
+                            </li>
+                            <li class="content-right__list-item">
+                                <a href="#">
+                                    Bali
+                                </a>
+                            </li>
+                            <li class="content-right__list-item">
+                                <a href="#">
+                                    Dane
+                                </a>
+                            </li>
+                            <li class="content-right__list-item">
+                                <a href="#">
+                                    Kilo
+                                </a>
+                            </li>
+                            <li class="content-right__list-item">
+                                <a href="#">
+                                    Nur-Sultan
+                                </a>
+                            </li>
+                            <li class="content-right__list-item">
+                                <a href="#">
+                                    Orenburg
+                                </a>
+                            </li>
+                            <li class="content-right__list-item">
+                                <a href="#">
+                                    London
+                                </a>
+                            </li>
+                            <li class="content-right__list-item">
+                                <a href="#">
+                                    Germany
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="preload-wrapper">
+        <div class="preload">
+            <img src="./source/isons/spin.svg" alt="">
+        </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
