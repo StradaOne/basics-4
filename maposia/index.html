@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Weater App</title>
+</head>
+<body>
+    <div class="weather-app">
+        <div class="app">
+            <div class="app__search">
+                <form  class="form-search">
+                    <input type="text" class="text-search" placeholder="Введите имя города">
+                    <input type="image" class="button-search" src="img/icons/search.png" alt="Иконка поиска">
+                </form>
+            </div>
+            <div class="app__content">
+                <div class="weather-display-switcher">
+                    <div class="weather-display-now">
+                        <p class="temperature-now">14&deg;</p>
+                        <img src="img/icons/weather-cloud.png" alt="Инконка облачная погода" class="weather-icon cloud-icon">
+                        <div class="wrapper_city-like">
+                            <h2 class="weather_city">Aktobe</h2>
+                            <img src="img/icons/like.png" alt="Лайк" class="weather_like">
+                        </div>
+                    </div>
+                    <div class="weather-display-details">
+                        <p class="city-details">Aktobe</p>
+                        <ul class="weather-performance-list">
+                            <li class="weather-performance-item performance-temperature">Temperature: 14</li>
+                            <li class="weather-performance-item performance-feels">Feels like: 10</li>
+                            <li class="weather-performance-item performance-weather">Weather: Clouds</li>
+                            <li class="weather-performance-item performance-sunrise">Sunrise: 03:21</li>
+                            <li class="weather-performance-item performance-sunset">Sunset: 18:54</li>
+                        </ul>
+                    </div>
+                    <div class="weather-display-forecast">
+                        <p class="city-forecast">Aktobe</p>
+                        <div class="forecast-list">
+                            <div class="forecast-item">
+                                <div class="hour-info-forecast">
+                                    <div class="date-forecast">17 May  </div>
+                                    <div class="time-forecast">12:00 </div>
+                                </div>
+                                <div class="temperature-info-forecast">
+                                    <div class="temperature-feels-forecast">
+                                        <p class="temperature-forecast">Temperature: 13 </p>
+                                        <p class="feels-forecast">Feels like: 10</p>
+                                    </div>
+                                    <div class="weather-info-forecast">
+                                        <p class="weather-type-text">Rain</p>
+                                        <img src="img/icons/icons-rain.png" alt="Идет дождь" class="weather-type-icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forecast-item">
+                                <div class="hour-info-forecast">
+                                    <div class="date-forecast">17 May  </div>
+                                    <div class="time-forecast">15:00 </div>
+                                </div>
+                                <div class="temperature-info-forecast">
+                                    <div class="temperature-feels-forecast">
+                                        <p class="temperature-forecast">Temperature: 13 </p>
+                                        <p class="feels-forecast">Feels like: 10</p>
+                                    </div>
+                                    <div class="weather-info-forecast">
+                                        <p class="weather-type-text">Rain</p>
+                                        <img src="img/icons/icons-rain.png" alt="Идет дождь" class="weather-type-icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="forecast-item">
+                                <div class="hour-info-forecast">
+                                    <div class="date-forecast">17 May  </div>
+                                    <div class="time-forecast">18:00 </div>
+                                </div>
+                                <div class="temperature-info-forecast">
+                                    <div class="temperature-feels-forecast">
+                                        <p class="temperature-forecast">Temperature: 13 </p>
+                                        <p class="feels-forecast">Feels like: 10</p>
+                                    </div>
+                                    <div class="weather-info-forecast">
+                                        <p class="weather-type-text">Rain</p>
+                                        <img src="img/icons/icons-rain.png" alt="Идет дождь" class="weather-type-icon">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather-switchers">
+
+                        <button class="weather-switcher weather-now-btn active">Now</button>
+                        <button class="weather-switcher weather-details-btn">Details</button>
+                        <button class="weather-switcher weather-forecast-btn">Forecast</button>
+                    </div>
+                </div>
+                <div class="weather-locations">
+                    <div class="locations">
+                        <div class="added-locations">
+                            <p class="added-locations-text">Added Locations:</p>
+                        </div>
+                        <ul class="list-locations">
+                            <li class="item-locations">Amur</li>
+                            <li class="item-locations">Samara</li>
+                            <li class="item-locations">Bali</li>
+                            <li class="item-locations">Dane</li>
+                            <li class="item-locations">Kilo</li>
+                            <li class="item-locations">Nur-Sultan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./main.js" type="module"></script>
+</body>
+</html>
