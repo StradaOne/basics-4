@@ -1,16 +1,67 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <meta charset="UTF-8"> 
-    <link rel="stylesheet" href="style.css">
-    <title>Genderize</title>   
-</head> 
-<body> 
-    <form class="form">
-        <input type="text" class="input">
-        <button class="btn" type="submit">Отправить</button>
-    </form>
-    <div class="result"></div>
-    <script src="./main.js"></script>
-</body> 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/reset/normalize.css">
+    <link rel="stylesheet" href="./CSS/reset/reset.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <title>Weather forecast</title>
+</head>
+
+<body>
+    <main class="main">
+        <section class="weather-app">
+            <div class="container">
+                <div class="weather">
+                    <form action="#">
+                        <div class="weather__search">
+                            <input class="weather__search-input" type="text" placeholder="Search">
+                            <button class="weather__search-btn">
+                                <img src="./IMG/search.svg" alt="search icon" class="weather__search-img">
+                            </button>
+                        </div>
+                    </form>
+                    <div class="weather__content">
+                        <div class="weather__content-info">
+                            <div class="weather__content-info-wrapper">
+                                <div class="weather__content-info-temp">14°</div>
+                                <img class="weather__content-info-img" src="./IMG/weatherIcon.png" alt="weather icon">
+                                <div class="weather__content-box">
+                                    <p class="weather__content-box-text">Aktobe</p>
+                                    <img class="weather__content-box-img" src="./IMG/like.svg" alt="like icon">
+                                </div>
+                            </div>
+                            <div class="weather__content-tabs">
+                                <button
+                                    class="weather__content-tabs-item weather__content-tabs-item-border-none">Now</button>
+                                <button class="weather__content-tabs-item">Details</button>
+                                <button class="weather__content-tabs-item">Forecast</button>
+                            </div>
+                        </div>
+                        <div class="weather__locations">
+                            <p class="weather__locations-added">Added Locations:</p>
+                            <div class="weather__locations-list">
+                                <p class="weather__locations-list-text">Amur</p>
+                                <p class="weather__locations-list-text">Samara</p>
+                                <p class="weather__locations-list-text">Bali</p>
+                                <p class="weather__locations-list-text">Dane</p>
+                                <p class="weather__locations-list-text">Kilo</p>
+                                <p class="weather__locations-list-text">Nur-Sultan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./JS/main.js"></script>
+</body>
+
 </html>
