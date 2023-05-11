@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    color: #676f7a;
+}
+
+body {
+    min-height: 100vh;
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px
+}
+form {
+    display: flex;
+    gap: 30px;
+}
+
+input {
+    border: none;
+    background: transparent;
+}
+
+input[type="text"] {
+    outline: none;
+    min-height: 30px;
+    min-width: 300px;
+    padding: 10px;
+     
+    border-radius: 10px;
+    -webkit-box-shadow: 3px 5px 21px -3px rgba(255, 0, 69, 0.2);
+    -moz-box-shadow: 3px 5px 21px -3px rgba(255, 0, 69, 0.2);
+    box-shadow: 3px 5px 21px -3px rgba(255, 0, 69, 0.2);
+}
+
+button {
+    cursor: pointer;
+    border-radius: 10px;
+    min-width: 50px;
+    background: transparent;
+    -webkit-box-shadow: 3px 5px 21px -3px rgba(255, 0, 69, 0.2);
+    -moz-box-shadow: 3px 5px 21px -3px rgba(255, 0, 69, 0.2);
+    box-shadow: 3px 5px 21px -3px rgba(255, 0, 69, 0.2);
+    border: none;
+
+}
+
+.results {
+    min-width: 300px;
+}
+
+.result-item {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.result-item::after {
+    content: "  \1F5D1";
+
+}
