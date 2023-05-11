@@ -1,0 +1,20 @@
+export function timeConverter(time, timezone) {
+	const newDate = new Date((time + timezone) * 1000)
+	const localDate = newDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' });
+	return localDate
+}
+
+//* функция конвертации unix времени в обычное
+
+export function findLocationIndex(locations, newLocation) {
+	return locations.findIndex(el => el.location === newLocation.textContent)
+}
+
+//* функция нахождения локации из массива
+
+export function errorHandler(error) {
+	alert(error.message)
+	console.error(error.message)
+}
+
+//* функция для обработчика ошибок
