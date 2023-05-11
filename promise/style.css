@@ -1,0 +1,46 @@
+@font-face {
+	font-family: Nunito;
+	src: url(./fonts/Nunito-Regular.ttf);
+ }
+ @font-face {
+	font-family: NunitoBold;
+	src: url(./fonts/Nunito-Bold.ttf);
+ }
+
+
+
+.container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+body{
+	background-color: #F4EFFD;
+}
+
+.form{
+	padding: 40px;
+	background: #FFFFFF;
+	border-radius: 20px;
+	box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6);
+	display: flex;
+}
+
+.gender{
+	width: 46px;
+	height: 46px;
+	margin-right: 10px;
+}
+
+.input{
+	padding: 10px;
+	border-radius: 10px;
+	font-family: "NunitoBold";
+	margin-right: 20px;
+}
+.button{
+	font-family: "NunitoBold";
+	padding: 10px 20px;
+	border-radius: 10px;
+}
