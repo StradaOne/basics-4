@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="search-bar">
+        <div class="error-box hidden">
+          <div class="err-msg"></div>
+          <button class="err-delete"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form class="form" action="#" method="get">
+          <label for="search-input" class="label" ></label>
+
+          <input
+            type="text"
+            id="search-input"
+            pattern="^[A-Za-z\s\-]+$"
+            required
+            name="q"
+            placeholder="Search"
+          />
+
+          <button class="btn-search" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+      <div class="main">
+        <div class="left">
+          <div class="screen">
+            <div class="now-page">
+              <div class="temp">
+                <p class="ui-temp"></p>
+              </div>
+              <div class="now-page-item cloud">
+                <img class="icon-cloud-img" />
+              </div>
+              <div class="city-heart">
+                <div class="city">
+                  <p class="ui-city"></p>
+                </div>
+                <div class="heart hidden">
+                  <input id="heart" class="checkbox" type="checkbox" />
+                  <label for="heart">❤</label>
+                </div>
+              </div>
+            </div>
+            <div class="details-page hidden">
+              <div class="current-city">
+                <p id="details-city"></p>
+              </div>
+              <div class="details">
+                <div>
+                  <p id="temperature"></p>
+                </div>
+                <div >
+                  <p id="feels"></p>
+                </div>
+                <div>
+                  <p  id="weather"></p>
+                </div>
+                <div >
+                  <p id="sunrise"></p>
+                </div>
+                <div >
+                  <p id="sunset"></p>
+                </div>
+              </div>
+            </div>
+            <div class="forecast-page hidden">
+              <div class="forecast-current city">
+                <p id="fc-city"></p>
+              </div>
+              <div class="forecast-hourly-container">
+            
+
+                  <div>
+                    <div class="forecast-day hidden">
+                      <div class="row above">
+                        <div class="above-left">17 May</div>
+                        <div class="above-right">15:00</div>
+                      </div>
+                      <div class="row mid">
+                        <div class="mid-left">Temperature 13℃</div>
+                        <div class="mid-right">Rain</div>
+                      </div>
+                      <div class="row below">
+                        <div class="below-left">Feels like: 10℃</div>
+                        <div class="below-right">
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="forecast-day hidden">
+                      <div class="row above">
+                        <div class="above-left">17 May</div>
+                        <div class="above-right">15:00</div>
+                      </div>
+                      <div class="row mid">
+                        <div class="mid-left">Temperature 13℃</div>
+                        <div class="mid-right">Rain</div>
+                      </div>
+                      <div class="row below">
+                        <div class="below-left">Feels like: 10℃</div>
+                        <div class="below-right">
+                          <i class="fa-solid fa-cloud-rain"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="forecast-day hidden">
+                      <div class="row above">
+                        <div class="above-left">17 May</div>
+                        <div class="above-right">15:00</div>
+                      </div>
+                      <div class="row mid">
+                        <div class="mid-left">Temperature 13℃</div>
+                        <div class="mid-right">Rain</div>
+                      </div>
+                      <div class="row below">
+                        <div class="below-left">Feels like: 10℃</div>
+                        <div class="below-right">
+                          <i class="fa-solid fa-cloud"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="forecast-day hidden"></div>
+                  </div>
+                  <div>
+                    <div class="forecast-day hidden"></div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="lower">
+            <div class="tab now" data-target="nowPage">Now</div>
+            <div class="tab details" data-target="detailsPage">Details</div>
+            <div class="tab forecast" data-target="forecastPage">Forecast</div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="upper">
+            <p>Added Locations:</p>
+          </div>
+          <div class="all-favs"></div>
+          </div>
+          <div class="source-fav-div fav-city hidden">
+            <p class="text"></p>
+            <button class="delete"><i class="fa-solid fa-xmark"></i></button>
+            
+          </div>
+          <!-- <div class="fav-city">
+            <p class="city-name"></p>
+          </div>
+          <div class="fav-city">
+            <p class="city-name"></p>
+          </div>
+          <div class="fav-city">
+            <p class="city-name"></p>
+          </div>
+          <div class="fav-city">
+            <p class="city-name"></p>
+          </div>
+          <div class="fav-city">
+            <p class="city-name"></p>
+          </div>
+          <div class="fav-city">
+            <p class="city-name"></p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/f6dababe73.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="script.js" defer></script> -->
+    <script type="module" defer src="script.js"></script>
+    <div class="source-forecast hidden">
+      <div class="forecast-day">
+        <div class="row above">
+          <div class="above-left">
+            <p class="fc-date-text"></p>
+          </div>
+          <div class="above-right">
+            <p class="fc-time-text"></p>
+          </div>
+        </div>
+        <div class="row mid">
+          <div class="mid-left ">
+            <p class="fc-temp-text"></p>
+          </div>
+          <div class="mid-right">
+            <p class="fc-precep-text"></p>
+          </div>
+        </div>
+        <div class="row below">
+          <div class="below-left">
+            <p class="fc-feels-text"></p>
+          </div>
+          <div class="below-right">
+            <p class="fc-icon-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
