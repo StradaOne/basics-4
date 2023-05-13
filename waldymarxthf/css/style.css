@@ -1,0 +1,395 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tab {
+  position: relative;
+  width: 300px;
+}
+
+body {
+  background: #a0a0a0;
+  height: 929px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.weather {
+  width: 602px;
+  height: 435px;
+  border: 1px solid #000000;
+  display: block;
+  background: white;
+}
+.weather__search {
+  width: 600px;
+  height: 44px;
+  border-bottom: 1px solid #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.weather__search-input {
+  width: 600px;
+  height: 45px;
+  outline: none;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  padding-left: 16px;
+}
+.weather__search-input::-webkit-input-placeholder {
+  color: #696969;
+}
+.weather__search-input::-moz-placeholder {
+  color: #696969;
+}
+.weather__search-input:-ms-input-placeholder {
+  color: #696969;
+}
+.weather__search-input::-ms-input-placeholder {
+  color: #696969;
+}
+.weather__search-input::placeholder {
+  color: #696969;
+}
+.weather__search button[type=submit] {
+  border: none;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  background: url(../assets/svg/search.svg) no-repeat;
+  padding: 0;
+  margin: 7px 17px;
+  cursor: pointer;
+}
+.weather .active {
+  display: block;
+}
+.weather__block {
+  width: 300px;
+  height: 390px;
+  border-right: 1px solid #000000;
+}
+.weather__block-temp {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 82px;
+  color: #000000;
+  padding-top: 20.5px;
+  margin-left: 23px;
+}
+.weather__block-icon {
+  max-width: 200px;
+  max-height: 200px;
+  margin-left: 45px;
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+}
+.weather__block-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.weather__block-content-like {
+  width: 22px;
+  height: 22px;
+  margin-right: 26px;
+  cursor: pointer;
+}
+.weather__block-content-like:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.weather__block-content-like:hover .weather__block-content-like-path {
+  stroke: red;
+}
+.weather__block-content-city {
+  margin-left: 12px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
+.weather__now {
+  display: none;
+}
+.weather__details {
+  display: none;
+  position: absolute;
+  top: 0;
+}
+.weather__forecast {
+  display: none;
+  position: absolute;
+  top: 0;
+}
+.weather__location {
+  width: 300px;
+  height: 390px;
+}
+.weather__location-add {
+  height: 68.5px;
+  border-bottom: 1px solid #000000;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  padding-top: 33.5px;
+  padding-left: 18px;
+}
+.weather__location-save {
+  padding-top: 35px;
+  padding-left: 18px;
+}
+.weather__location-save .list-locations {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.weather__location-save .list-locations__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 40px;
+  color: #000000;
+  cursor: pointer;
+}
+.weather__location-save .list-locations__item:hover {
+  -webkit-transform: scale(1.025);
+          transform: scale(1.025);
+  color: #fd3c4f;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  text-shadow: 5px 5px 10px rgba(253, 60, 79, 0.3);
+}
+.weather__location-save .list-locations__item:hover .list-locations__item-btn {
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  visibility: visible;
+}
+.weather__location-save .list-locations__item:hover .list-locations__item-btn:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.weather__location-save .list-locations__item-btn {
+  background: url(../assets/svg/close.svg) no-repeat;
+  visibility: hidden;
+  width: 25px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+  margin-top: 10px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+.weather__details-title {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  padding-top: 33px;
+  padding-left: 18px;
+}
+.weather__details .list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 42px;
+  padding-left: 18px;
+}
+.weather__details .list__item {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 40px;
+  color: #000000;
+}
+.weather__forecast {
+  height: 344.5px;
+  overflow: auto;
+}
+.weather__forecast-title {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  padding-top: 33px;
+  padding-left: 18px;
+}
+.weather__forecast-block {
+  margin: 7px auto 0 auto;
+  width: 265px;
+  height: 120px;
+  border: 1px solid #000000;
+}
+.weather__forecast-block:last-child {
+  margin-bottom: 10px;
+}
+.weather__forecast-block .block__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+  padding: 6px 12px 0 12px;
+}
+.weather__forecast-block .block__subtitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 38px 12px 0 12px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+.weather__forecast-block .block__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 12px 0 12px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+.weather__forecast-block .block__text-img {
+  width: 31px;
+  height: 31px;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  margin-right: 5px;
+}
+
+.tabs__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: absolute;
+  top: 345px;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  cursor: pointer;
+  width: 300px;
+}
+.tabs__items .active {
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+}
+.tabs__item {
+  padding-top: 12px;
+  min-width: 100px;
+  height: 43px;
+  text-align: center;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+  border-right: 1px solid #000000;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.preloader {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 601px;
+  height: 389px;
+  border-right: 1px solid #000000;
+  background: #ffffff;
+  z-index: 9999;
+}/*# sourceMappingURL=style.css.map */
