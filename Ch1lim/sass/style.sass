@@ -1,0 +1,220 @@
+*
+  padding: 0
+  margin: 0
+  font-family: Roboto
+
+.container
+  display: flex
+  width: 1200px
+  height: 800px
+  margin: 0 auto
+
+.weather
+  position: relative
+  width: 600px
+  height: 435px
+  margin: auto
+  border: 1px solid
+
+.hide 
+  display: none
+
+.check
+  background-color: black
+  color: white
+
+
+.weather-search
+  position: relative
+  width: 600px
+  height: 45px
+  border-bottom: 1px solid
+  input
+    width: 550px
+    height: 45px
+    outline: none
+    border: none
+    font-size: 21px
+    padding-left: 16px
+  button
+    position: absolute
+    right: 29px
+    top: 13px
+    width: 11px
+    height: 11px
+    border: none
+    outline: none
+    font: inherit
+    color: inherit
+    background-color: transparent
+    cursor: pointer
+
+.weather-left
+  width: 300px
+  height: 345px
+  border-bottom: 1px solid
+  overflow: hidden
+  &-now-info
+    width: 300px
+    height: 345px
+    &-degree
+      display: flex
+      width: 95px
+      height: 83px
+      margin: 0 0 0 23px
+      &-number
+        display: block
+        font-size: 70px
+        font-weight: 400
+        margin-top: 20px
+      &-icon
+        width: 13px
+        height: 13px
+        margin-top: 20px
+    &-icon
+      margin-left: 110px
+      margin-top: 20px
+      width: 100px
+      height: 100px
+    &-city
+      display: flex
+      margin-top: 78px
+      margin-left: 12px
+      p
+        font-size: 24px
+        font-weight: 400
+        width: 100px
+    &-favourite
+      display: block
+      margin-left: 150px
+      width: 24px
+      height: 24px
+      outline: none
+      border: none
+      background-color: transparent
+      img
+        width: 90%
+        cursor: pointer
+        &:hover
+          border-radius: 100%
+          box-shadow: 0px 0px 2px 2px rgba(255, 0, 0, 0.55) inset
+          box-shadow: 0px 0px 10px 10px rgba(255, 0, 0, 0.55)
+.weather-left-details-info
+  width: 300px
+  height: 345px
+  border-bottom: 1px solid
+  &-city
+    margin: 33px 0 0  17px
+    font-weight: 400
+    font-size: 24px
+  ul
+    margin-top: 42px
+    margin-left: 17px
+    li
+      list-style: none
+      margin-top: 20px
+      font-weight: 400
+      font-size: 20px
+
+.weather-left-forecasts-info
+  width: 300px
+  height: 345px
+  border-bottom: 1px solid
+  overflow: scroll
+  &::-webkit-scrollbar 
+    width: 0
+  &-city
+    margin: 33px 0 0  17px
+    font-weight: 400
+    font-size: 24px
+  &-details-block
+    position: relative
+    width: 265px
+    height: 120px
+    margin-top: 7px
+    margin-left: 18px
+    border: 1.2px solid
+    &-day
+      margin-top: 6px
+      margin-left: 8px
+      font-weight: 400
+      size: 18px
+    &-temperature
+      margin-top: 38px
+      margin-left: 8px
+      font-weight: 400
+      size: 18px
+      &-feels
+        margin-left: 8px
+        font-weight: 400
+        size: 18px
+    &-time
+      position: absolute
+      top: 6px
+      right: 10px
+    &-status
+      position: absolute
+      right: 10px
+      bottom: 2px
+
+.weather-tabs
+  position: absolute
+  top: 392px
+  width: 300px
+  height: 57px
+  ul
+    display: flex
+    li
+      cursor: pointer
+      &:not(:last-child)
+        width: 100px
+        height: 31px
+        list-style: none
+        text-align: center
+        padding-top: 12px
+        font-size: 18px
+        font-weight: 400
+        border-right: 1px solid
+      &:last-child
+        width: 100px
+        height: 31px
+        list-style: none
+        text-align: center
+        padding-top: 12px
+        font-size: 18px
+        font-weight: 400
+     
+.weather-right-info
+  position: absolute
+  border-bottom: 1px solid
+  border-left: 1px solid
+  width: 299px
+  height: 388px
+  right: -1px
+  top: 46px
+  &-added
+    width: 280px
+    height: 35px
+    border-bottom: 1px solid
+    padding: 33px 0 0 18px
+    font-size: 24px
+    font-weight: 400
+  &-list
+    margin: 35px 0 0 18px
+    li
+      position: relative
+      margin-top: 14px
+      font-weight: 400
+      font-size: 24px
+      list-style-type: none
+      &:hover
+        .delete
+          content: ''
+          display: block
+          position: absolute
+          right: 120px
+          top: 20%
+          width: 20px
+          height: 20px
+          background: url('../icons/trash.png') center (center / cover) no-repeat
+          cursor: pointer
