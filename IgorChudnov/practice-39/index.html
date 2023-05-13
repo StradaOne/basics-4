@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RandomColor</title>
+    <style>
+        body{
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            transition: 0.3s;
+        }
+        #change-bg{
+            width: 600px;
+            height: 150px;
+            border-radius: 50px;
+            font-size: 40px;
+            transition: 0.3s;
+            background-color: blueviolet;
+            color: aliceblue;
+            border: none;
+        }
+        #change-bg:hover{
+            width: 700px;
+            height: 200px;
+            border-radius: 60px;
+            font-size: 46px;
+            cursor: pointer;
+        }
+        #change-bg:active{
+            background-color:forestgreen;
+        }
+        #change-bg:focus{
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="change-bg" data-color="#e6e6e6">CHANGE BACKGROUND</button>
+</body>
+<script>
+    let randomColor = 'rgb(255,0,0)';
+    let button = document.querySelector('#change-bg');
+    let dataColor = button.getAttribute('data-color');
+    let status;
+
+    function rndm() {
+    return Math.floor(Math.random() * 255);
+    };
+
+    function changeBg(){
+    document.body.style.backgroundColor = dataColor;
+    button.style.color = dataColor;
+    dataColor = `rgb(${rndm()},${rndm()},${rndm()})`;
+    };
+
+    function start() {
+    status = true;
+    changingColoures = setInterval(changeBg, 1000);
+    };
+
+    function pause(){
+    status = false;
+    clearInterval(changingColoures);
+    };
+
+    function buttonClick() {
+    if (status) {pause()} else {start()};
+    };
+
+    button.addEventListener('click', buttonClick);
+</script>
+</html>

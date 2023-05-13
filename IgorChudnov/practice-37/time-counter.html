@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="timer.png">
+    <title>TIMER</title>
+</head>
+<body>
+    <div id="buttonDiv">
+        <button id="startClock"></button>
+        <span id="clock"></span>
+    </div>
+
+    <script>
+        let button = document.getElementById('startClock');
+        let clock = document.getElementById('clock');
+        let delay = 10;
+        let hour = '00';
+        let min = '00';
+        let sec = '00';
+        let tenthsec = '00';
+        let status = false;
+        button.innerText = `⏵`;
+        clock.innerText = (`${hour}:${min}:${sec}:${tenthsec}`);
+
+        // не взлетела по непонятной причине
+        // function twoSymbolOutput(digit){
+        //     if (String(digit).length == 1){
+        //         digit = `0${digit}`;
+        //     };
+        // };
+
+        function showTime() {
+            if (String(hour).length == 1){
+                hour = `0${hour}`;
+            };
+            if (String(min).length == 1){
+                min = `0${min}`;
+            };
+            if (String(sec).length == 1){
+                sec = `0${sec}`;
+            };
+            if (String(tenthsec).length == 1){
+                tenthsec = `0${tenthsec}`;
+            };
+            // twoSymbolOutput(hour);
+            // twoSymbolOutput(min);
+            // twoSymbolOutput(sec);
+            // twoSymbolOutput(tenthsec);
+            clock.innerText = (`${hour}:${min}:${sec}:${tenthsec}`);
+        };
+
+        function timer(){
+            if (tenthsec === 99){
+                if (sec === 59) {
+                    if (min === 59) {
+                        hour++;
+                        min=0;
+                    };
+                    min++;
+                    sec=0;
+                };
+                sec++;
+                tenthsec=0;
+            };
+            tenthsec++;
+            showTime();
+        };
+
+        function start(){
+            status = true;
+            button.innerText = `⏸`;
+            theTimer = setInterval(timer, delay);
+        };
+
+        function pause(){
+            status = false;
+            button.innerText = `⏵`;
+            clearInterval(theTimer);
+        };
+
+        function buttonClick(){
+            if (status){
+                pause();
+            } else {
+                start();
+            }
+        };
+
+        button.addEventListener('click', buttonClick);
+
+    </script>
+
+</body>
+
+<style>
+    @font-face {
+        font-family: 'Montserrat';
+        src: url(Montserrat-Regular.woff);
+    }
+
+    #buttonDiv{
+      margin-top: 20px;
+      font-family: 'Montserrat';
+      font-size: 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    #startClock{
+        width: 100px;
+        height: 40px;
+        margin-left: 20px;
+        font-size: 20px;
+    }
+
+    #clock{
+        margin-left: 20px;
+    }
+  </style>
+
+</html>
