@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Weather</title>
+</head>
+
+<body>
+    <section class="section">
+        <div class="wrapper">
+            <header>
+                <form class="header" action="#">
+                    <input class="header-input" type="text" placeholder="Search...">
+                    <button class="search-img">
+                        <img src="./img/search.svg" alt="loop">
+                    </button>
+                </form>
+            </header>
+
+            <div class="area">
+                <div class="content-area">
+                    <!-- NOW -->
+                    <div class="content-area_display now active">
+                        <div class="temperature">
+                            <p class="weather-temp"><span>t</span>°</p>
+                        </div>
+                        <div class="weather-icon">
+                            <img src="" alt="">
+                        </div>
+                        <div class="location-target">
+                            <span class="love-city">City</span>
+                            <button class="now-btn-shape">
+                                <img class="now-btn-shape-img" src="./img/Shape.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <!-- DETAILS -->
+                    <div class="content-area_display details">
+                        <p class="details-city">Aktobe</p>
+                        <ul class="list">
+                            <li class="list-items">Temperature: <span class="temperature-list">14</span></li>
+                            <li class="list-items">Feels like: <span class="feels">10</span></li>
+                            <li class="list-items">Weather: <span class="weather-sky">Clouds</span></li>
+                            <li class="list-items">Sunrise: <span class="sunrise">03:21</span></li>
+                            <li class="list-items">Sunset: <span class="sunset">18:54</span></li>
+                        </ul>
+                    </div>
+                    <!-- FORECAST -->
+                    <div class="content-area_display forecast">
+                        <p class="details-city">Aktobe</p>
+                        <ul class="list">
+                            <div class="forecast-days">
+                                <div>
+                                    <p class="forecast-days__date">17 May <span>12:00</span></p>
+                                </div>
+                                <div>
+                                    <p class="forecast-days__temp">Temperature: 13 <span>Rain</span></p>
+                                </div>
+                                <div>
+                                    <p class="forecast-days__feels">Feels like: 10 <span><img
+                                                src="./img/rain.png" alt="rain"></span></p>
+                                </div>
+                            </div>
+                            <div class="forecast-days">
+                                <div>
+                                    <p class="forecast-days__date">17 May <span>15:00</span></p>
+                                </div>
+                                <div>
+                                    <p class="forecast-days__temp">Temperature: 13 <span>Rain</span></p>
+                                </div>
+                                <div>
+                                    <p class="forecast-days__feels">Feels like: 10 <span><img
+                                                src="./img/rain.png" alt="rain"></span></p>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                    <!-- TABS -->
+                    <nav class="tabs">
+                        <ul class="tabs_item active-tab">Now</ul>
+                        <ul class="tabs_item">Details</ul>
+                        <ul class="tabs_item">Forecast</ul>
+                    </nav>
+                </div>
+                <!-- RIGHT AREA -->
+                <div class="location-area">
+                    <div class="location-area_added-location">
+                        <p class="added-location">Added Locations:</p>
+                    </div>
+                    <ul class="locations"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./main.js" type="module"></script>
+    <script src="./modules/DOMconstants.js" type="module"></script>
+</body>
+</html>
