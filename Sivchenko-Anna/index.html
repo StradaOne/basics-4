@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Stopwatch</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__container">
+      <a href="https://github.com/Sivchenko-Anna" target="_blank" class="header__button header__button-github"></a>
+      <button class="header__button js-btn-toggleTheme header__button-theme"></button>
+    </div>
+  </header>
+  <main>
+    <div class="wrapper">
+      <h1 class="title">Stopwatch</h1>
+      <div class="container__time">
+        <div>
+          <span class="time js-minutes">00</span>
+          <p class="time-value">Minutes</p>
+        </div>
+        <div>
+          <span class="time js-seconds">00</span>
+          <p class="time-value">Seconds</p>
+        </div>
+        <div>
+          <span class="time js-milliseconds">00</span>
+          <p class="time-value">Milliseconds</p>
+        </div>
+      </div>
+      <div class="container__buttons">
+        <button class="container__button container__button-start js-btn-start">Start</button>
+        <button class="container__button container__button-stop js-btn-stop">Stop</button>
+        <button class="container__button container__button-reset js-btn-reset">Reset</button>
+      </div>
+    </div>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

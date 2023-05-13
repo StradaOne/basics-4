@@ -1,0 +1,144 @@
+body {
+  background-color: #FFFFFF;
+  color: #000000;
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  transition: background-color 0.5s ease;
+}
+
+.header {
+  width: min(100% - 1rem, 1200px);
+  margin-inline: auto;
+  padding: 40px 38px;
+}
+
+.header__container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.header__button {
+  display: block;
+  height: 40px;
+  width: 40px;
+  background-color: #E9E9E9;
+  border: 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.header__button-github {
+  background-image: url('assets/github-dark_icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header__button-theme {
+  background-image: url('assets/moon_icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.wrapper {
+  width: min(100% - 2rem, 600px);
+  margin-inline: auto;
+  background-color: #F9F9F9;
+  border-radius: 4px;
+  padding: 0 22px;
+  border-bottom: 8px solid #FD6259;
+}
+
+.title {
+  font-size: 28px;
+  line-height: 29px;
+  text-transform: uppercase;
+  padding: 28px 0 36px;
+  margin: 0;
+  text-align: center;
+}
+
+.container__time {
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+}
+
+.time {
+  display: block;
+  width: 116px;
+  font-size: 45px;
+  background: #FFFFFF;
+  border: 1px solid #DBDBDB;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.time-value {
+  font-size: 15px;
+  text-align: center;
+  margin: 0;
+  padding-top: 12px;
+}
+
+.container__buttons {
+  margin: 44px auto 60px;
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+}
+
+.container__button {
+  width: 118px;
+  height: 40px;
+  font-family: 'Roboto Mono';
+  font-size: 18px;
+  line-height: 24px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.container__button-start {
+  background-color: #03AE85;
+  color: #FFFFFF;
+  border: 1px solid #03AE85;
+}
+
+.container__button-stop {
+  background-color: #F9F9F9;
+  color: #323232;
+  border: 1px solid #D1D1D1;
+}
+
+.container__button-reset {
+  background: #FD6259;
+  color: #FFFFFF;
+  border: 1px solid #FD6259;
+}
+
+/* dark-theme */
+
+body.dark-theme {
+  background-color: #011C2C;
+  color: #FFFFFF;
+}
+
+body.dark-theme .header__button,
+body.dark-theme .wrapper,
+body.dark-theme .time,
+body.dark-theme .container__button-stop {
+  background-color: #00273F;
+  color: #FFFFFF;
+}
+
+body.dark-theme .header__button-github {
+  background-image: url('assets/github-light_icon.svg');
+}
+
+body.dark-theme .header__button-theme {
+  background-image: url('assets/sun_icon.svg');
+}
