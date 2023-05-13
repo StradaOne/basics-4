@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./CSS/reset/normalize.css" />
+    <link rel="stylesheet" href="./CSS/reset/reset.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <title>Weather forecast</title>
+  </head>
+
+  <body>
+    <main class="main">
+      <section class="weather-app">
+        <div class="container">
+          <div class="weather">
+            <form action="#" class="weather__form">
+              <div class="weather__search">
+                <input
+                  class="weather__search-input"
+                  type="text"
+                  placeholder="Search"
+                />
+                <button class="weather__search-btn">
+                  <img
+                    src="./IMG/search.svg"
+                    alt="search icon"
+                    class="weather__search-img"
+                  />
+                </button>
+              </div>
+            </form>
+            <div class="weather__content">
+              <div class="weather__content-info">
+                <div class="weather__content-info-wrapper">
+                  <div class="weather__content-info-temp">
+                    <span id="nowTemp">14</span>°
+                  </div>
+                  <img
+                    class="weather__content-info-img"
+                    id="nowIcon"
+                    src="./IMG/weatherIcon.png"
+                    alt="weather icon"
+                  />
+                  <div class="weather__content-box">
+                    <p class="weather__content-box-text" id="nowName">Aktobe</p>
+                    <img
+                      class="weather__content-box-img nowLike"
+                      src="./IMG/like.svg"
+                      alt="like icon"
+                    />
+                  </div>
+                </div>
+                <div class="weather__content-info-wrapper hide">
+                  <p class="weather__details-title" id="detailsName">Aktobe</p>
+                  <div class="weather__details-content">
+                    <p class="weather__details-text">
+                      Temperature: <span id="detailsTemp">14</span>°
+                    </p>
+                    <p class="weather__details-text">
+                      Feels like: <span id="detailsFeelsLike">10</span>°
+                    </p>
+                    <p class="weather__details-text">
+                      Weather: <span id="detailsWeather">Clouds</span>
+                    </p>
+                    <p class="weather__details-text">
+                      Sunrise: <span id="detailsSunrise">03:21</span>
+                    </p>
+                    <p class="weather__details-text">
+                      Sunset: <span id="detailsSunset">18:54</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="weather__content-tabs">
+                  <button
+                    class="weather__content-tabs-item weather__content-tabs-item-border-none tab on-tab"
+                    id="now"
+                  >
+                    Now
+                  </button>
+                  <button
+                    class="weather__content-tabs-item tab details"
+                    id="details"
+                  >
+                    Details
+                  </button>
+                  <button class="weather__content-tabs-item tab" id="forecast">
+                    Forecast
+                  </button>
+                </div>
+              </div>
+              <div class="weather__locations">
+                <p class="weather__locations-added">Added Locations:</p>
+                <div class="weather__locations-list" id="locationsList">
+                  <!-- <div class="weather__locations-list-box" id="locationsContainer">
+                    <p class="weather__locations-list-text" id="locationsName">Amur</p>
+                    <span class="weather__locations-list-del nowDel" id="locationsDelete">╳</span>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./JS/localStorage.js" type="module"></script>
+    <script src="./JS/ui.js" type="module"></script>
+    <script src="./JS/script.js" type="module"></script>
+    <script src="./JS/main.js" type="module"></script>
+  </body>
+</html>
