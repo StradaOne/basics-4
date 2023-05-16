@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>ToDo</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="task-container">
+      <div>
+        <h2 class="priority-container__title">HIGH</h2>
+        <form class="priority-container__form high-priority-container__form" >
+          <input type="text" class="priority-container__form-input high-priority-container__form-input" placeholder="Добавить важных дел" name="high-priority-task">
+          <button class="priority-container__form-button" type="submit">
+            <img src="./assets/close-icon.svg" alt="close-icon">
+          </button>
+        </form>
+        <div class="priority-container priority-container-high"></div>
+      </div>
+      <div>
+        <h2 class="priority-container__title">LOW</h2>
+        <form class="priority-container__form low-priority-container__form">
+          <input type="text" class="priority-container__form-input low-priority-container__form-input" placeholder="Добавить"  name="low-priority-task">
+          <button class="priority-container__form-button" type="submit">
+            <img src="./assets/close-icon.svg" alt="close-icon">
+          </button>
+        </form>
+        <div class="priority-container priority-container-low"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
