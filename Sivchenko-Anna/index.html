@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Weather</title>
+</head>
+<body>
+  <div class="wrapper">
+    <form class="search">
+      <input type="search" placeholder="Aktobe">
+      <button type="submit" class="search-icon"></button>
+    </form>
+    <div class="container">
+        <div class="tabs__content">
+          <input type="radio" id="btn-now" name="tabls-btn" checked>
+          <label class="tabls-btn btn-now" for="btn-now">Now</label>
+          <div class="weather-now">
+            <div class="weather-now__container">
+              <div class="temperature">14&#176;</div>
+              <div class="weather-icon"></div>
+              <div class="city city-like">Aktobe</div>
+            </div> 
+          </div>
+          <input type="radio" id="btn-details" name="tabls-btn">
+          <label class="tabls-btn btn-details" for="btn-details">Details</label>
+          <div class="weather-details">
+            <div class="weather-details__container">
+              <p class="city">Aktobe</p>
+              <ul class="details">
+                <li>Temperature: 14&#176;</li>
+                <li>Feels like: 10&#176;</li>
+                <li>Weather: Clouds</li>
+                <li>Sunrise: 03:21</li>
+                <li>Sunset: 18:54</li>
+              </ul>
+            </div>
+          </div>
+          <input type="radio" id="btn-forecast" name="tabls-btn">
+          <label class="tabls-btn btn-forecast" for="btn-forecast">Forecast</label>
+          <div class="weather-forecast">
+            <div class="weather-forecast__container">
+              <p class="city">Aktobe</p>
+              <div class="future-weather">
+                <div class="future-weather__card">
+                  <div class="date">17 May</div>
+                  <div class="time">12:00</div>
+                  <div class="temperature-forecast">
+                    <p>Temperature: 13&#176;</p>
+                    <p>Feels like: 10&#176;</p>
+                  </div>
+                  <div class="description">
+                    <p>Rain</p>
+                    <div class="description-icon"></div>
+                  </div>
+                </div>
+                <div class="future-weather__card">
+                  <div class="date">17 May</div>
+                  <div class="time">15:00</div>
+                  <div class="temperature-forecast">
+                    <p>Temperature: 13&#176;</p>
+                    <p>Feels like: 10&#176;</p>
+                  </div>
+                  <div class="description">
+                    <p>Rain</p>
+                    <div class="description-icon"></div>
+                  </div>
+                </div>
+                <div class="future-weather__card">
+                  <div class="date">17 May</div>
+                  <div class="time">18:00</div>
+                  <div class="temperature-forecast">
+                    <p>Temperature: 13&#176;</p>
+                    <p>Feels like: 10&#176;</p>
+                  </div>
+                  <div class="description">
+                    <p>Rain</p>
+                    <div class="description-icon"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="location__content">
+          <div class="location">
+            <p>Added Locations:</p>
+          </div>
+          <div>
+            <ul class="cities">
+              <li>Amur</li>
+              <li>Samara</li>
+              <li>Bali</li>
+              <li>Dane</li>
+              <li>Kilo</li>
+              <li>Nur-Sultan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>
+</body>
+</html>
