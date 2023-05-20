@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.task-list {
+    margin-bottom: 20px;
+}
+
+.task-list h2 {
+    margin-bottom: 10px;
+}
+
+.task-list input[type="text"] {
+    margin-bottom: 5px;
+    padding: 8px;
+    width: 300px;
+}
+
+.task-list button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.task-list label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.task-list div {
+    width: 476px;
+}
+
+.task-list .task-text {
+    margin-left: 10px;
+}
+
+
+.task-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.delete-button {
+    margin-left: auto;
+}
+
+.task-wrapper input[type="checkbox"] {
+    display: none; /* Скрыть оригинальный чекбокс */
+}
+
+/* Стили для внешнего вида чекбокса */
+.task-wrapper .checkbox-wrapper {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.task-wrapper .checkbox-custom {
+    display: none; /* Скрыть кастомный чекбокс по умолчанию */
+}
+
+.task-wrapper input[type="checkbox"]:checked + label .checkbox-custom {
+    display: block; /* Отобразить кастомный чекбокс при выборе */
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    background-color: #555;
+    border-radius: 2px;
+}
+
+/* Стили для текста задачи */
+.task-wrapper .task-text {
+    vertical-align: middle;
+}
+
+/* Стили для кнопки удаления */
+.task-wrapper .delete-button {
+    margin-left: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.text-through {
+    text-decoration: line-through;
+}
