@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="wrapper">
+            <div class="weather">
+                <div class="weather__block">
+                    <form type="submit" class="weather__form">
+                        <input type="text" class="weather__input" placeholder="Aktobe">
+                        <button type="submit" class="weather__button" src="./img/search.png"></button>
+                    </form>
+                    <div class="weather__content">
+                        <div class="weather__information">
+                              <div class="weather__container">
+                                <div id="tab-1" class="tab-hidden">
+                                    <div class="temperature"></div>
+                                    <div class="img">
+                                        <img class="icon_temp">
+                                    </div>
+                                    <div class="tab-block">
+                                        <div class="tab-block__country"></div>
+                                        <div class="tab-block__img">
+                                            <button class="btn_addi"><img class="btn_add"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-2" class="tab-hidden">
+                                   <div class="country-title">Aktobe</div>
+                                   <div class="list-data">
+                                        <ul class="list-elements">
+                                            <li class="list-element list-temp">Temperature: 14</li>
+                                            <li class="list-element list-feels">Feels like: 10</li>
+                                            <li class="list-element list-weather">Weather: Clouds</li>
+                                            <li class="list-element list-sunrise">Sunrise: 03:21</li>
+                                            <li class="list-element list-sunset">Sunset: 18:54</li>
+                                        </ul>
+                                   </div>
+                                </div>
+                                <div id="tab-3" class="tab-hidden">
+                                    <div class="country-title country-title__tab-3"></div>
+                                    <div class="tab-3__content"></div>
+                                </div>
+                              </div>
+                              <nav class="tabs">
+                                <a href="#tab-1" class="tab tab-1 ">Now</a>
+                                <a href="#tab-2" class="tab tab-2 ">Details</a>
+                                <a href="#tab-3" class="tab tab-3 ">Forecast</a>
+                              </nav>
+                        </div>
+                        <div class="locations">
+                            <div class="title-block"><div>Added Locations:</div></div>
+                            <div class="list-locations">
+                                <ul class="list">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
