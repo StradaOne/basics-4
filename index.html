@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="main.css"/>
+    <title></title>
+</head>
+<body>
+<div class="container">
+    <div class="todo">
+        <div class="todo__section">
+            <h5 class="todo__title">HIGH</h5>
+            <form class="form__high">
+                <div class="todo__add">
+                    <input type="text" placeholder="Добавить" class="inputHigh"/>
+                    <img src="add-icon.svg" alt="add-icon" class="todo__add_high-img"/>
+                </div>
+            </form>
+            <div class="tasks__high">
+            </div>
+        </div>
+        <div class="todo__section">
+            <h5 class="todo__title">LOW</h5>
+            <form class="form__low">
+                <div class="todo__add">
+                    <input type="text" placeholder="Добавить" class="inputLow"/>
+                    <img src="add-icon.svg" alt="add-icon" class="todo__add_low-img"/>
+                </div>
+            </form>
+            <div class="tasks__low"></div>
+        </div>
+    </div>
+</div>
+<script src="./main.js" type="module"></script>
+</body>
+</html>
