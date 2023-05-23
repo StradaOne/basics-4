@@ -1,0 +1,60 @@
+.content-right {
+  overflow: hidden;
+  &__title {
+    border-bottom: 1px solid #000000;
+    padding: 30px 0 7px 18px;
+  }
+
+  &__title p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: left;
+    color: #000000;
+  }
+
+  &__list {
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 327px;
+  }
+
+  &__list-item {
+    display: flex;
+    justify-content: space-between;
+    color: #000000;
+    cursor: pointer;
+  }
+
+  &__list-item:hover {
+    color: #ffffff;
+  }
+
+  &__list-item:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  &__list-item a {
+    width: 100%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: inherit;
+  }
+
+  &__list-item:hover button {
+    display: inline-block;
+  }
+
+  &__list-item button {
+    display: none;
+    width: 30px;
+    height: 28px;
+    background: url("../../source/isons/delete.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px 28px;
+  }
+}
