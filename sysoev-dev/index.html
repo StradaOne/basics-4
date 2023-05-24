@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="weather">
+    <form action="#" class="weather__search-form search-form">
+      <input class='search-form__input' type="search" placeholder='Aktobe' required>
+      <button class='search-form__button' type="submit">Send</button>
+    </form>
+    <div class="weather__content">
+      <div class="weather__content--left tabs">
+        <div class="tabs__content">
+          <ul class='tabs__content-list'>
+            <li class='tabs__content-item now' id='now-content'>
+              <p class="now-content__temp">14</p>
+              <img class='now-content__icon' src="images/icons8-cloud-96 1.png" alt="icon weather">
+              <div class="now-content__buttom">
+                <p class='now-content__buttom-city'>Aktobe</p>
+                <button class='now-content__buttom-btn' type='button'>Added location</button>
+              </div>
+            </li>
+            <li class='tabs__content-item details' id='details-content'>
+              <p class='details__city'>Aktobe</p>
+              <ul class="details__list">
+                <li class="details__item details__item-temp">Temperature:
+                  <span class='details__item-temp--value'>14</span>
+                </li>
+                <li class="details__item details__item-feels">Feels like:
+                  <span class='details__item-feels--value'>10</span>
+                </li>
+                <li class="details__item details__item-weather">Weather:
+                  <span class='details__item-weather--value'>Clouds</span>
+                </li>
+                <li class="details__item details__item-sunrise">Sunrise:
+                  <span class='details__item-sunrise--value'>03:21</span>
+                </li>
+                <li class="details__item details__item-sunset">Sunset:
+                  <span class='details__item-sunset--value'>18:54</span>
+                </li>
+              </ul>
+            </li>
+            <li class='tabs__content-item forecast' id='forecast-content'>
+              <p class='forecast__city'>Aktobe</p>
+              <ul class='forecast__list'>
+                <li class='forecast__item'>
+                  <div class="forecast__item-top">
+                    <p class="forecast__item-top-date">17 May</p>
+                    <p class="forecast__item-top-time">12:00</p>
+                  </div>
+                  <div class="forecast__item-bottom">
+                    <div class="forecast__item-bottom-left">
+                      <p class='forecast__item-bottom-temp'>Temperature:
+                        <span class='forecast__item-bottom-temp--value'>13</span>
+                      </p>
+                      <p class='forecast__item-bottom-feels'>Feels like:
+                        <span class='forecast__item-bottom-feels--value'>10</span>
+                      </p>
+                    </div>
+                    <div class="forecast__item-bottom-right">
+                      <p class='forecast__item-icon-desc'>Rain</p>
+                      <img class='forecast__item-icon' src="images/rain.png" alt="icon">
+                    </div>
+                  </div>
+                </li>
+                <li class='forecast__item'>
+                  <div class="forecast__item-top">
+                    <p class="forecast__item-top-date">17 May</p>
+                    <p class="forecast__item-top-time">15:00</p>
+                  </div>
+                  <div class="forecast__item-bottom">
+                    <div class="forecast__item-bottom-left">
+                      <p class='forecast__item-bottom-temp'>Temperature:
+                        <span class='forecast__item-bottom-temp--value'>13</span>
+                      </p>
+                      <p class='forecast__item-bottom-feels'>Feels like:
+                        <span class='forecast__item-bottom-feels--value'>10</span>
+                      </p>
+                    </div>
+                    <div class="forecast__item-bottom-right">
+                      <p class='forecast__item-icon-desc'>Rain</p>
+                      <img class='forecast__item-icon' src="images/rain.png" alt="icon">
+                    </div>
+                  </div>
+                </li>
+                <li class='forecast__item'>
+                  <div class="forecast__item-top">
+                    <p class="forecast__item-top-date">17 May</p>
+                    <p class="forecast__item-top-time">18:00</p>
+                  </div>
+                  <div class="forecast__item-bottom">
+                    <div class="forecast__item-bottom-left">
+                      <p class='forecast__item-bottom-temp'>Temperature:
+                        <span class='forecast__item-bottom-temp--value'>13</span>
+                      </p>
+                      <p class='forecast__item-bottom-feels'>Feels like:
+                        <span class='forecast__item-bottom-feels--value'>10</span>
+                      </p>
+                    </div>
+                    <div class="forecast__item-bottom-right">
+                      <p class='forecast__item-icon-desc'>Rain</p>
+                      <img class='forecast__item-icon' src="images/rain.png" alt="icon">
+                    </div>
+                  </div>
+                </li>
+                <li class='forecast__item'>
+                  <div class="forecast__item-top">
+                    <p class="forecast__item-top-date">17 May</p>
+                    <p class="forecast__item-top-time">21:00</p>
+                  </div>
+                  <div class="forecast__item-bottom">
+                    <div class="forecast__item-bottom-left">
+                      <p class='forecast__item-bottom-temp'>Temperature:
+                        <span class='forecast__item-bottom-temp--value'>13</span>
+                      </p>
+                      <p class='forecast__item-bottom-feels'>Feels like:
+                        <span class='forecast__item-bottom-feels--value'>10</span>
+                      </p>
+                    </div>
+                    <div class="forecast__item-bottom-right">
+                      <p class='forecast__item-icon-desc'>Rain</p>
+                      <img class='forecast__item-icon' src="images/rain.png" alt="icon">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <ul class="tabs__buttons">
+          <li class="tabs__buttons-item tabs__buttons-item--active">
+            <a href="#now-content" class="tabs__buttons-link">Now</a>
+          </li>
+          <li class="tabs__buttons-item">
+            <a href="#details-content" class="tabs__buttons-link">Details</a>
+          </li>
+          <li class="tabs__buttons-item">
+            <a href="#forecast-content" class="tabs__buttons-link">Forecast</a>
+          </li>
+        </ul>
+      </div>
+      <div class="weather__content--right locations">
+        <p class='locations__title'>Added Locations:</p>
+        <ul class="locations__list">
+          <!-- <li class="locations__item">
+            <p class="locations__item-text">Amur</p>
+            <button class="locations__item-button" type="button">Удалить</button>
+          </li>
+          <li class="locations__item">
+            <p class="locations__item-text">Amur</p>
+            <button class="locations__item-button" type="button">Удалить</button>
+          </li>
+          <li class="locations__item">
+            <p class="locations__item-text">Amur</p>
+            <button class="locations__item-button" type="button">Удалить</button>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script type='module' src="main.js"></script>
+</body>
+
+</html>
