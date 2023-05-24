@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Weater App</title>
+</head>
+<body>
+<div class="weather-app">
+    <div class="app">
+        <div class="app__search">
+            <form class="form-search">
+                <input type="text" class="text-search" placeholder="Введите имя города">
+                <input type="image" class="button-search" src="img/icons/search.png" alt="Иконка поиска">
+            </form>
+        </div>
+        <div class="app__content">
+            <div class="weather-display-switcher">
+                <div class="weather-display-now">
+                    <p class="temperature-now">14&deg;</p>
+                    <img src="./img/icons/wather-new-cloud.png" alt="Инконка облачная погода"
+                         class="weather-icon cloud-icon">
+                    <div class="wrapper_city-like">
+                        <h2 class="weather_city">Aktobe</h2>
+                        <img src="img/icons/like.png" alt="Лайк" class="weather_like">
+                    </div>
+                </div>
+                <div class="weather-display-details">
+                    <p class="city-details">Aktobe</p>
+                    <ul class="weather-performance-list">
+                        <li class="weather-performance-item">Temperature: <span
+                                class="performance-temperature">14</span></li>
+                        <li class="weather-performance-item">Feels like: <span class="performance-feels">10</span></li>
+                        <li class="weather-performance-item">Weather: <span class="performance-weather">Clouds</span>
+                        </li>
+                        <li class="weather-performance-item">Sunrise: <span class="performance-sunrise">03:21</span>
+                        </li>
+                        <li class="weather-performance-item">Sunset: <span class="performance-sunset">18:54</span></li>
+                    </ul>
+                </div>
+                <div class="weather-display-forecast">
+                    <p class="city-forecast">Aktobe</p>
+                    <div class="forecast-list">
+
+                    </div>
+                </div>
+                <div class="weather-switchers">
+                    <button class="weather-switcher weather-now-btn active">Now</button>
+                    <button class="weather-switcher weather-details-btn">Details</button>
+                    <button class="weather-switcher weather-forecast-btn">Forecast</button>
+                </div>
+            </div>
+            <div class="weather-locations">
+                <div class="locations">
+                    <div class="added-locations">
+                        <p class="added-locations-text">Added Locations:</p>
+                    </div>
+                    <ul class="list-locations">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./main.js" type="module"></script>
+</body>
+</html>

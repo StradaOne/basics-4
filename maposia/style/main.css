@@ -1,0 +1,233 @@
+@import url(./reset/reset.css);
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 400;
+}
+
+.app {
+    border: 1px black solid;
+    width: 600px;
+    height: 435px;
+
+}
+
+.form-search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px black solid;
+}
+
+.text-search {
+    width: 520px;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin-left: 16px;
+    border: none;
+    outline: none;
+    color: #696969;
+}
+
+.text-search::placeholder {
+    color: #BCBABA;
+}
+
+.button-search {
+    margin: 7px 17px 8px 0;
+}
+
+.app__content {
+    display: flex;
+}
+
+/*Левая сторона*/
+.weather-display-switcher {
+
+    max-width: 300px;
+    border-right: 1px black solid;
+}
+
+.weather-display-now {
+
+}
+
+.temperature-now {
+    margin: 20px 0 40px 23px;
+    font-size: 70px;
+    line-height: 82px;
+}
+
+.weather-icon {
+    margin-left: 112px;
+    margin-bottom: 57px;
+}
+
+.wrapper_city-like {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 17px;
+}
+
+.weather_city {
+    font-size: 24px;
+    line-height: 28px;
+    margin-left: 12px;
+
+}
+
+.weather_like {
+    margin-right: 26px;
+}
+
+.weather-switchers {
+    display: flex;
+    border-top: 1px black solid;
+}
+
+.weather-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    font-size: inherit;
+    line-height: inherit;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+
+.weather-switcher:not(:last-child) {
+    border-right: 1px black solid;
+}
+
+.active {
+    color: #fff;
+    background-color: #000;
+}
+
+/*Правая сторона*/
+.weather-locations {
+    max-width: 300px;
+}
+
+.added-locations {
+    padding: 33px 95px 7px 18px;
+    border-bottom: 1px black solid;
+}
+
+.added-locations-text {
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.list-locations {
+    margin-top: 35px;
+    margin-left: 18px;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.item-locations {
+    cursor: pointer;
+}
+
+.item-locations:not(:last-child) {
+    margin-bottom: 14px;
+}
+
+.del-btn {
+    margin-left: 10px;
+}
+
+/*2й экран*/
+
+.weather-display-details {
+    margin-left: 17px;
+    display: none;
+}
+
+.city-details {
+    display: block;
+    margin-top: 33px;
+    margin-bottom: 42px;
+    font-size: 24px;
+    line-height: 28px;
+
+}
+
+.weather-performance-list {
+    margin-bottom: 49px;
+}
+
+.weather-performance-item {
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.weather-performance-item:not(:last-child) {
+    margin-bottom: 14px;
+}
+
+/*3 экран*/
+
+.weather-display-forecast {
+    height: 348px;
+    overflow: scroll;
+    display: none;
+}
+
+.weather-display-forecast::-webkit-scrollbar {
+    display: none;
+}
+
+.city-forecast {
+    display: block;
+    margin: 33px 0 7px 18px;
+    font-size: 24px;
+    line-height: 28px;
+    color: #2d3240;
+}
+
+.forecast-list {
+    margin: 0 18px;
+
+}
+
+.forecast-item {
+    border: 1px black solid;
+    padding: 6px 12px 9px 8px;
+    margin-bottom: 9px;
+}
+
+
+.time-info-forecast,
+.temperature-info-forecast {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.time-info-forecast {
+    margin-bottom: 27px;
+}
+
+.weather-type-icon {
+    width: 31px;
+    height: 31px;
+}
+
+.weather-info-forecast {
+    text-align: center;
+}
