@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #d1d1d1;
+}
+
+.main {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.todo {
+    width: 476px;
+    background-color: white;
+    margin: 20px auto;
+}
+
+.todo__low {
+    padding-bottom: 12px;
+}
+
+.h1 {
+    font-size: 22px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.h2 {
+    font-size: 18px;
+    padding-top: 25px;
+    text-align: center;
+}
+
+.todo-block__input {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.todo-block__input-add {
+    width: 460px;
+    height: 45px;
+    margin-top: 12px;
+    border: 1px solid #989898;
+    border-radius: 6px;
+    padding-left: 12px;
+    padding-right: 40px;
+    font-size: 18px;
+}
+
+.todo-block__input-add:focus {
+    outline: none;
+    border: 1px solid #4d4c4c;
+}
+
+.todo-block__btn-add {
+    position: absolute;
+    right: 21px;
+    top: 25px;
+    background-image: url('./icons/close-icon.svg');
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+}
+
+.todo-block__btn-add:hover {
+    cursor: pointer;
+}
+
+.item-text {
+    font-size: 18px;
+    line-height: 21px;
+    padding: 12px 45px;
+}
+
+.list-item {
+    width: 460px;
+    min-height: 45px;
+    border: 1px solid #989898;
+    margin: 8px auto 0;
+    border-radius: 6px;
+    position: relative;
+}
+
+.item-btn {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background-image: url('./icons/close-icon.svg');
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    transform: rotate(-45deg);
+}
+
+.item-btn:hover {
+    cursor: pointer;
+}
+
+.item-checkbox {
+    background-image: url('./icons/ellipse.svg');
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
+.checked::after {
+    content: '';
+    background-image: url('./icons/ellipse-bg.svg');
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 3px;
+    left: 3px; 
+}
+
+.item-checkbox:hover {
+    cursor: pointer;
+}
+
