@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://kit.fontawesome.com/f6dababe73.js" crossorigin="anonymous"></script>
+    <title>To do</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="high-container">
+
+        <div class="category-name-high">HIGH</div>
+        <div class="box add-high">
+          <form class="form form-high" method="GET"  id="highForm" name="highForm">  
+        
+              <input
+            class="add-task add-task-high"
+            name="high"
+            id="high"
+            type="text"
+            placeholder="  Add a task"
+          ></input>
+          
+            
+        </form>
+        <button 
+        data-container-id="high-container"
+        type="button" 
+       
+        class="plus plus-high" 
+        id="btn-high"><i  class="fa-solid fa-plus" type="submit"></i>
+      </button>
+        </div>
+        <div class="tasks-high"></div>
+        <!-- <div class="task box">
+         
+          <form class="radio-wrapper">
+          <input type="checkbox" id="radio1" name="radio">
+          <label for="radio1" class="checkmark"></label>
+        </form>
+          <p class="text">Lorem ipsum dolor sit Lorem ipsum dolor sit</p>
+        
+      <button class="delete"><i class="fa-solid fa-times"></i></button>
+        </div> -->
+        
+      </div>
+
+
+      <div class="low-container">
+
+        <div class="category-name-low">LOW</div>
+        <div class="box add-low">
+          <form class="form form-low"  id="lowForm" name="lowForm"  method="GET">
+      
+
+            <input
+            class="add-task add-task-low"
+            id="low"
+            name="low"
+            type="text"
+            placeholder="  Add a task"
+          ></input>
+
+        </form>
+        <button 
+        data-container-id="low-container"
+        type="button" 
+        class="plus plus-low" 
+        id="btn-low"><i class="fa-solid fa-plus" type="submit"></i>
+      </button>
+        </div>
+<div class="tasks-low"></div>
+         <!-- <div class="task box">
+          <form class="radio-wrapper">
+            <input type="checkbox" id="radio2" name="radio">
+            <label for="radio2" class="checkmark"></label>
+          </form>
+            <p class="text">Lorem ipsum dolor sit</p>
+          
+        <button class="delete"><i class="fa-solid fa-times"></i></button>
+        </div> -->
+
+          <!--Hidden box-->
+       
+      </div>
+
+      <!-- <label>
+        <input type="checkbox" name="radio" />
+        <span class="checkmark"></span>
+      </label> -->
+    </div>
+    <div class="task box hidden">
+      <form class="radio-wrapper">
+        <input type="checkbox"  class="checkbox" name="radio">
+        <label  class="checkmark"></label>
+      </form>
+        <p class="text"></p>
+      
+    <button class="delete"><i class="fa-solid fa-times"></i></button>
+</div>
+   
+    <script type="module" defer src="script.js"></script>
+  </body>
+</html>
