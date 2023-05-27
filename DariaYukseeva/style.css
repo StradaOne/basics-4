@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    font-size: 28px;
+    font-family: 'Inter', sans-serif;
+}
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.stopwatch-wrapper {
+    margin: auto;
+    height: 400px;
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+    border-radius: 15px;
+    -webkit-box-shadow: 7px 4px 34px -1px rgba(34, 60, 80, 0.39);
+    -moz-box-shadow: 7px 4px 34px -1px rgba(34, 60, 80, 0.39);
+    box-shadow: 7px 4px 34px -1px rgba(34, 60, 80, 0.8);
+    
+}   
+.buttons-wrapper {
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+} 
+button {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: none;
+    background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+    -webkit-box-shadow: 7px 4px 34px -3px rgba(247, 250, 253, 0.39);
+    -moz-box-shadow: 7px 4px 34px -3px rgba(247, 250, 253, 0.39);
+    box-shadow: 7px 4px 34px -3px rgba(255, 255, 255, 0.39);
+    cursor: pointer;
+    color: white;
+}
+button:hover {
+    animation: grow 1s infinite;
+}
+.active {
+    animation: grow 1s infinite;
+}
+.nonactive {
+    animation: none;
+}
+@keyframes grow {
+    from {
+      box-shadow: 0px 0px 1em #142131;
+    }
+    to {
+      box-shadow: 0px 0px 3em #142131;
+    }
+}
+
+.out {
+    color: white;
+    font-size: 50px;
+}
