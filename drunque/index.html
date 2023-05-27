@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aktobe</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script defer src="modules/tabs.js"></script>
+    <script defer src="modules/ui.js"></script>
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form class="search-field">
+        <input type="text" placeholder="Aktobe" />
+        <input type="submit" value="search" class="material-icons" />
+      </form>
+      <div class="container">
+        <div class="tabs">
+          <div class="windows">
+            <div id="now" class="window">
+              <div class="row">
+                <p><span id="now-temp"></span></p>
+              </div>
+              <div class="row">
+                <img
+                  id="weather-image"
+                />
+              </div>
+              <div class="row">
+                <p id="now-city"></p>
+                <button id="now-button" class="material-icons"></button>
+              </div>
+            </div>
+            <div id="details" class="window">
+              <div class="container">
+                <p id="details-city">Aktobe</p>
+              </div>
+              <div class="weather-info">
+                <p>Temperature: <span id="details-temp"></span></p>
+                <p>Feels like: <span id="feels-like"></span></p>
+                <p>Weather: <span id="weather-type"></span></p>
+                <p>Sunrise: <span id="sunrise-time"></span></p>
+                <p>Sunset: <span id="sunset-time"></span></p>
+              </div>
+            </div>
+            <div id="forecast" class="window">
+              <div class="container">
+                <p id="forecast-city">Aktobe</p>
+              </div>
+              <div class="forecast-list">
+                <template id="forecast-template">
+                  <div class="forecast-container">
+                    <div class="row">
+                      <p class="forecast-date"></p>
+                      <p class="forecast-time"></p>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <p>Weather: <span class="forecast-desc"></span></p>
+                        <p>
+                          Temperature:
+                          <span class="forecast-temp"></span>
+                        </p>
+                        <p>
+                          Feels like:
+                          <span class="forecast-feels-like"></span>
+                        </p>
+                      </div>
+                      <div class="col">
+                        <img
+                          class="forecast-image"
+                          src=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+          <div class="options">
+            <a href="#now" class="active">Now</a>
+            <a href="#details">Details</a>
+            <a href="#forecast">Forecast</a>
+          </div>
+        </div>
+        <div class="history">
+          <div class="heading">
+            <p>Added locations:</p>
+          </div>
+          <div class="history-list"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
