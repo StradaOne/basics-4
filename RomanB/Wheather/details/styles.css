@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.main-wrapper {
+    max-width: 620px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.main-block {
+    padding-right: 20px;
+}
+
+/* Стили для блока поиска */
+.search-block {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-form__input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    outline: none;
+}
+
+.search-form__button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Стили для основного блока */
+.main-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.main-block__details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.temperature-block,
+.temperature-second-block,
+.weather-block,
+.sunrise-block,
+.sunset-block {
+    border-bottom: 1px solid #ccc;
+}
+
+.temperature-block__title,
+.temperature-second-block__title,
+.weather-block__title,
+.sunrise-block__title,
+.sunset-block__title {
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.temperature-block__value,
+.temperature-second-block__value,
+.weather-block__value,
+.sunrise-block__value,
+.sunset-block__value {
+    padding: 5px 10px;
+}
+
+/* Стили для главной страницы */
+.main-block__inner-page {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-block__city {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Стили для блока добавленных локаций */
+.locations-block {
+    margin-top: 20px;
+}
+
+.locations-block__locations {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.locations-block__location {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+.main-block__menu {
+    display: flex;
+}
+
+.main-block__menu-button {
+    padding: 10px 15px;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+}
+
+.main-block__menu-button--active {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Стили для блока добавленных локаций */
+.locations-block__title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.locations-block__location {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.locations-block__locations {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px; /* Добавлено для создания пространства между заголовком и локациями */
+}
+
+.locations-block__wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.locations-block__button {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-image: url("../main/close.png");
+    background-size: cover;
+    margin-left: 5px; /* Изменено с auto */
+    margin-top: -5px;
+}
+
+/* Медиа-запрос для адаптивности */
+@media screen and (max-width: 600px) {
+    .main-wrapper {
+        padding: 10px;
+    }
+
+    .main-block__menu {
+        flex-direction: column;
+    }
+
+    .main-block__menu-button {
+        margin-bottom: 10px;
+    }
+}
