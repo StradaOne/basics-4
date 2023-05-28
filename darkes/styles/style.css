@@ -1,0 +1,190 @@
+*{
+    box-sizing: border-box;
+}
+
+p{
+    margin: 0px;
+    margin-top: 3px;
+}
+
+html{
+    font-family: 'Montserrat', sans-serif;
+}
+
+button:active, button:focus {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+body {
+    background-image: url('../img/img-backgorund.jpg');
+    background-size: cover;
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgba(0, 0, 0, 0.572);
+}
+
+.container{
+    backdrop-filter: blur(10px);
+    box-shadow: 1px 1px 15px black;
+    border-radius: 25px;
+    width: 500px;
+    margin: 80px auto 0 auto;
+    padding: 5px 50px 38px 50px;
+}
+
+.task-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.header{
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    padding-top: 10px;
+}
+
+.task-container__input-container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height:43px;
+    justify-content: space-between;
+    padding:0px 10px 0px 10px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.task-container__input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(42, 42, 42);
+    font-weight: 500;
+    width: 100%;
+    height: 30px;
+    padding-right: 20px;
+    line-height: 1;
+}
+
+.task-container__input::placeholder {
+    color: rgba(45, 45, 45, 0.654);
+}
+
+.task-container__input-container:hover{
+    transition: 0.4s;
+    transform: scale(1.015);
+}
+
+.task-container__button{
+    transition: 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background: url(../img/plus.svg) center no-repeat;
+    width: 20px;
+    height: 20px;
+}
+
+.task-container__button:hover {
+    transition: 0.5s;
+    background: url(../img/plus-green.svg) center no-repeat;
+    transform: scale(1.1);
+}
+
+.task-container__button_45degrees{
+    transition: 0.4s;
+    transform: rotate(45deg);
+}
+
+.task-container__button_45degrees:hover{
+    transition: 0.3s;
+    background: url(../img/plus-red.svg) center no-repeat;
+    transform: scale(1.1) rotate(45deg);
+}
+
+.task{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding:10px 10px 10px 10px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+}
+
+.task:hover{
+    transform: scale(1.02);
+}
+
+.radio-button {
+    transform:scale(1.3);
+    transition: 0.4s;
+    margin-top: 3.5px;
+    cursor: pointer;
+    appearance: none;
+    width: 13px;
+    height: 13px;
+    border: 0.8px solid black;
+    border-radius: 50%;
+}
+
+.radio-button:after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+
+    background: url(../img/check.svg) no-repeat;
+    background-size: 8px 9px;
+    opacity: 0;
+    transition: 1s;
+
+    position: absolute;
+    top: 1.7px;
+    left: 1.8px;
+}
+
+.radio-button:checked {
+    background-color: #333;
+}
+
+.radio-button:checked::after {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.radio-button:hover {
+    transform:scale(1.4);
+    transition: 0.4s;
+}
+
+input[type='checkbox'] {
+    accent-color: #6e6e6e;
+}
+
+.task-text{
+    hyphens: auto;
+    word-wrap: break-word;
+    font-weight: 400;
+    font-size: 2;
+    line-height: 1;
+    width: 87%;
+}
+
+.task:has(.radio-button:checked) {
+    background-color: #0000004c;
+    transition: 1s;
+    transform: scale(1);
+}

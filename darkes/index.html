@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script defer type="module" src="./script/main.js"></script>
+    <title>ToDo List</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="task-container">
+            <h1 class="header">HIGH</h1>
+            <form class="task-container__input-container high-task">
+                <input id="input-high" class="task-container__input" type="text" placeholder="Добавить важные дела" autocomplete="off">
+                <button id="button-high-add-task" class="task-container__button"></button>
+            </form>
+        </div>
+
+        <div class="task-container">
+            <h1 class="header">LOW</h1>
+            <form class="task-container__input-container low-task">
+                <input id="input-low" class="task-container__input" type="text" placeholder="Добавить" autocomplete="off">
+                <button id="button-low-add-task" class="task-container__button"></button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
