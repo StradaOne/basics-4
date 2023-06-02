@@ -276,7 +276,21 @@ function displayCurFav() {
 }
 
 function deleteFav(uiCityName) {
-  keeper = keeper.filter((city) => city !== uiCityName);
+  // Recursion instead of .filter
+  function removeCityFromFAVs() {
+    if (keeper[i] === uiCityName) {
+      keeper.splice(i, 1);
+      return (i = 0);
+    }
+    if (i >= keeper.length) return (i = 0);
+    i++;
+    return removeCityFromFAVs();
+  }
+  let i = 0;
+  removeCityFromFAVs();
+  // Replaced by recursion above
+  // keeper = keeper.filter((city) => city !== uiCityName);
+
   if (dom.nowPageCity.textContent === uiCityName) {
     dom.checkboxHeart.checked = false;
   }
