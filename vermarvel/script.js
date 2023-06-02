@@ -13,8 +13,7 @@ let curFav;
 const serverUrl = "http://api.openweathermap.org/data/2.5/weather";
 const apiKey = "afc9f2df39f9e9e49eeb1afac7034d35";
 // const apiKey = "bee4bd6edc3ca09763c0dc89f33c92c4"; // spare apiKey
-let keeper = new Set();
-keeper = JSON.parse(store.get("keeper")) || [];
+let keeper = new Set(JSON.parse(store.get("keeper")) || []);
 
 // Helper functions
 
@@ -36,7 +35,7 @@ function toggleCheckbox() {
   const isChecked = dom.checkboxHeart.checked;
 
   if (isChecked) {
-    keeper.push(dom.nowPageCity.textContent);
+    keeper.add(dom.nowPageCity.textContent);
     store.set("keeper", JSON.stringify([...keeper]));
   } else {
     console.log(keeper);
@@ -181,7 +180,7 @@ function displayNow({ uiCityName, uiTemp, icon }) {
   // set the corresponding checknox
   dom.parentHeart.classList.remove("hidden");
 
-  keeper.includes(uiCityName)
+  keeper.has(uiCityName)
     ? (dom.checkboxHeart.checked = true)
     : (dom.checkboxHeart.checked = false);
 
@@ -276,20 +275,24 @@ function displayCurFav() {
 }
 
 function deleteFav(uiCityName) {
-  // Recursion instead of .filter
-  function removeCityFromFAVs() {
-    if (keeper[i] === uiCityName) {
-      keeper.splice(i, 1);
-      return (i = 0);
-    }
-    if (i >= keeper.length) return (i = 0);
-    i++;
-    return removeCityFromFAVs();
-  }
-  let i = 0;
-  removeCityFromFAVs();
+  // RECURSION instead of .delete
+  // function removeCityFromFAVs() {
+  //   if (keeper[i] === uiCityName) {
+  //     keeper.splice(i, 1);
+  //     return (i = 0);
+  //   }
+  //   if (i >= keeper.length) return (i = 0);
+  //   i++;
+  //   return removeCityFromFAVs();
+  // }
+  // let i = 0;
+  // removeCityFromFAVs();
   // Replaced by recursion above
-  // keeper = keeper.filter((city) => city !== uiCityName);
+  if (keeper instanceof Set) {
+    keeper.delete(uiCityName);
+  } else {
+    console.log("keeper is not a Set.");
+  }
 
   if (dom.nowPageCity.textContent === uiCityName) {
     dom.checkboxHeart.checked = false;
