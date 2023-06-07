@@ -1,0 +1,26 @@
+{
+  "name": "maposia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StradaOne/basics-4.git"
+  },
+  "author": "maposia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StradaOne/basics-4/issues"
+  },
+  "homepage": "https://github.com/StradaOne/basics-4#readme",
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.1"
+  }
+}
