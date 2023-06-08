@@ -1,0 +1,134 @@
+body { 
+    width: 100%;
+    height: 100vh;
+    background-color: #2e2d2d;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+h5 {
+    padding-top: 40px;
+    text-align: center;
+    cursor: default;
+    color: #2e2d2d;
+}
+
+
+p {
+    width: 500px;
+    height: auto;   
+    padding: 5px 10px;
+    margin: 0;
+    color: #2e2d2d;
+}
+
+.section {
+    width: 750px;
+    height: auto;
+    min-height: 600px;
+    background-color: #fff;
+    margin: 70px auto;
+    border-radius: 15px;
+}
+
+.container {
+    width: 600px;
+    margin: 50px auto;
+
+}
+
+
+
+.form {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 574px;
+    height: auto;
+    min-height: 34px;
+    border-radius: 10px;
+    border: 1px solid #cacaca;
+    padding: 0 10px;
+    margin-top: 10px;
+}
+
+.form:hover {
+    border: 1px solid #282828;
+}
+
+.form:has(.radio:checked) {
+    background: #d6fb96;
+}
+
+.inputHigh, .inputLow {
+    border: none;
+    width: 100%;
+    outline: none;
+
+}
+
+
+
+.button_addHigh, .button_addLow {
+    border: none;
+    background: none;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.button_del {
+    width: 22px;
+    height: 15px;
+    padding-top: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+
+
+}
+
+.radio {
+    margin: 11px 0;
+    width: 13px;
+    height: 13px;
+    appearance: none;
+    border: 1px solid #282828;
+    border-radius: 50%;
+}
+
+
+.radio:checked {
+    background-color: #8f8f8f;
+    border: none;
+}
+
+
+
+form {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 574px;
+    height: auto;
+    min-height: 34px;
+    border-radius: 10px;
+    border: 1px solid #cacaca;
+    padding: 0 10px;
+    margin-top: 10px;
+}
+
+
+
+
+.text-content {
+    width: 500px;
+    height: auto;   
+    padding: 5px 10px;
+    margin: 0;
+    color: #2e2d2d;
+}
+
+.low_priority {
+    padding-bottom: 50px;
+}
