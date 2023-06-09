@@ -1,0 +1,97 @@
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap";
+:root {
+  --main-txt-color: #303030;
+}
+
+body {
+  align-items: center;
+  height: 100vh;
+  display: flex;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.form label {
+  color: var(--main-txt-color);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.form input {
+  box-sizing: border-box;
+  color: var(--main-txt-color);
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  width: 380px;
+  height: 50px;
+  padding-left: 14px;
+  padding-right: 12px;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  top: calc(50% - 71px);
+  left: calc(50% - 395px);
+}
+
+.form input::placeholder {
+  color: #d9d9d9;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.form button {
+  color: #fff;
+  background: #5e55d6;
+  border: none;
+  border-radius: 8px;
+  width: 380px;
+  height: 50px;
+  margin-left: 30px;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  top: calc(50% - 71px);
+  left: calc(50% + 15px);
+}
+
+.form div {
+  margin-top: 18px;
+}
+
+.info {
+  margin-top: 40px;
+}
+
+.info h1 {
+  color: var(--main-txt-color);
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 29px;
+}
+
+.info p {
+  color: var(--main-txt-color);
+  margin-top: 8px;
+  font-family: Inter;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 58px;
+}
+
+/*# sourceMappingURL=index.2687eea0.css.map */

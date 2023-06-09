@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+:root {
+  --main-txt-color: #303030;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.form label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--main-txt-color);
+}
+
+.form input {
+  box-sizing: border-box;
+  width: 380px;
+  height: 50px;
+  left: calc(50% - 380px / 2 - 205px);
+  top: calc(50% - 50px / 2 - 46px);
+  background: #ffffff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding-left: 14px;
+  padding-right: 12px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--main-txt-color);
+}
+
+.form input::placeholder {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #d9d9d9;
+}
+
+.form button {
+  margin-left: 30px;
+  width: 380px;
+  height: 50px;
+  border: none;
+  left: calc(50% - 380px / 2 + 205px);
+  top: calc(50% - 50px / 2 - 46px);
+  background: #5e55d6;
+  border-radius: 8px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.form div {
+  margin-top: 18px;
+}
+
+.info {
+  margin-top: 40px;
+}
+
+.info h1 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: var(--main-txt-color);
+}
+
+.info p {
+  margin-top: 8px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  color: var(--main-txt-color);
+}
