@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="./js/script.js" type="module"></script>
+		<title>Weather</title>
+	</head>
+	<body>
+		<div class="background"></div>
+		<div class="weather">
+			<form class="weather__search">
+				<input
+					type="text"
+					class="weather__search-input"
+					placeholder="Search"
+					name="city"
+					autocomplete="off"
+					required
+				/>
+				<button type="submit"></button>
+			</form>
+			<div class="preloader">
+				<img src="./assets/preloader.gif" alt="preloader" />
+			</div>
+			<div class="container">
+				<div class="tab">
+					<div class="weather__block weather__now active" id="tab_01">
+						<p class="weather__block-temp"><span>14</span>°</p>
+						<div class="weather__block-icon">
+							<img
+								class="weather__block-icon-img"
+								src="../static/weather_icons/01d.png"
+								alt="cloud"
+							/>
+						</div>
+						<div class="weather__block-content">
+							<p class="weather__block-content-city">Aktobe</p>
+							<div class="weather__block-content-like"></div>
+						</div>
+					</div>
+
+					<div class="weather__block weather__details" id="tab_02">
+						<p class="weather__details-title">Aktobe</p>
+						<ul class="list">
+							<li class="list__item" id="temperatureItem">
+								Temperature: <span class="temperature">14</span>°
+							</li>
+							<li class="list__item">Feels like: <span class="feel">10</span>°</li>
+							<li class="list__item">Weather: <span class="weather-sky">Clouds</span></li>
+							<li class="list__item">Sunrise: <span class="sunrise">03:21</span></li>
+							<li class="list__item">Sunset: <span class="sunset">18:54</span></li>
+						</ul>
+					</div>
+
+					<div class="weather__block weather__forecast" id="tab_03">
+						<p class="weather__forecast-title">Aktobe</p>
+						<div class="scr">
+							<div class="weather__forecast-block">
+								<div class="block__title">
+									<p class="block__title-date">17 May</p>
+									<p class="block__title-time">12:00</p>
+								</div>
+								<div class="block__subtitle">
+									<p class="block__subtitle-temp">Temperature: <span>13</span>°</p>
+									<p class="weather__subtitle-rain">Rain</p>
+								</div>
+								<div class="block__text">
+									<p class="block__text-feels">Feels like: <span>10</span>°</p>
+									<img src="./assets/svg/rain.svg" alt="rain" class="block__text-img" />
+								</div>
+							</div>
+							<div class="weather__forecast-block">
+								<div class="block__title">
+									<p class="block__title-date">17 May</p>
+									<p class="block__title-time">15:00</p>
+								</div>
+								<div class="block__subtitle">
+									<p class="block__subtitle-temp">Temperature: <span>13</span>°</p>
+									<p class="weather__subtitle-rain">Rain</p>
+								</div>
+								<div class="block__text">
+									<p class="block__text-feels">Feels like: <span>10</span>°</p>
+									<img src="./assets/svg/rain.svg" alt="rain" class="block__text-img" />
+								</div>
+							</div>
+							<div class="weather__forecast-block">
+								<div class="block__title">
+									<p class="block__title-date">17 May</p>
+									<p class="block__title-time">18:00</p>
+								</div>
+								<div class="block__subtitle">
+									<p class="block__subtitle-temp">Temperature: <span>13</span>°</p>
+									<p class="weather__subtitle-rain">Rain</p>
+								</div>
+								<div class="block__text">
+									<p class="block__text-feels">Feels like: <span>10</span>°</p>
+									<img src="./assets/svg/rain.svg" alt="rain" class="block__text-img" />
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<nav class="tabs__items" id="tabs">
+						<a class="tabs__item active">Now</a>
+						<a class="tabs__item">Details</a>
+						<a class="tabs__item">Forecast</a>
+					</nav>
+				</div>
+				<div class="weather__location">
+					<div class="weather__location-add">
+						<p>Added Locations:</p>
+					</div>
+					<div class="weather__location-save">
+						<ul class="list-locations"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
