@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+.container{
+	display: flex;
+	justify-content: center;
+	margin-top: 200px;
+}
+
+.timer{
+	width: 800px;
+	&-title{
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 24px;
+		color: #303030;
+		margin-bottom: 18px;
+	}
+	&-date{
+		&__input{
+			width: 380px;
+			height: 50px;
+			padding: 15px;
+			color: #D9D9D9;
+			font-family: 'Inter';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 22px;
+			outline: none;
+			border: 1px solid #E2E2E2;
+			border-radius: 8px;
+			&:focus{
+				border: 2px solid #5E55D6;
+			}
+		}
+		&__btn{
+			width: 380px;
+			height: 45px;
+			background: #5E55D6;
+			border-radius: 8px;
+			border: none;
+			font-family: 'Inter';
+			font-style: normal;
+			font-weight: 600;
+			font-size: 20px;
+			line-height: 24px;
+			color: #FFFFFF;
+			margin-left: 30px;
+			cursor: pointer;
+			transition: all ease 0.1s;
+  		box-shadow: 0px 5px 0px 0px #a29bfe;
+			position: relative;
+			overflow: hidden;
+			&:active{
+				transform: translateY(5px);
+				box-shadow: 0px 0px 0px 0px #a29bfe;
+			}
+			span:not(:nth-child(7)) {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				height: 100px;
+				width: 100px;
+				background-color: #d3b8ff;
+				border-radius: 50%;
+				transition: .6s ease;
+			}
+			span:nth-child(7) {
+				position: relative;
+			}
+			span:nth-child(6) {
+				transform: translate(-2.8em, -6.1em);
+			}
+			span:nth-child(1) {
+				transform: translate(-14.3em, -5.1em);
+			}
+			span:nth-child(2) {
+				transform: translate(-9.5em, 1.3em);
+			}
+			span:nth-child(3) {
+				transform: translate(-2.2em, 1.8em);
+			}
+			span:nth-child(4) {
+				transform: translate(7.5em, 1.4em);
+			}
+			span:nth-child(5) {
+				transform: translate(5.5em, -6.5em);
+			}
+			&:hover span:not(:nth-child(6)) {
+				transform: translate(-50%, -50%) scale(4);
+				transition: 1.5s ease;
+			}
+		}
+	}
+	&-subtitle{
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 29px;
+		color: #000000;
+		margin-top: 40px
+	}
+	&-left--time{
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 48px;
+		line-height: 58px;
+		color: #000000;
+	}
+}
+
+input::-webkit-calendar-picker-indicator {
+	background-color: #ffffff;
+	padding: 5px;
+	cursor: pointer;
+	border-radius: 3px;
+}

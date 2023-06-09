@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 200px;
+}
+
+.timer {
+  width: 800px;
+}
+.timer-title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #303030;
+  margin-bottom: 18px;
+}
+.timer-date__input {
+  width: 380px;
+  height: 50px;
+  padding: 15px;
+  color: #D9D9D9;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  outline: none;
+  border: 1px solid #E2E2E2;
+  border-radius: 8px;
+}
+.timer-date__input:focus {
+  border: 2px solid #5E55D6;
+}
+.timer-date__btn {
+  width: 380px;
+  height: 45px;
+  background: #5E55D6;
+  border-radius: 8px;
+  border: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  margin-left: 30px;
+  cursor: pointer;
+  -webkit-transition: all ease 0.1s;
+  transition: all ease 0.1s;
+  -webkit-box-shadow: 0px 5px 0px 0px #a29bfe;
+          box-shadow: 0px 5px 0px 0px #a29bfe;
+  position: relative;
+  overflow: hidden;
+}
+.timer-date__btn:active {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+  -webkit-box-shadow: 0px 0px 0px 0px #a29bfe;
+          box-shadow: 0px 0px 0px 0px #a29bfe;
+}
+.timer-date__btn span:not(:nth-child(7)) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 100px;
+  width: 100px;
+  background-color: #d3b8ff;
+  border-radius: 50%;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+.timer-date__btn span:nth-child(7) {
+  position: relative;
+}
+.timer-date__btn span:nth-child(6) {
+  -webkit-transform: translate(-2.8em, -6.1em);
+          transform: translate(-2.8em, -6.1em);
+}
+.timer-date__btn span:nth-child(1) {
+  -webkit-transform: translate(-14.3em, -5.1em);
+          transform: translate(-14.3em, -5.1em);
+}
+.timer-date__btn span:nth-child(2) {
+  -webkit-transform: translate(-9.5em, 1.3em);
+          transform: translate(-9.5em, 1.3em);
+}
+.timer-date__btn span:nth-child(3) {
+  -webkit-transform: translate(-2.2em, 1.8em);
+          transform: translate(-2.2em, 1.8em);
+}
+.timer-date__btn span:nth-child(4) {
+  -webkit-transform: translate(7.5em, 1.4em);
+          transform: translate(7.5em, 1.4em);
+}
+.timer-date__btn span:nth-child(5) {
+  -webkit-transform: translate(5.5em, -6.5em);
+          transform: translate(5.5em, -6.5em);
+}
+.timer-date__btn:hover span:not(:nth-child(6)) {
+  -webkit-transform: translate(-50%, -50%) scale(4);
+          transform: translate(-50%, -50%) scale(4);
+  -webkit-transition: 1.5s ease;
+  transition: 1.5s ease;
+}
+.timer-subtitle {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+  margin-top: 40px;
+}
+.timer-left--time {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  color: #000000;
+}
+
+input::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}/*# sourceMappingURL=style.css.map */
