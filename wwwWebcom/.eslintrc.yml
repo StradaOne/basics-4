@@ -1,0 +1,18 @@
+env:
+  browser: true
+  es2021: true
+extends: ["airbnb", "prettier", "plugin:prettier/recommended"]
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+rules: {
+  prettier/prettier: "error",
+  no-var: "error",
+  space-in-parens: ["error", "never"],
+  no-iterator: "error",
+  no-restricted-syntax: ["error", "FunctionExpression", "WithStatement", "BinaryExpression[operator='in']"],
+  no-shadow: "error",
+  no-console: "off",
+  no-param-reassign: "off",
+  no-plusplus: "off"
+}
