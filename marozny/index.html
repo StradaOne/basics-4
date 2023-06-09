@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./script.js" type="module" defer></script>
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="weather">
+      <div class="weather__search">
+        <form action="#" class="weather__search-form">
+          <input type="text" placeholder="Search" autocomplete="off" class="weather__search-form-input" />
+          <button type="submit" class="weather__search-form-btn"></button>
+        </form>
+      </div>
+      <div class="container">
+        <div class="container-left">
+          <div class="weather__block weather__now active">
+            <p class="weather__block-temp">14°</p>
+            <img src="./assets/cloud.png" alt="cloud" class="weather__block-cloud" />
+            <div class="weather__block-content">
+              <p class="weather__block-content-city">Aktobe</p>
+              <button class="weather__block-content-heart">
+                <img src="./assets/svg/Shape.svg" alt="shape" />
+              </button>
+            </div>
+          </div>
+          <div class="weather__block weather__details">
+            <p class="weather__details-city">Aktobe</p>
+            <ul class="list">
+              <li class="list__items">Current Time: <span class="time">00:00</span></li>
+              <li class="list__items">Temperature: <span class="temperature">14</span>°</li>
+              <li class="list__items">Feels like: <span class="feelslike">10</span>°</li>
+              <li class="list__items">Weather: <span class="weather-sky">Clouds</span></li>
+              <li class="list__items">Sunrise: <span class="sunrise">03:21</span></li>
+              <li class="list__items">Sunset: <span class="sunset">18:54</span></li>
+            </ul>
+          </div>
+          <nav class="tabs">
+            <ul class="tabs__item active">
+              Now
+            </ul>
+            <ul class="tabs__item">
+              Details
+            </ul>
+            <ul class="tabs__item">
+              Forecast
+            </ul>
+          </nav>
+        </div>
+        <div class="weather__location">
+          <div class="weather__location-add">
+            <p>Added Locations:</p>
+          </div>
+          <div class="weather__location-save">
+            <ul class="list-locations"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
