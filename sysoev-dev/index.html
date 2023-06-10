@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>TODO UI</title>
+</head>
+
+<body>
+  <div class="todo">
+    <div class="todo__box todo__box--high">
+      <h2 class="todo__form-title">High</h2>
+      <form class='todo__form todo__form--high' action="#" method="get">
+        <input class='todo__form-input todo__form-input--high' type="text" name="high-input"
+          placeholder='Добавить важных дел' required>
+        <button class='todo__form-btn todo__form-btn--high' type="submit">Добавить задачу</button>
+      </form>
+      <ul class="todo__list todo__list--high"></ul>
+    </div>
+    <div class="todo_box todo__box--low">
+      <h2 class="todo__form-title">Low</h2>
+      <form class='todo__form todo__form--low' action="#" method="get">
+        <input class='todo__form-input todo__form-input--low' type="text" name="low-input" placeholder='Добавить'
+          required>
+        <button class='todo__form-btn todo__form-btn--low' type="submit">Добавить задачу</button>
+      </form>
+      <ul class="todo__list todo__list--low"></ul>
+    </div>
+  </div>
+  <template class='template'>
+    <label class='todo__item-label'>
+      <input class='todo__item-checkbox-input' type="checkbox" name="item-checked">
+      <span class="todo__item-checkbox"></span>
+    </label>
+    <p class='todo__item-text'></p>
+    <button class='todo__item-btn-delete' type='button'>Удалить задачу</button>
+  </template>
+  <script type='module' src="main.js"></script>
+</body>
+
+</html>
