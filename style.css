@@ -1,0 +1,107 @@
+@font-face {
+	font-family: NunitoRegular; /* Гарнитура шрифта */
+	src: url(/basics-4/fonts/Nunito-Regular.ttf);
+ }
+
+.container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 98vh;
+}
+
+body{
+	background-color: rgb(231, 231, 231);
+	font-family: 'NunitoRegular';
+}
+
+.block{
+	background-color: #fff;
+	border-radius: 15px;
+	padding-top: 25px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 25px;
+}
+
+.High{
+	width: 460px;
+}
+.title{
+	text-align: center;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.input{
+	margin-top: 12px;
+	display: flex;
+	position: relative;
+	height: 45px;
+}
+.input input{
+	width: 100%;
+	border-radius: 6px;
+	background: #fff;
+	border: 1px #989898 solid;
+	padding-left: 12px;
+	font-size: 18px;
+	color: #202020;
+}
+.input input::-moz-placeholder { color: #BBBBBB; }
+.input input::-webkit-input-placeholder { color: #BBBBBB; }
+
+.input .icon{
+	position: absolute;
+	right: 12px;
+	top: calc(50% - 10px);
+}
+.Low{
+	max-width: 460px;
+	margin-top: 12px;
+}
+
+.icon{
+	cursor: pointer;
+}
+
+.task{
+	display: flex;
+	margin-top: 8px;
+	align-items: start;
+	border-radius: 6px;
+	background: #fff;
+	padding: 12px;
+	justify-content: space-between;
+	border: 1px #989898 solid;
+}
+.task .checkbox{
+	height: 21px;
+	width: 21px;
+	border-radius: 50%;
+}
+.icons{
+	transform: rotate(45deg);
+}
+
+
+.task:has(.checkbox:checked){
+	background: #F4F4F4;
+}
+
+.task .icon{
+	transform: rotate(45deg);
+}
+.task .text{
+	font-size: 18px;
+	color: #202020;
+	width: 100%;
+	margin-left: 12px;
+	margin-right: 12px;
+}
+button{
+	border: none;
+	background: #fff;
+	padding: 0;
+}
+
+
