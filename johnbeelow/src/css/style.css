@@ -1,0 +1,70 @@
+@import url('./reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  background-color: #141414;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.text_enter {
+  display: flex;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.input_form {
+  display: flex;
+  justify-content: center;
+
+}
+
+input[type='date']  {
+  width: 250px;
+  padding: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: rgb(236, 236, 236);
+  margin: 10px;
+}
+
+.result_button {
+  width: 250px;
+  padding: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  background: #593bdd;
+  cursor: pointer;
+  font-size: 20px;
+  color: #c2c1c1;
+  margin: 10px;
+}
+
+.result_button:hover {
+  background: #7259e0;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 22px;
+  color: #826edd;
+}
+
+.result_date {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 30px;
+}
