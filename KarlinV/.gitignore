@@ -1,0 +1,76 @@
+# Папка с зависимостями / Dependency folders
+/node_modules
+
+# Скомпилированные файлы / Compiled files
+/dist
+/build
+
+# Логи и временные файлы / Logs and temporary files
+/logs
+/temp
+
+# Конфигурационные файлы IDE / IDE configuration files
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+
+# Файлы окружения / Environment files
+.env
+
+# Кэши и временные файлы различных инструментов / Caches and temporary files of various tools
+.cache
+*.swp
+*.swo
+*.log
+
+# Игнорирование конкретных файлов или папок / Ignoring specific files or folders
+
+
+# Игнорирование определенных типов файлов / Ignoring specific file types
+*.zip
+*.rar
+*.tar.gz
+
+# Игнорирование сгенерированных или временных файлов / Ignoring generated or temporary files
+*.min.js
+*.min.css
+*.bak
+*.tmp
+
+# Кэши и временные файлы Babel / Caches and temporary files of Babel
+.cache
+dist
+*.log
+*cache
+
+# Логи / Logs
+log.txt
+
+# Файлы, содержащие секретные данные / Files containing sensitive data
+*.key
+*.pem
+*.cer
+*.p12
+*.pfx
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+# TypeScript конфигурационные файлы / TypeScript configuration files
+tsconfig.json
+tsconfig.*.json
+
+# Файлы JavaScript Source Maps / JavaScript Source Maps files
+*.js.map
+
+# Папка с компилированными JavaScript файлами / Folder with compiled JavaScript files
+/public/js
+
+# Папка с компилированными TypeScript файлами / Folder with compiled TypeScript files
+/dist/*.ts
+/dist/*.tsx
+
+# Папка с компилированными CSS файлами / Folder with compiled CSS files
+/dist/*.css

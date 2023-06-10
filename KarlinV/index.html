@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather">
+        <div class="weatrher__search">
+          <form action="#" class="form" autocomplete="off">
+            <input
+              class="form__input"
+              name="name-sity"
+              type="text"
+              placeholder="Enter the name of the city to search for"
+              tabindex="0"
+            />
+
+            <button class="form__button form__button--icon" type="submit"></button>
+          </form>
+        </div>
+        <div class="weather__body">
+          <div class="weather__content">
+            <div class="weather__cards"></div>
+
+            <div class="weather__tabs">
+              <a href="#card-now" class="tab active tab__now">Now</a>
+              <a href="#card-details" class="tab tab__details">Details</a>
+              <a href="#card-forecast" class="tab tab__forecast">Forecast</a>
+            </div>
+          </div>
+
+          <div class="weather__location">
+            <div class="weather__location-title">
+              <span>Added Locations:</span>
+            </div>
+            <ul class="weather__location-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/main.js" type="module"></script>
+  </body>
+</html>
