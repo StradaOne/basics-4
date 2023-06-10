@@ -1,0 +1,155 @@
+import {addItemsFormHigh, addItemsFormLow, taskBlockHigh, taskBlockLow} from "./modules/domElements.js";
+
+const STATUS = {
+    TODO: 'to do',
+    DONE: 'done'
+}
+
+const PRIORITY = {
+    HIGH: 'high',
+    LOW: 'low'
+}
+
+const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+
+
+function addTask(text) {
+    todoList.push(text);
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+    
+};
+
+
+//добавление задачи с высоким приоритетом 
+function addItemHigh(event) {
+    event.preventDefault();
+    const textHigh = event.target.itemHigh.value;
+    const itemHigh = {
+        id: countId,
+        name: textHigh,
+        checked: false,
+        status: STATUS.TODO,
+        priority: PRIORITY.HIGH
+    };
+
+    addTask(itemHigh);
+    render();
+    this.reset();
+};
+
+
+//добавление задачи с низким приоритетом
+function addItemLow(event) {
+    event.preventDefault();
+    const textLow = event.target.itemLow.value;
+    const itemLow = {
+        id: countId,
+        name: textLow,
+        checked: false,
+        status: STATUS.TODO,
+        priority: PRIORITY.LOW
+    };
+
+    addTask(itemLow);
+    render();
+    this.reset();
+};
+
+let countId = 0;
+
+//функция создания элемента
+function createElementHigh(taskBlockHigh, task, priority) {
+    const newElement = document.createElement('div'); 
+    const checkBox = document.createElement('input');
+    const taskText = document.createElement('p');
+    const delButton = document.createElement('button');
+    const imgForDelButton = document.createElement('img');
+    
+    newElement.classList.add('add-items-form_high');
+    checkBox.type = 'checkbox';
+    // checkBox.id = `${countId++}`;
+    taskText.textContent = task;
+    delButton.classList.add('button_del');
+    imgForDelButton.src = './image/free-icon-close-151882-444.svg';
+    imgForDelButton.id = `${countId}`;
+    delButton.id = `${countId++}`;
+    
+    newElement.appendChild(checkBox);
+    newElement.appendChild(taskText);
+    delButton.appendChild(imgForDelButton);
+    newElement.appendChild(delButton);
+    taskBlockHigh.appendChild(newElement);
+    
+    delButton.addEventListener('click', deleteTask);
+    // checkBox.addEventListener('change', changeStatus);
+
+    return taskBlockHigh;
+};
+
+function createElementLow(taskBlockLow, task, priority) {
+    const newElement = document.createElement('div'); 
+    const checkBox = document.createElement('input');
+    const taskText = document.createElement('p');
+    const delButton = document.createElement('button');
+    const imgForDelButton = document.createElement('img');
+    
+    newElement.classList.add('add-items-form_high');
+    checkBox.type = 'checkbox';
+    // checkBox.id = `${countId++}`;
+    taskText.textContent = task;
+    delButton.classList.add('button_del');
+    imgForDelButton.src = './image/free-icon-close-151882-444.svg';
+    imgForDelButton.id = `${countId}`;
+    delButton.id = `${countId++}`;
+    
+    newElement.appendChild(checkBox);
+    newElement.appendChild(taskText);
+    delButton.appendChild(imgForDelButton);
+    newElement.appendChild(delButton);
+    taskBlockLow.appendChild(newElement);
+    
+    delButton.addEventListener('click', deleteTask);
+    // checkBox.addEventListener('change', changeStatus);
+
+    return taskBlockLow;
+};
+
+
+//удаление элемента из массива 
+function deleteTask(event) {
+    const indexButton = event.target.getAttribute("id");
+    console.log(indexButton);
+    todoList.splice(indexButton, 1);
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+    render();
+};
+
+//функция "отрисовки" html
+function render() {
+    countId = 0;
+    taskBlockHigh.textContent = '';
+    taskBlockLow.textContent = '';
+    for (let obj of todoList) {
+        obj.priority == PRIORITY.HIGH ?
+        createElementHigh(taskBlockHigh, obj.name, obj.status) :
+        createElementLow(taskBlockLow, obj.name, obj.status);
+    };
+    
+
+    console.log(todoList);
+};
+
+//изменение статуса задачи по чекбоксу 
+// function changeStatus(event) {
+//    const elem = event.target.getAttribute('id');
+//    if (elem === )  //допилить поиск по айди
+//    console.log(elem)
+
+// };
+
+addItemsFormHigh.addEventListener('submit', addItemHigh);
+addItemsFormLow.addEventListener('submit', addItemLow);
+
+render();
+
+
