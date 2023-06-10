@@ -1,0 +1,35 @@
+{
+  "name": "dariayukseeva",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel",
+    "build": "npx parcel index.html",
+    "lint": "eslint --fix .",
+    "format": "prettier --write ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@parcel/config-default": "^2.9.1",
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0",
+    "parcel-reporter-static-files-copy": "^1.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "parcel": "^2.9.1",
+    "prettier": "^2.8.8"
+  }
+}

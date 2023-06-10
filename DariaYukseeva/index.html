@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="weather">
+        <div class="weather-search">
+            <form class="weather-search-form">
+                <input class="weather-search-form-input" type="text" placeholder="Enter city" autofocus>
+                <button type="submit"></button>
+            </form>
+        </div>
+        <div class="weaether-big-block">
+            <div class="weather-left-block">
+                <div class="tabs-content">
+                    <div class="weather-now tabs-content-item">
+                        <div class="temperature-wrapper"><span class="temperature">-</span>&#176;C</div>
+                        <div class="precipitation">
+                            <img class="weather-now-precipitation-img" src="./assets/img/loading_icon.svg" alt="precipitation">
+                        </div>
+                        <div class="selected-city-now-wrapper">
+                            <p class="selected-city-now" style="color: #b4b4b4;">City</p>
+                            <button class="favorite-btn" title="Add or remove city from the favorites list"></button>
+                        </div>
+                    </div>
+                    <div class="weather-details tabs-content-item inactive-block">
+                        <div class="selected-city-details">Actobe</div>
+                        <ul>
+                            <li>Temperature: <span class="weather-details-temp">14</span>&#176;C</li>
+                            <li>Feels like: <span class="weather-details-feels-like">10</span>&#176;C</li>
+                            <li> Weather: <span class="weather-details-precipitation">Clouds</span></li>
+                            <li>Sunrise: <span class="weather-details-sunrise">03:21</span></li>
+                            <li>Sunset: <span class="weather-details-sunset">18:54</span></li>
+                        </ul>
+                    </div>
+                    <div class="weather-forecast tabs-content-item inactive-block">
+                        <!-- <div class="selected-city-forecast">Actobe</div> -->
+                        <!-- <div class="forecast-hourly-item">
+                            <div class="date-time-block">
+                                <div class="date">17 May</div>
+                                <div class="time">12:00</div>
+                            </div>
+                            <div class="forecast-hourly-weather ">
+                                <div class="forecast-hourly-weather-temp-wrapper">
+                                    <div class="forecast-hourly-weather-temp">
+                                        Temperature: 13&#176;
+                                    </div>
+                                    <div class="forecast-hourly-weather-feels-temp">
+                                        Feels like: 10&#176;
+                                    </div>
+                                </div>
+                                <div class="forecast-hourly-weather-precipitation-wrapper">
+                                    <div class="forecast-hourly-weather-precipitation">
+                                        Rain
+                                    </div>
+                                    <div class="forecast-hourly-weather-precipitation-img">
+                                        <img src="./assets/img/rain.png" alt="precipitation">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <nav class="tabs">
+                    <button class="tab-item active-tab">Now</button>
+                    <button class="tab-item">Details</button>
+                    <button class="tab-item">Forecast</button>
+                </nav>
+            </div>
+            <div class="weather-right-block">
+                <div class="added-cities-header">Added Locations:</div>
+                <div class="favourite-cities-list-wrapper">
+                    <ul class="favourite-cities-list">
+                        <!-- <li class="favourite-cities-list-item">Amur</li>
+                        <li class="favourite-cities-list-item">Samara</li>
+                        <li class="favourite-cities-list-item">Bali</li>
+                        <li class="favourite-cities-list-item">Dane</li>
+                        <li class="favourite-cities-list-item">Kilo</li>
+                        <li class="favourite-cities-list-item">Nur-Sultan</li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
