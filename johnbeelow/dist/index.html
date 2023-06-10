@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather</title>
+  <link rel="stylesheet" href="/index.6ee55851.css">
+</head>
+
+<body>
+
+  <main class="main">
+
+    <div class="container">
+
+
+      <div class="vrapper search-wrapper">
+        <form name="search" class="search-form">
+          <label class="search-label">
+            <input type="text" class="search" name="city" placeholder="Search city" autocomplete="off">
+          </label>
+          <label class="search-btn-label">
+            <button type="submit" class="btn search-btn">
+              <img src="/search.93bbc225.svg" alt="search" class="search-img">
+            </button>
+          </label>
+        </form>
+      </div>
+
+
+      <div class="vrapper weather-wrapper">
+        <div class="tab now-tab active-tab" data-tab="now">
+          <p class="temperature temperature-main">14°</p>
+          <img src="http://openweathermap.org/img/wn/02d@2x.png" alt="icon" class="icon">
+          <div class="city-wrapper">
+            <p class="active-city">Aktobe</p>
+            <button class="like">❤</button>
+          </div>
+        </div>
+
+
+        <div class="tab details-tab inactive-tab" data-tab="details">
+          <p class="active-city-details">Aktobe</p>
+          <ul class="tab-list-details">
+
+            <li class="detail">
+              Temperature: <span class="temperature">14°</span>
+            </li>
+            <li class="detail">
+              Feels like: <span class="feels-like">10°</span>
+            </li>
+            <li class="detail">
+              Weather: <span class="current-state">Clouds</span>
+            </li>
+            <li class="detail">
+              Sunrise: <span class="time-sunrise">03:21</span>
+            </li>
+            <li class="detail">Sunset: <span class="time-sunset">18:54</span></li>
+          </ul>
+
+        </div>
+
+
+        <div class="tab forecast-tab inactive-tab" data-tab="forecast">
+          <p class="active-city-forecast">Aktobe</p>
+
+          <div class="tab-list-forecast">
+
+            <!-- <div class="forecast-block">
+              <span class="forecast-date">17 May</span>
+              <span class="forecast-time">12:00</span>
+              <span class="forecast-temperature">Temperature: 13°</span>
+              <span class="forecast-state">Rain</span>
+              <span class="forecast-feels-like">Feels like: 10°</span>
+              <img class="icon-item" src="http://openweathermap.org/img/wn/02d.png" alt="#">
+            </div>
+
+            <div class="forecast-block">
+              <span class="forecast-date">17 May</span>
+              <span class="forecast-time">15:00</span>
+              <span class="forecast-temperature">Temperature: 13°</span>
+              <span class="forecast-state">Rain</span>
+              <span class="forecast-feels-like">Feels like: 10°</span>
+              <img class="icon-item" src="http://openweathermap.org/img/wn/02d.png" alt="#">
+            </div>
+
+            <div class="forecast-block">
+              <span class="forecast-date">17 May</span>
+              <span class="forecast-time">18:00</span>
+              <span class="forecast-temperature">Temperature: 13°</span>
+              <span class="forecast-state">Rain</span>
+              <span class="forecast-feels-like">Feels like: 10°</span>
+              <img class="icon-item" src="http://openweathermap.org/img/wn/02d.png" alt="#">
+            </div> -->
+
+          </div>
+
+        </div>
+
+
+        <div class="tab-wrapper-btn">
+          <button class="btn tab-btn now-btn active-btn" data-tab="now">
+            Now
+          </button>
+          <button class="btn tab-btn details-btn" data-tab="details">
+            Details
+          </button>
+          <button class="btn tab-btn forecast-btn" data-tab="forecast">
+            Forecast
+          </button>
+        </div>
+      </div>
+
+
+      <div class="vrapper location-wrapper">
+        <p class="locations">Added Locations:</p>
+
+        <ul class="city-list-wrapper">
+
+          <!-- <div>
+            <a class="view_city_deactive">Amur</a> 
+            <button class="delete_city">✖</button>
+          </div>
+
+          <div>
+            <a class="view_city_active">Bali</a> 
+            <button class="delete_city">✖</button>
+          </div>
+          <div>
+            <a class="view_city_deactive">Dane</a> 
+            <button class="delete_city">✖</button>
+          </div> -->
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <div id="loader">
+      <div class="bar"></div>
+    </div>
+    <div id="loader-disconected">
+      <div class="bar-dis"></div>
+    </div>
+
+
+  </main>
+
+  <script src="/index.5b825658.js" defer=""></script>
+
+</body>
+
+</html>
