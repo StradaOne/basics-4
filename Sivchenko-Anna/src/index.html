@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/normalize.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<title>Countdown</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="countdown">
+				<p class="countdown-title">Введите дату</p>
+				<form class="countdown-date">
+					<input type="date" class="countdown-date__input" placeholder="DD.MM.YYY" />
+					<button type="submit" class="countdown-date__button">Посчитать</button>
+				</form>
+				<p class="countdown-subtitle">Осталось времени:</p>
+				<p class="countdown-output">10 лет 364 дня 23 часа</p>
+			</div>
+		</div>
+		<script src="./js/main.js" type="module"></script>
+	</body>
+</html>
