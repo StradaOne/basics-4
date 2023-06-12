@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 100%;
+    max-height: 435px;
+    height: 100%;
+    border: 1px #000 solid;
+}
+
+.search {
+    border-bottom: 1px #000 solid;
+    position: relative;
+    height: 45px;
+}
+#input {
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    width: 85%;
+    height: 45px;
+    margin-left: 16px;
+    border: none;
+}
+#input::placeholder{
+    font-size: 18px;
+    color: var(--placeholder,grey);
+}
+#input:focus {
+    outline-style: none;
+}
+
+.displayNow{
+    display: none;
+}
+.displayDetails{
+    display: none;
+    flex-direction: column;
+}
+.titleDetails{
+    display: flex;
+    margin-top: 14px;
+    margin-left: 15px;
+}
+.itemDetails{
+    margin-left: 10px;
+}
+.displayForecast{
+    display: none;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    overflow-y: auto;
+    height: 90%;
+}
+.forecastBadge {
+    margin-top: 10px;
+    align-self: center;
+    position: relative;
+    border: 1px #000 solid;
+    width: 84.476%;
+    padding: 7px;
+}
+.forecastBadge:last-child {margin-bottom: 25px;}
+.forecastDay{
+    width: 50%;
+    font-size: 18px;
+}
+.forecastTime{
+    font-size: 18px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.forecastTemp{
+    margin-top: 35px;
+    font-size: 18px;
+}
+.forecastFeels{
+    margin-top: 4px;
+    font-size: 18px;
+}
+.forecastWeather{
+    position: absolute;
+    right: 10px;
+    bottom: 33px;
+    font-size: 18px;
+}
+.forecastIcon{
+    width: 40px;
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+}
+
+.displayActive {
+    display: flex;
+}
+
+.tempBlock {
+    display: flex;
+    font-size: 70px;
+    margin-left: 23px;
+    margin-top: 20px;
+}
+
+#searchBut {
+    margin: 7.5px 7.5px 0px 0px;
+    padding: 0;
+    position: absolute;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    background: url(search.svg)no-repeat;
+    cursor: pointer;
+}
+
+.display {
+    position: relative;
+    height: 100%;
+}
+
+.weatherIcon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.leftRight {
+    display: flex;
+
+}
+
+.leftSide {
+    width: 50%;
+    height: 390px;
+    border-right: 1px #000 solid;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.city {
+    margin: 0px 0px 56px 15px;
+    position: absolute;
+    bottom: 0;
+}
+.cityDetails {
+    display: block ;
+    margin: 33px 0px 0px 15px;
+    top: 0;
+}
+
+.addFavorite {
+    cursor: pointer;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0px 12px 60px 0px;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    border: none;
+    transition: 0.3s;
+    background: transparent;
+    background: url(heart-icon.svg)no-repeat;
+}
+.addFavorite:hover{
+    opacity: 70%;
+}
+.favoriteActive {
+    background: url(heart-icon-red.svg)no-repeat;
+}
+
+.rightSide {
+    width: 50%;
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+}
+.addCont {
+    border-bottom: 1px #000 solid;
+    width: 100%;
+    height: 58px;
+    display: flex;
+    align-items:end;
+    margin: 10px 0px 0px 0px;
+}
+.addLocs {
+    margin-left: 18px;
+    margin-bottom: 7px;
+}
+
+.buttons {
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px #000 solid;
+    border-top: 1px #000 solid;
+}
+.button {
+    background: #fff;
+    border: none;
+    height: 44px;
+    padding: 0;
+    width: 33.3333333333%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+.button:hover {
+    color: #999;
+}
+#buttonDetails {
+    border-right: 1px #000 solid;
+    border-left: 1px #000 solid;
+}
+.buttonActive {
+    color: #fff;
+    background: #000;
+}
+.locsList {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    overflow-y: auto;
+    height: 94%;
+}
+.locsList ul {
+    padding: 0;
+    margin-left: 18px;
+}
+.locsList li {
+    position: relative;
+    cursor: pointer;
+    line-height: 42px;
+    list-style-type: none;
+    transition: 0.2s;
+}
+.listItem:hover {
+    opacity: 60%;
+}
+.itemCross{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    margin: 15px 10px 0px 0px;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    border: none;
+    transition: 0.3s;
+    background: transparent;
+    background: url(cross.svg)no-repeat;   
+}

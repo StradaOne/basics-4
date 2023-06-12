@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="fav.svg">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+
+        <form class="search">
+            <input id="input" autocomplete="off" placeholder="Enter the city">
+            <button id="searchBut"></button>
+        </form>
+
+        <div class="leftRight">
+            <div class="leftSide">
+
+                <div class="displayNow displayActive" id="displayNow">
+
+                    <div class="tempBlock">
+                        <div class="temp" id="temp"></div>
+                        <div class="celcius">°C</div>
+                    </div>
+
+                    <img class="weatherIcon" id="weatherIcon">
+                    <div class="city" id="city"></div>
+                    <button class="addFavorite " id="addFavorite"></button>
+                </div>
+
+                <div class="displayDetails " id="displayDetails">
+                    <div class="cityDetails" id="cityDetails"></div>
+
+                    <div class="titleDetails">
+                        Temperature:
+                        <div class="itemDetails" id="tempDetails"></div>
+                    </div>
+                    <div class="titleDetails">
+                        Feels like:
+                        <div class="itemDetails" id="feelsDetails"></div>
+                    </div>
+                    <div class="titleDetails">
+                        Weather:
+                        <div class="itemDetails" id="weatherDetails"></div>
+                    </div>
+                    <div class="titleDetails">
+                        Sunrise:
+                        <div class="itemDetails" id="sunriseDetails"></div>
+                    </div>
+                    <div class="titleDetails">
+                        Sunset:
+                        <div class="itemDetails" id="sunsetDetails"></div>
+                    </div>
+                </div>
+
+                <div class="displayForecast " id="displayForecast">
+                </div>
+
+                <div class="buttons">
+                    <button class="button buttonActive" id="buttonNow">Now</button>
+                    <button class="button " id="buttonDetails">Details</button>
+                    <button class="button " id="buttonForecast">Forecast</button>
+                </div>
+            </div>
+
+            <div class="rightSide">
+                <div class="addCont">
+                    <div class="addLocs">
+                        Favorite Locations:
+                    </div>
+                </div>
+                <div class="locsList">
+                    <ul id="favList"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>
