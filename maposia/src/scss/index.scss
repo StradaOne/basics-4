@@ -1,0 +1,92 @@
+@import "./minireset.min.css";
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 790px;
+}
+
+.date__form {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.date__block__input {
+  display: flex;
+}
+
+
+.date__block__text {
+  margin-bottom: 18px;
+}
+
+.date__input {
+  width: 380px;
+  height: 50px;
+  margin-right: 30px;
+  border: 1px #E2E2E2 solid;
+  border-radius: 8px;
+
+
+  &__form {
+    font-family: "Inter", sans-serif;
+    padding-left: 14px;
+    padding-right: 14px;
+    margin: 12px 0 14px 0;
+    width: 100%;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    line-height: 22px;
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      color: #D9D9D9;
+
+    }
+  }
+
+  &__label {
+    margin-bottom: 18px;
+  }
+}
+
+.date__button {
+  width: 380px;
+  height: 50px;
+  background-color: #5E55D6;
+  color: #FFF;
+  font-size: 20px;
+  line-height: 24px;
+  border-radius: 8px;
+  border: none;
+}
+
+.time__left {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &__text {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  &__output {
+    font-size: 48px;
+    line-height: 58px;
+  }
+}
