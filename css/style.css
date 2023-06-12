@@ -1,0 +1,58 @@
+
+body{
+background-color: aliceblue;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.main{
+width: 790px;
+height: 227px;
+}
+.enterTitle{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+}
+
+.inputDate{
+  font-family: 'Inter';
+font-style: normal;
+  margin-top: 18px;
+  width: 380px;
+  height: 50px;
+}
+.startBtn{
+  color: aliceblue;
+  background-color: blueviolet;
+  font-family: 'Inter';
+font-style: normal;
+  width: 380px;
+  height: 50px;
+margin-left: 15px;
+}
+.textUnderForm{
+  width: 233px;
+  height: 29px;
+  margin-top: 20px;
+  
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+}
+
+.result{
+  width: 700px;
+  height: 58px;
+  margin-top: 8px;
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 48px;
+line-height: 58px;
+
+}
