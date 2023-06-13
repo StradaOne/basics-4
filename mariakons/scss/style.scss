@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+body{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.weather {
+   width: 600px;
+   height: 435px;
+   border: 1px solid #000000;
+   &__search{
+      min-width: 435px;
+      min-height: 45px;
+      border-bottom:1px solid #000000;
+      display: flex;
+      &-form{
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         &-input{
+            border: none;
+            outline: none;
+            width: 553px;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21px;
+            color: #696969;
+            padding-left: 16px;
+         }
+         &-btn{
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: url(../img/search.svg) no-repeat;
+            cursor: pointer;
+         }
+      }
+   }
+   &__block{
+      width: 298px;
+      height: 345px;
+      display: none;
+      &-temp{
+         font-family: 'Roboto';
+         font-style: normal;
+         font-weight: 400;
+         font-size: 70px;
+         line-height: 82px;
+         color: #000000;
+         padding-top: 20px;
+         margin-left: 23px;
+      }
+      &-cloud{
+         height: 59px;
+         width: 78px;
+         margin-top:40px;
+         margin-left: 112px;
+      }
+      &-content{
+         display: flex;
+         justify-content: space-between;
+         margin-top: 98px;
+         margin-bottom: 17px;
+         &-city{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 28px;
+            color: #000000;
+            margin-left: 12px;
+         }
+         &-heart{
+            border: none;
+            background: none;
+            cursor: pointer;
+            margin-right: 26px;
+         }
+      }      
+   }
+   &__details{
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 28px;
+      color: #000000;
+      &-city{
+          padding-top: 33px;
+          padding-left: 17px;
+         }
+      .list{
+         padding-top: 42px;
+         padding-left: 16px;
+         &__items{
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 1.8;
+            color: #000000;
+         }
+      }
+   }
+   &__forecast{
+      overflow:auto;
+      height: 345px;
+     &-city{
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 28px;
+      color: #000000;
+      margin-top: 33px;
+      margin-left: 18px;
+     }       
+   }
+   .wrapper{
+      width: 265px;
+      height: 120px;
+      border: 1px solid #000000;
+      margin: 7px auto 0 auto;
+      margin-left: 18px;
+   }
+   .dateTime{
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      margin-top: 6px;
+      margin-bottom: 38px;
+      margin-left: 8px;
+      margin-right: 12px;
+   }
+   ::-webkit-scrollbar{
+      display: none;
+   }
+   .condition{
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      margin-right: 10px;
+      margin-left: 10px;
+   }
+   .feelLike{
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      margin-right: 13px;
+      margin-left: 10px;
+   }
+   .icon{
+      width: 31px;
+      height: 31px;
+   }
+   .container{
+      display: flex;
+      &-left{
+         height: 389px;
+         width: 298px;
+         border-right: 1px solid #000000 ;
+         .active{
+            display: block;
+         }
+      }
+      &-right{
+         height: 389px;
+         width: 302px; 
+         font-family: 'Roboto';
+         font-style: normal;
+         font-weight: 400;
+         font-size: 24px;
+         line-height: 28px;
+         color: #000000;    
+      p{
+         height: 68px;
+         border-bottom: 1px solid #000000;
+         padding-top: 33px;
+         padding-left: 18px;
+        
+      } 
+      .container-right__city-names{
+         margin-top: 35px;
+      }
+      span{
+         margin-left: 18px;
+      }
+      li{
+         display: flex;
+         justify-content: space-between;
+      }
+     } 
+   }
+   .tabs{
+      display: flex;
+      justify-content: space-between;
+      &__item{
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 99px;
+         height: 44px;
+         font-family: 'Roboto';
+         font-style: normal;
+         font-weight: 400;
+         font-size: 18px;
+         line-height: 21px;
+         color: #000000;
+         border-top: 1px solid #000000;
+         border-right: 1px solid #000000;
+         cursor: pointer;
+         &:nth-child(3){
+            border-right:none ;
+         }
+      }
+      .active{
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         background: #000000;
+         color: white;
+      }
+   }
+}

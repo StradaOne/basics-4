@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.weather {
+  width: 600px;
+  height: 435px;
+  border: 1px solid #000000;
+}
+.weather__search {
+  min-width: 435px;
+  min-height: 45px;
+  border-bottom: 1px solid #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.weather__search-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.weather__search-form-input {
+  border: none;
+  outline: none;
+  width: 553px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #696969;
+  padding-left: 16px;
+}
+.weather__search-form-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: url(../img/search.svg) no-repeat;
+  cursor: pointer;
+}
+.weather__block {
+  width: 298px;
+  height: 345px;
+  display: none;
+}
+.weather__block-temp {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 82px;
+  color: #000000;
+  padding-top: 20px;
+  margin-left: 23px;
+}
+.weather__block-cloud {
+  height: 59px;
+  width: 78px;
+  margin-top: 40px;
+  margin-left: 112px;
+}
+.weather__block-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 98px;
+  margin-bottom: 17px;
+}
+.weather__block-content-city {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  margin-left: 12px;
+}
+.weather__block-content-heart {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-right: 26px;
+}
+.weather__details {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
+.weather__details-city {
+  padding-top: 33px;
+  padding-left: 17px;
+}
+.weather__details .list {
+  padding-top: 42px;
+  padding-left: 16px;
+}
+.weather__details .list__items {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.8;
+  color: #000000;
+}
+.weather__forecast {
+  overflow: auto;
+  height: 345px;
+}
+.weather__forecast-city {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  margin-top: 33px;
+  margin-left: 18px;
+}
+.weather .wrapper {
+  width: 265px;
+  height: 120px;
+  border: 1px solid #000000;
+  margin: 7px auto 0 auto;
+  margin-left: 18px;
+}
+.weather .dateTime {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  margin-top: 6px;
+  margin-bottom: 38px;
+  margin-left: 8px;
+  margin-right: 12px;
+}
+.weather ::-webkit-scrollbar {
+  display: none;
+}
+.weather .condition {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.weather .feelLike {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  margin-right: 13px;
+  margin-left: 10px;
+}
+.weather .icon {
+  width: 31px;
+  height: 31px;
+}
+.weather .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.weather .container-left {
+  height: 389px;
+  width: 298px;
+  border-right: 1px solid #000000;
+}
+.weather .container-left .active {
+  display: block;
+}
+.weather .container-right {
+  height: 389px;
+  width: 302px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
+.weather .container-right p {
+  height: 68px;
+  border-bottom: 1px solid #000000;
+  padding-top: 33px;
+  padding-left: 18px;
+}
+.weather .container-right .container-right__city-names {
+  margin-top: 35px;
+}
+.weather .container-right span {
+  margin-left: 18px;
+}
+.weather .container-right li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.weather .tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.weather .tabs__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 99px;
+  height: 44px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+  border-top: 1px solid #000000;
+  border-right: 1px solid #000000;
+  cursor: pointer;
+}
+.weather .tabs__item:nth-child(3) {
+  border-right: none;
+}
+.weather .tabs .active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #000000;
+  color: white;
+}
