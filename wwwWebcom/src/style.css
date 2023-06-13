@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-weight: 600;
+}
+p{
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+    background-color: rgb(173, 208, 255);
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container-textDate {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+.container-date {
+    width: 200px;
+    border: none;
+    border-radius: 4px;
+    padding: 8 5px;
+}
+.container-btn {
+    width: 200px;
+    margin-bottom: 15px;
+    background-color: rgb(98, 0, 255);
+    border: none;
+    border-radius: 4px;
+
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 10 5px;
+    font-size: 12px;
+}
+.container-btn:hover{
+    background-color: rgb(81, 0, 212);
+}
+.container-textTime {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.container-timer {
+    font-size: 20px;
+}
