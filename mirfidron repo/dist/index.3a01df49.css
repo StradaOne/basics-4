@@ -1,0 +1,16 @@
+body {
+  width: 1920px;
+  height: 1080px;
+}
+
+.container {
+  flex-direction: column;
+  margin-right: -50%;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*# sourceMappingURL=index.3a01df49.css.map */
