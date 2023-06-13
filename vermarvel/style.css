@@ -1,0 +1,236 @@
+/* root {
+  color: white;
+
+} */
+body {
+  background-image: url("img/img.png");
+  margin: 0;
+  padding: 0;
+  font-family: "Gudea", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  margin-top: 30px;
+  border-radius: 10px;
+  background-color: #4f71f7;
+  height: auto;
+  width: 40%;
+  min-height: 600px;
+  min-width: 200px;
+  max-width: 300px;
+  margin: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 5);
+}
+.head {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  border-top-left-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4f71f7;
+  width: 70%;
+  height: 100%;
+}
+.btns-setting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 10px;
+  background-color: #4f71f7;
+  width: 30%;
+  height: 100%;
+}
+
+.btn-settings,
+.btn-sort-to-big,
+.btn-sort-to-small {
+  border: none;
+  background-color: transparent;
+}
+
+.icon-sort-to-small,
+.icon-sort-to-big {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.btn-sort-to-small:active,
+.btn-sort-to-big:active {
+  color: rgb(255, 213, 0);
+}
+
+.parent-items {
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fffff0;
+  /* min-height: 350px; */
+  height: auto;
+  width: 100%;
+}
+.frame {
+  height: 400px;
+  width: 100%;
+  overflow: auto;
+}
+.frame::-webkit-scrollbar {
+  display: none;
+}
+.item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #dcd8f6;
+  height: 100px;
+  width: 90%;
+  gap: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+.future {
+  background-color: #f9d0c0;
+}
+.past {
+  background-color: #e3f2f6;
+}
+.upper-box {
+  padding-top: 10px;
+  padding-left: 10px;
+  gap: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 33%;
+  background-color: transparent;
+}
+.middle-box {
+  width: 100%;
+  height: 33%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+#ui-target-date {
+  padding-left: 25px;
+  width: 90%;
+  height: 100%;
+}
+.lower-box {
+  font-size: 14px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  gap: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: row;
+  background-color: transparent;
+  width: 100%;
+  height: 33%;
+}
+
+#uiName {
+  color: #4f71f7;
+  font-weight: 700;
+  font-size: 14px;
+}
+#ui-target-date {
+  padding-left: 10px;
+  color: #6e43ba;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+#output {
+  /* padding-left: 10px; */
+  font-size: 14px;
+}
+
+.btn-del {
+  cursor: pointer;
+  color: rgb(165, 11, 91);
+  font-size: 20px;
+  padding-right: 10px;
+}
+.footer {
+  background-color: #4f71f7;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+  height: 120px;
+  gap: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+#name-input {
+  width: 182px;
+  border-radius: 5px;
+}
+#date-select {
+  background-color: rgb(255, 213, 0);
+  color: rgb(0, 0, 0);
+}
+
+.btn-add {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(249, 249, 249);
+  border-radius: 30px;
+  background-color: #09a6ef;
+  width: 70%;
+  height: 30%;
+  margin-bottom: 10px;
+}
+.btn-add:active {
+  color: rgb(255, 213, 0);
+}
+
+.hidden {
+  display: none;
+}

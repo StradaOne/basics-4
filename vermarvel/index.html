@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Days Counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gudea:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="module" src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="head">
+        <div class="heading">Days Counter</div>
+
+        <div class="btns-setting">
+          <button class="btn-sort-to-big">
+            <i class="fa-solid fa-arrow-up-wide-short icon-sort-to-big"> </i>
+          </button>
+          <button class="btn-sort-to-small">
+            <i class="fa-solid fa-arrow-up-short-wide icon-sort-to-small"></i>
+          </button>
+        </div>
+      </div>
+      <div class="frame">
+        <div class="parent-items">
+          <div class="item item-template hidden">
+            <div class="upper-box">
+              <div id="uiName">Wedding</div>
+            </div>
+            <div class="middle-box">
+              <div id="ui-target-date">12 June 2012</div>
+              <i class="fa-solid fa-xmark btn-del"></i>
+              <div id="to-go" class="hidden"></div>
+              <div id="left" class="hidden">Left</div>
+            </div>
+            <div class="lower-box">
+              <div id="output">3 yrs 8 mos 3 wks 2 days 7 h 34 min 14 sec</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <form class="date-form">
+          <label
+            >Event Title
+            <input type="text" pattern="^.{0,30}$" id="name-input" />
+          </label>
+          <label
+            >Select a date:
+            <select id="date-select"></select>
+          </label>
+          <button type="submit" class="btn-add">Add</button>
+        </form>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/f6dababe73.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module"></script>
+  </body>
+</html>

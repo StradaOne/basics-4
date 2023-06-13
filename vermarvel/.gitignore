@@ -1,0 +1,8 @@
+node_modules/
+.parcel-cache
+dist/
+cookies.js
+index.js
+node_modules
+package-lock.json
+.cache/
