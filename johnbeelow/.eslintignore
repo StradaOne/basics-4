@@ -1,0 +1,5 @@
+test/fixtures
+coverage
+.nyc_output
+flow-typed
+dist
