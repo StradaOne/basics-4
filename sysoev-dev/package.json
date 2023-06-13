@@ -1,0 +1,25 @@
+{
+  "name": "timeinterval",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "source": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel",
+    "build": "parcel build",
+    "lint": "eslint --fix .",
+    "format": "prettier --write ."
+  },
+  "author": "Vadim Sysoev",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "parcel": "^2.9.2"
+  },
+  "dependencies": {
+    "date-fns": "^2.30.0"
+  }
+}

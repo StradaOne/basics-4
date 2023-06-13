@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обратный отсчет</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="app">
+    <form class="app__form form" action="">
+      <label class="form__label" for="date">Введите дату</label>
+      <div class="form__box">
+        <input id="date" class="form__input" type="date" placeholder="DD.MM.YYY" required>
+        <button class="form__button" type="submit">Посчитать</button>
+      </div>
+      <p class="form__output-title"><span class="js-output-title">Осталось</span> времени:</p>
+      <output class="form__output">
+        <span class="js-year">10</span> лет
+        <span class="js-mounth">0</span> месяцев
+        <span class="js-day">364</span> дней
+        <span class="js-hours">23</span> часа
+        <span class="js-minutes">23</span> минуты
+      </output>
+    </form>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
