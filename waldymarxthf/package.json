@@ -1,0 +1,22 @@
+{
+  "name": "waldymarxthf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build src/*/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.1",
+    "parcel-reporter-static-files-copy": "^1.5.0"
+  },
+  "dependencies": {
+    "@parcel/config-default": "^2.9.1",
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0"
+  }
+}
