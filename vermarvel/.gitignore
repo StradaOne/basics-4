@@ -1,0 +1,9 @@
+*.log
+node_modules/
+cookies.js
+index.js
+cache/
+package-lock.json
+*.cache
+*.bak
+
