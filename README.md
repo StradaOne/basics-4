@@ -4,29 +4,38 @@
 - `cd "название папки которую создали"`
 - `npm init`
 
---------------------------------------
+---
 
 # Установка Parcel
+
 ```
 npm install parcel --save-dev
 ```
+
 ### Запуск Parcel
+
 ```
 npx parcel index.html
 ```
---------------------------------------
+
+---
+
 # Установка Eslint
 
 ```
 npm i -D eslint eslint-plugin-node eslint-config-node eslint-config-airbnb
 ```
+
 ## Создание файла .eslintrc
 
 ### На Windows
+
 ```
 echo > .eslintrc
 ```
+
 ### На MacOS и Linux
+
 ```
 touch .eslintrc
 ```
@@ -79,22 +88,31 @@ touch .eslintrc
 },
 "eslint.validate": ["javascript"],
 ```
---------------------------------------
+
+---
+
 # Установка **Prettier**
+
 ```
 npm i -D prettier eslint-plugin-prettier eslint-config-prettier
 ```
+
 ## Создание файла .prettierrc
+
 ### На Windows
+
 ```
 echo > .prettierrc
 ```
+
 ### На MacOS и Linux
+
 ```
 touch .prettierrc
 ```
 
 ### Настройка .prettierrc
+
 ```
 {
   "tabWidth": 2,
@@ -104,7 +122,9 @@ touch .prettierrc
   "printWidth": 100
 }
 ```
+
 ### Обновляем .eslintrc
+
 ```
 {
   "extends": ["airbnb", "prettier", "plugin:prettier/recommended"],
@@ -131,19 +151,25 @@ touch .prettierrc
   }
 }
 ```
+
 - `"plugins"` - Эта настройка определяет список плагинов, используемых в вашей конфигурации.
 - `"prettier/prettier"` - Используется для проверки соответствия кода вашего проекта правилам форматирования плагина.
---------------------------------------
+
+---
+
 # Создание **.gitignore**
+
 ### На Windows
+
 ```
 echo > .gitignore
 ```
+
 ### На MacOS и Linux
+
 ```
 touch .gitignore
 ```
-
 
 ## Настройка .gitignore
 
@@ -152,7 +178,7 @@ touch .gitignore
 *.env
 ```
 
---------------------------------------
+---
 
 # Структура вашей файловой директории
 
@@ -175,7 +201,8 @@ touch .gitignore
   ├── .gitignore              # Конфиг для gitignore
   └── README.MD               # Файл README
 ```
---------------------------------------
+
+---
 
 # Настройка **package.json**
 
