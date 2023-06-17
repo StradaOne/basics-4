@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "parcel": "^2.9.2"
+  },
+  "dependencies": {
+    "-": "^0.0.1",
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8"
+  }
+}
