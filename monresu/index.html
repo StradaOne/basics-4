@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>Weather</title>
+</head>
+<body>
+	<div class="weather">
+		<div class="weather__search">
+			<form action="#" class="weather__search-form">
+				<input type="text" placeholder="Search" autocomplete="off" class="weather__search-form-input">
+				<button type="submit" class="weather__search-form-btn"></button>
+			</form>
+		</div>
+		<div class="container">
+			<div class="container-left">
+				<div class="weather__block weather__now active">
+						<p class="weather__block-temp"><span></span>°</p>
+						<img src="https://openweathermap.org/img/wn/02n@4x.png" alt="cloud" class="weather__block-cloud">
+						<div class="weather__block-content">
+							<p class="weather__block-content-city"></p>
+							<button class="weather__block-content-heart">
+								<img src="./assets/svg/Shape.svg" alt="shape">
+							</button>
+						</div>
+				</div>
+				<div class="weather__block weather__details">
+					<p class="weather__details-city"></p>
+					<ul class="list">
+						<li class="list__items">Temperature: <span class="temperature"></span>°</li>
+						<li class="list__items">Feels like: <span class="feelslike"></span>°</li>
+						<li class="list__items">Weather: <span class="weather-sky"></span></li>
+						<li class="list__items">Sunrise: <span class="sunrise"></span></li>
+						<li class="list__items">Sunset: <span class="sunset"></span></li>
+					</ul>
+				</div>
+				<div class="weather__block weather__forecast">
+					<p class="weather__forecast-city">Aktobe</p>
+					<div class="weather__forecast-cards">
+					</div>
+				</div>
+				<nav class="tabs">
+					<ul class="tabs__item active">Now</ul>
+					<ul class="tabs__item">Details</ul>
+					<ul class="tabs__item">Forecast</ul>
+				</nav>
+			</div>
+			<div class="container-right">
+				<p>Added Locations:</p>
+				<ul class="container-right_city-names">
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="modal-error">
+		<div class="modal-error__content">
+			<h2 class="modal-error__title">Ошибка</h2>
+			<p class="modal-error__message"></p>
+			<button class="modal-error__button">OK</button>
+		</div>
+	</div>
+	<script src="./modules/variables.mjs" type="module"></script>
+	<script src="./modules/functions.mjs" type="module"></script>
+	<script src="./script.js" type="module"></script>
+</body>
+</html>
