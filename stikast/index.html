@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>To Do</title>
+</head>
+<body>
+	<main class="main">
+		<section class="high-priority">
+
+			<p class="title">HIGH</p>
+
+			<form class="highForm">
+				<input class="newHighTask" type="text" placeholder="Добавить задачу">
+				<button class="addButton"><img src="./images/add.png" alt="add"></button>
+			</form>
+
+			<div class="highTasksList"></div>
+
+		</section>
+
+		<section class="low-priority">
+
+			<p class="title">LOW</p>
+
+			<form class="lowForm">
+				<input class="newLowTask" type="text" placeholder="Добавить задачу">
+				<button class="addButton"><img src="./images/add.png" alt="add"></button>
+			</form>
+
+			<div class="lowTasksList"></div>
+
+		</section>
+	</main>
+
+	<script type="module" src="./js/main.js"></script>
+</body>
+</html>
