@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="screen">
+        <input id="display" readonly></input>
+      </div>
+
+      <div class="numbers">
+        <button type="button" id="btn-1" class="num" value="1">1</button>
+        <button type="button" id="btn-2" class="num" value="2">2</button>
+        <button type="button" id="btn-3" class="num" value="3">3</button>
+        <button type="button" id="btn-4" class="num" value="4">4</button>
+        <button type="button" id="btn-5" class="num" value="5">5</button>
+        <button type="button" id="btn-6" class="num" value="6">6</button>
+        <button type="button" id="btn-7" class="num" value="7">7</button>
+        <button type="button" id="btn-8" class="num" value="8">8</button>
+        <button type="button" id="btn-9" class="num" value="9">9</button>
+        <button type="button" id="btn-0" value="0">0</button>
+        <button type="button"id="dot" value=".">.</button>
+        <button type="button" id="neg" value="true">&#177</button>
+        <button type="button" id="divide" class="operation" value="/">&#247</button>
+        <button type="button" id="multiply" class="operation" value="*">&#215</button>
+        <button type="button" id="plus" class="operation" value="+">+</button>
+        <button type="button" id="minus" class="operation" value="-">-</button>
+      </div>
+
+      <div class="row">
+        <button type="button" id="c" class="reset">C</button>
+        <button type="button" id="equal" class="reset" value="=">&#61</button>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
