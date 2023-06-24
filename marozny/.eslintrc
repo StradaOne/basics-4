@@ -1,0 +1,34 @@
+{
+	"extends": ["airbnb", "prettier", "plugin:prettier/recommended", "plugin:import/recommended"],
+	"plugins": ["prettier"],
+	"globals": {
+		"window": true,
+		"document": true,
+		"localStorage": true
+	},
+	"settings": {
+		"import/resolver": {
+      "node": {
+        "extensions": [".js",".jsx"]
+      }
+    }
+	},
+	"rules": {
+		"prettier/prettier": [
+			"error",
+			{
+				"endOfLine": "auto"
+			}
+		],
+		"no-unused-vars": "warn",
+		"no-console": "off",
+		"func-names": "off",
+		"object-shorthand": "off",
+		"max-classes-per-file": ["error", 10],
+		"import/prefer-default-export": "off",
+		"prefer-const": "warn",
+		"no-var": "error",
+		"for-direction": "error",
+		"no-shadow": "error"
+	}
+}
