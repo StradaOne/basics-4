@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/null.css">
+	<link rel="stylesheet" href="styles/style.css">
+	<title>WeatherApp</title>
+</head>
+<body>
+	<div class="container">
+		<div class="window">
+			<form class="window__searchBar">
+				<input type="text" placeholder="Aktobe">
+				<button type="submit"><img src="images/search.svg" alt=""></button>
+			</form>
+			<div class="window__show">
+				<div class="show__categories">
+					<div class="show">
+						<div class="categories__now" id="now" name="now">
+							<div class="degree">14<img src="images/mask.svg" alt=""></div>
+							<div class="main_image">
+								<img src="images/cloud.svg" alt="">
+							</div>
+							<div class="bottom">
+								<div class="mounth">
+									Aktobe
+								</div>
+								<div class="share">
+									<img src="images/Shape.svg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="categories__details" id="details" name="details">
+							<div class="mounth">Aktobe</div>
+							<ul class="list">
+								<li class="Temperature">Temperature: 14<img src="images/mask2.svg" alt=""></li>
+								<li class="Likes">Feels like: 10<img src="images/mask2.svg" alt=""></li>
+								<li class="Weather">Weather: Clouds</li>
+								<li class="Sunrise">Sunrise: 03:21</li>
+								<li class="Sunset">Sunset: 18:54</li>
+							</ul>
+						</div>
+						<div class="categories__forecast" id="forecast" name="forecast">
+							<div class="mounth">Aktobe</div>
+							<div class="tabs">
+								<div class="tab">
+									<div class="top">
+										<div class="day">17 May</div>
+										<div class="time">12:00</div>
+									</div>
+									<div class="bottom">
+										<ul class="temp">
+											<li class="Temperature-tab">Temperature: 14<img src="images/mask2.svg" alt=""></li>
+											<li class="Likes-tab">Feels like: 10<img src="images/mask2.svg" alt=""></li>
+										</ul>
+										<div class="image">
+											<div class="title">Rain</div>
+											<div class=""><img src="images/rain.svg" alt=""></div>
+										</div>
+									</div>
+								</div>
+								<div class="tab">
+									<div class="top">
+										<div class="day">17 May</div>
+										<div class="time">12:00</div>
+									</div>
+									<div class="bottom">
+										<ul class="temp">
+											<li class="Temperature-tab">Temperature: 14<img src="images/mask2.svg" alt=""></li>
+											<li class="Likes-tab">Feels like: 10<img src="images/mask2.svg" alt=""></li>
+										</ul>
+										<div class="image">
+											<div class="title">Rain</div>
+											<div class=""><img src="images/rain.svg" alt=""></div>
+										</div>
+									</div>
+								</div>
+								<div class="tab">
+									<div class="top">
+										<div class="day">17 May</div>
+										<div class="time">12:00</div>
+									</div>
+									<div class="bottom">
+										<ul class="temp">
+											<li class="Temperature-tab">Temperature: 14<img src="images/mask2.svg" alt=""></li>
+											<li class="Likes-tab">Feels like: 10<img src="images/mask2.svg" alt=""></li>
+										</ul>
+										<div class="image">
+											<div class="title">Rain</div>
+											<div class=""><img src="images/rain.svg" alt=""></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="categories__bar">
+						<a href="#now" class="first select categori">Now</a>
+						<a href="#details" class="categori">Details</a>
+						<a href="#forecast" class="categori">Forecast</a>
+					</div>
+				</div>
+				<div class="show__locations">
+					<div class="title">
+						Added Locations:
+					</div>
+					<ul class="locations">
+						<li class="location">Amur</li>
+						<li class="location">Samara</li>
+						<li class="location">Bali</li>
+						<li class="location">Dane</li>
+						<li class="location">Kilo</li>
+						<li class="location">Nur-Sultan</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="scripts/script.js"></script>
+</body>
+</html>

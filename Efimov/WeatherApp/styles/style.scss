@@ -1,0 +1,246 @@
+@font-face {
+	font-family: Nunito;
+	src: url(../fonts/Nunito-Regular.ttf);
+ }
+ @font-face {
+	font-family: NunitoBold;
+	src: url(../fonts/Nunito-Bold.ttf);
+ }
+
+.container{
+	font-family: 'Nunito';
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	align-items: center;
+}
+
+.window{
+	border: 1px #000 solid;
+	border-radius: 10px;
+	width: 600px;
+	height: 435px;
+	background-color: #fff;
+}
+
+.window__searchBar{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	input{
+		height: 45px;
+		border: none;
+		width: 100%;
+		padding-left: 15px;
+		font-family: 'Nunito';
+		letter-spacing: 0.030em;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 21px;
+		color: #696969;
+		border-bottom: 1px #000 solid;
+	}
+	button{
+		position: absolute;
+		top: calc(50% - 15px);
+		right: 15px;
+		border: none;
+	}
+}
+
+.window__show{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	.show__locations{
+		border-left: 1px #000 solid;
+		padding-top: 33px;
+		height: 100%;
+		width: 300px;
+		.title{
+			margin-bottom: 7px;
+			border-bottom: 1px #000 solid;
+			padding-left: 18px;
+			font-family: 'NunitoBold';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 28px;
+		}
+		.locations{
+			padding-left: 18px;
+			display: flex;
+			flex-direction: column;
+			gap: 13px;
+			margin-top: 30px;
+			margin-bottom: 30px;
+			overflow-y: auto;
+			height: 266px;
+			.location{
+				font-family: 'Nunito';
+				font-style: normal;
+				cursor: pointer;
+				font-weight: 400;
+				font-size: 24px;
+				line-height: 28px;
+			}
+		}
+	}
+	.categories__bar{
+		position: absolute;
+		width: 300px;
+		cursor: pointer;
+		top: 345px;
+		display: flex;
+		justify-content: space-around;
+		a{
+			width: 100px;
+			height: 44px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: 1px #000 solid;
+			border-right: none;
+			font-family: 'Nunito';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 18px;
+			letter-spacing: 0.030em;
+			line-height: 21px;
+			cursor: pointer;
+			color: #000;
+		}
+		.first{
+			border-left: none;
+			border-bottom-left-radius: 10px;
+		}
+		.select{
+			color: #fff;
+			background-color: #000;
+		}
+	}
+	.categories__now{
+		width: 300px;
+		height: 345px;
+		.degree{
+			margin-left: 25px;
+			padding-top: 20px;
+			font-family: 'NunitoBold';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 70px;
+			line-height: 82px;
+			img{
+				margin-top: 5px;
+				margin-left: 2px;
+			}
+		}
+		.main_image{
+			display: flex;
+			justify-content: center;
+			margin-top: 40px;
+		}
+		.bottom{
+			display: flex;
+			justify-content: space-between;
+			margin-top: 100px;
+			.mounth{
+				font-family: 'Nunito';
+				font-style: normal;
+				font-weight: 400;
+				font-size: 24px;
+				line-height: 28px;
+				margin-left: 12px;
+			}
+			.share{
+				margin-right: 26px;
+				cursor: pointer;
+			}
+		}
+	}
+	.categories__details{
+		height: 345px;
+		.mounth{
+			padding-top: 33px;
+			padding-left: 18px;
+			font-family: 'NunitoBold';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 28px;
+		}
+		.list{
+			font-family: 'Nunito';
+			font-style: normal;
+			font-weight: 400;
+			padding-left: 18px;
+			padding-top: 40px;
+			font-size: 24px;
+			gap: 13px;
+			display: flex;
+			flex-direction: column;
+			line-height: 28px;
+		}
+	}
+	.categories__forecast{
+		height: 345px;
+		.mounth{
+			padding-top: 33px;
+			padding-left: 18px;
+			font-family: 'NunitoBold';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 28px;
+		}
+		.tabs::-webkit-scrollbar {
+			width: 0px;
+		}
+		.tabs{
+			margin-top: 7px;
+			height: 277px;
+			overflow: auto;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			.tab{
+				border: #000 1px solid;
+				border-radius: 10px;
+				margin-left: 18px;
+				margin-right: 16px;
+				font-family: 'Nunito';
+				font-style: normal;
+				font-weight: 500;
+				font-size: 18px;
+				line-height: 21px;
+				height: 120px;
+				.image{
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+				.top{
+					display: flex;
+					justify-content: space-between;
+					margin-top: 6px;
+					margin-left: 8px;
+					margin-right: 12px;
+					margin-bottom: 35px;
+				}
+				.bottom{
+					display: flex;
+					align-items: center;
+					margin-right: 10px;
+					margin-left: 8px;
+					justify-content: space-between;
+				}
+			}
+		}
+	}
+	.show{
+		height: 345px;
+		overflow: hidden;
+	}
+}
