@@ -1,0 +1,148 @@
+@font-face {
+  font-family: Nunito;
+  src: url(../assets/fonts/Nunito-Regular.ttf); }
+@font-face {
+  font-family: NunitoBold;
+  src: url(../assets/fonts/Nunito-Bold.ttf); }
+html {
+  scroll-behavior: smooth;
+  background-color: #f4effd; }
+
+body {
+  font-family: Nunito;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; }
+
+.register__body {
+  display: none; }
+
+.confirmation__body {
+  display: none; }
+
+.settings__body {
+  display: none; }
+
+.chat__body {
+  display: block; }
+
+.window__body {
+  border: 1px #000 solid;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 20px 15px; }
+  .window__body .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.4; }
+  .window__body .block-title {
+    font-family: NunitoBold;
+    font-size: 25px;
+    position: relative; }
+    .window__body .block-title .cross {
+      position: absolute;
+      top: -8px;
+      cursor: pointer;
+      right: 0;
+      font-size: 35px;
+      transform: rotate(45deg);
+      opacity: 0.4; }
+  .window__body .block__use {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column; }
+    .window__body .block__use .label {
+      font-size: 18px; }
+    .window__body .block__use .input {
+      border: 1px solid #000;
+      margin-top: 3px;
+      height: 32px;
+      padding-left: 5px;
+      padding-right: 5px;
+      width: 245px;
+      border-radius: 10px; }
+    .window__body .block__use .button {
+      margin-top: 35px;
+      width: 120px;
+      font-size: 18px;
+      border: 1px solid #000;
+      align-self: flex-end;
+      height: 35px;
+      border-radius: 10px; }
+
+.chat__body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px; }
+  .chat__body .header {
+    display: flex;
+    justify-content: space-between; }
+    .chat__body .header button {
+      width: 120px;
+      border-radius: 10px;
+      font-size: 18px;
+      border: 1px solid #000;
+      height: 35px;
+      background-color: #fff; }
+  .chat__body .chat__place {
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 8px;
+    height: calc(100vh - 106px);
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
+    justify-content: end; }
+    .chat__body .chat__place .myMassege {
+      background-color: #f6f6f6;
+      text-align: right;
+      padding: 10px;
+      flex-shrink: 0;
+      font-size: 16px; }
+      .chat__body .chat__place .myMassege .name {
+        display: flex;
+        font-family: NunitoBold;
+        gap: 15px;
+        justify-content: right; }
+    .chat__body .chat__place .sent {
+      background-color: #f6f6f6; }
+    .chat__body .chat__place .companionMassege {
+      text-align: left;
+      padding: 10px;
+      flex-shrink: 0;
+      font-size: 16px; }
+      .chat__body .chat__place .companionMassege .name {
+        font-family: NunitoBold;
+        display: flex;
+        gap: 15px;
+        justify-content: left; }
+  .chat__body .input {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px; }
+    .chat__body .input input {
+      background-color: #fff;
+      height: 35px;
+      border: 1px solid #000;
+      padding-left: 5px;
+      padding-right: 5px;
+      width: calc(100% - 45px);
+      border-radius: 10px; }
+    .chat__body .input .button {
+      background-color: #fff;
+      width: 35px;
+      height: 35px;
+      border: 1px solid #000;
+      border-radius: 10px; }
+
+/*# sourceMappingURL=style.css.map */

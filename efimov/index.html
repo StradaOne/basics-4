@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="./css/null.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <section class="register__body window__body">
+      <div class="block-title">Авторизация</div>
+      <div class="block__use">
+        <label for="inputEmail" class="label">Почта:</label>
+        <input type="email" placeholder="" class="input" id="inputEmail" />
+        <button class="button" type="submit">Далее</button>
+      </div>
+      <div class="back"></div>
+    </section>
+    <section class="confirmation__body window__body">
+      <div class="block-title">Подтверждение</div>
+      <div class="block__use">
+        <label for="inputCode" class="label">Код:</label>
+        <input type="number" placeholder="" class="input" id="inputCode" />
+        <button class="button" type="submit">Войти</button>
+      </div>
+      <div class="back"></div>
+    </section>
+    <section class="settings__body window__body">
+      <div class="block-title">
+        Настройки
+        <div class="cross">+</div>
+      </div>
+      <div class="block__use">
+        <label for="inputName" class="label">Имя в чате:</label>
+        <input type="number" placeholder="" class="input" id="inputName" />
+        <button class="button" type="submit">Изменить</button>
+      </div>
+      <div class="back"></div>
+    </section>
+    <section class="chat__body">
+      <div class="header"><button>Настройки</button><button>Выйти</button></div>
+      <div class="chat__place">
+        <div class="myMassege sent">
+          <div class="name">
+            Я
+            <div class="time">18:45</div>
+          </div>
+          Добрый день!
+        </div>
+        <div class="companionMassege">
+          <div class="name">
+            Собеседник
+            <div class="time">18:45</div>
+          </div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+          harum vel earum expedita tempora autem quidem eveniet hic molestias,
+          et voluptates corporis veniam ex quis saepe. Corrupti molestiae ex
+          odio!
+        </div>
+      </div>
+      <div class="input">
+        <input type="text" placeholder="сообщение.." />
+        <button class="button" type="submit">-></button>
+      </div>
+    </section>
+  </body>
+</html>
