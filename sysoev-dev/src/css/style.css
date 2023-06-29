@@ -38,6 +38,33 @@ body {
   height: 437px;
   border: 1px solid #000;
   margin-bottom: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  background-color: #F6F6F6;
+  align-self: flex-start;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.message__content {
+  margin: 5px;
+}
+
+.message--read {
+  background-color: #E5E5E5;;
+}
+
+.message--right {
+  align-self: flex-end;
+}
+
+.message__date {
+  margin: 0;
+  text-align: right;
 }
 
 .chat__bottom-form {
@@ -95,7 +122,6 @@ body {
 }
 
 .modal__form-btn {
-
   font-size: 16px;
   align-self: start;
   background-color: #fff;
