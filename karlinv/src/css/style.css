@@ -1,0 +1,184 @@
+html,
+body {
+	height: 100vh;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	background: #fff;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	line-height: 1.2;
+	font-size: 16px;
+}
+
+button,
+input,
+textarea {
+	font: inherit;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+.chat {
+	height: 100%;
+}
+
+.container {
+	width: 320px;
+	height: 100%;
+	padding: 8px;
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.btn {
+	padding: 8px;
+	border: 1px solid #000;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+	background: transparent;
+}
+
+.btn:active {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+.messages {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	height: 100%;
+	max-height: 437px;
+	padding: 8px;
+	margin-bottom: 8px;
+	overflow-y: scroll;
+	border: 1px solid #000;
+}
+
+.spacer {
+	flex-grow: 1;
+}
+
+.messages::-webkit-scrollbar {
+	width: 0;
+	background-color: transparent;
+}
+
+.message {
+	padding: 8px;
+	margin-bottom: 8px;
+}
+
+.message.my {
+	align-self: end;
+	background: #f6f6f6;
+}
+
+.message.you {
+	background: #e5e5e5;
+}
+
+.message__text,
+.message__time {
+	display: block;
+}
+
+.message__time {
+	text-align: right;
+	font-style: italic;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+.input-form {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.input-field {
+	width: 100%;
+	height: 32px;
+	resize: none;
+	padding-left: 8px;
+}
+
+.input-field::placeholder {
+	padding-top: 6px;
+}
+
+.input-form .btn {
+	display: block;
+	margin-left: 8px;
+}
+
+/* popup */
+
+.popup-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup {
+	position: relative;
+	width: 300px;
+	height: 220px;
+	padding: 21px 14px;
+
+	background-color: #fff;
+}
+
+.popup .close {
+	position: absolute;
+	top: 21px;
+	right: 14px;
+	cursor: pointer;
+}
+
+.popup .content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+}
+
+.popup .content label {
+	display: block;
+}
+
+.popup .content input {
+	width: calc(100% - 8px);
+	height: 32px;
+	margin-bottom: 8px;
+}
+
+.popup .content button {
+	width: calc((100% / 2) - 5px);
+}
+
+.popup .content button:last-child {
+	margin-left: 5px;
+}

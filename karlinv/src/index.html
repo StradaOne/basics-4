@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Чат</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+
+	<body>
+		<div class="chat">
+			<div class="container">
+				<div class="buttons">
+					<button class="btn btn__settings">Настройки</button>
+					<button class="btn btn__login">Войти</button>
+				</div>
+				<ul class="messages">
+					<li class="spacer"></li>
+					<li class="message my">
+						<span class="message__text">Я: какой-то текст</span>
+						<span class="message__time">12:48</span>
+					</li>
+					<li class="message you">
+						<span class="message__text">Собеседник: какой-то текст</span>
+						<span class="message__time">12:48</span>
+					</li>
+					<template id="copy-msg">
+						<li class="message">
+							<span class="message__text"></span>
+							<span class="message__time"></span>
+						</li>
+					</template>
+				</ul>
+				<form class="input-form">
+					<textarea class="input-field" name="message" placeholder="сообщение..."></textarea>
+					<button class="btn">&rarr;</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="popup-overlay">
+			<div class="popup">
+				<h2>Авторизация</h2>
+				<span class="close">&times;</span>
+				<div class="content">
+					<div id="authorization" class="window">
+						<label for="email">Почта:</label>
+						<input type="email" id="email" placeholder="Введите почту" />
+						<div class="buttons">
+							<button class="btn" id="get-code-btn">Получить код</button>
+							<button class="btn" id="enter-code-btn">Ввести код</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="./js/main.js" type="module"></script>
+	</body>
+</html>
