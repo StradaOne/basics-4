@@ -48,20 +48,30 @@ function createMessage(author, text) {
     messageAuthor.textContent = author;
   }
   
-  
   messageText.textContent = text;
 
-
-  
   return item;
+}
+
+function validateInputMessage(value) {
+  if (!value.trim().length) {
+    return false;
+  }
+  return true;
 }
 
 function sendMessageHandler(event) {
   event.preventDefault();
   const messageText = UI_ELEMENTS.CHAT_MESSAGE_INPUT.value;
+  const isValidMessage = validateInputMessage(messageText);
+
+  if (!isValidMessage) {
+    console.log('Сообщение пусто');
+    return
+  }
+
   const messageItem = createMessage(null, messageText)
   showMessage(messageItem)
-  
   event.target.reset();
 }
 
