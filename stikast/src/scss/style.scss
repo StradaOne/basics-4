@@ -1,0 +1,194 @@
+@import "./base/vars";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap");
+
+.button {
+	padding: 8px;
+	background-color: $color-accent;
+
+	border-radius: 1rem;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	background-color: $color-background;
+}
+
+.main {
+	margin: 60px auto;
+	padding: 8px;
+
+	width: 320px;
+	height: 537px;
+
+	background-color: $color-dark;
+
+	border-radius: 1rem;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	margin-bottom: 8px;
+}
+
+.wrap {
+	margin-bottom: 8px;
+	padding: 8px;
+
+	width: 304px;
+	height: 438px;
+
+	overflow-y: scroll;
+
+	// outline: 1px solid #0a0a0e;
+	border-radius: 1rem;
+	background-color: $color-background;
+}
+
+.wrap::-webkit-scrollbar {
+	width: 0;
+}
+
+.chat {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	row-gap: 8px;
+	min-height: 100%;
+}
+
+.chat-message {
+	width: fit-content;
+	padding: 8px;
+	line-height: 18.75px;
+
+	&_user {
+		text-align: left;
+		font-weight: 700;
+	}
+
+	&_time {
+		text-align: right;
+
+		font-size: 14px;
+		font-family: "Roboto", sans-serif;
+		font-style: italic;
+	}
+}
+
+.sent-message {
+	align-self: flex-end;
+	text-align: right;
+	background-color: $color-accent;
+	border-radius: 10px 10px 0 10px;
+}
+
+.received-message {
+	text-align: left;
+	background-color: #8b7aa7;
+	border-radius: 10px 10px 10px 0px;
+}
+
+.form {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	::placeholder {
+		color: $color-light;
+		opacity: 1;
+	}
+
+	:-ms-input-placeholder {
+		color: $color-light;
+	}
+
+	::-ms-input-placeholder {
+		color: $color-light;
+	}
+}
+
+.message {
+	padding: 8px;
+
+	width: 267px;
+	height: 32px;
+
+	color: $color-light;
+	background-color: $color-background;
+
+	border-radius: 1rem;
+}
+
+.send {
+	width: 29px;
+	height: 32px;
+
+	text-align: center;
+
+	background-color: #66bb6a;
+
+	border-radius: 1rem;
+}
+
+.settings-menu {
+	margin: 200px auto;
+
+	border-radius: 15px;
+	color: $color-light;
+	background: $color-dark;
+
+	display: block;
+	transform: scale(0.2);
+	opacity: 0;
+	transition: all 0.3s ease-out;
+	visibility: hidden;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+
+	&[open] {
+		transform: scale(1);
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&_body {
+		display: flex;
+		flex-direction: column;
+		row-gap: 8px;
+
+		width: 350px;
+		height: 150px;
+
+		padding: 8px;
+	}
+
+	&_title {
+		margin-bottom: 8px;
+		text-align: center;
+		font-size: 24px;
+	}
+
+	&_text {
+		margin-left: 8px;
+	}
+
+	&_input {
+		margin-right: 8px;
+		width: 293px;
+	}
+
+	&_button {
+		color: black;
+	}
+
+	&::backdrop {
+		background-color: #0a0a0e;
+		opacity: 0.7;
+	}
+}

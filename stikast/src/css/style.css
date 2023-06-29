@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap");
+.button {
+	padding: 8px;
+	background-color: #de5676;
+	border-radius: 1rem;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	background-color: #242424;
+}
+
+.main {
+	margin: 60px auto;
+	padding: 8px;
+	width: 320px;
+	height: 537px;
+	background-color: #1e1e1e;
+	border-radius: 1rem;
+}
+
+.nav {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.wrap {
+	margin-bottom: 8px;
+	padding: 8px;
+	width: 304px;
+	height: 438px;
+	overflow-y: scroll;
+	border-radius: 1rem;
+	background-color: #242424;
+}
+
+.wrap::-webkit-scrollbar {
+	width: 0;
+}
+
+.chat {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	justify-content: end;
+	row-gap: 8px;
+	min-height: 100%;
+}
+
+.chat-message {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	padding: 8px;
+	line-height: 18.75px;
+}
+.chat-message_user {
+	text-align: left;
+	font-weight: 700;
+}
+.chat-message_time {
+	text-align: right;
+	font-size: 14px;
+	font-family: "Roboto", sans-serif;
+	font-style: italic;
+}
+
+.sent-message {
+	-ms-flex-item-align: end;
+	align-self: flex-end;
+	text-align: right;
+	background-color: #de5676;
+	border-radius: 10px 10px 0 10px;
+}
+
+.received-message {
+	text-align: left;
+	background-color: #8b7aa7;
+	border-radius: 10px 10px 10px 0px;
+}
+
+.form {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.form ::-webkit-input-placeholder {
+	color: #6e6c79;
+	opacity: 1;
+}
+.form ::-moz-placeholder {
+	color: #6e6c79;
+	opacity: 1;
+}
+.form :-ms-input-placeholder {
+	color: #6e6c79;
+	opacity: 1;
+}
+.form ::-ms-input-placeholder {
+	color: #6e6c79;
+	opacity: 1;
+}
+.form ::placeholder {
+	color: #6e6c79;
+	opacity: 1;
+}
+.form :-ms-input-placeholder {
+	color: #6e6c79;
+}
+.form ::-ms-input-placeholder {
+	color: #6e6c79;
+}
+
+.message {
+	padding: 8px;
+	width: 267px;
+	height: 32px;
+	color: #6e6c79;
+	background-color: #242424;
+	border-radius: 1rem;
+}
+
+.send {
+	width: 29px;
+	height: 32px;
+	text-align: center;
+	background-color: #66bb6a;
+	border-radius: 1rem;
+}
+
+.settings-menu {
+	margin: 200px auto;
+	border-radius: 15px;
+	color: #6e6c79;
+	background: #1e1e1e;
+	display: block;
+	-webkit-transform: scale(0.2);
+	transform: scale(0.2);
+	opacity: 0;
+	-webkit-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	visibility: hidden;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+.settings-menu[open] {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+	visibility: visible;
+}
+.settings-menu_body {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	row-gap: 8px;
+	width: 350px;
+	height: 150px;
+	padding: 8px;
+}
+.settings-menu_title {
+	margin-bottom: 8px;
+	text-align: center;
+	font-size: 24px;
+}
+.settings-menu_text {
+	margin-left: 8px;
+}
+.settings-menu_input {
+	margin-right: 8px;
+	width: 293px;
+}
+.settings-menu_button {
+	color: black;
+}
+.settings-menu::-webkit-backdrop {
+	background-color: #0a0a0e;
+	opacity: 0.7;
+}
+.settings-menu::backdrop {
+	background-color: #0a0a0e;
+	opacity: 0.7;
+}

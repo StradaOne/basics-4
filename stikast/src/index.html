@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<title>Chat</title>
+	</head>
+	<body>
+		<main class="main">
+			<nav class="nav">
+				<button class="button settings-button">Настройки</button>
+				<button class="button exit">Выход</button>
+			</nav>
+
+			<div class="wrap">
+				<section class="chat">
+					<!-- <div class="chat-message sent-message">
+						<p><span class="user">Я</span>: Добрый день!</p>
+						<p class="time">18:45</p>
+					</div>
+
+					<div class="chat-message received-message">
+						<p><span class="user">Собеседник</span>: Добрый день!</p>
+						<p class="time">18:45</p>
+					</div>
+
+					<div class="chat-message received-message">
+						<p>
+							<span class="user">Собеседник</span>: А это второе и, кажется, оно очень длинное,
+							чтобы поместиться на одной строке
+						</p>
+						<p class="time">18:45</p>
+					</div>
+
+					<div class="chat-message sent-message">
+						<p><span class="user">Я</span>: Добрый день!</p>
+						<p class="time">18:45</p>
+					</div> -->
+
+					<template id="template-message">
+						<p class="chat-message_user">Stikast</p>
+						<p class="chat-message_text"></p>
+						<p class="chat-message_time"></p>
+					</template>
+				</section>
+			</div>
+
+			<section class="input">
+				<form class="form" action="">
+					<input class="message" type="text" placeholder="Сообщение..." />
+					<button class="send">-&#62;</button>
+				</form>
+			</section>
+
+			<dialog class="settings-menu">
+				<div class="settings-menu_body">
+					<h2 class="settings-menu_title">Настройки</h2>
+					<p class="settings-menu_text">Имя в чате:</p>
+					<form class="settings-menu_form" action="">
+						<input class="settings-menu_input message" type="text" placeholder="Имя" />
+						<button class="settings-menu_button send">-&#62;</button>
+					</form>
+				</div>
+			</dialog>
+		</main>
+		<script type="module" src="./js/main.js"></script>
+	</body>
+</html>
