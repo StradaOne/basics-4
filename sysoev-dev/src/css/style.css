@@ -41,6 +41,7 @@ body {
   padding: 8px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .message {
