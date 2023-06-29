@@ -3,6 +3,7 @@ node_modules
 dist/
 .vscode/
 .idea/
+scss/
 # Logs
 logs
 *.log
