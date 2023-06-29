@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="high_priority">
+                <h5>HIGH</h5>
+                <form class="add-items-form_high">
+                    <input class="inputHigh" type="text" name="itemHigh" placeholder="Add task" autocomplete="off" required>
+                    <button class="button_addHigh" type="submit" value="add"><img src="./image/free-icon-close-151882-444.svg" alt=""></button>
+                </form>
+                <div class="taskBlockHigh"></div>
+            </div>
+            
+            
+            <div class="low_priority">
+                <h5>LOW</h5>
+                <form class="add-items-form_low">
+                    <input class="inputLow" type="text" name="itemLow" placeholder="Add task" autocomplete="off" required>
+                    <button type="submit" class="button_addLow"><img src="./image/free-icon-close-151882-444.svg" alt=""></button>
+                </form>
+                <div class="taskBlockLow"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./modules/domElements.js" type="module"></script>
+    <script src="./main.js" type="module"></script>
+</body>
+
+</html>
