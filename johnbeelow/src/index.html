@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StradaGram</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <div class="main">
+
+    <div class="container">
+
+      <header class="btn_conainer">
+
+        <button id="btn-setting" onclick="window['settings'].classList.add('open')">
+          <img src="img/setting.svg" alt="#" class="img-setting">
+        </button>
+
+        <p class="logo">StradaGram</p>
+
+        <img src="img/exit-outline.svg" alt="#" class="btn-exit">
+
+      </header>
+
+
+      <div class="window_conainer">
+
+        <div class="message--main-user">
+          <p class="message-text--main-user">Beelow</p>
+          <p class="message-text">Добрый утро !</p>
+          <div class="message-info">
+            <p class="message-date">07:30</p>
+            <img src="img/check-all.svg" alt="#" class="message-check">
+          </div>
+        </div>
+
+        <div class="message--only-users">
+          <p class="message-text--users">Конь в пальто</p>
+          <p class="message-text">Добрый вечер.</p>
+          <div class="message-info">
+            <p class="message-date">20:40</p>
+          </div>
+        </div>
+
+        <div class="message--only-users">
+          <p class="message-text--users">Конь в пальто</p>
+          <p class="message-text">А это второе и, кажется, оно очень
+            длинное, чтобы поместиться на
+            одной строке 😎</p>
+          <div class="message-info">
+            <p class="message-date">20:42</p>
+          </div>
+        </div>
+
+
+        <div class="message--main-user">
+          <p class="message-text--main-user">Beelow</p>
+          <p class="message-text">Кто второе ? Куда поместиться ? Вы о чем ? Не куда я не хочу помещаться !</p>
+          <div class="message-info">
+            <p class="message-date">20:45</p>
+            <img src="img/check-all.svg" alt="#" class="message-check">
+          </div>
+        </div>
+
+        <div class="message--only-users">
+          <p class="message-text--users">Конь в пальто</p>
+          <p class="message-text">Да, это второе и, кажется, оно очень
+            длинное, чтобы поместиться на
+            одной строке 😎</p>
+          <div class="message-info">
+            <p class="message-date">20:46</p>
+          </div>
+        </div>
+
+        <div class="message--only-users">
+          <p class="message-text--users">Конь в пальто</p>
+          <p class="message-text">Я повтарю, это второе и, кажется, оно очень
+            длинное, чтобы поместиться на
+            одной строке 😎</p>
+          <div class="message-info">
+            <p class="message-date">20:47</p>
+          </div>
+        </div>
+
+      </div>
+
+
+      <form class="input-form">
+
+        <img src="img/emoji-smile.svg" alt="#" class="btn-emoji-form">
+        <input type="text" placeholder="Сообщение" autocomplete="off" class="messenger-form-input" autocomplete="off">
+        <img src="img/paperclip-fill.svg" alt="#" class="btn-send-img-form">
+
+        <!-- <button type="submit" class="btn-messenger-form"></button>  -->
+        <img src="img/telegram-logo-thin.svg" alt="#" class="btn-messenger-form">
+
+      </form>
+
+      <div class="popup-conainer" id="settings">
+
+        <div class="popup-box-setting">
+
+          <div class="pop-header">
+            <p class="popup-title">Настройки</p>
+            <button class="popup-btn-close" onclick="window['settings'].classList.remove('open')">✖</button>
+          </div>
+
+          <div class="popup-title--user-name">
+
+            <p class="popup-title-small">Имя в чате:</p>
+            <form class="popup-form-setting-input">
+              <input type="text" autocomplete="off" class="popup-setting-form-input" placeholder="Beelow">
+              <img src="img/check-circle.svg" alt="#" class="btn-save">
+            </form>
+
+            <div class="pop-bottom">
+              <p class="logo-box">StradaGram</p>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+
+</body>
+
+</html>
