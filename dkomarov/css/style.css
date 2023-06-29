@@ -1,0 +1,322 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+body {
+    width: 1440px;
+    height: 100vh;
+    background-image: url(../img/fon.jpeg);
+    font-family: 'Roboto', sans-serif;
+    color: #656565;
+    
+}
+
+h2 {
+    font-size: 18px;
+}
+
+.section {
+    width: 600px;
+    height: 435px;
+    background-color: #ffffffab;
+    position: absolute;
+    margin: 100px 400px;
+    border-radius: 12px;
+    
+
+
+
+}
+
+.wrapper {
+    display: grid;
+    width: 600px;
+    height: 435px;
+    /* border: 1px solid #292929; */
+    position: relative;
+    border-radius: 12px;
+    /* box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; */
+    box-shadow: rgba(50, 50, 93, 0.50) 0px 50px 100px -20px, rgba(0, 0, 0, 0.50) 0px 30px 60px -30px, rgba(10, 37, 64, 0.50) 0px -2px 6px 0px inset;
+    
+}
+
+
+.header {
+    width: 600px;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: .5px solid #292929;
+    
+}
+
+.header-input {
+    width: 598px;
+    height: 43px;
+    border: none;
+    outline: none;
+    background-color: #00000000;
+    font-size: 18px;
+    
+}
+
+.header-input::-webkit-input-placeholder {
+    color: #5f5f5fc3;
+    font-size: 15px;
+}
+
+.search-img {
+    background-color: #00000000;
+}
+
+.search-img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+
+/* CONTENT */
+
+.area {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.content-area {
+    width: 299px;
+    height: 390px;
+    border-right: .5px solid #292929;
+
+}
+
+
+
+
+/* NOW */
+
+.content-area_display {
+    width: 299px;
+    height: 342px;
+    display: none;
+}
+
+.now-btn-shape {
+    background-color: #00000000;
+    cursor: pointer;
+}
+
+.now-btn-shape-img {
+    background-color: #00000000;
+}
+
+.temperature {
+    padding-left: 20px;
+    padding-top: 20px;
+    font-size: 70px;
+    color: #414141;
+}
+
+.mask {
+    position: relative;
+    bottom: 35px;
+    right: 10px;
+}
+
+
+.weather-icon {
+    display: flex;
+    height: 187px;
+    justify-content: center;
+    align-items: center;
+}
+
+.location-target {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    color: #414141;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 10px;
+
+}
+
+
+/* DETAILS */
+
+.details-city {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: #414141;
+    padding-top: 30px;
+    padding-left: 15px;
+}
+
+
+.list {
+    list-style-type: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.8;
+    color: #414141;
+    padding-top: 30px;
+    padding-left: 15px;
+}
+
+
+
+
+/* FORECAST */
+
+.forecast-days {
+    width: 265px;
+    height: 120px;
+    border: .5px solid #1a1a1a;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 5px 10px;
+}
+
+.forecast-days__date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.forecast-days__temp {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.forecast-days__feels {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+/* кнопки переключения */
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    border-top: .5px solid #292929;
+    
+
+
+}
+
+
+.tabs_item {
+    display: flex;
+    width: 100px;
+    height: 48px;
+    border-right: .5px solid #292929;
+    font-size: 12px;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #414141;
+    
+}
+
+.tabs_item:last-child {
+    border-right: none;
+}
+
+/* локейшн  */
+
+.location-area_added-location {
+    width: 301px;
+    height: 68px;
+    border-bottom: .5px solid #292929;
+}
+
+.added-location {
+    position: relative;
+    top: 33px;
+    left: 18px;
+    font-size: 18px;
+    color: #414141;
+}
+
+
+.locations {
+    line-height: 40px;
+    font-size: 24px;
+    margin: 20px 0 20px 18px;
+    color: #414141;
+    list-style-type: none;
+}
+
+.active-tab {
+    background-color: #0000008d;
+    color: #ffffffec;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+    
+
+}
+
+.active-tab:first-child {
+    border-radius: 0 0 0 12px;
+}
+
+
+
+
+
+
+/* ТРЕТИЙ ЭКРАН */
+
+
+
+
+
+.active {
+    display: block;
+}
+
+.new-element {
+    cursor: pointer;
+}
+
+
+
+
+.locations-close-btn {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    left: 5px;
+    background-color: #00000000;
+    cursor: pointer;
+
+}
