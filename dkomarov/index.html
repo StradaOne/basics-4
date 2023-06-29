@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <button class="header__btn-settings">
+          <img src="./static/icons8-settings-25.svg" alt="" />
+        </button>
+        <button class="header__btn-out">выйти</button>
+      </div>
+      <div class="display">
+        <!-- <div class="display-items__message">
+          <p class="message-nickname">Никнейм:</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <span class="message-date">18:45</span>
+        </div>
+        <div class="display-items__message me">
+          <p class="message-nickname left">Я:</p>
+          <p>Lorem ipsum dolor sit amet</p>
+          <span class="message-date">18:45</span>
+        </div>
+        <div class="display-items__message">
+          <p class="message-nickname">Никнейм:</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <span class="message-date">18:45</span>
+        </div>
+        <div class="display-items__message">
+          <p class="message-nickname">Никнейм:</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <span class="message-date">18:45</span>
+        </div>
+        <div class="display-items__message me">
+          <p class="message-nickname left">Я:</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe magni
+            nulla, eaque deleniti harum rem!
+          </p>
+          <span class="message-date">18:45</span>
+        </div>
+        <div class="display-items__message">
+            <p class="message-nickname">Никнейм:</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <span class="message-date">18:45</span>
+        </div> -->
+        <template id="template">
+          <div class="me">
+            <span class="message-nickname">Никнейм:</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <span class="message-date">18:45</span>
+          </div>
+        </template>
+      </div>
+      <!-- <form action="#" class="form-another">
+        <input class="form__input-another" type="text" placeholder="message...">
+        <button class="form__button-send-another">send</button>
+      </form> -->
+      <form action="#" class="form">
+        <input class="form__input" type="text" placeholder="сообщение..." />
+        <button class="form__button-send">-></button>
+      </form>
+    </div>
+    <div class="popup hidden">
+      <div class="popup-header">
+        <p>Настройки</p>
+        <button>закрыть</button>
+      </div>
+      <div class="popup-logic">
+        <p>Никнейм</p>
+        <form action="#" class="popup-form__input">
+          <input class="item-input" type="text" />
+          <button class="item-btn">-></button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
