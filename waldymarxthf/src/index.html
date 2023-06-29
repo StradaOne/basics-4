@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/script.js" type="module" ></script>
+	<title>Document</title>
+</head>
+<body>
+	<div class="chat">
+		<div class="container">
+			<div class="chat-header">
+				<div class="chat-name">
+					<p class="chat-name__title">мужской фронтенд 👌🏻</p>
+					<p class="chat-name__members">18 участников</p>
+				</div>
+				<div class="chat-header__btn">
+					<buttton class="chat-header__btn-setting" onclick="window['settings'].showModal();">Настройки</buttton>
+					<buttton class="chat-header__btn-quit">Выйти</buttton>
+				</div>
+			</div>
+
+			<div class="chat-window">
+				<div class="wrapper">
+
+					<template class="chat-window__template" id="message-template">
+						<div class="chat-window__message">
+							<div class="chat-window__message-avatar hidden">
+								<img src="./assets/img/avatars/photo_2023-06-28_23-10-57.jpg" alt="avatar" class="chat-window__message-avatar-img">
+							</div>
+							<div class="chat-window__message-content">
+								<p class="chat-window__message-nickname hidden"></p>
+								<p class="chat-window__message-text"></p>
+								<p class="chat-window__message-time"></p>
+							</div>
+						</div>
+					</template>
+					
+				</div>
+			</div>
+			<div class="chat-message">
+				<form class="chat-message__form">
+					<input type="text" name="message" placeholder="Написать сообщение..." class="chat-message__input">
+					<button type="submit" class="chat-message__btn">
+						<img src="./assets/svg/telegram.svg" alt="send">
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<svg height="0" width="0">
+		<defs>
+			<clipPath id="left-droplet">
+				<path d="M 10,0 A 10,10 0 0 1 0,10 H 16 V 0 Z">
+			</clipPath>
+			<clipPath id="right-droplet">
+				<path d="M 6,0 A 10,10 0 0 0 16,10 H 0 V 0 Z">
+			</clipPath>
+		</defs>
+	</svg>
+	<dialog class="dialog" id="settings">
+		<button class="dialog-btn-close" onclick="window['settings'].close()">
+			<img src="./assets/svg/close.svg" alt="close">
+		</button>
+		<h1 class="dialog__title">Настройки</h1>
+		<p class="dialog__subtitle">Имя в чате:</p>
+		<form method="dialog">
+			<input type="text" name="nickname" id="nickname" placeholder="Новое имя..." class="dialog-input">
+			<button class="dialog-btn">
+				<svg class="chat-message__btn-svg dialog-btn-svg">
+					<path d="m4.01 6.03 7.51 3.22-7.52-1 .01-2.22m7.5 8.72L4 17.97v-2.22l7.51-1M2.01 3 2 10l15 2-15 2 .01 7L23 12 2.01 3z"></path>
+				</svg>
+			</button>
+		</form>
+	</dialog>
+</body>
+</html>
