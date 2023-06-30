@@ -1,0 +1,15 @@
+export const variables = {
+	settingsBtn: document.querySelector(".settings"),
+	popup: document.querySelector("#popup"),
+	popupContent: document.querySelector(".popup-content"),
+	popupCloseBtn: document.querySelector(".popup-close-btn"),
+	styleLink: document.querySelector("#theme-link"),
+	themeBtn: document.querySelector("#theme-btn"),
+	inputForMessage: document.querySelector(".entry-field"),
+	messagesField: document.querySelector(".message-field"),
+	messageInput: document.querySelector(".entry-field"),
+	btnSendMessage: document.querySelector(".btn-sending-message"),
+	formForMessage: document.querySelector(".form"),
+	templateMyMessage: document.querySelector("#temp-for-my-mes"),
+	templateOutsideMessage: document.querySelector("#temp-for-outside-mes"),
+};
