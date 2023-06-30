@@ -7,63 +7,87 @@
   <title>Чат</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">  
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <div class="chat">
     <div class="chat__top">
-      <button class="chat__top-btn chat__btn-settings" name="asdasd" type="button">Настройки</button>
-      <button class="chat__top-btn chat__btn-login" type="button">Войти</button>
+      <button class="chat__top-btn chat__top-btn-settings" type="button">Настройки</button>
+      <button class="chat__top-btn chat__top-btn-login" type="button">Войти</button>
     </div>
-    <div class="chat__content">
-      <div class="chat__content-message message message--read message--right">
-        <p class="message__content">
-          <span class="message__content-author">Я:</span>
-          <span class="message__content-text">Добрый день!</span>
+    <ul class="chat__messages">
+      <li class="chat__message chat__message-author">
+        <p class="chat__message-content">
+          <span class="chat__message-author">Я</span>:
+          <span class="chat__message-text">Добрый день!</span>
         </p>
-        <p class="message__date">18:45</p>
-      </div>
-      <div class="chat__content-message message message--read">
-        <p class="message__content">
-          <span class="message__content-author">Собеседник:</span>
-          <span class="message__content-text">Добрый день!</span>
+        <p class="chat__message-time">18:45</p>
+      </li>
+      <li class="chat__message">
+        <p class="chat__message-content">
+          <span class="chat__message-author">Собеседник</span>:
+          <span class="chat__message-text">Добрый день asdasdasd asdasd asd agsgdfsgdfsgdfs dfsgdsfgdsfgdfsg dsfgdfs!</span>
         </p>
-        <p class="message__date">18:45</p>
-      </div>
-      <div class="chat__content-message message message--read">
-        <p class="message__content">
-          <span class="message__content-author">Собеседник:</span>
-          <span class="message__content-text">А это второе и, кажется, оно очень длинное, чтобы поместиться на одно
-            строке</span>
+        <p class="chat__message-time">18:45</p>
+      </li>
+      <li class="chat__message">
+        <p class="chat__message-content">
+          <span class="chat__message-author">Собеседник</span>:
+          <span class="chat__message-text">Добрый день!</span>
         </p>
-        <p class="message__date">18:45</p>
-      </div>
-      <div class="chat__content-message message message--right">
-        <p class="message__content">
-          <span class="message__content-author">Я:</span>
-          <span class="message__content-text">Добрый день!</span>
+        <p class="chat__message-time">18:45</p>
+      </li>
+      <li class="chat__message chat__message-author">
+        <p class="chat__message-content">
+          <span class="chat__message-author">Я</span>:
+          <span class="chat__message-text">Добрый день!</span>
         </p>
-        <p class="message__date">18:45</p>
-      </div>
-    </div>
+        <p class="chat__message-time">18:45</p>
+      </li>
+      <li class="chat__message">
+        <p class="chat__message-content">
+          <span class="chat__message-author">Собеседник</span>:
+          <span class="chat__message-text">Добрый день!</span>
+        </p>
+        <p class="chat__message-time">18:45</p>
+      </li>
+      <li class="chat__message">
+        <p class="chat__message-content">
+          <span class="chat__message-author">Собеседник</span>:
+          <span class="chat__message-text">Добрый день!</span>
+        </p>
+        <p class="chat__message-time">18:45</p>
+      </li>
+      <li class="chat__message">
+        <p class="chat__message-content">
+          <span class="chat__message-author">Собеседник</span>:
+          <span class="chat__message-text">Добрый день!</span>
+        </p>
+        <p class="chat__message-time">18:45</p>
+      </li>
+    </ul>
     <div class="chat__bottom">
-      <form class="chat__bottom-form" action="#">
-        <input required type="text" class="chat__bottom-input" placeholder="сообщение..">
-        <button class="chat__bottom-button" type="submit">-></button>
+      <form action="#" class="chat__bottom-form">
+        <input class="chat__bottom-input" type="text" required placeholder="сообщение..">
+        <button class="chat__bottom-btn" type="submit">-></button>
       </form>
     </div>
+    <dialog class="dialog dialog-settings">
+      <div class="dialog__top">
+        <h2 class="dialog__top-title">Настройки</h2>
+        <button class="dialog__top-btn" type="button">Закрыть</button>
+      </div>
+      <form class="dialog__form form-settings" action="#">
+        <label class="form-settings__label" for="settings-name">Имя в чате</label>
+        <input class="form-settings__input" placeholder="Стив" type="text" name="" id="settings-name" required>
+        <button class="form-settings__btn" type="submit">-></button>
+      </form>
+    </dialog>
   </div>
-
+  
   <script type="module" src="main.js"></script>
-  <template class="js-message-template">
-    <p class="message__content">
-    <span class="message__content-author">Я:</span>
-    <span class="message__content-text">Добрый день!</span>
-    </p>
-    <p class="message__date">18:45</p>
-  </template>
 </body>
 
 </html>

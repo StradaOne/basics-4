@@ -1,79 +1,11 @@
-import { UI_ELEMENTS } from './js/ui';
-import { createModal } from './js/create';
+import { UI_ELEMENTS } from "./js/ui";
 
-function checkTypeBtnForm(target) {
-  switch (target) {
-    case UI_ELEMENTS.btnSettings:
-      return 'settings';
-    default:
-      break;
-  }
-}
+console.log(UI_ELEMENTS.SETTINGS_MODAL);
 
-function modalShow(modal) {
-  UI_ELEMENTS.chat.append(modal);
-}
+UI_ELEMENTS.BTN_SETTINGS.addEventListener("click", () => {
+  UI_ELEMENTS.SETTINGS_MODAL.showModal();
+});
 
-function modalShowHandler(event) {
-  const typeForm = checkTypeBtnForm(event.target);
-  const modal = createModal(typeForm);
-
-  const btnClose = modal.querySelector('.modal__btn-close');
-  btnClose.addEventListener('click', () => {
-    modal.remove();
-  });
-
-  modalShow(modal);
-}
-
-function showMessage(item) {
-  UI_ELEMENTS.MESSAGES.append(item)
-}
-
-function createMessage(author, text) {
-  let isAuthor = false;
-
-  if (!author) {
-    isAuthor = true;
-  }
-
-  const item = document.createElement('div');
-  item.classList.add('chat__content-message', 'message--right', 'message');
-  item.append(UI_ELEMENTS.MESSAGE_TEMPLATE.content.cloneNode(true));
-  const messageAuthor = item.querySelector('.message__content-author');
-  const messageText = item.querySelector('.message__content-text');
-  if (isAuthor) {
-    messageAuthor.textContent = 'Я:';
-  } else {
-    messageAuthor.textContent = author;
-  }
-  
-  messageText.textContent = text;
-
-  return item;
-}
-
-function validateInputMessage(value) {
-  if (!value.trim().length) {
-    return false;
-  }
-  return true;
-}
-
-function sendMessageHandler(event) {
-  event.preventDefault();
-  const messageText = UI_ELEMENTS.CHAT_MESSAGE_INPUT.value;
-  const isValidMessage = validateInputMessage(messageText);
-
-  if (!isValidMessage) {
-    console.log('Сообщение пусто');
-    return
-  }
-
-  const messageItem = createMessage(null, messageText)
-  showMessage(messageItem)
-  event.target.reset();
-}
-
-UI_ELEMENTS.CHAT_MESSAGE_FORM.addEventListener('submit', sendMessageHandler)
-UI_ELEMENTS.btnSettings.addEventListener('click', modalShowHandler);
+UI_ELEMENTS.BTN_CLOSE_DIALOG.addEventListener("click", () => {
+  UI_ELEMENTS.SETTINGS_MODAL.close();
+});

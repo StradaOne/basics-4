@@ -6,126 +6,152 @@ html {
 }
 
 body {
-  background-color: #cccccc;
+  background-color: rgb(124, 170, 255);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: normal;
 }
 
 .chat {
+  background-color: #fff;
   width: 320px;
-  min-height: 530px;
-  background-color: #ffffff;
+  min-height: 533px;
   padding: 8px;
-  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .chat__top {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
 }
 
 .chat__top-btn {
-  padding: 6px 8px;
-  background-color: #ffffff;
+  background-color: transparent;
   border: 1px solid #000;
-  font-size: 16px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.chat__content {
-  width: 100%;
-  height: 437px;
+.chat__top-btn:hover {
+  background-color: #e3e3e3;
+}
+
+.chat__messages {
+  max-height: 437px;
   border: 1px solid #000;
-  margin-bottom: 8px;
-  padding: 8px;
+  overflow: hidden;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  margin: 0;
+  padding: 8px;
 }
 
-.message {
-  background-color: #F6F6F6;
+.chat__message {
+  background-color: #e5e5e5;
+  list-style-type: none;
   align-self: flex-start;
   padding: 8px;
   margin-bottom: 8px;
 }
 
-.message__content {
-  margin: 5px;
-}
-
-.message--read {
-  background-color: #E5E5E5;;
-}
-
-.message--right {
+.chat__message-author {
   align-self: flex-end;
 }
 
-.message__date {
+.chat__message-content {
+  margin: 5px;
+}
+
+.chat__message-time {
   margin: 0;
   text-align: right;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .chat__bottom-form {
   display: flex;
-  justify-content: space-between;
 }
 
 .chat__bottom-input {
+  margin-right: 8px;
+  padding: 8px;
+  flex-grow: 1;
   font-size: 16px;
-  padding: 6px 8px;
-  width: 267px;
+  background-color: #fff;
   border: 1px solid #000;
+  outline: none;
 }
 
-.chat__bottom-button {
-  font-size: 16px;
-  padding: 6px;
+.chat__bottom-btn {
   border: 1px solid #000;
   background-color: #fff;
+  cursor: pointer;
 }
 
-.modal {
-  position: absolute;
-  top: 30px;
-  left: 38px;
-  width: 320px;
-  height: 534px;
-  background-color: #fff;
-  padding: 15px 20px;
-  font-size: 16px;
+.dialog {
+  width: 273px;
+  height: 319px;
+  margin-top: 106px;
+  margin-left: 30px;
+  padding: 20px 15px;
+  border: none;
+  outline: none;
 }
 
+.dialog::backdrop {
+  width: 290px;
+  height: 493px;
+  margin: 8px;
+  padding: 20px 15px;
+  background-color: #535353;
+}
 
-.modal__header {
+.dialog__top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 70px;
+  justify-content: space-between;
 }
 
-.modal__form {
-  display: flex;
-  flex-direction: column;
+.dialog__top-title {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 16px;
 }
 
-.modal__form-label {
-  margin-bottom: 5px;
+.dialog__top-btn {
+  display: block;
+  width: 25px;
+  height: 25px;
+  font-size: 0;
+  background-image: url(../images/close-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
-.modal__form-input {
-  border: 1px solid #000;
+.form-settings__label {
+  display: block;
   margin-bottom: 8px;
-  padding: 8px;
-  font-size: 16px;
 }
 
-.modal__form-btn {
+.form-settings__input {
+  width: 202px;
+  margin-right: 8px;
+  padding: 6px;
   font-size: 16px;
-  align-self: start;
-  background-color: #fff;
   border: 1px solid #000;
-  padding: 8px;
+}
+
+.form-settings__btn {
+  padding: 6px;
+  font-size: 16px;
+  border: 1px solid #000;
+  background: transparent;
 }
