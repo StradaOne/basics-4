@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Stradagram Web</title>
+</head>
+
+<body>
+    <main class="main">
+        <div class="container">
+            <section class="utils">
+                <div class="utils__wrapper">
+                    <img class="utils__btn" src="./images/three_dots_vertical_icon_159806.svg" alt="Настройки"
+                        draggable="false" onclick="window.dialog.showModal();">
+                    <img class="utils__btn" src="./images/logout_exit_icon_176185.svg" alt="Выход" draggable="false">
+                </div>
+            </section>
+            <section class="chat">
+                <div class="message message__sender">
+                    <p class="message__name">Я</p>
+                    <p class="message__text">
+                        Добрый день!
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+                <div class="message message__sender">
+                    <p class="message__name">Я</p>
+                    <p class="message__text">
+                        Добрый день!А это второе и, кажется, оно очень
+                        длинное, чтобы поместиться на
+                        одной строке
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+                <div class="message message__sender">
+                    <p class="message__name">Я</p>
+                    <p class="message__text">
+                        Добрый день!
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+                <div class="message message__sender">
+                    <p class="message__name">Я</p>
+                    <p class="message__text">
+                        Добрый день!
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+                <div class="message message__recipient">
+                    <p class="message__name">Собеседник</p>
+                    <p class="message__text">
+                        Добрый день!
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+                <div class="message message__recipient">
+                    <p class="message__name">Собеседник</p>
+                    <p class="message__text">
+                        А это второе и, кажется, оно очень
+                        длинное, чтобы поместиться на
+                        одной строкеА это второе и, кажется, оно очень
+                        длинное, чтобы поместиться на
+                        одной строкеА это второе и, кажется, оно очень
+                        длинное, чтобы поместиться на
+                        одной строке
+                    </p>
+                    <p class="message__time">18:47</p>
+                </div>
+                <div class="message message__sender">
+                    <p class="message__name">Я</p>
+                    <p class="message__text">
+                        Добрый день!
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+                <div class="message message__sender">
+                    <p class="message__name">Я</p>
+                    <p class="message__text">
+                        Добрый день!
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+                <div class="message message__recipient">
+                    <p class="message__name">Собеседник</p>
+                    <p class="message__text">
+                        Добрый день!
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+                <div class="message message__recipient">
+                    <p class="message__name">Собеседник</p>
+                    <p class="message__text">
+                        А это второе и, кажется, оно очень
+                        длинное, чтобы поместиться на
+                        одной строке
+                    </p>
+                    <p class="message__time">18:47</p>
+                </div>
+                <div class="message message__sender">
+                    <p class="message__name">Я</p>
+                    <p class="message__text">
+                        Добрый день!
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+                <div class="message message__sender">
+                    <p class="message__name">Я</p>
+                    <p class="message__text">
+                        Добрый день!
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+                <div class="message message__recipient">
+                    <p class="message__name">Собеседник</p>
+                    <p class="message__text">
+                        Добрый день!
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+                <div class="message message__recipient">
+                    <p class="message__name">Собеседник</p>
+                    <p class="message__text">
+                        А это второе и, кажется, оно очень
+                        длинное, чтобы поместиться на
+                        одной строке
+                    </p>
+                    <p class="message__time">18:47</p>
+                </div>
+                <div class="message message__sender">
+                    <p class="message__name">Я</p>
+                    <p class="message__text">
+                        Добрый день!
+                    </p>
+                    <p class="message__time">18:45</p>
+                </div>
+            </section>
+            <section class="send">
+                <form class="send__form">
+                    <div class="send__form-wrapper">
+                        <input contenteditable="true" class="send__form-input" type="text" placeholder="сообщение..">
+                        <button class="send__form-btn">
+                            <img class="send__form-btn-img" src="./images/ic-send_97591.svg" alt="Отправить">
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+    <dialog close class="dialog" id="dialog">
+        <div class="dialog__wrapper">
+            <div class="dialog__head">
+                <p class="dialog__text">Настройки</p>
+                <img class="dialog__img" src="./images/+.svg" alt="Выйти" onclick="window.dialog.close();">
+            </div>
+            <div class="dialog__main">
+                <p class="dialog__text">Имя в чате</p>
+                <form class="send__form" method="dialog">
+                    <div class="send__form-wrapper">
+                        <input contenteditable="true" class="send__form-input" type="text" placeholder="сообщение..">
+                        <button class="send__form-btn">
+                            <img class="send__form-btn-img" src="./images/ic-send_97591.svg" alt="Отправить">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dialog>
+</body>
+
+</html>

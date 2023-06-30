@@ -1,0 +1,184 @@
+@charset "UTF-8";
+.container {
+  max-width: 800px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  background-image: url(../images/wallpaperflare.com_wallpaper.jpg);
+  background-repeat: no-repeat;
+}
+body:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -2;
+}
+
+input::selection {
+  background: #747474;
+}
+
+p::selection {
+  background: #747474;
+}
+
+.utils {
+  background-color: #1c1c1c;
+  border-bottom: 3px solid skyblue;
+  border-image: linear-gradient(to right top, blue, pink);
+  border-image-slice: 1;
+}
+.utils__wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.utils__btn {
+  border: none;
+  width: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  background-color: #747474;
+}
+.utils__btn:hover {
+  background-color: #dadada;
+}
+.chat {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.chat::-webkit-scrollbar {
+  width: 5px; /* ширина всей полосы прокрутки */
+}
+.chat::-webkit-scrollbar-track {
+  background: rgba(136, 136, 136, 0.1); /* цвет зоны отслеживания */
+}
+.chat::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* цвет бегунка */
+  border-radius: 20px; /* округлось бегунка */
+}
+
+.message {
+  margin-bottom: 5px;
+  background-color: #1a1a1a;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-wrap: break-word;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 4px 5px 5px rgba(34, 34, 34, 0.3);
+}
+.message__name {
+  user-select: none;
+  font-size: 14px;
+}
+.message__text {
+  font-size: 19px;
+}
+.message__time {
+  font-size: 12px;
+  user-select: none;
+  text-align: right;
+}
+.message__recipient {
+  margin-right: auto;
+}
+.message__sender {
+  margin-left: auto;
+}
+
+.send {
+  margin-bottom: 50px;
+}
+.send__form-wrapper {
+  display: flex;
+  gap: 5px;
+  height: 20px;
+}
+.send__form-input {
+  height: 100%;
+  border: none;
+  outline: none;
+  flex-grow: 9999;
+  padding: 15px;
+  border-radius: 20px;
+  color: #fff;
+  background-color: #1c1c1c;
+  font-size: 19px;
+}
+.send__form-btn {
+  border-radius: 50%;
+  border: none;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #747474;
+  flex-grow: 1;
+  transition: all 0.2s;
+}
+.send__form-btn:hover {
+  background-color: #dadada;
+}
+.send__form-btn-img {
+  padding-left: 6px;
+  height: 30px;
+  width: 30px;
+}
+
+.dialog {
+  border: none;
+  width: 500px;
+  height: 150px;
+  background-color: #dadada;
+}
+.dialog__wrapper {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.dialog__head {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.dialog__text {
+  font-size: 30px;
+}
+.dialog__img {
+  width: 30px;
+}
+.dialog__main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+/*# sourceMappingURL=style.css.map */

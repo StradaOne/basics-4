@@ -1,0 +1,211 @@
+// colors
+$bg-gray: #1c1c1c;
+$bg-light-gray: #747474;
+$bg-ligh-gray2: #dadada;
+// sizes
+$brs: 20px;
+$user-font-size: 14px;
+$text-font-size: 19px;
+$time-font-size: 12px;
+
+.container {
+    max-width: 800px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: #fff;
+    background-image: url(../images/wallpaperflare.com_wallpaper.jpg);
+    background-repeat: no-repeat;
+
+    &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color:rgba(0, 0, 0, .5);
+        z-index: -2;
+    }
+}
+
+
+input::selection {
+    background: $bg-light-gray;
+}
+p::selection {
+    background: $bg-light-gray;
+}
+
+.utils {
+    background-color: $bg-gray;
+    border-bottom: 3px solid skyblue;
+    border-image: linear-gradient(to right top, blue, pink);
+    border-image-slice: 1;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+    &__btn {
+        border: none;
+        width: 30px;
+        padding: 5px;
+        border-radius: 50%;
+        transition: all 0.2s;
+        background-color: $bg-light-gray;
+
+        &:hover {
+            background-color: $bg-ligh-gray2;
+        }
+    }
+    &__settings {
+    }
+}
+
+.chat {
+    
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    &::-webkit-scrollbar {
+        width: 5px;               /* ширина всей полосы прокрутки */
+      }
+      
+      &::-webkit-scrollbar-track {
+        background: rgba(136, 136, 136, 0.1);        /* цвет зоны отслеживания */
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, .3);    /* цвет бегунка */
+        border-radius: 20px;       /* округлось бегунка */
+      }
+}
+.message {
+    margin-bottom: 5px;
+    background-color: #1a1a1a;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow-wrap: break-word;
+    padding: 10px;
+    border-radius: $brs;
+    box-shadow: 4px 5px 5px rgba($color: #222222, $alpha: 0.3);
+
+    &__name {
+        user-select: none;
+        font-size: $user-font-size;
+    }
+    &__text {
+        font-size: $text-font-size;
+    }
+    &__time {
+        font-size: $time-font-size;
+        user-select: none;
+        text-align: right;
+    }
+
+    &__recipient {
+        margin-right: auto;
+    }
+    &__sender {
+        margin-left: auto;
+    }
+}
+
+.send {
+    margin-bottom: 50px;
+    &__form {
+
+
+        &-wrapper {
+            display: flex;
+            gap: 5px;    
+            height: 20px;
+        }
+
+        &-input {
+            height: 100%;
+            border: none;
+            outline: none;
+            flex-grow: 9999;
+            padding: 15px;
+            border-radius: $brs;
+            color: #fff;
+            background-color: $bg-gray;
+            font-size: $text-font-size;
+        }
+
+        &-btn {
+            border-radius: 50%;
+            border: none;
+            height: 50px;
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $bg-light-gray;
+            flex-grow: 1;
+            transition: all .2s;
+            &:hover {
+                background-color: $bg-ligh-gray2;
+            }
+
+            &-img {
+                padding-left: 6px;
+                height: 30px;
+                width: 30px;
+            }
+        }
+    }
+}
+
+.dialog {
+    border: none;
+    width: 500px;
+    height: 150px;
+    background-color: $bg-ligh-gray2;
+
+    &__wrapper {
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+    &__head {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    &__text {
+        font-size: 30px;
+    }
+    &__img {
+        width: 30px;
+    }
+    &__main {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+   
+    &::backdrop {
+        background-color: rgb(0 0 0 / 0.6);
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+
+    }
+}
+
