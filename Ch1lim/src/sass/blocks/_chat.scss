@@ -1,0 +1,75 @@
+.chat {
+    width: 320px;
+    min-height: 533px;
+    border: 1px solid;
+    border-color: blue;
+    &__dialogWindow {
+        display: flex;
+        flex-direction:column;
+        justify-content: flex-end;
+        width: 304px;
+        height: 437px;
+        border: 1px solid #000;
+        background: #FFF;
+        margin-left: 8px;
+        margin-top: 8px;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+        .messageU {
+            display: block;
+            position: relative;
+            max-width: 288px;
+            min-height: 52px;
+            margin-bottom: 8px;
+            margin-left: auto;
+            margin-right: 6px;
+            &__time {
+                position: absolute;
+                bottom: 6px;
+                right: 6px;
+            }
+            &__text {
+                margin-top: 8px;
+                margin-left: 8px;
+                padding-bottom: 20px;
+            }
+        }
+        .messageInterlocutor {
+            display: block;
+            position: relative;
+            margin-left: 6px;
+            max-width: 288px;
+            min-height: 52px;
+            margin-bottom: 8px;
+            &__text {
+                margin-top: 8px;
+                margin-left: 8px;
+                padding-bottom: 20px;
+            }
+            &__time {
+                position: absolute;
+                bottom: 6px;
+                right: 6px;
+            }
+        }
+    }
+    .entry {
+        margin-top: 8px;
+        width: 314px;
+        display: flex;
+        &__input {
+            width: 267px;
+            height: 32px;
+            border: 1px solid #000;
+            color: #7C7C7C;
+            font-weight: 400;
+            line-height: normal;
+            font-style: normal;
+            font-size: 16px;
+            padding-left: 8px;
+            margin-left: 8px;
+        }
+    }
+}
