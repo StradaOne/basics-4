@@ -1,0 +1,19 @@
+{
+  "name": "efimov",
+  "version": "1.0.0",
+  "description": "- `создаем папку в директории basics-4 с вашим ником`\r - `cd \"название папки которую создали\"`\r - `npm init`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.9.3"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "js-cookie": "^3.0.5"
+  }
+}
