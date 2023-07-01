@@ -40,7 +40,7 @@ body {
 }
 
 .chat__messages {
-  max-height: 437px;
+  height: 437px;
   border: 1px solid #000;
   overflow: hidden;
   overflow-y: scroll;
