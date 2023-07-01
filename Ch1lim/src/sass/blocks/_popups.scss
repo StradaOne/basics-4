@@ -1,0 +1,57 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, .5);
+    &-none {
+        display: none;
+    }
+    &__settings {
+        width: 273px;
+        height: 319px;
+        margin: auto;
+        position: absolute;
+        z-index: 1051;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background-color: #fff;
+    }
+    .settings__text {
+        color: #000;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 16px;
+        margin-left: 14px;
+    }
+    .name__text {
+        color: #000;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 16px;
+        margin-left: 14px;
+    }
+    .entry {
+        margin-top: 8px;
+        width: 273px;
+        display: flex;
+        &__input {
+            width: 207px;
+            height: 32px;
+            border: 1px solid #000;
+            color: #7C7C7C;
+            font-weight: 400;
+            line-height: normal;
+            font-style: normal;
+            font-size: 16px;
+            padding-left: 8px;
+            margin-left: 8px;
+        }
+    }
+}
