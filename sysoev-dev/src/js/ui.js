@@ -5,6 +5,11 @@ export const UI_ELEMENTS = {
   BTN_CLOSE_DIALOG: document.querySelectorAll('.dialog__top-btn'),
 };
 
+export const SETTINGS = {
+  FORM: document.querySelector('.form-settings'),
+  INPUT: document.querySelector('.form-settings__input'),
+};
+
 export const MESSAGE = {
   FORM: document.querySelector('.chat__bottom-form'),
   INPUT: document.querySelector('.chat__bottom-input'),

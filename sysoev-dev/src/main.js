@@ -1,11 +1,9 @@
-import { UI_ELEMENTS, MESSAGE, AUTH, CONFIRM, showSuccessAuth } from './js/ui';
+import { UI_ELEMENTS, MESSAGE, AUTH, CONFIRM, showSuccessAuth, SETTINGS } from './js/ui';
 import { ValidationError, showError } from './js/errors';
+import { getCookie, setCookie } from './js/cookies';
 
 async function getAuthCode(email) {
   const url = 'https://edu.strada.one/api/user';
-  let object = {
-    email: email,
-  };
 
   try {
     const response = await fetch(url, {
@@ -25,7 +23,27 @@ async function getAuthCode(email) {
   }
 }
 
-function authFormHandler() {
+// async function changeUserName(newName) {
+//   const url = 'https://edu.strada.one/api/user';
+
+//   const response = await fetch(url, {
+//     method: 'PATCH',
+//     headers: {
+//       'Content-Type': 'application/json;charset=utf-8',
+//     },
+//     Authorization: `Bearer ${getCookie()}`,
+//     body: JSON.stringify({ name: newName }),
+//   });
+// }
+
+function settingsFormHandler() {
+  const newName = SETTINGS.INPUT.value;
+  changeUserName(newName);
+}
+
+SETTINGS.FORM.addEventListener('submit', settingsFormHandler);
+
+function authFormHandler(event) {
   event.preventDefault();
   const email = AUTH.INPUT.value;
   getAuthCode(email);
@@ -34,14 +52,11 @@ function authFormHandler() {
 
 AUTH.FORM.addEventListener('submit', authFormHandler);
 
-function saveAuthCode(token) {
-  console.log(token);
-}
-
 function confirmFormHandler(event) {
   event.preventDefault();
   const token = CONFIRM.INPUT.value;
-  saveAuthCode(token);
+  // saveAuthCode(token);
+  setCookie(token);
   event.target.reset();
 }
 
@@ -69,13 +84,12 @@ function createMessage(author, text, time, isAuthor) {
 function validateMessageText(value) {
   if (value.trim().length === 0) {
     console.log('Пустой текст');
-    return;
   } else {
     return value.trim();
   }
 }
 
-function sendMessageHandler() {
+function sendMessageHandler(event) {
   event.preventDefault();
   const messageText = validateMessageText(MESSAGE.INPUT.value);
   if (!messageText) {
