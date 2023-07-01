@@ -136,22 +136,37 @@ body {
   background-color: transparent;
 }
 
-.form-settings__label {
+.dialog__form-label {
   display: block;
   margin-bottom: 8px;
 }
 
-.form-settings__input {
+.dialog__form-input {
   width: 202px;
   margin-right: 8px;
   padding: 6px;
   font-size: 16px;
   border: 1px solid #000;
+  margin-bottom: 8px;
 }
 
-.form-settings__btn {
+.dialog__form-btn {
   padding: 6px;
   font-size: 16px;
   border: 1px solid #000;
   background: transparent;
+  margin-bottom: 8px;
+}
+
+.form-auth__btn--success {
+  background-color: green;
+  color: #fff;
+  font-size: 0;
+}
+
+.form-auth__btn--success::after {
+  display: block;
+  z-index: 100;
+  font-size: 16px;
+  content: 'Код успешно отправлен';
 }

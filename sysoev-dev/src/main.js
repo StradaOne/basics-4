@@ -1,4 +1,37 @@
-import { UI_ELEMENTS, MESSAGE } from './js/ui';
+import { UI_ELEMENTS, MESSAGE, AUTH, CONFIRM, showSuccessAuth } from './js/ui';
+import { ValidationError, showError } from './js/errors';
+async function getAuthCode(email) {
+  const url = 'https://edu.strada.one/api/user';
+  let object = {
+    email: email,
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({ email }),
+    });
+    if (response.ok) {
+      showSuccessAuth();
+    } else {
+      throw new ValidationError('Ошика какая-то!');
+    }
+  } catch (error) {
+    showError(error);
+  }
+}
+
+function authFormHandler() {
+  event.preventDefault();
+  const email = AUTH.INPUT.value;
+  getAuthCode(email);
+  event.target.reset();
+}
+
+AUTH.FORM.addEventListener('submit', authFormHandler);
 
 function showMessage(item) {
   MESSAGE.LIST.append(item);
@@ -46,8 +79,28 @@ UI_ELEMENTS.BTN_SETTINGS.addEventListener('click', () => {
   UI_ELEMENTS.SETTINGS_MODAL.showModal();
 });
 
-UI_ELEMENTS.BTN_CLOSE_DIALOG.addEventListener('click', () => {
-  UI_ELEMENTS.SETTINGS_MODAL.close();
+AUTH.BTN_OPEN.addEventListener('click', () => {
+  AUTH.MODAL.showModal();
 });
+
+CONFIRM.BTN_OPEN.addEventListener('click', () => {
+  CONFIRM.MODAL.showModal();
+});
+
+UI_ELEMENTS.BTN_CLOSE_DIALOG.forEach((item) => {
+  item.addEventListener('click', () => {
+    UI_ELEMENTS.DIALOGS.forEach((item) => {
+      item.close();
+    });
+  });
+});
+
+// UI_ELEMENTS.BTN_CLOSE_DIALOG.addEventListener('click', () => {
+//   const dialogs = document.querySelectorAll('.dialog');
+//   dialogs.forEach((item) => {
+//     item.close();
+//   });
+//   UI_ELEMENTS.SETTINGS_MODAL.close();
+// });
 
 MESSAGE.FORM.addEventListener('submit', sendMessageHandler);

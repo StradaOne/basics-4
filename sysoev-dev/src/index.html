@@ -59,9 +59,34 @@
         <button class="dialog__top-btn" type="button">Закрыть</button>
       </div>
       <form class="dialog__form form-settings" action="#">
-        <label class="form-settings__label" for="settings-name">Имя в чате</label>
-        <input class="form-settings__input" placeholder="Стив" type="text" name="" id="settings-name" required>
-        <button class="form-settings__btn" type="submit">-></button>
+        <label class="dialog__form-label form-settings__label" for="settings-name">Имя в чате</label>
+        <input class="dialog__form-input form-settings__input" placeholder="Стив" type="text" name="" id="settings-name" required>
+        <button class="dialog__form-btn form-settings__btn" type="submit">-></button>
+      </form>
+    </dialog>
+
+    <dialog class="dialog dialog-auth">
+      <div class="dialog__top">
+        <h2 class="dialog__top-title">Авторизация</h2>
+        <button class="dialog__top-btn" type="button">Закрыть</button>
+      </div>
+      <form class="dialog__form form-auth" action="#">
+        <label class="dialog__form-label form-auth__label" for="auth-name">Почта</label>
+        <input class="dialog__form-input form-auth__input" placeholder="Введите ваш email" type="email" name="" id="auth-name" required>
+        <button class="dialog__form-btn form-auth__btn" type="submit">Получить код</button>
+      </form>
+      <button class="dialog__form-btn dialog__confirm-open" type="button">Ввести код</button>
+    </dialog>
+
+    <dialog class="dialog dialog-confirm">
+      <div class="dialog__top">
+        <h2 class="dialog__top-title">Подтверждение</h2>
+        <button class="dialog__top-btn" type="button">Закрыть</button>
+      </div>
+      <form class="dialog__form form-confirm" action="#">
+        <label class="dialog__form-label form-confirm__label" for="confirm-name">Код</label>
+        <input class="dialog__form-input form-confirm__input" placeholder="Введите код" type="text" name="" id="confirm-name" required>
+        <button class="dialog__form-btn form-confirm__btn" type="submit">Войти</button>
       </form>
     </dialog>
   </div>
