@@ -1,5 +1,6 @@
 import { UI_ELEMENTS, MESSAGE, AUTH, CONFIRM, showSuccessAuth } from './js/ui';
 import { ValidationError, showError } from './js/errors';
+
 async function getAuthCode(email) {
   const url = 'https://edu.strada.one/api/user';
   let object = {
@@ -33,6 +34,18 @@ function authFormHandler() {
 
 AUTH.FORM.addEventListener('submit', authFormHandler);
 
+function saveAuthCode(token) {
+  console.log(token);
+}
+
+function confirmFormHandler(event) {
+  event.preventDefault();
+  const token = CONFIRM.INPUT.value;
+  saveAuthCode(token);
+  event.target.reset();
+}
+
+CONFIRM.FORM.addEventListener('submit', confirmFormHandler);
 function showMessage(item) {
   MESSAGE.LIST.append(item);
 }
