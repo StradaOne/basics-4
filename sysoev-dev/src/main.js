@@ -1,4 +1,13 @@
-import { UI_ELEMENTS, MESSAGE, AUTH, CONFIRM, showSuccessAuth, SETTINGS } from './js/ui';
+import {
+  UI_ELEMENTS,
+  MESSAGE,
+  AUTH,
+  CONFIRM,
+  showSuccessAuth,
+  SETTINGS,
+  showUserInSettings,
+  srcollToBottom,
+} from './js/ui';
 import { ValidationError, showError } from './js/errors';
 import { getCookie, setCookie } from './js/cookies';
 
@@ -16,29 +25,60 @@ async function getAuthCode(email) {
     if (response.ok) {
       showSuccessAuth();
     } else {
-      throw new ValidationError('Ошика какая-то!');
+      throw new ValidationError('Ошибка какая-то!');
     }
   } catch (error) {
     showError(error);
   }
 }
 
-// async function changeUserName(newName) {
-//   const url = 'https://edu.strada.one/api/user';
+async function changeUserName(newName) {
+  const url = 'https://edu.strada.one/api/user';
+  try {
+    const response = await fetch(url, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: `Bearer ${getCookie()}`,
+      },
+      body: JSON.stringify({ name: newName }),
+    });
+    if (response.ok) {
+      const json = await response.json();
+      console.log(`Имя изменено на ${json.name}`);
+    } else {
+      throw new ValidationError(await response.json().message);
+    }
+  } catch (error) {
+    if (error instanceof ValidationError) {
+      showError('Ошибка валидации');
+    }
+  }
+}
 
-//   const response = await fetch(url, {
-//     method: 'PATCH',
-//     headers: {
-//       'Content-Type': 'application/json;charset=utf-8',
-//     },
-//     Authorization: `Bearer ${getCookie()}`,
-//     body: JSON.stringify({ name: newName }),
-//   });
-// }
+async function getUser() {
+  const url = 'https://edu.strada.one/api/user/me';
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: `Bearer ${getCookie()}`,
+      },
+    });
+    const json = await response.json();
+    showUserInSettings(json.name, json.email);
+  } catch (error) {
+    showError(error);
+  }
+}
 
-function settingsFormHandler() {
+function settingsFormHandler(event) {
+  event.preventDefault();
   const newName = SETTINGS.INPUT.value;
   changeUserName(newName);
+  getUser();
+  event.target.reset();
 }
 
 SETTINGS.FORM.addEventListener('submit', settingsFormHandler);
@@ -55,7 +95,6 @@ AUTH.FORM.addEventListener('submit', authFormHandler);
 function confirmFormHandler(event) {
   event.preventDefault();
   const token = CONFIRM.INPUT.value;
-  // saveAuthCode(token);
   setCookie(token);
   event.target.reset();
 }
@@ -84,9 +123,9 @@ function createMessage(author, text, time, isAuthor) {
 function validateMessageText(value) {
   if (value.trim().length === 0) {
     console.log('Пустой текст');
-  } else {
-    return value.trim();
+    return;
   }
+  return value.trim();
 }
 
 function sendMessageHandler(event) {
@@ -104,6 +143,7 @@ function sendMessageHandler(event) {
 
 UI_ELEMENTS.BTN_SETTINGS.addEventListener('click', () => {
   UI_ELEMENTS.SETTINGS_MODAL.showModal();
+  getUser();
 });
 
 AUTH.BTN_OPEN.addEventListener('click', () => {
@@ -116,18 +156,12 @@ CONFIRM.BTN_OPEN.addEventListener('click', () => {
 
 UI_ELEMENTS.BTN_CLOSE_DIALOG.forEach((item) => {
   item.addEventListener('click', () => {
-    UI_ELEMENTS.DIALOGS.forEach((item) => {
-      item.close();
+    UI_ELEMENTS.DIALOGS.forEach((itemModal) => {
+      itemModal.close();
     });
   });
 });
 
-// UI_ELEMENTS.BTN_CLOSE_DIALOG.addEventListener('click', () => {
-//   const dialogs = document.querySelectorAll('.dialog');
-//   dialogs.forEach((item) => {
-//     item.close();
-//   });
-//   UI_ELEMENTS.SETTINGS_MODAL.close();
-// });
-
 MESSAGE.FORM.addEventListener('submit', sendMessageHandler);
+
+srcollToBottom();
