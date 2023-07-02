@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta httpequiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>brbsiemens-chat</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="upper-btn">
+				<button class="main-settings-btn">Settings</button>
+				<button class="main-exit-btn">Exit</button>
+			</div>
+			<div class="mainScreen">
+				<div class="message-box message-box-I">
+					<div class="sender-and-text">
+						<div class="message-sender">I:</div>
+						<div class="message-text">Hello World!</div>
+					</div>
+					<div class="message-time">18:45</div>
+				</div>
+
+				<div class="message-box message-box-companion">
+					<div class="sender-and-text">
+						<div class="message-sender">Boris:</div>
+						<div class="message-text">How are you?</div>
+					</div>
+					<div class="message-time">19:45</div>
+				</div>
+
+				<template id="myMessage">
+					<div class="message-box">
+						<div class="sender-and-text">
+							<div class="message-sender"></div>
+							<div class="message-text"></div>
+						</div>
+						<div class="message-time"></div>
+					</div>
+				</template>
+			</div>
+
+			<form action="#" class="chat-form">
+				<input type="text" placeholder="Enter message" autocomplete="off" class="chat-form-input" />
+				<button type="submit" class="chat-form-btn">-></button>
+			</form>
+		</div>
+
+		<dialog class="settings-menu">
+			<div class="settings-menu_body">
+				<h2 class="settings-menu_title">Settings</h2>
+				<p class="settings-menu_text">Enter name :</p>
+				<form class="settings-menu_form" action="#">
+					<input class="settings-menu_input message" type="text" placeholder="name" />
+					<button class="settings-menu_button send">-></button>
+				</form>
+			</div>
+		</dialog>
+    
+		<!-- <dialog class="login-menu"> -->
+			<div class="log-menu_body">
+				<h2 class="log-menu_title">Authorization</h2>
+				<p class="log-menu_text">Email :</p>
+				<form class="log-menu_form" action="#">
+					<input class="log-menu_input" type="text" />
+					<button class="log-menu_button_get">Get code</button>
+					<button class="log-menu_button_set">Set code</button>
+				</form>
+			</div>
+		<!-- </dialog> -->
+    <div class="confirm-menu_body">
+      <h2 class="confirm-menu_title">Confirm</h2>
+      <p class="confirm-menu_text">Code :</p>
+      <form class="confirm-menu_form" action="#">
+        <input class="confirm-menu_input" type="text" />
+        <button class="confirm-menu_button_sign">Sign in</button>
+      </form>
+    </div>
+
+		<script type="module" src="js/index.js"></script>
+	</body>
+</html>
