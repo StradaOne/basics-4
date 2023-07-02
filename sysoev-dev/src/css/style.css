@@ -1,0 +1,172 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: rgb(124, 170, 255);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.chat {
+  background-color: #fff;
+  width: 320px;
+  min-height: 533px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chat__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat__top-btn {
+  background-color: transparent;
+  border: 1px solid #000;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.chat__top-btn:hover {
+  background-color: #e3e3e3;
+}
+
+.chat__messages {
+  height: 437px;
+  border: 1px solid #000;
+  overflow: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 8px;
+}
+
+.chat__message {
+  background-color: #e5e5e5;
+  list-style-type: none;
+  align-self: flex-start;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.chat__message-author {
+  align-self: flex-end;
+}
+
+.chat__message-content {
+  margin: 5px;
+}
+
+.chat__message-time {
+  margin: 0;
+  text-align: right;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.chat__bottom-form {
+  display: flex;
+}
+
+.chat__bottom-input {
+  margin-right: 8px;
+  padding: 8px;
+  flex-grow: 1;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #000;
+  outline: none;
+}
+
+.chat__bottom-btn {
+  border: 1px solid #000;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.dialog {
+  width: 273px;
+  height: 319px;
+  margin-top: 106px;
+  margin-left: 30px;
+  padding: 20px 15px;
+  border: none;
+  outline: none;
+}
+
+.dialog::backdrop {
+  width: 290px;
+  height: 493px;
+  margin: 8px;
+  padding: 20px 15px;
+  background-color: #535353;
+}
+
+.dialog__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dialog__top-title {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.dialog__top-btn {
+  display: block;
+  width: 25px;
+  height: 25px;
+  font-size: 0;
+  background-image: url(../images/close-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.dialog__form-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.dialog__form-input {
+  width: 202px;
+  margin-right: 8px;
+  padding: 6px;
+  font-size: 16px;
+  border: 1px solid #000;
+  margin-bottom: 8px;
+}
+
+.dialog__form-btn {
+  padding: 6px;
+  font-size: 16px;
+  border: 1px solid #000;
+  background: transparent;
+  margin-bottom: 8px;
+}
+
+.form-auth__btn--success {
+  background-color: green;
+  color: #fff;
+  font-size: 0;
+}
+
+.form-auth__btn--success::after {
+  display: block;
+  z-index: 100;
+  font-size: 16px;
+  content: 'Код успешно отправлен';
+}
