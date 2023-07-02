@@ -1,14 +1,14 @@
 export const UI_ELEMENTS = {
   DIALOGS: document.querySelectorAll('.dialog'),
-  BTN_SETTINGS: document.querySelector('.chat__top-btn-settings'),
-  SETTINGS_MODAL: document.querySelector('.dialog-settings'),
   BTN_CLOSE_DIALOG: document.querySelectorAll('.dialog__top-btn'),
-  SETTINGS_INFO: document.querySelector('.form-settings__info'),
 };
 
 export const SETTINGS = {
+  SETTINGS_MODAL: document.querySelector('.dialog-settings'),
+  BTN_SETTINGS: document.querySelector('.chat__top-btn-settings'),
   FORM: document.querySelector('.form-settings'),
   INPUT: document.querySelector('.form-settings__input'),
+  SETTINGS_INFO: document.querySelector('.form-settings__info'),
 };
 
 export const MESSAGE = {
@@ -34,18 +34,21 @@ export const CONFIRM = {
 };
 
 export function showUserInSettings(name, email) {
-  UI_ELEMENTS.SETTINGS_INFO.textContent = '';
+  SETTINGS.SETTINGS_INFO.textContent = '';
   const userName = document.createElement('p');
   const userEmail = document.createElement('p');
   userName.textContent = `Имя в чате: ${name}`;
   userEmail.textContent = `Email: ${email}`;
 
-  UI_ELEMENTS.SETTINGS_INFO.append(userName, userEmail);
+  SETTINGS.SETTINGS_INFO.append(userName, userEmail);
 }
 
 export function showSuccessAuth() {
   AUTH.BTN_SUBMIT.classList.add('form-auth__btn--success');
-  setTimeout(() => AUTH.BTN_SUBMIT.classList.remove('form-auth__btn--success'), 5000);
+  setTimeout(() => {
+    AUTH.BTN_SUBMIT.classList.remove('form-auth__btn--success');
+    CONFIRM.MODAL.showModal();
+  }, 2000);
 }
 
 export function srcollToBottom() {

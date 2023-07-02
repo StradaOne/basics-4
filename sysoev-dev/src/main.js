@@ -123,7 +123,7 @@ function createMessage(author, text, time, isAuthor) {
 function validateMessageText(value) {
   if (value.trim().length === 0) {
     console.log('Пустой текст');
-    return;
+    return false;
   }
   return value.trim();
 }
@@ -138,11 +138,12 @@ function sendMessageHandler(event) {
   const messageTime = '10:33';
   const item = createMessage(messageAuthor, messageText, messageTime, true);
   showMessage(item);
+  srcollToBottom();
   event.target.reset();
 }
 
-UI_ELEMENTS.BTN_SETTINGS.addEventListener('click', () => {
-  UI_ELEMENTS.SETTINGS_MODAL.showModal();
+SETTINGS.BTN_SETTINGS.addEventListener('click', () => {
+  SETTINGS.SETTINGS_MODAL.showModal();
   getUser();
 });
 
