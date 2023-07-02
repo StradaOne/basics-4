@@ -1,0 +1,135 @@
+import { convertTime } from './utils.js'
+
+const UI_ELEMENTS = {
+  SCROLL_FIX: document.querySelector('.window_container'),
+  WINDOW_CHAT: document.querySelector('.window_container'),
+  MESSAGE_MAIN: document.querySelector('#template--main-user'),
+  MESSAGE_WELCOME: document.querySelector('#welcome-message'),
+  INPUT_FORM: document.querySelector('.input-form'),
+  INPUT_TEXT: document.querySelector('.messenger-form-input'),
+  MODAL_CONTAINER: document.querySelector('.modal-container'),
+  SETTING_BTN: document.querySelector('.btn-setting'),
+  SETTING_BOX: document.querySelector('.box-setting'),
+  ENTER_BTN: document.querySelector('.btn-enter'),
+  EXIT_BTN: document.querySelector('.btn-exit'),
+  AUTHORIZATION_BOX: document.querySelector('.box-authorization'),
+  ENTER_CODE_BTN: document.querySelector('.enter-code'),
+  VALIDATION_BOX: document.querySelector('.box-validation'),
+  ENTER_MESSENGER: document.querySelector('.enter-validation'),
+  EMODJI_BTN: document.querySelector('.emodji-messenger'),
+  EMODJI_BOX: document.querySelector('.box-emodji'),
+  AUTH_IMPUT_TEXT: document.querySelector('.modal-auth-form-input'),
+  GET_CODE: document.querySelector('.get-code'),
+  VALIDATION_INPUT_TEXT: document.querySelector('.modal-validation-form-input'),
+  INPUT_SETTING_FORM: document.querySelector('.modal-form-setting-input'),
+  INPUT_SETTING_TEXT: document.querySelector('.modal-setting-form-input'),
+  IMG_COMLETE: document.querySelector('.img_complete'),
+  IMG_ERROR: document.querySelector('.img_error'),
+  LOADER: document.querySelector('.loader'),
+  LOADER_DISCONECTED: document.querySelector('.loader-disconected'),
+}
+
+const CLASS = {
+  SHOW: 'show',
+  CLOSE: 'close',
+  MESSAGE_TEXT: '.message-text',
+  MESSAGE_DATE: '.message-date',
+  BTN_CLOSE: '.modal-btn-close',
+  MODAL_CONTAINER: '.modal-container',
+  MODAL_BOX: '.modal-box',
+}
+
+const clearInput = (event) => {
+  const target = event.target
+  target.reset()
+}
+
+const updateScroll = () => {
+  UI_ELEMENTS.SCROLL_FIX.scrollTop = UI_ELEMENTS.SCROLL_FIX.scrollHeight
+}
+
+const createUsersMassage = (value, template = UI_ELEMENTS.MESSAGE_MAIN) => {
+  if (value.trim() !== '') {
+    const message = template.content.cloneNode(true)
+    message.querySelector(CLASS.MESSAGE_TEXT).textContent = value
+    message.querySelector(CLASS.MESSAGE_DATE).textContent = convertTime()
+    UI_ELEMENTS.WINDOW_CHAT.append(message)
+  }
+}
+
+const createBotMassage = (template) => {
+  setTimeout(() => {
+    const message = template.content.cloneNode(true)
+    message.querySelector(CLASS.MESSAGE_DATE).textContent = convertTime()
+    UI_ELEMENTS.WINDOW_CHAT.append(message)
+  }, 500)
+}
+
+const showModal = {
+  close: (event) => {
+    const target = event.target
+    const closeButton = target.closest(CLASS.BTN_CLOSE)
+    const container = target.closest(CLASS.MODAL_CONTAINER)
+    const box = target.closest(CLASS.MODAL_BOX)
+
+    if (target === closeButton) {
+      container.classList.remove(CLASS.SHOW)
+      box.classList.remove(CLASS.SHOW)
+    }
+  },
+
+  open: (box) => {
+    UI_ELEMENTS.MODAL_CONTAINER.classList.add(CLASS.SHOW)
+    box.classList.add(CLASS.SHOW)
+  },
+
+  clear: (event) => {
+    const target = event.target
+    const box = target.closest(CLASS.MODAL_BOX)
+    const container = target.closest(CLASS.MODAL_CONTAINER)
+
+    container.classList.remove(CLASS.SHOW)
+    box.classList.remove(CLASS.SHOW)
+  },
+}
+
+const replaceIcon = (openIcon, closeIcon) => {
+  openIcon.classList.add(CLASS.SHOW)
+  openIcon.classList.remove(CLASS.CLOSE)
+  closeIcon.classList.remove(CLASS.SHOW)
+  closeIcon.classList.add(CLASS.CLOSE)
+}
+
+const showStatus = {
+  complete: () => {
+    UI_ELEMENTS.IMG_COMLETE.classList.add(CLASS.SHOW)
+    setTimeout(() => {
+      UI_ELEMENTS.IMG_COMLETE.classList.remove(CLASS.SHOW)
+    }, 1000)
+  },
+  error: () => {
+    UI_ELEMENTS.IMG_ERROR.classList.add(CLASS.SHOW)
+    setTimeout(() => {
+      UI_ELEMENTS.IMG_ERROR.classList.remove(CLASS.SHOW)
+    }, 1000)
+  },
+}
+
+const showLoader = {
+  open: () => UI_ELEMENTS.LOADER.classList.add(CLASS.SHOW),
+  close: () => UI_ELEMENTS.LOADER.classList.remove(CLASS.SHOW),
+  online: () => UI_ELEMENTS.LOADER_DISCONECTED.classList.remove(CLASS.SHOW),
+  offline: () => UI_ELEMENTS.LOADER_DISCONECTED.classList.add(CLASS.SHOW),
+}
+
+export {
+  UI_ELEMENTS,
+  createUsersMassage,
+  createBotMassage,
+  updateScroll,
+  clearInput,
+  replaceIcon,
+  showModal,
+  showStatus,
+  showLoader,
+}

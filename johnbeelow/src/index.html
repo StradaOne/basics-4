@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StradaGram</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <main class="main">
+
+    <div class="container">
+
+      <header class="btn_conainer">
+
+        <button class="btn-setting">
+          <img src="img/setting.svg" alt="#" class="img-setting">
+        </button>
+
+        <p class="logo">StradaGram</p>
+
+        <button class="btn-exit close">
+          <img src="img/exit-outline.svg" alt="#" class="img-exit">
+        </button>
+
+        <button class="btn-enter">
+          <img src="img/enter-outline.svg" alt="#" class="img-enter">
+        </button>
+
+      </header>
+
+      <div class="window_wrapper">
+
+        <div class="window_container">
+
+          <template id="template--main-user">
+            <div class="message--main-user">
+              <p class="message-text--main-user">Beelow</p>
+              <p class="message-text">Text</p>
+              <div class="message-info">
+                <p class="message-date">00:00</p>
+                <img src="img/check-all.svg" alt="#" class="message-check">
+              </div>
+            </div>
+          </template>
+
+          <template id="welcome-message">
+            <div class="message--only-users">
+              <p class="message-text--users">StradaGram [Bot] 🤖</p>
+              <p class="message-text">Добро пожаловать 👋. Я искусственный интеллект приложения для обмена сообщениями:
+                StradaGram. Сейчас приложение на стадии разработки и тестирования. На данный момент, версия приложения:
+                0.0.7</p>
+              <div class="message-info">
+                <p class="message-date">00:00</p>
+              </div>
+            </div>
+          </template>
+
+          <!-- <div class="message--main-user">
+            <p class="message-text--main-user">Beelow</p>
+            <p class="message-text">Добрый утро !</p>
+            <div class="message-info">
+              <p class="message-date">07:30</p>
+              <img src="img/check-all.svg" alt="#" class="message-check">
+            </div>
+          </div> -->
+
+
+        </div>
+
+      </div>
+
+
+      <form name="input" class="input-form">
+
+        <button type="click" class="emodji-messenger">
+          <img src="img/emoji-smile.svg" alt="#" class="btn-emoji-form">
+        </button>
+
+
+        <input type="text" placeholder="Сообщение" autocomplete="off" class="messenger-form-input" autocomplete="off">
+
+        <img src="img/paperclip-fill.svg" alt="#" class="btn-send-img-form">
+
+        <button type="submit" class="send-messenger">
+          <img src="img/telegram-logo-thin.svg" alt="#" class="btn-messenger-form">
+        </button>
+
+      </form>
+
+
+      <div class="modal-container close">
+
+
+        <div class="modal-box box-setting close">
+
+          <div class="modal-header">
+            <p class="modal-title">Настройки</p>
+            <button class="modal-btn-close">✖</button>
+          </div>
+
+          <div class="modal-title--enter">
+
+            <p class="modal-title-small">Имя в чате:</p>
+            <form class="modal-form-setting-input">
+              <input type="text" autocomplete="off" class="modal-setting-form-input" placeholder="Beelow">
+              <button class="send_user_name">
+                <img src="img/check-circle.svg" alt="#" class="btn-save">
+              </button>
+            </form>
+
+            <!-- <div class="pop-bottom">
+              <p class="logo-box">StradaGram</p>
+            </div> -->
+
+
+          </div>
+
+
+
+        </div>
+
+        <div class="modal-box box-authorization close">
+
+          <div class="modal-header">
+            <p class="modal-title">Авторизация</p>
+            <button class="modal-btn-close">✖</button>
+          </div>
+
+          <div class="modal-title--enter">
+
+            <p class="modal-title-small">Почта:</p>
+            <form class="modal-form-auth-input">
+              <input type="email" class="modal-auth-form-input" placeholder="Email">
+            </form>
+
+            <div class="buttons-group">
+              <button class="btn get-code">Получить код</button>
+              <button class="btn enter-code">Ввести код</button>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <div class="modal-box box-validation close">
+
+          <div class="modal-header close">
+            <p class="modal-title">Подтверждение</p>
+            <button class="modal-btn-close">✖</button>
+          </div>
+
+          <div class="modal-title--enter">
+
+            <p class="modal-title-small">Код:</p>
+            <form class="modal-form-setting-input">
+              <input type="text" class="modal-validation-form-input" placeholder="Введите код">
+            </form>
+
+            <div class="buttons-group">
+              <button class="btn enter-validation">Войти</button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="modal-box box-emodji close">
+
+          <div class="modal-header close">
+            <p class="modal-title"></p>
+            <button class="modal-btn-close">✖</button>
+          </div>
+
+          <div class="modal-title--enter">
+
+            <p class="modal-title-small">Только для Premium Users</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="status-img-container">
+        <img src="img/check-complete.svg" alt="Complete" class="img_complete close">
+        <img src="img/cross-error.svg" alt="Error" class="img_error close">
+      </div>
+
+      <div class="loader close">
+        <div class="loader bar"></div>
+      </div>
+
+      <div class="loader-disconected close">
+        <div class="loader-disconected bar-dis"></div>
+      </div>
+
+
+    </div>
+
+
+  </main>
+
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+
+</body>
+
+</html>
