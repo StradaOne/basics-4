@@ -1,0 +1,133 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, .5);
+    &-none {
+        display: none;
+    }
+    &-bgGrey {
+        background-color: #535353;
+    }
+    &__settings {
+        width: 273px;
+        height: 319px;
+        margin: auto;
+        position: absolute;
+        z-index: 1051;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background-color: #fff;
+        .settings__text {
+            color: #000;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-top: 16px;
+            margin-left: 14px;
+        }
+        .name__text {
+            color: #000;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-top: 16px;
+            margin-left: 14px;
+        }
+    }
+    
+    .entry {
+        margin-top: 8px;
+        width: 273px;
+        display: flex;
+        &__input {
+            width: 207px;
+            height: 32px;
+            border: 1px solid #000;
+            color: #7C7C7C;
+            font-weight: 400;
+            line-height: normal;
+            font-style: normal;
+            font-size: 16px;
+            padding-left: 8px;
+            margin-left: 8px;
+        }
+    }
+    &__authorization {
+        width: 273px;
+        height: 319px;
+        margin: auto;
+        position: absolute;
+        z-index: 1052;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background-color: #fff;
+        .authorization__email {
+            position: relative;
+            .email {
+                &__textAuthorization {
+                    margin-top: 21px;
+                    margin-left: 14px;
+                    color: #000;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+            }
+            .form__email {
+                margin-top: 70px;
+                margin-left: 14px;
+                p {
+                    color: #000;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+                .input__email {
+                    margin-top: 2px;
+                    margin-left: 0px;
+                    width: 245px;
+                    height: 32px;
+                    border: 1px solid #000;
+                }
+
+            }
+        }
+    }
+    &__code {
+        width: 273px;
+        height: 319px;
+        margin: auto;
+        position: absolute;
+        z-index: 1052;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background-color: #fff;
+        .authorization__code {
+            margin-top: 16px;
+            margin-left: 14px;
+            p {
+                color: #000;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+            .form__codeCheck {
+                margin-top: 70px;
+                .input__code {
+                    margin-top: 2px;
+                    margin-left: 0px;
+                    width: 245px;
+                    height: 32px;
+                    border: 1px solid #000;
+                }
+            }
+        }
+    }
+}

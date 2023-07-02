@@ -1,0 +1,29 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.main {
+    position: relative;
+}
+
+.container {
+    max-width: 320px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.messageU-color {
+    background: #E5E5E5;
+}
+
+.messageInterlocutor {
+    background: #E5E5E5;
+}
+
+@import 'blocks/chat';
+@import 'blocks/buttons';
+@import 'blocks/popups';
