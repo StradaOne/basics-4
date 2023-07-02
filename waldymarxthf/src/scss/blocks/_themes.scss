@@ -1,0 +1,371 @@
+.glassmophism{
+	background: url(../assets/img/background.png) no-repeat;
+	background-size: cover;
+
+	.chat{
+		&-header{
+			&__btn-setting{
+				background: #ff9b29;
+				box-shadow: 0px 0 5px 0px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.1),
+					0px 1px 5px rgba(0, 0, 0, 0.1);
+			}
+			&__btn-exit{
+				background: #ff9b29;
+				box-shadow: 0px 0 5px 0px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.1),
+					0px 1px 5px rgba(0, 0, 0, 0.1);
+			}
+		}
+		&-name{
+			&__title{
+				color: #444444;
+			}
+			&__members{
+				color: #555555;
+			}
+		}
+		&-window{
+			background: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(40px);
+			box-shadow: 0px 0 80px rgba(0, 0, 0, 0.1);
+			&::-webkit-scrollbar{
+				background: transparent;
+				width: 6px;
+			}
+			&::-webkit-scrollbar-track{
+				background: transparent;
+			}
+			&::-webkit-scrollbar-thumb{
+				background-color: rgba(0, 0, 0, 0.2);
+				border: 0;
+				width: 6px;
+			}
+			&:hover::-webkit-scrollbar-thumb{
+				background-color: rgba(0, 0, 0, 0.2);
+				border: 0;
+				width: 6px;
+			}
+			.anchor{
+				background: #555555;
+				&:hover{
+					background: #777777;
+				}
+			}
+			.content-right{
+				background: #48adff;
+				box-shadow: 0px 0 5px 0px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.1),
+					0px 1px 5px rgba(0, 0, 0, 0.1);
+			}
+			.content-left{
+				background: #ff9b29;
+				box-shadow: 0px 0 5px 0px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.1),
+					0px 1px 5px rgba(0, 0, 0, 0.1);
+			}
+		}
+		&-message{
+			background: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(40px);
+			box-shadow: 0px 0 80px rgba(0, 0, 0, 0.1);
+			&__form{
+				background: transparent;
+				border: 2px solid rgba(0, 0, 0, 0.2);
+				border-radius: 16px;
+			}
+			&__btn{
+				margin-top: 2px;
+				svg{
+					fill:#008cff;
+					width: 25px;
+					height: 25px;
+				}
+			}
+		}
+	}
+	.settings{
+		background: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(40px);
+		box-shadow: 0px 0 80px rgba(0, 0, 0, 0.1);
+		&__title{
+			color: rgba(0, 0, 0, 0.4);
+		}
+		&__subtitle{
+			color: rgba(0, 0, 0, 0.4);
+		}
+		&-input{
+			background: transparent;
+			border: 2px solid rgba(0, 0, 0, 0.2);
+			border-radius: 16px;
+			color: #555555;
+		}
+		&-btn{
+			&-svg{
+				fill: rgba(0, 0, 0, 0.4);
+			}
+			&-close{
+				svg{
+					fill: rgba(0, 0, 0, 0.4);
+				}
+			}
+		}
+		&-theme{
+			&-title{
+				color: rgba(0, 0, 0, 0.4);
+			}
+			&-select{
+				background: transparent;
+				border: 2px solid rgba(0, 0, 0, 0.2);
+				border-radius: 16px;
+				color: #555555;
+				option{
+					background: #555555;
+					color: #FFFFFF;
+				}
+			}
+		}
+	}
+}
+
+.pipupopi{
+	background: url(../assets/img/pipupopi.png) no-repeat;
+	background-size: cover;
+
+	.chat{
+		&-header{
+			&__btn-setting{
+				background: #808A69;
+				box-shadow: 0px 0 5px 0px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.1),
+					0px 1px 5px rgba(0, 0, 0, 0.1);
+			}
+			&__btn-exit{
+				background: #808A69;
+				box-shadow: 0px 0 5px 0px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.1),
+					0px 1px 5px rgba(0, 0, 0, 0.1);
+			}
+		}
+		&-name{
+			&__title{
+				color: #FFFFFF;
+			}
+			&__members{
+				color: #FFFFFF;
+			}
+		}
+		&-window{
+			background: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(40px);
+			box-shadow: 0px 0 80px rgba(0, 0, 0, 0.1);
+			&::-webkit-scrollbar{
+				background: transparent;
+				width: 6px;
+			}
+			&::-webkit-scrollbar-track{
+				background: transparent;
+			}
+			&::-webkit-scrollbar-thumb{
+				background-color: #242424;
+				border: 0;
+				width: 6px;
+			}
+			&:hover::-webkit-scrollbar-thumb{
+				background-color: #242424;
+				border: 0;
+				width: 6px;
+			}
+			.anchor{
+				background: #242424;
+				&:hover{
+					background: #333333;
+				}
+			}
+			.content-right{
+				background: #808A69;
+				box-shadow: 0px 0 5px 0px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.1),
+					0px 1px 5px rgba(0, 0, 0, 0.1);
+			}
+		}
+		&-message{
+			background: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(40px);
+			box-shadow: 0px 0 80px rgba(0, 0, 0, 0.1);
+			&__form{
+				background: transparent;
+				border: 2px solid rgba(0, 0, 0, 0.2);
+				border-radius: 16px;
+			}
+			&__btn{
+				margin-top: 2px;
+				svg{
+					fill:#808A69;
+					width: 25px;
+					height: 25px;
+				}
+			}
+		}
+	}
+	.settings{
+		background: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(40px);
+		box-shadow: 0px 0 80px rgba(0, 0, 0, 0.1);
+		&__title{
+			color: rgba(0, 0, 0, 0.4);
+		}
+		&__subtitle{
+			color: rgba(0, 0, 0, 0.4);
+		}
+		&-input{
+			background: transparent;
+			border: 2px solid rgba(0, 0, 0, 0.2);
+			border-radius: 16px;
+		}
+		&-btn{
+			&-svg{
+				fill: rgba(0, 0, 0, 0.4);
+			}
+			&-close{
+				svg{
+					fill: rgba(0, 0, 0, 0.4);
+				}
+			}
+		}
+		&-theme{
+			&-title{
+				color: rgba(0, 0, 0, 0.4);
+			}
+			&-select{
+				background: transparent;
+				border: 2px solid rgba(0, 0, 0, 0.2);
+				border-radius: 16px;
+				option{
+					background: #555555;
+				}
+			}
+		}
+	}
+}
+
+.white{
+	background: #FFFFFF;
+
+	.chat{
+		&-header{
+			&__btn-setting{
+				background: #2f91f2;
+				box-shadow: none;
+			}
+			&__btn-exit{
+				background: #2f91f2;
+				box-shadow: none;
+			}
+		}
+		&-name{
+			&__title{
+				color: #000000;
+			}
+			&__members{
+				color: #000000;
+			}
+		}
+		&-window{
+			background: none;
+			&::-webkit-scrollbar{
+				background: transparent;
+				width: 6px;
+			}
+			&::-webkit-scrollbar-track{
+				background: transparent;
+			}
+			&::-webkit-scrollbar-thumb{
+				background-color: rgba(0, 0, 0, 0.2);
+				border: 0;
+				width: 6px;
+			}
+			&:hover::-webkit-scrollbar-thumb{
+				background-color: rgba(0, 0, 0, 0.2);
+				border: 0;
+				width: 6px;
+			}
+			.anchor{
+				background: rgb(255, 255, 255);
+				box-shadow: 0px 0 10px rgba(0, 0, 0, 0.4);
+				&:hover{
+					background: rgb(255, 255, 255);
+					box-shadow: 0px 0 10px rgba(0, 0, 0, 0.4);
+				}
+			}
+			.content-left{
+				background: #e0e0e0;
+				box-shadow: none;
+				.chat-window__message-text{
+					color: #000000;
+				}
+				.chat-window__message-time{
+					color: #888888;
+				}
+			}
+			.content-right{
+				background: #2f91f2;
+				box-shadow: none;
+			}
+		}
+		&-message{
+			background: #ffffff;
+			&__form{
+				background: transparent;
+				border: 2px solid rgba(0, 0, 0, 0.2);
+				border-radius: 16px;
+			}
+			&__input{
+				color: #000000;
+			}
+			&__btn{
+				margin-top: 2px;
+				svg{
+					fill:#2f91f2;
+					width: 25px;
+					height: 25px;
+				}
+			}
+		}
+	}
+	.settings{
+		background: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(40px);
+		box-shadow: 0px 0 80px rgba(0, 0, 0, 0.1);
+		&__title{
+			color: rgba(0, 0, 0, 0.4);
+		}
+		&__subtitle{
+			color: rgba(0, 0, 0, 0.4);
+		}
+		&-input{
+			background: transparent;
+			border: 2px solid rgba(0, 0, 0, 0.2);
+			border-radius: 16px;
+			color: #000000;
+		}
+		&-btn{
+			&-svg{
+				fill: rgba(0, 0, 0, 0.4);
+			}
+			&-close{
+				svg{
+					fill: rgba(0, 0, 0, 0.4);
+				}
+			}
+		}
+		&-theme{
+			&-title{
+				color: rgba(0, 0, 0, 0.4);
+			}
+			&-select{
+				background: transparent;
+				border: 2px solid rgba(0, 0, 0, 0.2);
+				border-radius: 16px;
+				color: #000000;
+				option{
+					background: #555555;
+					color: #FFFFFF;
+				}
+			}
+		}
+	}
+}
