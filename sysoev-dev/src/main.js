@@ -11,24 +11,6 @@ import {
 import { ValidationError, showError } from './js/errors';
 import { getCookie, setCookie } from './js/cookies';
 
-async function getMessages() {
-  const url = 'https://edu.strada.one/api/messages/';
-  try {
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        Authorization: `Bearer ${getCookie()}`,
-      },
-    });
-    const messages = await response.json();
-    console.log(messages);
-  } catch (error) {
-    showError(error);
-  }
-}
-getMessages();
-
 async function getAuthCode(email) {
   const url = 'https://edu.strada.one/api/user';
 
@@ -118,9 +100,12 @@ function confirmFormHandler(event) {
 }
 
 CONFIRM.FORM.addEventListener('submit', confirmFormHandler);
+
 function showMessage(item) {
   MESSAGE.LIST.append(item);
 }
+
+// получение сообщ
 
 function createMessage(author, text, time, isAuthor) {
   const item = document.createElement('li');
@@ -135,7 +120,27 @@ function createMessage(author, text, time, isAuthor) {
   messageAuthor.textContent = author;
   messageText.textContent = text;
   messageTime.textContent = time;
-  return item;
+  showMessage(item);
+}
+
+async function getMessages() {
+  const url = 'https://edu.strada.one/api/messages/';
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: `Bearer ${getCookie()}`,
+      },
+    });
+    const messages = await response.json();
+    messages.messages.reverse().forEach((item) => {
+      console.log(item);
+      createMessage(item.user.name, item.text, item.createdAt);
+    });
+  } catch (error) {
+    showError(error);
+  }
 }
 
 function validateMessageText(value) {
@@ -154,8 +159,7 @@ function sendMessageHandler(event) {
   }
   const messageAuthor = 'Я';
   const messageTime = '10:33';
-  const item = createMessage(messageAuthor, messageText, messageTime, true);
-  showMessage(item);
+  createMessage(messageAuthor, messageText, messageTime, true);
   srcollToBottom();
   event.target.reset();
 }
@@ -182,5 +186,5 @@ UI_ELEMENTS.BTN_CLOSE_DIALOG.forEach((item) => {
 });
 
 MESSAGE.FORM.addEventListener('submit', sendMessageHandler);
-
+getMessages();
 srcollToBottom();
