@@ -11,6 +11,24 @@ import {
 import { ValidationError, showError } from './js/errors';
 import { getCookie, setCookie } from './js/cookies';
 
+async function getMessages() {
+  const url = 'https://edu.strada.one/api/messages/';
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        Authorization: `Bearer ${getCookie()}`,
+      },
+    });
+    const messages = await response.json();
+    console.log(messages);
+  } catch (error) {
+    showError(error);
+  }
+}
+getMessages();
+
 async function getAuthCode(email) {
   const url = 'https://edu.strada.one/api/user';
 
