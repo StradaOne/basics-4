@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <button class="header__btn-settings">
+          <img src="./static/icons8-settings-25.svg" alt="" />
+        </button>
+        <button class="header__btn-in">выйти</button>
+      </div>
+      <div class="display">
+        <!-- <div class="display-items__message">
+          <p class="message-nickname">Никнейм:</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <span class="message-date">18:45</span>
+        </div>
+        <div class="display-items__message me">
+          <p class="message-nickname left">Я:</p>
+          <p>Lorem ipsum dolor sit amet</p>
+          <span class="message-date">18:45</span>
+        </div>
+        <div class="display-items__message">
+          <p class="message-nickname">Никнейм:</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <span class="message-date">18:45</span>
+        </div>
+        <div class="display-items__message">
+          <p class="message-nickname">Никнейм:</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <span class="message-date">18:45</span>
+        </div>
+        <div class="display-items__message me">
+          <p class="message-nickname left">Я:</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe magni
+            nulla, eaque deleniti harum rem!
+          </p>
+          <span class="message-date">18:45</span>
+        </div>
+        <div class="display-items__message">
+            <p class="message-nickname">Никнейм:</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <span class="message-date">18:45</span>
+        </div> -->
+        <template id="template">
+          <div>
+            <span class="message-nickname">Никнейм:</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <span class="message-date">18:45</span>
+          </div>
+        </template>
+      </div>
+      <!-- <form action="#" class="form-another">
+        <input class="form__input-another" type="text" placeholder="message...">
+        <button class="form__button-send-another">send</button>
+      </form> -->
+      <form action="#" class="form">
+        <input class="form__input" type="text" placeholder="сообщение..." />
+        <button class="form__button-send">-></button>
+      </form>
+    </div>
+    <dialog class="popup" id="myDialog">
+      <div class="popup-header">
+        <p>Настройки</p>
+        <button type="button" onclick="window.myDialog.close()">закрыть</button>
+      </div>
+      <div class="popup-logic">
+        <p>Имя в чате</p>
+        <form action="#" class="popup-form__input">
+          <input class="item-input" type="text" />
+          <button class="item-btn">-></button>
+        </form>
+      </div>
+    </dialog>
+    <dialog class="authorization" id="authorization">
+      <div class="popup-header">
+        <p>Авторизация</p>
+        <button type="button" onclick="window.authorization.close()">
+          закрыть
+        </button>
+      </div>
+      <div class="popup-logic">
+        <p>Почта:</p>
+        <form action="#" class="authorization-form__input">
+          <input class="authorization-input" type="text" />
+          <button class="authorization-btn">Получить код</button>
+        </form>
+        <button class="authorization-btn-code">Ввести код</button>
+      </div>
+    </dialog>
+
+    <dialog class="authentication" id="authentication">
+      <div class="popup-header">
+        <p>Подтверждение</p>
+        <button type="button" onclick="window.authentication.close()">
+          закрыть
+        </button>
+      </div>
+      <div class="popup-logic">
+        <p>Код:</p>
+        <form action="#" class="authentication-form__input">
+          <input class="authentication-input" type="text" />
+          <button class="authentication-btn">Войти</button>
+        </form>
+      </div>
+    </dialog>
+
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
