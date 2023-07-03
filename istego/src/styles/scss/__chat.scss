@@ -1,0 +1,12 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #282e33;
+    border-radius: 10px;
+    height: 100vh;
+    max-height: 600px;
+}

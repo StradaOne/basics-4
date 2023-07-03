@@ -1,0 +1,129 @@
+.modal-wrapper {
+    display: none;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(28 30 30 / 49%);
+    backdrop-filter: blur(5px);
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    max-height: 500px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #282e33;
+    position: relative;
+
+    .modal__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: $roboto;
+        color: #8d939e;
+        font-size: 20px;
+
+        margin-bottom: 30px;
+    }
+
+    .modal__btn-close {
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        background-image: url('../../icons/iconCloseWindow.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 30px 30px;
+    }
+
+    .modal__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+}
+
+.modal-form {
+    width: 100%;
+    max-width: 300px;
+
+    .modal-form__title {
+        margin-bottom: 5px;
+        color: #8d939e;
+        font-size: 18px;
+    }
+
+    .modal-form__inp {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        margin-bottom: 10px;
+
+        .modal-input {
+            display: inline-block;
+            width: 100%;
+            outline: 0;
+            outline-offset: 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            // padding-left: 10px;
+            background: none;
+            height: 30px;
+            color: #ffffff;
+        }
+
+        .modal-form__btn-ok {
+            width: 30px;
+            height: 30px;
+            background: none;
+            border: none;
+            background-image: url('../../icons/iconOkDisabled.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 30px 30px;
+        }
+    }
+
+    .modal-form__btns {
+        display: flex;
+        column-gap: 10px;
+
+        
+    }
+}
+
+
+#modal-js.show-modal {
+    display: flex;
+}
+
+.modal-form__btn {
+    display: inline-block;
+    width: max-content;
+    border-radius: 5px;
+    border: none;
+    background-color: #8d939e;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.active-btn {
+    background-color: #18ae56;
+}
+
+.hide-btn {
+    display: none;
+}
