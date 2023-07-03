@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="/src/js/main.js" type="module"></script>
+  </head>
+
+  <body>
+    <div class="chat-wrapper">
+      <div class="chat-header">
+        <button class="chat-header-item settings"></button>
+        <p class="chat-header-item-logo">GalaxyGram</p>
+        <button class="chat-header-item logout"></button>
+      </div>
+      <div>
+        <div class="chat-mainWindow">
+          <div class="chat-mainWindow-wrapper">
+            <template id ="my_message">
+              <div class="chat-mainWindow-message my">
+                <div class="chat-mainWindow-message-info my">
+                  <p class="chat-mainWindow-message-info-nickName">Дмитрий</p>
+                  <p class="chat-mainWindow-message-info-text">Привет</p>
+                  <p class="chat-mainWindow-message-info-time">15:20</p>
+                </div>
+              </div>
+            </template>
+            <template id ="companion_message">
+              <div class="chat-mainWindow-message companion">
+                <div class="chat-mainWindow-message-info companion">
+                  <p class="chat-mainWindow-message-info-nickName">Дмитрий</p>
+                  <p class="chat-mainWindow-message-info-text">Привет</p>
+                  <p class="chat-mainWindow-message-info-time">15:20</p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+      <div class="chat-footer">
+        <form class="chat-footer-form" action="">
+          <input
+            class="chat-footer-form-message_field"
+            type="text"
+            placeholder="Сообщение.."
+          />
+          <button class="chat-footer-form-send_message"></button>
+        </form>
+      </div>
+    </div>
+
+    <dialog  class="modalWindow_settings">
+      <div class="modalWindow_settings-header">
+        <h1 class="modalWindow_settings-header-text">Настройки</h1>
+        <button class="modalWindow_settings-header-close">X</button>
+      </div>
+      <p class="modalWindow_settings-form-formName">Имя в чате:</p>
+      <form id ="modal_settings_form" action="" class="modalWindow_settings-form">
+        <input id ="modal_settings_input" class="modalWindow_settings-form-input" type="text" value="Дмитрий" />
+        <button id ="modal_settings_btn" class="modalWindow_settings-form-button">-></button>
+      </form>
+    </dialog>
+    <dialog  class="modalWindow_autorization">
+      <div class="modalWindow_autorization-header">
+        <h1 class="modalWindow_autorization-header-text">Авторизация</h1>
+        <button class="modalWindow_autorization-header-close">X</button>
+      </div>
+      <p class="modalWindow_autorization-form-formName">Почта:</p>
+      <form id ="modal_autorization_form" action="" class="modalWindow_autorization-form">
+        <input id ="modal_autorization_input" class="modalWindow_autorization-form-input" type="text" placeholder="Введите вашу почту" />
+        <div class="modalWindow_autorization-form-buttons_block">
+          <button id ="modal_autorization_btn_get" class="modalWindow_autorization-form-button">Получить код</button>
+          <button id ="modal_autorization_btn_enter" class="modalWindow_autorization-form-button">Ввести код</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog  class="modalWindow_verification">
+      <div class="modalWindow_verification-header">
+        <h1 class="modalWindow_verification-header-text">Подтверждение</h1>
+        <button class="modalWindow_verification-header-close">X</button>
+      </div>
+      <p class="modalWindow_verification-form-formName">Код:</p>
+      <form id ="modal_verification_form" action="" class="modalWindow_verification-form">
+        <input id ="modal_verification_input" class="modalWindow_verification-form-input" type="text" placeholder="Введите ваш код" />
+        <div class="modalWindow_verification-form-buttons_block">
+          <button id ="modal_verification_btn" class="modalWindow_verification-form-button">Войти</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

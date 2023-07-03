@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Inika:wght@400;700&family=Inter:wght@400;500;600;700&family=Roboto&family=Rubik:wght@300;400;700&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  background: url('/src/assets/background.jpg') center/cover no-repeat;
+}
+
+.chat-wrapper {
+  width: 800px;
+  background: linear-gradient(103deg, #0f123ae0, #f1f5abe0);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header-item {
+  padding: 8px;
+  border: 2px solid white;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.chat-header-item:hover {
+  color: rgb(156, 4, 156);
+}
+
+.chat-header-item.settings {
+  background: url('/src/assets/settings.png') center/cover no-repeat;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+}
+
+.chat-header-item-logo {
+  font-size: 50px;
+  font-family: 'Amatic SC';
+  font-weight: 700;
+  color: white;
+}
+
+.chat-header-item.logout {
+  background: url('/src/assets/exit.png') center/cover no-repeat;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+}
+.chat-mainWindow-wrapper {
+  display: block;
+  overflow-y: scroll;
+}
+.chat-mainWindow {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 800px;
+  border: 2px solid white;
+  margin: 8px 0px;
+  padding: 0px 8px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+/*--------------------------------Стилизование скролла-----------------------------------------------*/
+.chat-mainWindow-wrapper::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chat-mainWindow-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, #242423d3, #421fe0c7);
+}
+/*-------------------------------------------------------------------------------*/
+
+.chat-mainWindow-message {
+  margin: 8px 0px;
+  word-wrap: break-word;
+}
+
+.chat-mainWindow-message.my {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chat-mainWindow-message-info {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  max-width: 70%;
+}
+.chat-mainWindow-message-info-text {
+  color: rgb(255, 250, 219);
+}
+
+.chat-mainWindow-message-info.my {
+  background: linear-gradient(60deg, #8684f7d3, #3412ccc7);
+  color: rgb(255, 255, 255);
+}
+
+.chat-mainWindow-message-info.companion {
+  background: linear-gradient(60deg, #bbbb2cc2, #e6ca14d5);
+  color: rgb(255, 255, 255);
+}
+
+.chat-mainWindow-message-info p {
+  padding: 1px 0px;
+}
+
+.chat-mainWindow-message-info-nickName {
+  font-size: 13px;
+  color: rgb(7, 7, 100);
+}
+
+.chat-mainWindow-message-info-time {
+  font-size: 12px;
+  text-align: right;
+  color: rgb(7, 7, 100);
+}
+
+.chat-footer-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-footer-form-message_field {
+  width: 100%;
+  margin-right: 8px;
+  padding: 8px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: white;
+  color: rgb(7, 7, 100);
+  outline: none;
+}
+
+.chat-footer-form-send_message {
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background: url('/src/assets/send.png') center/cover no-repeat;
+  cursor: pointer;
+  background-color: white;
+}
+
+.chat-footer-form-send_message:hover {
+  color: rgb(156, 4, 156);
+}
+
+
+/*--------------------------------Моадльные окна-----------------------------------------------*/
+/*--------------------------------Модальное окно настроек-----------------------------------------------*/
+
+.modalWindow_settings {
+  margin: auto auto;
+  min-width: 280px;
+  min-height: 320px;
+  padding: 16px 14px;
+  background: linear-gradient(20deg, #0f123ae0, #f1f5abe0);
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.modalWindow_settings::backdrop {
+  background-color: rgba(0, 0, 0, 0.932);
+}
+
+.modalWindow_settings-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalWindow_settings-header-text {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.modalWindow_settings-header-close {
+  font-size: 25px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding-bottom: 7px;
+}
+
+.modalWindow_settings-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalWindow_settings-form-formName {
+  margin-bottom: 10px;
+}
+
+.modalWindow_settings-form-input {
+  outline: none;
+  padding: 8px;
+  width: 80%;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: none;
+}
+.modalWindow_settings-form-button {
+  width: 20%;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/*--------------------------------Модальное окно авторизации-----------------------------------------------*/
+
+.modalWindow_autorization {
+  margin: auto auto;
+  min-width: 280px;
+  min-height: 320px;
+  padding: 16px 14px;
+  background: linear-gradient(20deg, #0f123ae0, #f1f5abe0);
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.modalWindow_autorization::backdrop {
+  background-color: rgba(0, 0, 0, 0.932);
+}
+
+.modalWindow_autorization-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalWindow_autorization-header-text {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.modalWindow_autorization-header-close {
+  font-size: 25px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding-bottom: 7px;
+}
+
+.modalWindow_autorization-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modalWindow_autorization-form-formName {
+  margin-bottom: 10px;
+}
+
+.modalWindow_autorization-form-input {
+  width: 100%;
+  outline: none;
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 8px;
+}
+
+.modalWindow_autorization-form-buttons_block{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.modalWindow_autorization-form-button {
+  min-width: 120px;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/*--------------------------------Модальное окно подтверждения-----------------------------------------------*/
+.modalWindow_verification {
+  margin: auto auto;
+  min-width: 280px;
+  min-height: 320px;
+  padding: 16px 14px;
+  background: linear-gradient(20deg, #0f123ae0, #f1f5abe0);
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.modalWindow_verification::backdrop {
+  background-color: rgba(0, 0, 0, 0.932);
+}
+
+.modalWindow_verification-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalWindow_verification-header-text {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.modalWindow_verification-header-close {
+  font-size: 25px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  padding-bottom: 7px;
+}
+
+.modalWindow_verification-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modalWindow_verification-form-formName {
+  margin-bottom: 10px;
+}
+
+.modalWindow_verification-form-input {
+  width: 100%;
+  outline: none;
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 8px;
+}
+
+.modalWindow_verification-form-buttons_block{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.modalWindow_verification-form-button {
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+
+/*---------------------------------------------------------------------------------------------*/
