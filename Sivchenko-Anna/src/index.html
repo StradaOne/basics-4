@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./style.css">
+	<title>Сhat</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="chat">
+			<div class="chat-header">
+				<button class="chat-btn chat-btn_settings">Настройки</button>
+				<button class="chat-btn chat-btn_exit">Выйти</button>
+			</div>
+			<div class="chat-screen">
+				<div class="chat-message chat-message_user message_delivered">
+					<div>
+						<span class="user">Я</span>:
+						<span class="message-text">Привет</span>
+					</div>
+					<div class="message-time"><em>12:30</em></div>
+				</div>
+				<div class="chat-message chat-message_companion message_delivered">
+					<div>
+						<span class="user">Кот</span>:
+						<span class="message-text">Мяу! Надо покормить, почесать и погладить! Срочно!!!</span>
+					</div>
+					<div class="message-time"><em>12:35</em></div>
+				</div>
+				<div class="chat-message chat-message_user message_sent">
+					<div>
+						<span class="user">Я</span>:
+						<span class="message-text">Как насчёт поохотиться?</span>
+					</div>
+					<div class="message-time"><em>12:30</em></div>
+				</div>
+				<template id="message-template">
+					<div class="chat-message message_sent">
+					<div>
+						<span class="user"></span>:
+						<span class="message-text"></span>
+					</div>
+					<div class="message-time"><em></em></div>
+				</div>
+				</template>
+			</div>
+			<div class="chat-send">
+				<form class="chat-send_form">
+					<input type="text" class="chat-send_message" placeholder="сообщение..">
+					<button type="submit" class="chat-btn chat-btn_send">-></button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="popup-container">
+		<div class="popup">
+			<div class="popup-header">
+				<p class="popup-title">Настройки</p>
+				<button class="popup-btn_close"></button>
+			</div>
+			<div>
+				<p class="popup-subtitle">Имя в чате</p>
+				<div class="popup-name">
+					<form class="popup_form">
+						<input type="text" class="popup_form-name" placeholder="Анатолий">
+					</form>
+					<button class="chat-btn chat-btn_send">-></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="./js/main.js"></script>
+</body>
+</html>
