@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+	--body-color: #fff;
+	--container-shadow: 0px 5px 10px 2px rgba(56, 83, 43, 0.2);
+	--menu-shadow: 0px -5px 5px -5px rgba(56, 83, 43, 0.6) inset;
+	--settings-bg-img: url("/src/assets/img/setting_icon.png");
+	--exit-bg-img: url("/src/assets/img/exit_icon.svg");
+	--message-field-bg-img: url("/src/assets/img/watermelon_bg.jpg");
+	--scrollbar-thumb-bg-color: 136, 188, 106;
+	/* --scrollbar-thumb-bg-color: rgba(136, 188, 106, .4); */
+	--message-bg: rgba(255, 255, 255, 0.9);
+	--message-color: #38532b;
+	--mark-bg-img: url("/src/assets/img/mark_icon.png");
+	--time-color: #333333;
+	--form-shadow: 0px 5px 5px -5px rgba(56, 83, 43, 0.6) inset;
+	--entry-field-color: #000;
+	--form-bg-color: #fff;
+	--btn-sending-bg-img: url("/src/assets/img/send_icon.png");
+	--popup-bg: rgba(143, 143, 143, 0.5);
+	--popup-cont-bg: #fff;
+	--popup-cont-color: rgb(56, 83, 43);
+	--popup-close-btn-bg-img: url("/src/assets/img/close_icon.png");
+	--setting-inp-col: rgb(56, 83, 43);
+}
+
+[data-theme="dark"] {
+	--body-color: #1d1d1d;
+	--container-shadow: 0px 5px 10px 5px rgba(207, 170, 255, 0.2);
+	--menu-shadow: 0px -5px 5px -5px rgba(207, 170, 255, 0.6) inset;
+	--settings-bg-img: url("/src/assets/img/dark_setting_icon.png");
+	--exit-bg-img: url("/src/assets/img/dark_exit_icon.png");
+	--message-field-bg-img: url("/src/assets/img/dark_bg.jpg");
+	--scrollbar-thumb-bg-color: rgba(207, 170, 255, .4);
+	--message-bg: rgba(36, 35, 35, 0.9);
+	--message-color: rgb(207, 170, 255);
+	--mark-bg-img: url("/src/assets/img/dark_mark_icon.png");
+	--time-color: #8d73af;
+	--form-shadow: 0px 5px 5px -5px rgba(207, 170, 255, 0.6) inset;
+	--entry-field-color: rgb(207, 170, 255);
+	--form-bg-color: #282828;
+	--btn-sending-bg-img: url("/src/assets/img/dark_send_icon.png");
+	--popup-bg: rgba(249, 249, 253, .2);
+	--popup-cont-bg: #282828;
+	--popup-cont-color: rgb(207, 170, 255);
+	--popup-close-btn-bg-img: url("/src/assets/img/dark_close_icon.png");
+	--setting-inp-col: rgb(207, 170, 255);
+}
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	background: var(--body-color);
+}
+button {
+	cursor: pointer;
+	background-size: cover;
+	background-color: transparent;
+	border: none;
+}
+.container {
+	min-width: 320px;
+	max-width: 800px;
+	height: 80%;
+	margin: auto;
+	position: relative;
+	border-radius: 10px;
+	box-shadow: var(--container-shadow);
+}
+
+.menu {
+	width: 100%;
+	height: 48px;
+	padding-left: 20px;
+	padding-right: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: var(--menu-shadow);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background: var(--form-bg-color);
+}
+
+.settings {
+	background-image: var(--settings-bg-img);
+	width: 30px;
+	height: 30px;
+}
+
+.exit {
+	background-image: var(--exit-bg-img);
+	width: 38px;
+	height: 38px;
+}
+
+.message-field {
+	background-image: var(--message-field-bg-img);
+	background-size: cover;
+	padding: 10px;
+	height: calc(100% - 48px * 2);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	overflow-y: auto;
+}
+.message-field::-webkit-scrollbar {
+	width: 7px;
+	background-color: rgba(249, 249, 253, .0);
+}
+.message-field::-webkit-scrollbar-thumb {
+	background-color: rgba(var(--scrollbar-thumb-bg-color), .4);
+}
+/* .message-field::-webkit-scrollbar-track {
+	-webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: rgba(249, 249, 253, .3);
+} */
+
+.message {
+	background:var(--message-bg);
+	max-width: 70%;
+	border-radius: 15px 15px 15px 0;
+	padding: 10px;
+	cursor: default;
+	color: var(--message-color);
+}
+
+.sent-message {
+	margin-left: auto;
+	border-radius: 15px 15px 0px 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	
+}
+
+.time-mark-wrapper {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	gap: 7px;
+}
+
+.time {
+	font-weight: 300;
+	font-style: italic;
+	font-size: 14px;
+	color: var(--time-color);
+}
+
+.message-mark {
+	width: 12px;
+	height: 12px;
+	background-image: var(--mark-bg-img);
+	background-size: cover;
+}
+
+.received-message-wrapper {
+	display: flex;
+	align-items: end;
+	gap: 10px;
+	
+}
+
+.avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+}
+
+.nickname {
+	font-weight: 700;
+}
+
+.time-for-received {
+	margin-left: auto;
+	width: 50px;
+}
+
+.form {
+	padding: 10px;
+	position: absolute;
+	bottom: 0;
+	height: 48px;
+	width: 100%;
+	box-shadow: var(--form-shadow);
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background: var(--form-bg-color);
+}
+
+.entry-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.entry-field {
+	border: none;
+	outline: none;
+	width: 90%;
+	resize: none;
+	color: var(--entry-field-color);
+	background: var(--form-bg-color);
+}
+.entry-field::-webkit-scrollbar {
+  width: 0;
+}
+
+.btn-sending-message {
+	background-image: var(--btn-sending-bg-img);
+	width: 25px;
+	height: 25px;
+	border: none;
+}
+
+.popup {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	overflow: auto;
+	display: flex;
+	display: none;
+	background: var(--popup-bg);
+}
+
+.popup-content {
+	margin: auto;
+	width: 273px;
+	height: 319px;
+	border-radius: 10px;
+	padding: 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+	background: var(--popup-cont-bg);
+	color: var(--popup-cont-color);
+	position: relative;
+}
+
+.popup-header {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 6px;
+}
+
+.head {
+	font-weight: 700;
+}
+
+.popup-close-btn {
+	width: 17px;
+	height: 17px;
+	background-image: var(--popup-close-btn-bg-img);
+}
+
+.nickname-input, .email-input, .confirmation-input {
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid;
+	outline: none;
+	width: 80%;
+	border-color: var(--setting-inp-col);
+	color: var(--setting-inp-col);
+}
+
+.confirmation-input {
+	width: 98%;
+}
+
+.popup-nickname-btn {
+	width: 18px;
+	height: 18px;
+	margin-left: 20px;
+	background-image: var(--btn-sending-bg-img);
+}
+
+.theme-btn {
+	cursor: pointer;
+}
+
+.theme-btn:checked {
+	accent-color: var(--setting-inp-col);
+}
+
+.authorization-form {
+	position: absolute;
+	top: 110px;
+	width: 248px;
+}
+
+.email-input {
+	width: 100%;
+}
+
+.authorization-message {
+	display: none;
+	margin-top: 10px;
+}
+
+.authorization-message-visible-ok {
+	display: block;
+	color: rgb(0, 226, 0);
+}
+
+.authorization-message-visible-wrong {
+	display: block;
+	color: rgb(255, 42, 42);
+}
+
+.btn-wrapper {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.popup-get-code-btn, .popup-send-code-btn, .popup-enter-btn {
+	background: var(--setting-inp-col);
+	margin-top: 20px;
+	width: 115px;
+	height: 34px;
+	border-radius: 7px;
+}
