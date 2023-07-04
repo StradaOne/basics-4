@@ -1,0 +1,85 @@
+body {
+	background: #1d1d1d;
+}
+
+.container {
+	box-shadow: 0px 5px 10px 5px rgba(207, 170, 255, 0.2);
+}
+.menu, .form, .entry-field {
+	background: #282828;
+	
+}
+.menu {
+	box-shadow: 0px -5px 5px -5px rgba(207, 170, 255, 0.6) inset;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.settings {
+	background-image: url("../assets/img/dark_setting_icon.png");
+}
+
+.exit {
+	background-image: url("../assets/img/dark_exit_icon.png");
+}
+
+.message-field {
+	background-image: url("../assets/img/dark_bg.jpg");
+}
+
+.message-field::-webkit-scrollbar-thumb {
+	background-color: rgba(207, 170, 255, .4);
+}
+
+.message {
+	background:rgba(36, 35, 35, 0.9);
+	color: rgb(207, 170, 255);
+}
+
+.message-mark {
+	background-image: url("../assets/img/dark_mark_icon.png");
+}
+
+.time {
+	color: #8d73af;
+}
+
+.form {
+	box-shadow: 0px 5px 5px -5px rgba(207, 170, 255, 0.6) inset;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.entry-field {
+	color: rgb(207, 170, 255);
+}
+
+.btn-sending-message {
+	background-image: url("../assets/img/dark_send_icon.png");
+}
+
+.popup {
+	background: rgba(249, 249, 253, .2);
+}
+
+.popup-content {
+	background: #282828;
+	color: rgb(207, 170, 255);
+}
+
+.popup-close-btn {
+	background-image: url("../assets/img/dark_close_icon.png");
+}
+
+.nickname-input {
+	border-color: rgb(207, 170, 255);
+	color: rgb(207, 170, 255);
+}
+
+.popup-nickname-btn {
+	background-image: url("../assets/img/dark_send_icon.png");
+}
+
+.theme-btn:checked {
+	accent-color: rgb(207, 170, 255);
+}
