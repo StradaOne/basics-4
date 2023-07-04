@@ -174,3 +174,7 @@ body {
 .form-settings__info {
   font-size: 14px;
 }
+
+.chat__message:last-child {
+  /*  */
+}

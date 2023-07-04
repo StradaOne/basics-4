@@ -52,5 +52,13 @@ export function showSuccessAuth() {
 }
 
 export function srcollToBottom() {
-  MESSAGE.LIST.scrollTo(0, MESSAGE.LIST.offsetHeight);
+  console.log(MESSAGE.LIST.clientHeight);
+  console.log(MESSAGE.LIST.scrollHeight);
+  // MESSAGE.LIST.scrollHeight = 999;
+  // MESSAGE.LIST.scrollTo(0, MESSAGE.LIST.offsetHeight);
+  // MESSAGE.LIST.scrollIntoView({ block: 'end', inline: 'nearest' });
+  // MESSAGE.LIST.scroll({
+  //   left: 0,
+  //   top: MESSAGE.INPUT.offsetTop,
+  // });
 }

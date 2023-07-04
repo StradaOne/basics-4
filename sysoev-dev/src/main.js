@@ -107,6 +107,10 @@ function showMessage(item) {
 
 // получение сообщ
 
+function convertTime(date) {
+  return date.slice(11, 16);
+}
+
 function createMessage(author, text, time, isAuthor) {
   const item = document.createElement('li');
   item.classList.add('chat__message');
@@ -119,7 +123,7 @@ function createMessage(author, text, time, isAuthor) {
   const messageTime = item.querySelector('.chat__message-time');
   messageAuthor.textContent = author;
   messageText.textContent = text;
-  messageTime.textContent = time;
+  messageTime.textContent = convertTime(time);
   showMessage(item);
 }
 
@@ -135,7 +139,7 @@ async function getMessages() {
     });
     const messages = await response.json();
     messages.messages.reverse().forEach((item) => {
-      console.log(item);
+      // console.log(item);
       createMessage(item.user.name, item.text, item.createdAt);
     });
   } catch (error) {
