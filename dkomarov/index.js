@@ -1,94 +1,33 @@
-import { date } from "./modules/convertationTime"
-import { format } from "date-fns";
+import { date } from "./modules/convertationTime";
+import { myMessageCreate } from "./modules/createUIElements";
 import { getCookie, setCookie } from "./modules/cookieAction";
-import { postData, changeName, getData } from "./modules/apiAction";
-
-//кнопка выйти 
-const buttonOut = document.querySelector('.header__btn-in');
-
-const parentNode = document.querySelector(".display");
-const inputNode = document.querySelector(".form__input");
-const formNode = document.querySelector(".form");
-const template = document.querySelector("#template");
-
-//authorization
-const openCodeModal = document.querySelector('.authorization-btn-code');
-const formForRequest = document.querySelector('.authorization-form__input');
-
-//authentication
-const authenticationButton = document.querySelector('.authentication-btn');
+import { postData, changeName, getData, getHistoryMessage } from "./modules/apiAction";
+import { INPUT_NODE, BUTTON_OUT, BUTTON_AUTORIZATION, BUTTON_AUTHENTICATION, DISPLAY_NODE } from "./modules/DOMelements";
 
 
-const settingForm = document.querySelector('.popup-form__input');
 
+const ADD_NEW_MESSAGE_FORM = document.querySelector(".form");
+const AUTHORIZATION_FORM = document.querySelector(".authorization-form__input");
+const SETTING_FORM = document.querySelector(".popup-form__input");
 //смена имени
-const openSettingsModal = document.querySelector('.header__btn-settings');
+const SETTING_MODAL_BUTTON = document.querySelector(".header__btn-settings");
+
+const AUTHENTICATION_FORM = document.querySelector('.authentication-form__input');
 
 //COOKIE
-const cookie = getCookie()
-const cookieToken = cookie.token
+const cookie = getCookie();
+const cookieToken = cookie.token;
+export { cookieToken };
 
-export {cookieToken};
-
-//история сообщений
-async function getHistoryMessage(cookieToken) {
-  const url = 'https://edu.strada.one/api/messages/';
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${cookieToken}`,
-      
-    }
-  })
-  const data = await response.json()
-  const arrayMessage = data.messages.reverse();
-  console.log(data) 
-  const nodeElement = arrayMessage.map((message) => {
-    const date = new Date(message.createdAt) 
-    const fixDate = format(date, 'HH:mm')
-  
-  parentNode.append(createNewMessage(message.user.name, message.text, fixDate))
-  return message
-  });
-  console.log(nodeElement)
-  
+export function inputClear() {
+  INPUT_NODE.value = "";
 }
 
-getHistoryMessage(cookieToken)
-
-
-
-//reset input
-// function inputClear() {
-//   inputNode.value = ''
-// }
-
-
-function createNewMessage(nickname, text, timeMess) { 
-  // if (inputNode.value != '') {
-    const textElement = template.content.cloneNode(true);
-    const nameMessage = textElement.querySelector(".message-nickname").textContent = nickname;
-    textElement.querySelector(".message-date").textContent = timeMess; //date
-    textElement.querySelector("p").textContent = text; //было inputNode.value
-
-    if (nickname === nameMessage) {
-      textElement.querySelector("div").classList.add('display-items__message');
-      
-    } else {
-      textElement.querySelector("div").classList.add('me');
-    }
-
-    // parentNode.append(textElement);
-  return textElement;
-    // inputClear();
-  // }
-}
-
-function addInfoMessage() {
-  const textElem = document.createElement('p');
-  textElem.textContent = 'Код отправлен на вашу почту ✅';
-  const parentElem = document.querySelector('.authorization');
-  textElem.classList.add('info-message');
+function showInfoMessage() {
+  const textElem = document.createElement("p");
+  textElem.textContent = "Код отправлен на вашу почту ✅";
+  const parentElem = document.querySelector(".authorization");
+  textElem.classList.add("info-message");
   parentElem.append(textElem);
 }
 
@@ -97,50 +36,59 @@ function showAuthenticationModal() {
   window.authorization.close();
 }
 
-formForRequest.addEventListener('submit', () => {
+export function scroll() {
+  const div = document.querySelector(".display");
+  const magicNumber = 200000;
+  div.scrollBy(0, magicNumber);
+}
+
+AUTHORIZATION_FORM.addEventListener("submit", () => {
   postData();
-  addInfoMessage()
-  setTimeout(showAuthenticationModal, 1500)
+  showInfoMessage();
+  setTimeout(showAuthenticationModal, 1500);
 });
 
-formNode.addEventListener("submit", (event) => {
+ADD_NEW_MESSAGE_FORM.addEventListener("submit", (event) => {
   event.preventDefault();
-  createNewMessage('Me:', inputNode.value) //убрать инпут
+  myMessageCreate(null, INPUT_NODE.value, date);
+  scroll();
 });
 
-
-openSettingsModal.addEventListener('click', () => {
+SETTING_MODAL_BUTTON.addEventListener("click", () => {
   window.myDialog.showModal();
+});
 
-})
-
-openCodeModal.addEventListener('click', () => {
+BUTTON_AUTORIZATION.addEventListener("click", () => {
   window.authentication.showModal();
-  window.authorization.close();
-  
-})
+  window.authorization.close(); 
+});
 
-authenticationButton.addEventListener('click', () => {
-  getData(cookieToken)
+BUTTON_AUTHENTICATION.addEventListener("click", () => {
+  getData(cookieToken);
   setCookie();
+  // getHistoryMessage(cookieToken);
   window.authentication.close();
 });
 
-buttonOut.addEventListener('click', () => {
+BUTTON_OUT.addEventListener("click", () => {
   window.authorization.showModal();
-  //очищать куки 
-  document.cookie = `token=${new Date(0)}`
+  document.cookie = `token=${new Date(0)}`;
   //сделать смену кнопки на "войти"
-})
+});
 
-settingForm.addEventListener('submit', () => {
+SETTING_FORM.addEventListener("submit", () => {
   changeName();
   window.myDialog.close();
-})
+});
 
+// AUTHENTICATION_FORM.addEventListener('submit', () => {
+//   getData(cookieToken);
+//   getHistoryMessage(cookieToken);
+//   window.
+// })
 
-
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
   getData(cookieToken);
-  
-})
+});
+
+getHistoryMessage(cookieToken);
