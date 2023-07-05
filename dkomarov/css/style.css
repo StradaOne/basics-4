@@ -82,8 +82,11 @@ body {
 }
 
 .message-nickname {
-    margin-bottom: 5px;
-    font-size: 13px;
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+    color: #000000;
+    font-size: 14px;
     font-style: italic;
 }
 
@@ -94,6 +97,11 @@ body {
     color: #7a7a7a;
     user-select: none;
     font-style: italic;
+    
+}
+
+p {
+    font-size: 16px;
 }
 
 /* INPUT */

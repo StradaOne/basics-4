@@ -2,7 +2,7 @@ import { cookieToken } from "../index";
 import { format } from "date-fns";
 import { cookieToken } from "../index";
 import { DISPLAY_NODE } from "./DOMelements";
-import { createNewMessage } from "./createUIElements";
+import { createNewMessage } from "./createUiElement";
 import { scroll } from "../index";
 
 
