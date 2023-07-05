@@ -19,12 +19,10 @@ function validateIsAuthor(email) {
 }
 
 const socket = new WebSocket(`wss://edu.strada.one/websockets?${getCookie()}`);
-console.log(socket);
 
 socket.onmessage = (event) => {
   try {
     const data = JSON.parse(event.data);
-    console.log(data);
     const isAuthor = validateIsAuthor(data.user.email);
     createMessage(data.user.name, data.text, data.createdAt, isAuthor);
   } catch (error) {
