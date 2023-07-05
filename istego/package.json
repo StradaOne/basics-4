@@ -1,0 +1,27 @@
+{
+  "name": "istego",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "source": "./index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.9.3",
+    "@parcel/transformer-sass": "^2.9.3",
+    "@parcel/transformer-webmanifest": "^2.9.3",
+    "js-cookie": "^3.0.5",
+    "parcel": "^2.9.3"
+  },
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "emoji-picker-element": "^1.18.3"
+  }
+}

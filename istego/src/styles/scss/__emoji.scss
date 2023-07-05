@@ -1,0 +1,22 @@
+.emoji {
+    display: none;
+    position: absolute;
+    bottom: 42px;
+    right: 15px;
+    width: max-content;
+    height: 100%;
+    max-height: 425px;
+
+    &:hover {
+        display: block;
+    }
+}
+
+emoji-picker {
+    width: calc(260px + (344 - 260) * ((100vw - 320px) / (768 - 320)));;
+
+    @media (min-width: 768px) {
+        width: 344px;
+    }
+}
+
