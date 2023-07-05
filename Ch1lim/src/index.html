@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="chat">
+                <button class="button button__settings">Настройки</button>
+                <button class="button button__exit">Выйти</button>
+
+                <div class="chat__wrapper">
+                    <div class="chat__dialogWindow">
+                        <template id="messageU">
+                            <div class="messageU messageU-color">
+                                <div class="messageU__text">Я: Добрый день!</div>
+                                <div class="messageU__time">18:45</div>
+                            </div>
+                        </template>
+                        <template id="messageInterlocutor">
+                            <div class="messageInterlocutor  messageInterlocutor-color">
+                                <div class="messageInterlocutor__text">Собеседник: А это второе и, кажется, оно очень 
+                                    длинное, чтобы поместиться на 
+                                    одной строке</div>
+                                <div class="messageInterlocutor__time">18:45</div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <form class="form__message">
+                    <div class="entry">
+                        <input class="entry__input" placeholder="сообщение.."></input>
+                        <button class="button button__submit" type="submit">-></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="modalSettings" class="modal modal-none">
+            <div class="modal__settings">
+                <p class="settings__text">Настройки</p>
+                <button id="crossSettings" class="button__cross">+</button>
+                <p class="name__text">Имя в чате</p>
+                <form class="form__name">
+                    <div class="entry">
+                        <input id="inputName" class="entry__input" placeholder="Стив"></input>
+                        <button class="button button__submit" type="submit">-></button>
+                    </div>
+                </form>
+           </div>
+        </div>
+
+        <div id="modalAuthorization" class="modal modal-bgGrey">
+            <div class="modal__authorization">
+                <div class="authorization__email">
+                    <p class="email__textAuthorization">Авторизация</p>
+                    <form class="form__email" >
+                        <p>Почта:</p>
+                        <input class="input__email" type="text"></input>
+                        <button class="button button__getCode">Получить код</button>
+                    </form>
+                    <button class="button button__enterCode">Ввести код</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modalCode" class="modal modal-bgGrey modal-none">
+            <div class="modal__code">
+                <div class="authorization__code">
+                    <p class="code__textCheck">Подтверждение</p>
+                    <button id="crossCode" class="button__cross">+</button>
+                    <form class="form__codeCheck">
+                        <p>Код:</p>
+                        <input class="input__code" type="text"></input>
+                        <button class="button button__entrance">Войти</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script defer type="module" src="js/script.js"></script>
+</body>
+</html>
