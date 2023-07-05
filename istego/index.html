@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en, ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чат</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./src/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./src/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./src/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./src/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./src/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="./src/styles/scss/main.scss">
+</head>
+
+<body>
+    <!-- Цвет для чата 13D7F1 -->
+    <!-- Цвет серый settings 8D939E -->
+    <!-- Цвет зеленый  18ae56 -->
+    <div class="wrapper">
+        <div class="chat">
+            <nav class="chat-nav">
+                <div class="chat-nav__list">
+                    <button type="button" class="chat-nav__list-item btn-settings">
+                    </button>
+                    <p class="nickname">...</p>
+                    <button type="button" class="chat-nav__list-item btn-exit">
+                    </button>
+                </div>
+            </nav>
+            <div class="chat-dialog">
+            </div>
+            <div class="chat-sending">
+                <form class="chat-form">
+                    <pre 
+                    contenteditable="true" 
+                    data-placeholder="Написать сообщение..." class="chat-form__inp"
+                    ></pre>
+                    <textarea name="message" class="chat-form__textarea"></textarea>
+                    <button type="button" disabled class="chat-form__btn-emoji btn-emoji"></button>
+                    <div class="emoji">
+                        <emoji-picker class="dark"></emoji-picker>
+                    </div>
+                    <button type="submit" disabled class="chat-form__btn btn-send"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-wrapper" id="modal-js">
+        <div class="modal">
+            <div class="modal__title">
+                <p class="modal__title-text">
+                    Авторизация
+                </p>
+                <button type="button" class="modal__btn-close"></button>
+            </div>
+            <div class="modal__content">
+                <form class="modal-form">
+                    <p class="modal-form__title">
+                        Почта:
+                    </p>
+                    <div class="modal-form__inp">
+                        <input type="text" class="modal-input" placeholder="Введите почту...">
+                        <button type="button" class="modal-form__btn-ok btn-rename" disabled></button>
+                    </div>
+                    <div class="modal-form__btns">
+                        <button type="button" class="modal-form__btn btn-give-code" disabled>Получить код</button>
+                        <button type="button" class="modal-form__btn btn-enter-code" disabled>Ввести код</button>
+                        <button type="button" class="modal-form__btn btn-sing-in hide-btn" disabled>Войти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <template id="template">
+        <div class="chat-dialog__message">
+            <div class="chat-dialog__message-text">
+                incoming message
+            </div>
+            <div class="chat-dialog__message-time">
+                17:26
+            </div>
+        </div>
+    </template>
+    <div class="preload-wrapper">
+        <div class="preload">
+            <img src="./src/preload/preload.svg" alt="Preload">
+        </div>
+    </div>
+    <script type="module" src="./src/js/script.js"></script>
+</body>
+
+</html>
