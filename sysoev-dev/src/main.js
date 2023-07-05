@@ -11,9 +11,36 @@ import {
 import { ValidationError, showError } from './js/errors';
 import { getCookie, setCookie } from './js/cookies';
 
+// import { openSocet } from './js/websocet';
+function validateIsAuthor(email) {
+  if (email === 'sysoev.dev@gmail.com') {
+    return true;
+  }
+  return false;
+}
+
+const socket = new WebSocket(`wss://edu.strada.one/websockets?${getCookie()}`);
+console.log(socket);
+
+socket.onmessage = (event) => {
+  try {
+    const data = JSON.parse(event.data);
+    console.log(data);
+    const isAuthor = validateIsAuthor(data.user.email);
+    createMessage(data.user.name, data.text, data.createdAt, isAuthor);
+  } catch (error) {
+    showError(error);
+  }
+
+  // console.log('пришло сообщение');
+  // // createMessage(messageAuthor, messageText, messageTime, true);
+  // console.log(event.data);
+  // console.log(event.data);
+  // console.log(typeof event.data);
+};
+
 async function getAuthCode(email) {
   const url = 'https://edu.strada.one/api/user';
-
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -68,6 +95,7 @@ async function getUser() {
     });
     const json = await response.json();
     showUserInSettings(json.name, json.email);
+    return json;
   } catch (error) {
     showError(error);
   }
@@ -105,8 +133,6 @@ function showMessage(item) {
   MESSAGE.LIST.append(item);
 }
 
-// получение сообщ
-
 function convertTime(date) {
   return date.slice(11, 16);
 }
@@ -139,7 +165,6 @@ async function getMessages() {
     });
     const messages = await response.json();
     messages.messages.reverse().forEach((item) => {
-      // console.log(item);
       createMessage(item.user.name, item.text, item.createdAt);
     });
   } catch (error) {
@@ -161,9 +186,8 @@ function sendMessageHandler(event) {
   if (!messageText) {
     return;
   }
-  const messageAuthor = 'Я';
-  const messageTime = '10:33';
-  createMessage(messageAuthor, messageText, messageTime, true);
+  socket.send(JSON.stringify({ text: `${messageText}` }));
+  // createMessage(messageAuthor, messageText, messageTime, true);
   srcollToBottom();
   event.target.reset();
 }
@@ -190,5 +214,7 @@ UI_ELEMENTS.BTN_CLOSE_DIALOG.forEach((item) => {
 });
 
 MESSAGE.FORM.addEventListener('submit', sendMessageHandler);
+
 getMessages();
 srcollToBottom();
+// openSocet();
