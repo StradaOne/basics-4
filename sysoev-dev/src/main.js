@@ -11,7 +11,6 @@ import {
 import { ValidationError, showError } from './js/errors';
 import { getCookie, setCookie } from './js/cookies';
 
-// import { openSocet } from './js/websocet';
 function validateIsAuthor(email) {
   if (email === 'sysoev.dev@gmail.com') {
     return true;
@@ -31,12 +30,6 @@ socket.onmessage = (event) => {
   } catch (error) {
     showError(error);
   }
-
-  // console.log('пришло сообщение');
-  // // createMessage(messageAuthor, messageText, messageTime, true);
-  // console.log(event.data);
-  // console.log(event.data);
-  // console.log(typeof event.data);
 };
 
 async function getAuthCode(email) {
@@ -131,6 +124,7 @@ CONFIRM.FORM.addEventListener('submit', confirmFormHandler);
 
 function showMessage(item) {
   MESSAGE.LIST.append(item);
+  srcollToBottom();
 }
 
 function convertTime(date) {
@@ -165,7 +159,8 @@ async function getMessages() {
     });
     const messages = await response.json();
     messages.messages.reverse().forEach((item) => {
-      createMessage(item.user.name, item.text, item.createdAt);
+      const isAuthor = validateIsAuthor(item.user.email);
+      createMessage(item.user.name, item.text, item.createdAt, isAuthor);
     });
   } catch (error) {
     showError(error);
@@ -187,7 +182,6 @@ function sendMessageHandler(event) {
     return;
   }
   socket.send(JSON.stringify({ text: `${messageText}` }));
-  // createMessage(messageAuthor, messageText, messageTime, true);
   srcollToBottom();
   event.target.reset();
 }
@@ -216,5 +210,3 @@ UI_ELEMENTS.BTN_CLOSE_DIALOG.forEach((item) => {
 MESSAGE.FORM.addEventListener('submit', sendMessageHandler);
 
 getMessages();
-srcollToBottom();
-// openSocet();
