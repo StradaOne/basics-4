@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="screen">
+        <header class="header screen__header">
+            <button class="setting header__button" type="button">Настройки</button>
+            <button class="exit header__exit" type="button">Выход</button>
+        </header>
+
+
+    <div class="screen-chat">
+        <div class="message screen-chat__message message-me">
+            <p class="message-content">
+                <span class="message-content__author">Я:</span>
+                <span class="message-content__text">Добрый день!</span>
+            </p>
+            <div class="message-time">18:45</div>
+        </div>
+        <div class="message screen-chat__message message-companion">
+            <p class="message-content">
+                <span class="message-content__author">Собеседник:</span>
+                <span class="message-content__text">Добрый день!</span>
+            </p>
+            <div class="message-time">18:45</div>
+        </div>
+
+        <div class="message screen-chat__message message-companion">
+            <p class="message-content">
+                <span class="message-content__author">Собеседник:</span>
+                <span class="message-content__text">А это второе и, кажется, оно очень
+длинное, чтобы поместиться на
+одной строке</span>
+            </p>
+            <div class="message-time">18:45</div>
+        </div>
+
+        <div class="message screen-chat__message message-me">
+            <p class="message-content">
+                <span class="message-content__author">Я:</span>
+                <span class="message-content__text">Добрый день!</span>
+            </p>
+            <div class="message-time">18:45</div>
+        </div>
+        <template class="message-template">
+                <p class="message-content">
+                    <span class="message-content__author"></span>
+                    <span class="message-content__text">Добрый день!</span>
+                </p>
+                <div class="message-time">18:45</div>
+        </template>
+    </div>
+
+        <form class="screen-form" name="screen-form"  action="">
+            <input class="screen-form__sent-message" placeholder="Сообщение.." type="text">
+            <button class="screen-form__button">-></button>
+        </form>
+    </div>
+    <dialog class="modal">
+        <div class="modal-inner">
+            <div class="modal-screen">
+                <header class="header screen__header">
+                    <button class="setting header__button" type="button">Настройки</button>
+                    <button class="button-close header__closed" type="button">X</button>
+                </header>
+
+                <form name="authorization" method="dialog" action="">
+                    <div class="authorization__placeholder">Имя в чате</div>
+                    <div class="authorization-inner">
+                        <input class="nameId" type="text" placeholder="Стив">
+                        <button class="authorization-button-confirm" type="submit">-></button>
+                    </div>
+                </form>
+        </div>
+    </dialog>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
