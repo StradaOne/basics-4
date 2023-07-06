@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gudea:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="module" src="script.js" defer></script>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <button class="btn-settings">
+          <i class="fa-solid fa-bars icon-settings"></i>
+        </button>
+        <div class="other-name">Chat</div>
+        <button class="btn-exit">
+          <i class="fa-solid fa-arrow-right-from-bracket icon-exit"></i>
+        </button>
+      </header>
+      <div class="chat-screen">
+        <dialog class="dialog-settings">
+          <div class="dialog-settings-header-wrap">
+            <div class="heading">Settings</div>
+            <i class="fa-solid fa-xmark icon-exit-settings"></i>
+          </div>
+
+          <form class="form-nickname" method="dialog">
+            <legend class="legend-dialog">Nickname</legend>
+            <div class="dialog-form-wrapper">
+              <input
+                pattern="^(?=.*\S).+$"
+                required
+                type="text"
+                id="input-dialog-name"
+                placeholder=" Nickname"
+                autofocus
+              />
+              <button class="btn-ok">
+                <i class="fa-regular fa-circle-check icon-ok"></i>
+              </button>
+            </div>
+            <div class="error-settings error hidden"></div>
+          </form>
+        </dialog>
+        <dialog class="dialog-auth">
+          <div class="heading">Authorization</div>
+          <i class="fa-regular fa-x-mark icon-x"></i>
+          <form class="form-email" method="dialog">
+            <div class="dialog-form-wrapper-auth">
+              <div class="input-btn-row">
+                <input
+                  autofocus
+                  id="input-dialog-email"
+                  type="email"
+                  pattern="[^ @]*@[^ @]*"
+                  placeholder=" Enter your email"
+                />
+
+                <button class="btn-get-code">
+                  <i
+                    class="fa-solid fa-arrow-up-right-from-square icon-get-code"
+                  ></i>
+                </button>
+              </div>
+              <div class="error-auth error hidden"></div>
+            </div>
+            <button autofocus class="btn-submit-code hidden">
+              <strong>Submit code</strong>
+            </button>
+          </form>
+        </dialog>
+        <dialog class="dialog-confirm">
+          <div class="dialog-confirm-header-wrap">
+            <div class="heading">Confirmation</div>
+            <i class="fa-solid fa-xmark icon-exit-confirm"></i>
+          </div>
+
+          <form class="form-confirm" method="dialog">
+            <legend class="legend-dialog">Enter your code</legend>
+            <div class="dialog-form-wrapper">
+              <input
+                id="input-dialog-confirm"
+                type="text"
+                autofocus
+                pattern="^(?=.*\S).+$"
+                required
+              />
+
+              <button class="btn-enter">
+                <i class="fa-solid fa-arrow-right-to-bracket icon-enter"></i>
+              </button>
+            </div>
+            <br />
+            <p class="error-confirm error"></p>
+          </form>
+        </dialog>
+
+        <div
+          class="chat-tape"
+          unselectable="on"
+          onselectstart="return false;"
+          onmousedown="return false;"
+        ></div>
+      </div>
+      <footer>
+        <form class="form-message">
+          <fieldset>
+            <input
+              pattern="^(?=.*\S).+$"
+              required
+              type="text"
+              id="input-message"
+              placeholder=" Message..."
+            />
+            <button class="btn-send">
+              <i class="fa-solid fa-paper-plane icon-send"></i>
+            </button>
+          </fieldset>
+        </form>
+      </footer>
+    </main>
+    <template class="template-user-message">
+      <div class="user-message message sent-message">
+        <p class="user-name name"></p>
+        <br />
+        <p class="user-message-text message-text"></p>
+        <div class="time-container">
+          <time><em></em></time>
+        </div>
+      </div>
+      <i class="fa-solid fa-play user-triangle"></i>
+    </template>
+    <template class="template-other-message">
+      <div class="other-message message" contenteditable>
+        <p class="other-name name"></p>
+        <br />
+        <p class="other-message-text message-text"></p>
+        <div class="time-container">
+          <time><em></em></time>
+        </div>
+      </div>
+      <i class="fa-solid fa-play other-triangle"></i>
+    </template>
+    <script
+      src="https://kit.fontawesome.com/f6dababe73.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module"></script>
+  </body>
+</html>
