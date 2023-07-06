@@ -14,10 +14,13 @@ export function scrollToEnd() {
 	WINDOW.scrollIntoView({ behavior: "smooth", block: "end" });
 }
 
-function resetUnreadMessages() {
-	unreadMessage = 0;
-	COUNTER.textContent = unreadMessage;
-	hideElement(COUNTER);
+export function resetUnreadMessages() {
+	const isScrollNearBottom = isNearBottom(CHAT_WINDOW, SCROLL_HEIGHT);
+	if (isScrollNearBottom) {
+		unreadMessage = 0;
+		COUNTER.textContent = unreadMessage;
+		hideElement(COUNTER);
+	}
 }
 
 function countUnreadMessages() {
@@ -44,9 +47,7 @@ export async function handleMessage(event) {
 
 		WINDOW.append(message);
 
-		const isScrollNearBottom = isNearBottom(CHAT_WINDOW, SCROLL_HEIGHT);
-
-		if (isScrollNearBottom || email === Cookies.get(EMAIL)) {
+		if (email === Cookies.get(EMAIL)) {
 			scrollToEnd();
 			resetUnreadMessages();
 		} else {
@@ -75,7 +76,11 @@ export function connectWebSocket(token) {
 }
 
 export function sendWebSoket(text) {
-	socket.send(JSON.stringify({ text: text }));
+	try {
+		socket.send(JSON.stringify({ text: text }));
+	} catch (error) {
+		console.error(error.message);
+	}
 }
 
 export function closeWebSoket() {

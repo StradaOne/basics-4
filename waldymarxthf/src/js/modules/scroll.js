@@ -11,5 +11,9 @@ export function isNearBottom(element, threshold = SCROLL_HEIGHT) {
 
 export function handleScrollVisibility() {
 	const isScrollNearBottom = isNearBottom(CHAT_WINDOW, SCROLL_HEIGHT);
-	return isScrollNearBottom ? hideElement(ANCHOR) : showElement(ANCHOR);
+	if (isScrollNearBottom) {
+		hideElement(ANCHOR);
+	} else {
+		showElement(ANCHOR);
+	}
 }

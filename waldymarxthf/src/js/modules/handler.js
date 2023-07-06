@@ -4,7 +4,7 @@ import { DOM_ELEMENTS, EMAIL, TOKEN, NICKNAME, MESSAGE } from "./constants";
 import { hideSendButton } from "./ui";
 import { showElement, getFormData, hideElement } from "./utils";
 import { validateEmail, validateName, validateToken, isEmpty } from "./validation";
-import { connectWebSocket, sendWebSoket } from "./websocket";
+import { closeWebSoket, connectWebSocket, sendWebSoket } from "./websocket";
 import { renderMessages } from "./chat";
 
 const { FORM_AUTH, ERROR_AUTH, COMPLETE_AUTH } = DOM_ELEMENTS.AUTHORIZATION;
@@ -88,6 +88,7 @@ export async function handleFormSettings(event) {
 
 		if (isSuccess) {
 			Cookies.set(NICKNAME, inputValue);
+			closeWebSoket();
 			hideElement(ERROR_SETTINGS);
 			showElement(COMPLETE_SETTINGS);
 		}

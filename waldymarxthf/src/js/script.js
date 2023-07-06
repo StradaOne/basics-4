@@ -13,7 +13,7 @@ import { modalSwitcher } from "./modules/modalActions";
 import { hideSendButton, initializeUI } from "./modules/ui";
 import { handleScrollVisibility } from "./modules/scroll";
 import { saveToLocalStorage } from "./modules/localStorage";
-import { closeWebSoket, scrollToEnd } from "./modules/websocket";
+import { closeWebSoket, scrollToEnd, resetUnreadMessages } from "./modules/websocket";
 
 const { MODAL_AUTH, FORM_AUTH, ENTER_BUTTON } = DOM_ELEMENTS.AUTHORIZATION;
 const { FORM_SETTINGS, MODAL_SETTINGS, INPUT_SETTINGS, THEME_SETTINGS } = DOM_ELEMENTS.SETTINGS;
@@ -36,8 +36,14 @@ FORM_SETTINGS.addEventListener("submit", handleFormSettings);
 FORM_VERIF.addEventListener("submit", handleFormVerif);
 
 INPUT_MESSAGE.addEventListener("input", hideSendButton);
-ANCHOR.addEventListener("click", scrollToEnd);
-CHAT_WINDOW.addEventListener("scroll", handleScrollVisibility);
+ANCHOR.addEventListener("click", () => {
+	scrollToEnd();
+	resetUnreadMessages();
+});
+CHAT_WINDOW.addEventListener("scroll", () => {
+	handleScrollVisibility();
+	resetUnreadMessages();
+});
 
 ENTER_BUTTON.addEventListener("click", modalSwitcher(MODAL_AUTH, MODAL_VERIF));
 BACK_BUTTON.addEventListener("click", modalSwitcher(MODAL_VERIF, MODAL_AUTH));
