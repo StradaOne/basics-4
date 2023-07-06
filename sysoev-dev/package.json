@@ -1,0 +1,20 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vadim Sysoev",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "parcel": "^2.9.3"
+  },
+  "dependencies": {
+    "js-cookie": "^3.0.5"
+  }
+}

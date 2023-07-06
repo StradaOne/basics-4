@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чат</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="chat">
+    <div class="chat__top">
+      <button class="chat__top-btn chat__top-btn-settings" type="button">Настройки</button>
+      <button class="chat__top-btn chat__top-btn-login" type="button">Войти</button>
+    </div>
+    <div class="chat__messages-wrapper">
+    <ul class="chat__messages">
+    </ul>
+  </div>
+    <div class="chat__bottom">
+      <form action="#" class="chat__bottom-form">
+        <input class="chat__bottom-input" type="text" required placeholder="сообщение..">
+        <button class="chat__bottom-btn" type="submit">-></button>
+      </form>
+    </div>
+    <dialog class="dialog dialog-settings">
+      <div class="dialog__top">
+        <h2 class="dialog__top-title">Настройки</h2>
+        <button class="dialog__top-btn" type="button">Закрыть</button>
+      </div>
+      <form class="dialog__form form-settings" action="#">
+        <label class="dialog__form-label form-settings__label" for="settings-name">Имя в чате</label>
+        <input class="dialog__form-input form-settings__input" placeholder="Стив" type="text" name="" id="settings-name" required>
+        <button class="dialog__form-btn form-settings__btn" type="submit">-></button>
+      </form>
+      <div class="form-settings__info"></div>
+    </dialog>
+
+    <dialog class="dialog dialog-auth">
+      <div class="dialog__top">
+        <h2 class="dialog__top-title">Авторизация</h2>
+        <button class="dialog__top-btn" type="button">Закрыть</button>
+      </div>
+      <form class="dialog__form form-auth" action="#">
+        <label class="dialog__form-label form-auth__label" for="auth-name">Почта</label>
+        <input class="dialog__form-input form-auth__input" placeholder="Введите ваш email" type="email" name="" id="auth-name" required>
+        <button class="dialog__form-btn form-auth__btn" type="submit">Получить код</button>
+      </form>
+      <button class="dialog__form-btn dialog__confirm-open" type="button">Ввести код</button>
+    </dialog>
+
+    <dialog class="dialog dialog-confirm">
+      <div class="dialog__top">
+        <h2 class="dialog__top-title">Подтверждение</h2>
+        <button class="dialog__top-btn" type="button">Закрыть</button>
+      </div>
+      <form class="dialog__form form-confirm" action="#">
+        <label class="dialog__form-label form-confirm__label" for="confirm-name">Код</label>
+        <input class="dialog__form-input form-confirm__input" placeholder="Введите код" type="text" name="" id="confirm-name" required>
+        <button class="dialog__form-btn form-confirm__btn" type="submit">Войти</button>
+      </form>
+    </dialog>
+  </div>
+  <template class="message-template">
+    <p class="chat__message-content">
+      <span class="chat__message-author">Собеседник</span>:
+      <span class="chat__message-text">Добрый день!</span>
+    </p>
+    <p class="chat__message-time">18:45</p>
+  </template>
+  <script type="module" src="main.js"></script>
+</body>
+
+</html>
