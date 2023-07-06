@@ -1,9 +1,11 @@
 import Cookies from "js-cookie";
 import { getMailRequest, getUserDataRequest, changeNameRequest } from "./api";
 import { DOM_ELEMENTS, EMAIL, TOKEN, NICKNAME, MESSAGE } from "./constants";
-import { hideSendButton, renderMessages, sendWebSoket, connectWebSocket } from "./ui";
+import { hideSendButton } from "./ui";
 import { showElement, getFormData, hideElement } from "./utils";
 import { validateEmail, validateName, validateToken, isEmpty } from "./validation";
+import { connectWebSocket, sendWebSoket } from "./websocket";
+import { renderMessages } from "./chat";
 
 const { FORM_AUTH, ERROR_AUTH, COMPLETE_AUTH } = DOM_ELEMENTS.AUTHORIZATION;
 const { FORM_VERIF, MODAL_VERIF, ERROR_VERIF } = DOM_ELEMENTS.VERIFICATION;
@@ -16,8 +18,8 @@ export async function handleFormMessage(event) {
 
 	if (!isEmpty(inputValue)) {
 		sendWebSoket(inputValue);
-		hideSendButton();
 		FORM_MESSAGE.reset();
+		hideSendButton();
 	}
 }
 

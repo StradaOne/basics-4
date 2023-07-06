@@ -10,9 +10,10 @@ import {
 	handleFormMessage,
 } from "./modules/handler";
 import { modalSwitcher } from "./modules/modalActions";
-import { hideSendButton, initializeUI, closeWebSoket, scrollToEnd } from "./modules/ui";
+import { hideSendButton, initializeUI } from "./modules/ui";
 import { handleScrollVisibility } from "./modules/scroll";
 import { saveToLocalStorage } from "./modules/localStorage";
+import { closeWebSoket, scrollToEnd } from "./modules/websocket";
 
 const { MODAL_AUTH, FORM_AUTH, ENTER_BUTTON } = DOM_ELEMENTS.AUTHORIZATION;
 const { FORM_SETTINGS, MODAL_SETTINGS, INPUT_SETTINGS, THEME_SETTINGS } = DOM_ELEMENTS.SETTINGS;

@@ -1,16 +1,15 @@
 import { DOM_ELEMENTS } from "./constants";
 import { hideElement, showElement } from "./utils";
 
-const { ANCHOR } = DOM_ELEMENTS.CHAT;
+const { ANCHOR, CHAT_WINDOW } = DOM_ELEMENTS.CHAT;
 
-const SCROLL_HEIGHT = 200;
+export const SCROLL_HEIGHT = 200;
+
+export function isNearBottom(element, threshold = SCROLL_HEIGHT) {
+	return element.scrollHeight - (element.scrollTop + element.clientHeight) <= threshold;
+}
 
 export function handleScrollVisibility() {
-	const isScrollNearBottom =
-		this.scrollHeight - (this.scrollTop + this.clientHeight) > SCROLL_HEIGHT;
-	if (isScrollNearBottom) {
-		showElement(ANCHOR);
-	} else {
-		hideElement(ANCHOR);
-	}
+	const isScrollNearBottom = isNearBottom(CHAT_WINDOW, SCROLL_HEIGHT);
+	return isScrollNearBottom ? hideElement(ANCHOR) : showElement(ANCHOR);
 }
