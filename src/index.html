@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta httpequiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>brbsiemens-chat</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body>
+		<dialog class="main-menu">
+			<div class="main">
+				<div class="upper-btn">
+					<button class="main-settings-btn">Settings</button>
+					<button class="main-exit-btn">Exit</button>
+				</div>
+
+				<div class="mainScreen">
+					<div class="wrap">
+					
+
+					</div>
+				</div>
+
+				<form action="#" class="chat-form">
+					<input
+						type="text"
+						placeholder="Enter message"
+						autocomplete="off"
+						class="chat-form-input"
+					/>
+					<button type="submit" class="chat-form-btn">-></button>
+				</form>
+			</div>
+		</dialog>
+
+		<template id="myMessage">
+			<div class="message-box">
+				<div class="sender-and-text">
+					<div class="message-sender"></div>
+					<div class="message-text"></div>
+				</div>
+				<div class="message-time"></div>
+			</div>
+		</template>
+
+		<dialog class="settings-menu">
+			<div class="settings-menu_body">
+				<h2 class="settings-menu_title">Settings</h2>
+				<p class="settings-menu_text">Enter name :</p>
+				<form class="settings-menu_form" action="#">
+					<input class="settings-menu_input message" type="text" placeholder="name" />
+					<button class="settings-menu_button send">-></button>
+				</form>
+			</div>
+		</dialog>
+<!-- 
+    <dialog class="log-menu"> -->
+		<div class="log-menu_body">
+			<h2 class="log-menu_title">Authorization</h2>
+			<p class="log-menu_text">Email :</p>
+			<form class="log-menu_form" action="#">
+				<input class="log-menu_input" type="text" />
+				<button class="log-menu_button_get">Get code</button>
+				<button class="log-menu_button_set">Set code</button>
+			</form>
+		</div>
+  <!-- </dialog> -->
+
+		<dialog class="confirm-menu">
+			<div class="confirm-menu_body">
+				<h2 class="confirm-menu_title">Confirm</h2>
+				<p class="confirm-menu_text">Code :</p>
+				<form class="confirm-menu_form" action="#">
+					<input class="confirm-menu_input" type="text" />
+					<button class="confirm-menu_button_sign">Sign in</button>
+				</form>
+			</div>
+		</dialog>
+		<script type="module" src="js/index.js"></script>
+	</body>
+</html>
