@@ -5,7 +5,6 @@ import { DISPLAY_NODE } from "./DOMelements";
 import { createNewMessage } from "./createUiElement";
 import { scroll } from "../index";
 
-
 const inputAuthorizationValue = document.querySelector(".authorization-input");
 const settingNameInput = document.querySelector(".item-input");
 
@@ -74,7 +73,7 @@ async function getHistoryMessage(cookieToken) {
     });
     const data = await response.json();
     const arrayMessage = data.messages.reverse();
-    console.log(data);
+    // console.log(data);
     const nodeElement = arrayMessage.map((message) => {
       const date = new Date(message.createdAt);
       const fixDate = format(date, "HH:mm");
@@ -90,4 +89,46 @@ async function getHistoryMessage(cookieToken) {
   scroll();
 }
 
-export { postData, changeName, getData, getHistoryMessage };
+async function loadHistoryMessage() {
+  try {
+    const url = "https://edu.strada.one/api/messages/";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${cookieToken}`,
+      },
+    });
+
+    const data = await response.json();
+    const arrayMessage = data.messages;
+    window.localStorage.setItem('array', JSON.stringify(arrayMessage));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const array = JSON.parse(window.localStorage.getItem('array')) 
+
+
+//ФУНКЦИЯ ЗАГРУЗКИ ИСТОРИИ 
+function test123(array) {
+  const arr = array.splice(0, 20);
+    console.log(arr);
+    console.log(array);
+    if (!array.length) {
+      console.log("конец");
+    }
+    const nodeElement = arr.map((message) => {
+      const date = new Date(message.createdAt);
+      const fixDate = format(date, "HH:mm");
+      DISPLAY_NODE.prepend(
+        createNewMessage(message.user.name, message.text, fixDate)
+      );
+      return message;
+    });
+    // console.log(nodeElement);
+    scroll()
+}
+
+
+export { postData, changeName, getData, getHistoryMessage, loadHistoryMessage, test123 };

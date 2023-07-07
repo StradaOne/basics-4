@@ -1,12 +1,14 @@
 import { convTime } from "./modules/convertationTime";
 import { createNewMessage } from "./modules/createUiElement";
 import { getCookie, setCookie } from "./modules/cookieAction";
+import { test123, array } from "./modules/apiAction";
 
 import {
   postData,
   changeName,
   getData,
   getHistoryMessage,
+  loadHistoryMessage
 } from "./modules/apiAction";
 
 import {
@@ -16,6 +18,7 @@ import {
   BUTTON_AUTHENTICATION,
   DISPLAY_NODE,
 } from "./modules/DOMelements";
+import { el } from "date-fns/locale";
 
 const ADD_NEW_MESSAGE_FORM = document.querySelector(".form");
 const AUTHORIZATION_FORM = document.querySelector(".authorization-form__input");
@@ -55,16 +58,16 @@ export function scroll() {
 
 //SOCKET
 const socket = new WebSocket(`wss://edu.strada.one/websockets?${cookieToken}`);
+console.log(socket)
 
-console.log(socket);
 socket.onmessage = (e) => {
   const data = JSON.parse(e.data);
-  const mess = createNewMessage(
+  const myNewMessageElement = createNewMessage(
     data.user.name,
     data.text,
     convTime(data.createdAt)
   );
-  DISPLAY_NODE.append(mess);
+  DISPLAY_NODE.append(myNewMessageElement);
   scroll();
 };
 
@@ -109,14 +112,19 @@ SETTING_FORM.addEventListener("submit", () => {
   window.myDialog.close();
 });
 
-// AUTHENTICATION_FORM.addEventListener('submit', () => {
-//   getData(cookieToken);
-//   getHistoryMessage(cookieToken);
-//   window.
-// })
 ADD_NEW_MESSAGE_FORM.addEventListener("submit", handlerMessage);
 
 window.addEventListener("DOMContentLoaded", () => {
   // getData(cookieToken);
-  getHistoryMessage(cookieToken);
+  // getHistoryMessage(cookieToken);
+  loadHistoryMessage(cookieToken)
+  test123(array)
+  scroll()
 });
+
+DISPLAY_NODE.addEventListener('scroll', function() {
+  if (DISPLAY_NODE.scrollTop === 0) {
+    document.body.style.backgroundColor = 'red'
+    test123(array)
+  }
+})
