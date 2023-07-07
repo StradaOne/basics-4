@@ -47,7 +47,9 @@ export async function handleMessage(event) {
 
 		WINDOW.append(message);
 
-		if (email === Cookies.get(EMAIL)) {
+		const isScrollNearBottom = isNearBottom(CHAT_WINDOW, SCROLL_HEIGHT);
+
+		if (isScrollNearBottom || email === Cookies.get(EMAIL)) {
 			scrollToEnd();
 			resetUnreadMessages();
 		} else {

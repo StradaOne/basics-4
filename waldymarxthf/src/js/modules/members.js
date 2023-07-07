@@ -43,6 +43,10 @@ export const MEMBERS = [
 		icon: "./avatars/johnbeelow.jpg",
 		email: "beelow-dj@mail.ru",
 	},
+	{
+		icon: "./avatars/johnbeelow.jpg",
+		email: "beelow-dj@mail.ru",
+	},
 ];
 
 export const DEFAULT_ICON = "./avatars/default.png";
