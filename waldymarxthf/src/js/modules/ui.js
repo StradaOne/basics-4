@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-use-before-define */
 import Cookies from "js-cookie";
 import { DOM_ELEMENTS, TOKEN, THEME, DEFAULT_THEME } from "./constants";
 import { loadFromLocalStorage } from "./localStorage";

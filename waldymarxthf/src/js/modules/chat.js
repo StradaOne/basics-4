@@ -31,7 +31,8 @@ export async function createMessage({ text, email, nickname, time }) {
 	const avatarElem = message.querySelector(AVATAR_SELECTOR);
 	const nicknameElem = message.querySelector(NICKNAME_SELECTOR);
 
-	textElem.append(await addBetterTVEmoji(text));
+	const betterTVEmojiText = await addBetterTVEmoji(text);
+	textElem.append(betterTVEmojiText);
 	timeElem.textContent = timeConvert(time);
 	message.classList.add(`message-${type}`);
 	contentElem.classList.add(`content-${type}`);

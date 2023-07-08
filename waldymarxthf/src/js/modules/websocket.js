@@ -4,8 +4,10 @@ import { DOM_ELEMENTS, EMAIL, TOKEN } from "./constants";
 import { hideElement, showElement } from "./utils";
 import { createMessage } from "./chat";
 import { SCROLL_HEIGHT, isNearBottom } from "./scroll";
+import { WebSocketError, errorHandler, ERRORS } from "./errors";
 
 const { COUNTER, CHAT_WINDOW, WINDOW } = DOM_ELEMENTS.CHAT;
+const { WEBSOCKET_ERROR_RECIEVE, WEBSOCKET_ERROR_CONNECT, WEBSOCKET_ERROR_SEND } = ERRORS;
 
 let socket = null;
 let unreadMessage = 0;
@@ -56,12 +58,11 @@ export async function handleMessage(event) {
 			countUnreadMessages();
 		}
 	} catch (error) {
-		console.error(error.message);
+		errorHandler(new WebSocketError(WEBSOCKET_ERROR_RECIEVE));
 	}
 }
 
 export function handleClose() {
-	console.log("WebSocket is closed");
 	const token = Cookies.get(TOKEN);
 	return token ? setTimeout(() => connectWebSocket(token), 1000) : null;
 }
@@ -73,7 +74,7 @@ export function connectWebSocket(token) {
 		socket.addEventListener("message", handleMessage);
 		socket.addEventListener("close", handleClose);
 	} catch (error) {
-		console.error(error);
+		errorHandler(new WebSocketError(WEBSOCKET_ERROR_CONNECT));
 	}
 }
 
@@ -81,7 +82,7 @@ export function sendWebSoket(text) {
 	try {
 		socket.send(JSON.stringify({ text: text }));
 	} catch (error) {
-		console.error(error.message);
+		errorHandler(new WebSocketError(WEBSOCKET_ERROR_SEND));
 	}
 }
 
