@@ -1,0 +1,237 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content {
+    border: 1px solid black;
+    text-align: center;
+    width: 300px;
+}
+
+.header_content {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.message_content {
+    border: 1px solid black;
+    width: 290px;
+    height: 400px;
+    margin-left: 5px;
+    overflow: scroll;
+}
+
+.message_text {
+    display: inline-block;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #000;
+}
+
+
+.message_time {
+    display: block;
+    font-size: 12px;
+    margin-top: 4px;
+
+}
+
+.bottom_content {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.input_message {
+    width: 260px;
+    height: 30px;
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.sendMessage {
+    width: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.modal_settings {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.modal_autorisation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal_confirmation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal_settings[open] {
+    background-color: white;
+    overflow: hidden;
+    border: none;
+}
+
+.modal_autorisation[open] {
+    background-color: white;
+    overflow: hidden;
+    border: none;
+}
+
+.modal_confirmation[open] {
+    background-color: white;
+    overflow: hidden;
+    border: none;
+}
+
+.pochta {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.modal_content_header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.close_settings {
+    font-size: xx-large;
+    cursor: pointer;
+    color: #888;
+}
+
+.close_autorisation {
+    font-size: xx-large;
+    cursor: pointer;
+    color: #888;
+}
+
+.close_confirmation {
+    font-size: xx-large;
+    cursor: pointer;
+    color: #888;
+}
+
+.modal_content_main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.modal_container {
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.modal_container p {
+    margin-left: 10px;
+}
+
+.modal_input {
+    height: 25px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.message_my {
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 40%;
+}
+
+.message_content {}
+
+
+.message {
+    border: 1px solid;
+    flex-grow: 1;
+    margin: 4px;
+    display: inline-flex !important;
+    justify-content: space-between;
+    list-style-type: none;
+    background-color: #f0f0f0;
+}
+
+.message_text {
+    padding: 5px;
+    font-size: large;
+}
+
+.message_time {
+    font-size: small;
+    margin-top: 0;
+    align-self: flex-end;
+}
+
+.message_you {
+    display: inline-flex;
+    flex-direction: column;
+    margin-right: 20%;
+}
+
+.seting_button {
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+}
+.modal_button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    margin-top: 5px;
+    border-radius: 4px;
+    padding: 4px 3px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  

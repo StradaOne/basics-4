@@ -1,0 +1,22 @@
+{
+  "name": "marat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marat",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "data-fns": "^1.1.0",
+    "date-fns": "^2.30.0",
+    "js-cookie": "^3.0.5"
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.9.3"
+  }
+}
