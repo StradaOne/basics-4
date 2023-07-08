@@ -57,6 +57,18 @@ body {
     overflow-y: auto;
 }
 
+.down-scroll-btn {
+    width: 50px;
+    height: 50px;
+    background: #000000;
+    color: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    left: 1080px;
+    bottom: 180px;
+    z-index: 999;
+}
+
 /* MESSAGE */
 
 .display-items__message {

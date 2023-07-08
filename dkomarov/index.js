@@ -52,7 +52,7 @@ function showAuthenticationModal() {
 
 export function scroll() {
   const div = document.querySelector(".display");
-  const magicNumber = 200000;
+  const magicNumber = 2800;
   div.scrollBy(0, magicNumber);
 }
 
@@ -75,6 +75,7 @@ function handlerMessage(event) {
   event.preventDefault();
   socket.send(JSON.stringify({ text: INPUT_NODE.value }));
   console.log(INPUT_NODE.value);
+  // test123(array)
   inputClear();
   scroll();
 }
@@ -124,7 +125,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 DISPLAY_NODE.addEventListener('scroll', function() {
   if (DISPLAY_NODE.scrollTop === 0) {
-    document.body.style.backgroundColor = 'red'
+    loadHistoryMessage(cookieToken)
     test123(array)
   }
 })
