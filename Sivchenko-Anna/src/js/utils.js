@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import { VARIABLES } from "./variables";
 
 // * функция получения актуального времени
 
@@ -33,4 +34,10 @@ export function isEmailValid(value) {
 	const EMAIL_REGEXP =
 		/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 	return EMAIL_REGEXP.test(value);
+}
+
+// * функция прокрутки скролла вниз
+
+export function scrollToEnd() {
+	VARIABLES.CHAT_SCREEN.scrollIntoView({ behavior: "smooth", block: "end" });
 }

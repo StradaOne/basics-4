@@ -24,7 +24,6 @@ body {
 	height: 90vh;
 	background-color: rgb(247, 240, 253);
 	padding: 1vmin;
-	/* display: none; */
 }
 
 .chat {
@@ -54,14 +53,33 @@ body {
 	box-shadow: 0 0 2px 2px rgba(221, 221, 221, 1);
 }
 
-.chat-screen {
-	height: 100%;
+.chat__screen-wrapper {
+	height: 90vh;
 	border: 1px solid var(--text-color);
 	padding: 1vmin;
+	overflow-y: scroll;
+}
+
+.chat-screen {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 	gap: 1vmin;
+}
+
+.chat__screen-wrapper::-webkit-scrollbar {
+	width: 8px;
+}
+
+.chat__screen-wrapper::-webkit-scrollbar-track {
+	background: var(--delivered-message-color);
+	box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+}
+
+.chat__screen-wrapper::-webkit-scrollbar-thumb {
+	background-color: var(--popup-bg-color);
+	border-radius: 10px;
+	background: linear-gradient(180deg, #777776d3, #b4b2b2c7);
 }
 
 .chat-message {

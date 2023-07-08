@@ -1,6 +1,13 @@
 import Cookies from "js-cookie";
 import { VARIABLES, MODAL, MESSAGE } from "./variables.js";
-import { clearInput, modalChange, isMessageEmpty, getCurrentTime, isEmailValid } from "./utils.js";
+import {
+	clearInput,
+	modalChange,
+	isMessageEmpty,
+	getCurrentTime,
+	isEmailValid,
+	scrollToEnd,
+} from "./utils.js";
 import { receiveCodeByEmail, getUserDataRequest, changeUserName } from "./api.js";
 import { createMessage, addMessage, renderMessages } from "./message.js";
 
@@ -17,7 +24,6 @@ async function handleAuthenticationForm(event) {
 			MODAL.AUTHORIZATION.EMAIL.classList.add("invalid-email");
 			console.log("Неверный email");
 		}
-		// modalChange(MODAL.AUTHORIZATION.DIALOG, MODAL.VERIFICATION.DIALOG);
 	} catch (err) {
 		console.log(err.message);
 	}
@@ -32,8 +38,6 @@ async function handleVerificationForm(event) {
 			Cookies.set("token", token, { expires: 3 });
 			Cookies.set("email", response.email);
 			Cookies.set("name", response.name);
-			// console.log(response.email);
-			// console.log(response.name);
 			renderMessages();
 			MODAL.VERIFICATION.DIALOG.close();
 			MODAL.AUTHORIZATION.SING_IN.textContent = "Выйти";
@@ -72,6 +76,9 @@ async function handleSendMessageForm(event) {
 			email: Cookies.get("email"),
 		});
 		addMessage(message);
+		scrollToEnd();
+	} else {
+		console.log("Введите сообщение");
 	}
 }
 

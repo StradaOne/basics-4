@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 import { VARIABLES, MESSAGE } from "./variables.js";
-import { getCurrentTime, clearInput } from "./utils.js";
+import { getCurrentTime, clearInput, scrollToEnd } from "./utils.js";
 import { getMessageHistory } from "./api.js";
 
 // * функция добавления сообщения
@@ -36,13 +36,15 @@ export function createMessage({ userName, text, time, email }) {
 
 export async function renderMessages() {
 	const messagesData = await getMessageHistory();
-	const messages = messagesData.messages.reverse().forEach((element) => {
+	const messages = messagesData.messages.reverse().map((element) => {
+		const { user, text, createdAt } = element;
 		return createMessage({
-			userName: element.user.name,
-			text: element.text,
-			time: getCurrentTime(element.createdAt),
-			email: element.user.email,
+			userName: user.name,
+			text,
+			time: getCurrentTime(createdAt),
+			email: user.email,
 		});
 	});
 	VARIABLES.CHAT_SCREEN.append(...messages);
+	scrollToEnd();
 }
