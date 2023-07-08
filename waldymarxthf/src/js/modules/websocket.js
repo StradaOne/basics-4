@@ -6,10 +6,12 @@ import { createMessage } from "./chat";
 import { SCROLL_HEIGHT, isNearBottom } from "./scroll";
 
 const { COUNTER, CHAT_WINDOW, WINDOW } = DOM_ELEMENTS.CHAT;
-
+// каждый раз когда у нас "глобальный let" можно что-то порефачить
 let socket = null;
 let unreadMessage = 0;
+let onMessageCb = [];
 
+// ??! почему веб-сокет думает о скроле?
 export function scrollToEnd() {
 	WINDOW.scrollIntoView({ behavior: "smooth", block: "end" });
 }
@@ -45,6 +47,14 @@ export async function handleMessage(event) {
 			time: updatedAt,
 		});
 
+		if (onMessageCb.length) {
+			onMessageCb.forEach((cb) => {
+				if (typeof cb === "function") {
+					cb(data);
+				}
+			});
+		}
+		// Winodw? сокет не должен заниматься этими вещами, как починить? передать коллбек например в коннект вебсокет
 		WINDOW.append(message);
 
 		const isScrollNearBottom = isNearBottom(CHAT_WINDOW, SCROLL_HEIGHT);
@@ -66,8 +76,13 @@ export function handleClose() {
 	return token ? setTimeout(() => connectWebSocket(token), 1000) : null;
 }
 
-export function connectWebSocket(token) {
+export function connectWebSocket(token, cbObj = { onMessage: null, onClose: null }) {
+	if (cbObj.onMessage) {
+		onMessageCb.push(cbObj.onMessage);
+	}
+
 	try {
+		// если линтер ругаеться то скорее всего не зря, сделай проверку на андефайнед
 		/* eslint-disable no-undef */
 		socket = new WebSocket(`wss://edu.strada.one/websockets?${token}`);
 		socket.addEventListener("message", handleMessage);
@@ -77,6 +92,8 @@ export function connectWebSocket(token) {
 	}
 }
 
+// мы отправляем не сокет а сообщение
+// хорошо бы убедиться что сокет открыт перед отправкой
 export function sendWebSoket(text) {
 	try {
 		socket.send(JSON.stringify({ text: text }));
@@ -86,5 +103,6 @@ export function sendWebSoket(text) {
 }
 
 export function closeWebSoket() {
+	onMessageCb = [];
 	socket.close();
 }

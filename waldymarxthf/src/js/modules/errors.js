@@ -19,6 +19,7 @@ export class LocalStorageError extends Error {
 	}
 }
 
+// излишняя обертка
 export function errorHandler(error) {
 	if (error instanceof ServerError) {
 		console.error(`ServerError: ${error.message}`);

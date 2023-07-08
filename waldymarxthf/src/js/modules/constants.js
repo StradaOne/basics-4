@@ -6,6 +6,7 @@ export const THEME = "theme";
 export const DEFAULT_THEME = "strada";
 export const NAME_LENGTH = 3;
 
+// ?? https://edu.strada.one/api
 export const SERVER_URL = "https://edu.strada.one/api/user";
 export const USER_URL = "https://edu.strada.one/api/user/me";
 export const MESSAGES_URL = "https://edu.strada.one/api/messages/";

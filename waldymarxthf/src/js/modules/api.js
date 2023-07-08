@@ -11,6 +11,7 @@ import {
 } from "./constants";
 import { errorHandler, ServerError, AuthorizationError } from "./errors";
 
+// DRY
 export async function getMailRequest(email) {
 	try {
 		const response = await fetch(SERVER_URL, {

@@ -20,7 +20,9 @@ function changeIcon(email) {
 	return member ? member.icon : DEFAULT_ICON;
 }
 
+// асинхронное создание дом элемента?
 export async function createMessage({ text, email, nickname, time }) {
+	// нужен User
 	const type = email === Cookies.get(EMAIL) ? PROPERTIES.RIGHT_SIDE : PROPERTIES.LEFT_SIDE;
 
 	const item = TEMPLATE.content.cloneNode(true);
@@ -49,6 +51,7 @@ export async function createMessage({ text, email, nickname, time }) {
 export async function renderMessages() {
 	const messagesData = await getMessages();
 	const reversedMessagesData = messagesData.messages.reverse();
+	// почему промис?
 	const messagesPromises = reversedMessagesData.map((element) => {
 		const {
 			user: { email, name },
@@ -64,5 +67,6 @@ export async function renderMessages() {
 	});
 	const messages = await Promise.all(messagesPromises);
 	WINDOW.append(...messages);
+	// любопытно, работает корректно?
 	WINDOW.scrollIntoView(false);
 }

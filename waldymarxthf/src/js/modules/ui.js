@@ -18,8 +18,13 @@ export function hideSendButton() {
 
 export function initializeUI() {
 	const token = Cookies.get(TOKEN);
+	// можно проверить токен, получив текущего юзера
 	if (token) {
-		connectWebSocket(token);
+		connectWebSocket(token, {
+			onMessage: (message) => {
+				console.log("CB", message);
+			},
+		});
 		showElement(APP);
 		renderMessages();
 		MODAL_AUTH.close();

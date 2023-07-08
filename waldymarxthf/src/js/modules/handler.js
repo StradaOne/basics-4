@@ -12,6 +12,8 @@ const { FORM_VERIF, MODAL_VERIF, ERROR_VERIF } = DOM_ELEMENTS.VERIFICATION;
 const { FORM_SETTINGS, COMPLETE_SETTINGS, ERROR_SETTINGS } = DOM_ELEMENTS.SETTINGS;
 const { APP, FORM_MESSAGE } = DOM_ELEMENTS.CHAT;
 
+// не может быть вынесен отдельно
+
 export async function handleFormMessage(event) {
 	event.preventDefault();
 	const inputValue = getFormData(FORM_MESSAGE, MESSAGE);
@@ -53,6 +55,7 @@ export async function handleFormVerif(event) {
 			FORM_VERIF.reset();
 			return;
 		}
+		// isSuccess вернет только true или false
 		const isSuccess = await getUserDataRequest(inputValue);
 
 		if (isSuccess) {

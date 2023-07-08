@@ -76,6 +76,7 @@ async function changeUserName(newName) {
   }
 }
 
+// get should return User
 async function getUser() {
   const url = 'https://edu.strada.one/api/user/me';
   try {
