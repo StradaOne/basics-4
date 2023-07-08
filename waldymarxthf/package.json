@@ -1,0 +1,37 @@
+{
+  "name": "waldymarxthf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "source": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel",
+    "build": "parcel build",
+    "lint": "eslint --fix .",
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/config-default": "^2.9.3",
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "parcel": "^2.9.3",
+    "parcel-reporter-static-files-copy": "^1.5.0",
+    "prettier": "^2.8.8",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@sentry/browser": "^7.57.0",
+    "country-flag-emoji-polyfill": "^0.1.4",
+    "date-fns": "^2.30.0",
+    "emoji-picker-element": "^1.18.3",
+    "js-cookie": "^3.0.5"
+  }
+}

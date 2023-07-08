@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/script.js" type="module" ></script>
+	<title>MarxApp</title>
+</head>
+<body>
+	<div class="chat hidden">
+		<div class="container">
+
+			<div class="chat-header">
+				<div class="chat-name">
+					<p class="chat-name__title">мужской фронтенд 🏳️‍🌈</p>
+					<p class="chat-name__members">18 участников</p>
+				</div>
+				<div class="chat-header__btn">
+					<buttton class="chat-header__btn-setting">Настройки</buttton>
+					<buttton class="chat-header__btn-exit">Выйти</buttton>
+				</div>
+			</div>
+
+			<div class="chat-window">
+				<div class="wrapper">
+					<template class="chat-window__template" id="message-template">
+						<div class="chat-window__message">
+							<div class="chat-window__message-avatar hidden">
+								<img src="../static/avatars/default.png" alt="avatar" class="chat-window__message-avatar-img">
+							</div>
+							<div class="chat-window__message-content">
+								<p class="chat-window__message-nickname hidden"></p>
+								<p class="chat-window__message-text"></p>
+								<p class="chat-window__message-time"></p>
+							</div>
+						</div>
+					</template>
+				</div>
+				<button id="anchor" class="anchor hidden">
+					<p class="counter hidden"></p>
+					<img src="./assets/svg/arrow-down.svg" class="anchor-img" alt="down">
+				</button>
+			</div>
+
+			<div class="chat-message">
+				<form class="chat-message__form">
+					<input type="text" name="message" placeholder="Написать сообщение..." autocomplete="off" class="chat-message__input" autofocus>
+					<button type="submit" class="chat-message__btn hidden">
+						<!-- <img src="./assets/svg/telegram.svg" alt="send"> -->
+						<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+							<path d="M29.919 6.163l-4.225 19.925c-0.319 1.406-1.15 1.756-2.331 1.094l-6.438-4.744-3.106 2.988c-0.344 0.344-0.631 0.631-1.294 0.631l0.463-6.556 11.931-10.781c0.519-0.462-0.113-0.719-0.806-0.256l-14.75 9.288-6.35-1.988c-1.381-0.431-1.406-1.381 0.288-2.044l24.837-9.569c1.15-0.431 2.156 0.256 1.781 2.013z"/>
+						 </svg>
+					</button>
+				</form>
+				<emoji-picker class="emoji-picker hidden" skinToneEmoji="1">
+				</emoji-picker>
+				<button class="chat-message__emoji-btn">
+					<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" id="happy" fill="#888888" height="30px" width="30px">
+						<path d="M14.36,14.23a3.76,3.76,0,0,1-4.72,0,1,1,0,0,0-1.28,1.54,5.68,5.68,0,0,0,7.28,0,1,1,0,1,0-1.28-1.54ZM9,11a1,1,0,1,0-1-1A1,1,0,0,0,9,11Zm6-2a1,1,0,1,0,1,1A1,1,0,0,0,15,9ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"></path>
+					</svg>
+				</button>
+			</div>
+
+		</div>
+	</div>
+	<svg height="0" width="0">
+		<defs>
+			<clipPath id="left-droplet">
+				<path d="M 10,0 A 10,10 0 0 1 0,10 H 16 V 0 Z">
+			</clipPath>
+			<clipPath id="right-droplet">
+				<path d="M 6,0 A 10,10 0 0 0 16,10 H 0 V 0 Z">
+			</clipPath>
+		</defs>
+	</svg>
+	<dialog class="authorization" id="authorization">
+		<h1 class="authorization-title">Авторизация</h1>
+		<p class="authorization-subtitle">Почта:</p>
+		<form method="dialog" class="authorization-form">
+			<input type="text" name="email" id="email" placeholder="адрес эл.почты" class="authorization-input">
+			<p class="authorization-error hidden">Неверный адрес эл.почты</p>
+			<p class="authorization-complete hidden">Код успешно отправлен</p>
+			<button class="authorization-btn authorization-get" id="getKey">Получить код</button>
+			<button class="authorization-btn authorization-enter" type="button" id="enterKey">Ввести код</button>
+		</form>
+	</dialog>
+	<dialog class="verification" id="verification">
+		<h1 class="verification-title">Подтверждение</h1>
+		<p class="verification-subtitle">Код:</p>
+		<form class="verification-form">
+			<input type="text" name="token" id="token" placeholder="введите ключ" class="verification-input">
+			<p class="verification-error hidden">Неверный ключ входа</p>
+			<button class="verification-btn verification-login">Войти</button>
+			<button class="verification-btn verification-back" type="button">Назад</button>
+		</form>
+	</dialog>
+	<dialog class="settings" id="settings">
+		<button class="settings-btn-close" onclick="window['settings'].close()">
+			<!-- <img src="./assets/svg/close.svg" alt="close"> -->
+			<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30" width="20px" height="20px" fill="#777777"> 
+				<path d="M 7 4 C 6.744125 4 6.4879687 4.0974687 6.2929688 4.2929688 L 4.2929688 6.2929688 C 3.9019687 6.6839688 3.9019687 7.3170313 4.2929688 7.7070312 L 11.585938 15 L 4.2929688 22.292969 C 3.9019687 22.683969 3.9019687 23.317031 4.2929688 23.707031 L 6.2929688 25.707031 C 6.6839688 26.098031 7.3170313 26.098031 7.7070312 25.707031 L 15 18.414062 L 22.292969 25.707031 C 22.682969 26.098031 23.317031 26.098031 23.707031 25.707031 L 25.707031 23.707031 C 26.098031 23.316031 26.098031 22.682969 25.707031 22.292969 L 18.414062 15 L 25.707031 7.7070312 C 26.098031 7.3170312 26.098031 6.6829688 25.707031 6.2929688 L 23.707031 4.2929688 C 23.316031 3.9019687 22.682969 3.9019687 22.292969 4.2929688 L 15 11.585938 L 7.7070312 4.2929688 C 7.5115312 4.0974687 7.255875 4 7 4 z"/>
+			</svg>
+		</button>
+		<h1 class="settings__title">Настройки</h1>
+		<p class="settings__subtitle">Имя в чате:</p>
+		<form method="dialog" class="settings-form">
+			<input type="text" name="nickname" id="nickname" placeholder="Новое имя..." class="settings-input">
+			<button class="settings-btn">
+				<svg class="settings-btn-svg">
+					<path d="m4.01 6.03 7.51 3.22-7.52-1 .01-2.22m7.5 8.72L4 17.97v-2.22l7.51-1M2.01 3 2 10l15 2-15 2 .01 7L23 12 2.01 3z"></path>
+				</svg>
+			</button>
+		</form>
+		<p class="settings-complete hidden">Имя успешно сохранено</p>
+		<p class="settings-error hidden">Имя должно быть меньше 3 символов</p>
+		<div class="settings-theme">
+			<h2 class="settings-theme-title">Выбор темы</h2>
+			<select name="theme" id="theme" class="settings-theme-select">
+				<option value="strada">strada</option>
+				<option value="glassmophism">glassmophism</option>
+				<option value="pipupopi">pipupopi</option>
+				<option value="light">light</option>
+			</select>
+		</div>
+	</dialog>
+</body>
+</html>
