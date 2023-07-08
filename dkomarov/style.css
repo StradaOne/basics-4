@@ -1,0 +1,148 @@
+body {
+  width: 100%;
+  height: 100vh;
+  background: rgb(0, 179, 255);
+  background: linear-gradient(90deg, rgba(0, 179, 255, 0.6573223039215687) 15%, rgba(140, 255, 0, 0.6629245448179272) 48%, rgba(168, 26, 226, 0.6629245448179272) 94%);
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+h5 {
+  padding-top: 40px;
+  text-align: center;
+  cursor: default;
+  color: #2e2d2d;
+}
+
+
+p {
+  width: 500px;
+  height: auto;
+  padding: 5px 10px;
+  margin: 0;
+  color: #404040;
+}
+
+.section {
+  width: 750px;
+  height: auto;
+  min-height: 600px;
+  background-color: #ffffff;
+  margin: 100px auto;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px 1px #fa58f253;
+}
+
+.container {
+  width: 600px;
+  margin: 50px auto;
+
+}
+
+
+
+.add-items-form_high,
+.add-items-form_low {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 574px;
+  height: auto;
+  min-height: 34px;
+  border-radius: 10px;
+  border: .5px solid #fa58f2;
+  box-shadow: 3px 3px 3px 1px #fa58f253;
+  padding: 0 10px;
+  margin-top: 10px;
+  
+}
+
+.add-items-form_high:hover {
+  border: .5px solid #0025dd;
+  box-shadow: 3px 3px 3px 1px #0088dd87;
+}
+
+.add-items-form_low:hover {
+  border: .5px solid #0025dd;
+  box-shadow: 3px 3px 3px 1px #0025dd94;
+}
+
+.form:has(.radio:checked) {
+  background: #d6fb96;
+}
+
+.inputHigh,
+.inputLow {
+  border: none;
+  width: 100%;
+  outline: none;
+
+}
+
+
+
+.button_addHigh,
+.button_addLow {
+  border: none;
+  background: none;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+.button_del {
+  width: 22px;
+  height: 15px;
+  padding-top: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+
+
+}
+
+.radio {
+  margin: 11px 0;
+  width: 13px;
+  height: 13px;
+  appearance: none;
+  border: 1px solid #282828;
+  border-radius: 50%;
+}
+
+
+.radio:checked {
+  background-color: #8f8f8f;
+  border: none;
+}
+
+
+
+form {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 574px;
+  height: auto;
+  min-height: 34px;
+  border-radius: 10px;
+  border: 1px solid #cacaca;
+  padding: 0 10px;
+  margin-top: 10px;
+  
+}
+
+
+
+
+.text-content {
+  width: 500px;
+  height: auto;
+  padding: 5px 10px;
+  margin: 0;
+  color: #676767;
+}
+
+.low_priority {
+  padding-bottom: 50px;
+}
