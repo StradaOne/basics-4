@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./main.js" type="module"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="chat">
+            <div class="menu">
+                <button class="button button_settings">Settings</button>
+                <button class="button button_exit">Login</button>
+            </div>
+            <div class="content">
+            
+                    <!-- <div class="message message_delivered message_my">
+                        <div class="ms">
+                            <span class="user">I</span><span>: </span>
+                            <span class="text">Good afternoon!</span>
+                        </div>
+                        <div class="time"><em>18:45</em></div>
+                    </div> -->
+                    <!-- <div class="message message_delivered">
+                        <div class="ms">
+                            <span class="user">Companion</span><span>: </span>
+                            <span class="text">Good afternoon!</span>
+                        </div>
+                        <div class="time"><em>18:45</em></div>
+                    </div> -->
+                    <!-- <div class="message message_delivered">
+                        <div class="ms">
+                            <span class="user">Companion</span><span>: </span>
+                            <span class="text">
+                                And this is the second one, 
+                                and it seems to be very
+                                long enough to fit one line!
+                            </span>
+                        </div>
+                        <div class="time"><em>18:45</em></div>
+                    </div> -->
+                    <!-- <div class="message message_sent message_my">
+                        <div class="ms">
+                            <span class="user">I</span><span>: </span>
+                            <span class="text">Good afternoon!</span>
+                        </div>
+                        <div class="time"><em>18:45</em></div>
+                    </div> -->
+                    
+            </div>
+            <template id="tp">
+                <div class="message message_delivered">
+                    <div class="ms">
+                        <span class="user">I</span><span>: </span>
+                        <span class="text">Good afternoon!</span>
+                    </div>
+                    <div class="time">18:45</div>
+                </div>
+            </template>
+            <form action="" class="form">
+                <input class="input input_ms" type="text" placeholder="message">
+                <button class="button button_ms">-></button>
+            </form>
+        </div>
+    </div>
+    <div class="dialog dialog_name">
+        <div class="dialog__window">
+            <div class="dialog__header">
+                <div class="dialog__head">Settings</div>
+                <div class="dialog__btn">х</div>
+            </div>
+            <form action="" class="addName">
+                <label for="">Name in chat:</label>
+                <div class="input__block">
+                    <input class="input input__dialog input__name" name="inputName" type="text">
+                    <button class="button button_ms">-></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="dialog dialog_autoriz">
+        <div class="dialog__window">
+            <div class="dialog__header">
+                <div class="dialog__head">Autorization</div>
+                <div class="dialog__btn">х</div>
+            </div>
+            <form action="" class="autoriz">
+                <label for="">Email:</label>
+                    <input class="input input__email" type="email" name="inputEmail">
+                    <div class="input__block">
+                        <button class="button button_autoriz">Get code</button>
+                    </div>
+            </form>
+            <button class="button button_text-code">Text code</button>
+        </div>
+    </div>
+    <div class="dialog dialog_confirm">
+        <div class="dialog__window">
+            <div class="dialog__header">
+                <div class="dialog__head">Confirm</div>
+                <div class="dialog__btn">х</div>
+            </div>
+            <form action="" class="confirm">
+                <label for="">Code</label>
+                <input class="input input__confirm" type="text" name="inputToken">
+                <button class="button button_confirm">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

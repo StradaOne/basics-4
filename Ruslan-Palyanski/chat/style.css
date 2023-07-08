@@ -1,0 +1,182 @@
+:root {
+    --wrapper-bg: #fff;
+    --sent-ms-bg: #F6F6F6;
+    --delivered-ms-bg: #E5E5E5;
+    --dialog-bg: #535353;
+  }
+
+  .button {
+    background-color: #fff;
+    height: 32px;
+    border: 1px solid #000;
+  }
+
+  .button:hover {
+    cursor: pointer;
+    background-color: #f5f5f5;
+  }
+
+  .button_settings {
+    width: 98px;
+  }
+
+  .button_exit {
+    width: 66px;
+  }
+
+  .button_ms {
+    width: 29px;
+  }
+
+  .input {
+    background-color: #fff;
+    height: 32px;
+    border: 1px solid #000;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .input_ms {
+    width: 267px;
+  }
+
+  * {
+    box-sizing: border-box;
+    font-size: 16px
+  }
+
+  body {
+    background-color: rgb(240, 240, 240);
+  }
+
+  .wrapper {
+    background-color: var(--wrapper-bg);
+    width: 320px;
+    height: 533px;
+    border: 1px solid #fff;
+    margin: 0 auto;
+  }
+
+  .menu {
+    width: 304px;
+    margin: 0 auto;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .content {
+    width: 304px;
+    height: 437px;
+    border: 1px solid #000;
+    margin: 0 auto;
+    margin-top: 8px;
+    overflow-y: auto;
+  }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border-left: 1px solid rgb(190, 189, 189);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(212, 211, 211);
+}
+
+.form {
+    width: 304px;
+    margin: 0 auto;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .message {
+    display: inline-block;
+    padding: 8px;
+    margin: 8px 8px 0 8px;
+  }
+
+  .message_my {
+    float: right;
+    clear: both;
+  }
+
+  .message_sent {
+    background-color: var(--sent-ms-bg);
+  }
+
+  .message_delivered {
+    background-color: var(--delivered-ms-bg);
+  }
+
+  .dialog {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #535353;
+    /* display: flex; */
+    /* justify-content: center; */
+    display: none;
+  }
+
+  .dialog__show {
+    display: block;
+  }
+
+  .dialog__btn {
+    font-size: 20px;
+  }
+
+  .dialog__btn:hover {
+    cursor: pointer;
+  }
+
+  .dialog__window {
+    width: 273px;
+    height: 319px;
+    background-color: #fff;
+    padding: 14px;
+    margin: 0 auto;
+    margin-top: 5px;
+  }
+
+  .dialog__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .addName {
+    margin-top: 30px;
+  }
+
+  .input__dialog {
+    margin-top: 8px;
+    margin-right: 4px;
+  }
+
+  .input__name {
+    width: 207px;
+  }
+
+  .time {
+    font-style: italic;
+    text-align: right;
+  }
+
+  .text {
+    word-break: break-all;
+  }
+
+  .button_text-code {
+    color: #000;
+    position: relative;
+    top: -32px;
+    left: 85px;
+  }
