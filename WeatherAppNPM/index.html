@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/null.css">
+	<link rel="stylesheet" href="styles/style.css">
+	<title>WeatherApp</title>
+</head>
+<body>
+	<div class="container">
+		<div class="window">
+			<form class="window__searchBar">
+				<input type="text" placeholder="Aktobe" class="Main_input">
+				<button type="submit"><img src="images/search.svg" alt=""></button>
+			</form>
+			<div class="window__show">
+				<div class="show__categories">
+					<div class="show">
+						<div class="categories__now" id="now" name="now">
+							<div class="degree"><span class="degree-txt">14</span><img src="images/mask.svg" alt=""></div>
+							<div class="main_image">
+								<img src="images/cloud.svg" alt="" class="main_image-img">
+							</div>
+							<div class="bottom">
+								<div class="mounth titleForLike">Aktobe</div>
+								<div>
+									<img src="images/Shape.svg" class="share" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="categories__details" id="details" name="details">
+							<div class="mounth">Aktobe</div>
+							<ul class="list">
+								<li><span class="Temperature">Температура: </span><img src="images/mask2.svg" alt=""></li>
+								<li><span class="Likes">Ощущается: </span><img src="images/mask2.svg" alt=""></li>
+								<li class="Weather">Погода: </li>
+								<li class="Sunrise">Восход: </li>
+								<li class="Sunset">Закат: </li>
+							</ul>
+						</div>
+						<div class="categories__forecast" id="forecast" name="forecast">
+							<div class="mounth">Aktobe</div>
+							<div class="tabs">
+								<div class="tab">
+									<div class="top">
+										<div class="day">17 May</div>
+										<div class="time">12:00</div>
+									</div>
+									<div class="bottom">
+										<ul class="temp">
+											<li class="Temperature-tab">Temperature: 14<img src="images/mask2.svg" alt=""></li>
+											<li class="Likes-tab">Feels like: 10<img src="images/mask2.svg" alt=""></li>
+										</ul>
+										<div class="image">
+											<div class="title">Rain</div>
+											<div class=""><img src="images/rain.svg" alt=""></div>
+										</div>
+									</div>
+								</div>
+								<div class="tab">
+									<div class="top">
+										<div class="day">17 May</div>
+										<div class="time">12:00</div>
+									</div>
+									<div class="bottom">
+										<ul class="temp">
+											<li class="Temperature-tab">Temperature: 14<img src="images/mask2.svg" alt=""></li>
+											<li class="Likes-tab">Feels like: 10<img src="images/mask2.svg" alt=""></li>
+										</ul>
+										<div class="image">
+											<div class="title">Rain</div>
+											<div class=""><img src="images/rain.svg" alt=""></div>
+										</div>
+									</div>
+								</div>
+								<div class="tab">
+									<div class="top">
+										<div class="day">17 May</div>
+										<div class="time">12:00</div>
+									</div>
+									<div class="bottom">
+										<ul class="temp">
+											<li class="Temperature-tab">Temperature: 14<img src="images/mask2.svg" alt=""></li>
+											<li class="Likes-tab">Feels like: 10<img src="images/mask2.svg" alt=""></li>
+										</ul>
+										<div class="image">
+											<div class="title">Rain</div>
+											<div class=""><img src="images/rain.svg" alt=""></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="categories__bar">
+						<a href="#now" class="first select categori">Now</a>
+						<a href="#details" class="categori">Details</a>
+						<a href="#forecast" class="categori">Forecast</a>
+					</div>
+				</div>
+				<div class="show__locations">
+					<div class="title">
+						Added Locations:
+					</div>
+					<ul class="locations">
+						<li class="location"><span class="location-txt">Amur</span><img class="cross" src="images/cross.png"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="scripts/script.js"></script>
+</body>
+</html>
