@@ -1,17 +1,22 @@
-import { getCurrentTime } from './modules/dateUtils';
+/* global WebSocket */
+import { format } from 'date-fns';
+import { URL } from './modules/constants';
 import { createMessage } from './modules/messageUtils';
 import { getElement, appendElement, setElementValue, setScrollTop } from './modules/domUtils';
 import { openPopup, closePopup } from './modules/popup';
 import { sendRequestToAPI } from './modules/emailRequest';
-import { setName, getUserData } from './modules/updateUserName';
+import { setName } from './modules/updateUserName';
 
 const Cookies = require('js-cookie');
+
+const myEmail = 'vow.carlin@yandex.ru';
+Cookies.set('myemail', myEmail);
 
 const messages = getElement('.messages');
 const inputForm = getElement('.input-form');
 const inputMessage = getElement('.input-field');
 const btnLogin = getElement('#btn-open-window-login');
-const url = 'https://edu.strada.one/api/user';
+const socket = new WebSocket(`wss://${URL.socket}?${Cookies.get('token')}`);
 
 document.addEventListener('DOMContentLoaded', () => {
 	if (Cookies.get('token')) {
@@ -19,9 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 });
 
-function getBtnCodeToEmail(elements) {
-	console.log(elements);
-	const element = elements;
+function getBtnCodeToEmail(e) {
+	const element = e;
 	const blockTime = 30000;
 	let timeLeft = blockTime / 1000;
 
@@ -41,7 +45,8 @@ function getBtnCodeToEmail(elements) {
 		}
 	}, 1000);
 
-	sendRequestToAPI(url, email.value);
+	sendRequestToAPI(URL.user, email.value);
+	Cookies.set('myemail', email.value);
 
 	email.value = '';
 }
@@ -69,7 +74,6 @@ document.addEventListener('click', e => {
 	if (element.id === 'save-btn') {
 		const inputSave = getElement('#nickname').value;
 
-		console.log(inputSave);
 		if (!inputSave) return;
 		setName(inputSave, Cookies.get('token'));
 
@@ -87,13 +91,17 @@ document.addEventListener('click', e => {
 	}
 });
 
-async function render() {
-	const date = getCurrentTime();
-	const myName = await getUserData(Cookies.get('token'));
+function render(data) {
+	messages.innerHtml = '';
 
-	const message = createMessage(myName.name, inputMessage.value, date, 'my');
+	const messageElement = createMessage(
+		data.user.name,
+		data.text,
+		format(new Date(data.createdAt), 'HH:mm'),
+		data.user.email === Cookies.get('myemail') ? 'my' : 'you',
+	);
 
-	appendElement(messages, message);
+	appendElement(messages, messageElement);
 	setElementValue(inputMessage, '');
 	setScrollTop(messages, messages.scrollHeight);
 }
@@ -102,14 +110,14 @@ inputForm.addEventListener('submit', e => {
 	e.preventDefault();
 	if (!inputMessage.value) return;
 
-	render();
+	socket.send(JSON.stringify({ text: `${inputMessage.value}` }));
 });
 
 inputForm.addEventListener('keydown', e => {
 	if (e.key === 'Enter') {
 		e.preventDefault();
 		if (!inputMessage.value) return;
-		render();
+		socket.send(JSON.stringify({ text: `${inputMessage.value}` }));
 	}
 });
 
@@ -123,3 +131,9 @@ btnLogin.addEventListener('click', e => {
 
 	openPopup({ title: 'Авторизация', type: 'authorization' });
 });
+
+socket.onmessage = function (event) {
+	const { data } = event;
+
+	render(JSON.parse(data));
+};

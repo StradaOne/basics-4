@@ -23,5 +23,3 @@ export async function sendRequestToAPI(url, email) {
 		console.log('Ошибка при выполнении запроса:', error);
 	}
 }
-
-// sendRequestToAPI();
