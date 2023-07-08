@@ -127,8 +127,11 @@ function showMessage(item) {
   // srcollToBottom();
 }
 
-function convertTime(date) {
-  return date.slice(11, 16);
+function convertTime(str) {
+  const currentDate = new Date(str);
+  const hours = currentDate.getHours();
+  const minutes = currentDate.getMinutes() < 10 ? '0' + currentDate.getMinutes() : currentDate.getMinutes();
+  return `${hours}:${minutes}`;
 }
 
 function createMessage(author, text, time, isAuthor) {
@@ -147,6 +150,25 @@ function createMessage(author, text, time, isAuthor) {
   showMessage(item);
 }
 
+function showMessages() {
+  console.log(typeof messagesList);
+  const count = 20;
+  // messagesList.messages.forEach((item) => {
+  //   const isAuthor = validateIsAuthor(item.user.email);
+  //   createMessage(item.user.name, item.text, item.createdAt, isAuthor);
+  // });
+  for (let index = 0; index < count; index++) {
+    const item = messagesList[index];
+    const isAuthor = validateIsAuthor(item.user.email);
+    createMessage(item.user.name, item.text, item.createdAt, isAuthor);
+  }
+  srcollToBottom();
+  // messagesList.forEach((item) => {
+  //   // const isAuthor = validateIsAuthor(item.user.email);
+  //   // createMessage(item.user.name, item.text, item.createdAt, isAuthor);
+  // });
+}
+
 async function getMessages() {
   const url = 'https://edu.strada.one/api/messages/';
   try {
@@ -158,13 +180,14 @@ async function getMessages() {
       },
     });
     const messages = await response.json();
-    messagesList = messages;
-    // messagesList = await response.json();
-    messages.messages.reverse().forEach((item) => {
-      const isAuthor = validateIsAuthor(item.user.email);
-      createMessage(item.user.name, item.text, item.createdAt, isAuthor);
-    });
-    srcollToBottom();
+    messagesList = messages.messages;
+    console.log(messagesList);
+    showMessages();
+    // messages.messages.reverse().forEach((item) => {
+    //   const isAuthor = validateIsAuthor(item.user.email);
+    //   createMessage(item.user.name, item.text, item.createdAt, isAuthor);
+    // });
+    // srcollToBottom();
   } catch (error) {
     showError(error);
   }
@@ -212,12 +235,14 @@ UI_ELEMENTS.BTN_CLOSE_DIALOG.forEach((item) => {
 
 MESSAGE.FORM.addEventListener('submit', sendMessageHandler);
 
-getMessages();
+// setTimeout(() => {
+//   console.log(messagesList);
+// }, 2000);
 
-setTimeout(() => {
-  console.log(messagesList);
-}, 2000);
+// MESSAGE.LIST.addEventListener('scroll', (event) => {
+//   // console.log(MESSAGE.LIST_WRAPPER.scrollHeight);
+// });
 
-MESSAGE.LIST.addEventListener('scroll', (event) => {
-  console.log(MESSAGE.LIST_WRAPPER.scrollHeight);
+window.addEventListener('DOMContentLoaded', () => {
+  getMessages();
 });

@@ -16,7 +16,6 @@ export const MESSAGE = {
   INPUT: document.querySelector('.chat__bottom-input'),
   TEMPLATE: document.querySelector('.message-template'),
   LIST: document.querySelector('.chat__messages'),
-  LIST_WRAPPER: document.querySelector('.chat__messages-wrapper'),
 };
 
 export const AUTH = {
@@ -54,5 +53,4 @@ export function showSuccessAuth() {
 
 export function srcollToBottom() {
   MESSAGE.LIST.scrollBy(0, MESSAGE.LIST.scrollHeight);
-  // WINDOW.scrollIntoView(false);
 }
