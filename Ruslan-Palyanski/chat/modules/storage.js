@@ -6,8 +6,14 @@ const storage = {
   },
 
   get(key){
-    const value = localStorage[key];
-    return JSON.parse(value); 
+    try {
+      const value = localStorage[key];
+      return JSON.parse(value); 
+    } catch(err){
+      console.log(err)
+      return [];
+    }
+
   }
 
 }
