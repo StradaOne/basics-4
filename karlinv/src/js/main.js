@@ -1,7 +1,7 @@
 /* global WebSocket */
 import { format } from 'date-fns';
 import { URL } from './modules/constants';
-import { createMessage } from './modules/messageUtils';
+import { createMessage, getMessages } from './modules/messageUtils';
 import { getElement, appendElement, setElementValue, setScrollTop } from './modules/domUtils';
 import { openPopup, closePopup } from './modules/popup';
 import { sendRequestToAPI } from './modules/emailRequest';
@@ -93,7 +93,7 @@ document.addEventListener('click', e => {
 
 function render(data) {
 	messages.innerHtml = '';
-
+	// getMessages(URL.messages, Cookies.get('token'), Cookies.get('myemail'));
 	const messageElement = createMessage(
 		data.user.name,
 		data.text,
@@ -131,6 +131,17 @@ btnLogin.addEventListener('click', e => {
 
 	openPopup({ title: 'Авторизация', type: 'authorization' });
 });
+
+socket.onopen = async function () {
+	const messageElements = await getMessages(
+		URL.messages,
+		Cookies.get('token'),
+		Cookies.get('myemail'),
+	);
+
+	messages.append(...messageElements);
+	setScrollTop(messages, messages.scrollHeight);
+};
 
 socket.onmessage = function (event) {
 	const { data } = event;

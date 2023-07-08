@@ -3,8 +3,6 @@ import { createElement, getElement } from './domUtils';
 const popupOverlay = getElement('.popup-overlay');
 
 export function closePopup(e) {
-	console.log(e);
-
 	if (
 		!e.target.classList.contains('popup-overlay') &&
 		!e.target.classList.contains('close') &&

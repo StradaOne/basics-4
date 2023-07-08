@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 export function createMessage(user, value, date, style) {
 	const template = document.querySelector('#copy-msg');
 	const copyMessage = template.content.cloneNode(true);
@@ -25,13 +27,13 @@ export async function getMessages(url, code, email) {
 
 		const { messages } = data;
 
-		console.log(messages);
+		messages.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
 
 		const messageElements = messages.map(message => {
 			return createMessage(
 				message.user.name,
 				message.text,
-				message.createdAt,
+				format(new Date(message.createdAt), 'HH:mm'),
 				message.email === email ? 'my' : 'you',
 			);
 		});

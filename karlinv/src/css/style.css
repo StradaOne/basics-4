@@ -89,11 +89,12 @@ li {
 }
 
 .message.my {
-	align-self: end;
+	align-self: flex-end;
 	background: #f6f6f6;
 }
 
 .message.you {
+	align-self: flex-start;
 	background: #e5e5e5;
 }
 
