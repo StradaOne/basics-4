@@ -89,7 +89,7 @@ async function getHistoryMessage(cookieToken) {
   scroll();
 }
 
-async function loadHistoryMessage() {
+async function getNewHistoryMessage() {
   try {
     const url = "https://edu.strada.one/api/messages/";
     const response = await fetch(url, {
@@ -111,7 +111,7 @@ export const array = JSON.parse(window.localStorage.getItem('array'))
 
 
 //ФУНКЦИЯ ЗАГРУЗКИ ИСТОРИИ 
-function test123(array) {
+function loadHistory(array) {
   const arr = array.splice(0, 20);
     console.log(arr);
     console.log(array);
@@ -131,4 +131,4 @@ function test123(array) {
 }
 
 
-export { postData, changeName, getData, getHistoryMessage, loadHistoryMessage, test123 };
+export { postData, changeName, getData, getHistoryMessage, getNewHistoryMessage, loadHistory };

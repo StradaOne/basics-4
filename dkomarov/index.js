@@ -1,14 +1,13 @@
 import { convTime } from "./modules/convertationTime";
 import { createNewMessage } from "./modules/createUiElement";
 import { getCookie, setCookie } from "./modules/cookieAction";
-import { test123, array } from "./modules/apiAction";
+import { loadHistory, array } from "./modules/apiAction";
 
 import {
   postData,
   changeName,
   getData,
-  getHistoryMessage,
-  loadHistoryMessage
+  getNewHistoryMessage
 } from "./modules/apiAction";
 
 import {
@@ -19,7 +18,7 @@ import {
   DISPLAY_NODE,
   SCROLL_BUTTON
 } from "./modules/DOMelements";
-// import { el } from "date-fns/locale";
+
 
 const ADD_NEW_MESSAGE_FORM = document.querySelector(".form");
 const AUTHORIZATION_FORM = document.querySelector(".authorization-form__input");
@@ -118,8 +117,8 @@ ADD_NEW_MESSAGE_FORM.addEventListener("submit", handlerMessage);
 
 DISPLAY_NODE.addEventListener('scroll', function() {
   if (DISPLAY_NODE.scrollTop === 0) {
-    loadHistoryMessage(cookieToken)
-    test123(array)
+    getNewHistoryMessage(cookieToken)
+    loadHistory(array)
   }
 })
 
@@ -132,7 +131,7 @@ SCROLL_BUTTON.addEventListener('click', () => {
 window.addEventListener("DOMContentLoaded", () => {
   // getData(cookieToken);
   // getHistoryMessage(cookieToken);
-  loadHistoryMessage(cookieToken)
-  test123(array)
+  getNewHistoryMessage(cookieToken)
+  loadHistory(array)
   scroll()
 });
