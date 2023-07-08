@@ -9,6 +9,9 @@ import { setName } from './modules/updateUserName';
 import { storage } from './modules/localStorageUtils';
 
 const messageHistory = storage.get('messages') || [];
+const sortedMessages = messageHistory.messages.sort(
+	(a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+);
 
 const Cookies = require('js-cookie');
 
@@ -135,40 +138,13 @@ btnLogin.addEventListener('click', e => {
 	openPopup({ title: 'Авторизация', type: 'authorization' });
 });
 
-console.log(messageHistory.messages);
-
-// function handleScroll() {
-// 	const MAX_LOAD_MESSAGES = 20;
-// 	if (messages.scrollTop === 0) {
-// 		console.log('я тут', messageHistory.messages.length);
-
-// 		if (messageHistory.messages.length > 0) {
-// 			const newMessages = messageHistory.messages.splice(0, MAX_LOAD_MESSAGES);
-// 			newMessages.forEach(message => {
-// 				const element = createMessage(
-// 					message.user.name,
-// 					message.text,
-// 					format(new Date(message.createdAt), 'HH:mm'),
-// 					message.user.email === Cookies.get('myemail') ? 'my' : 'you',
-// 				);
-// 				messages.append(element);
-// 			});
-// 		} else {
-// 			console.log('Вся история загружена');
-// 		}
-// 	}
-// }
-
 function handleScroll() {
+	// messages.innerHTML = '';
 	const MAX_LOAD_MESSAGES = 20;
 	if (messages.scrollTop === 0) {
-		console.log('я тут', messageHistory.messages.length);
-
 		if (messageHistory.messages.length > 0) {
-			const sortedMessages = messageHistory.messages.sort(
-				(a, b) => new Date(b.createdAt) - new Date(a.createdAt),
-			);
-			const newMessages = sortedMessages.slice(0, MAX_LOAD_MESSAGES).reverse();
+			const newMessages = sortedMessages.slice(0, MAX_LOAD_MESSAGES);
+
 			newMessages.forEach(message => {
 				const element = createMessage(
 					message.user.name,
@@ -176,7 +152,7 @@ function handleScroll() {
 					format(new Date(message.createdAt), 'HH:mm'),
 					message.user.email === Cookies.get('myemail') ? 'my' : 'you',
 				);
-				messages.prepend(element);
+				messages.append(element);
 			});
 		} else {
 			console.log('Вся история загружена');
@@ -189,10 +165,13 @@ messages.addEventListener('scroll', handleScroll);
 socket.onopen = async function () {
 	await getMessages(URL.messages, Cookies.get('token'), Cookies.get('myemail'));
 	handleScroll();
+	setScrollTop(messages, messages.scrollHeight);
 };
 
 socket.onmessage = function (event) {
 	const { data } = event;
 
 	render(JSON.parse(data));
+	handleScroll();
+	setScrollTop(messages, messages.scrollHeight);
 };

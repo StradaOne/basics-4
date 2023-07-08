@@ -26,11 +26,11 @@ export async function getMessages(url, code, email) {
 
 		const data = await response.json();
 
+		storage.set('messages', data);
+
 		const { messages } = data;
 
 		messages.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-
-		storage.set('messages', messages);
 
 		const messageElements = messages.map(message => {
 			return createMessage(
