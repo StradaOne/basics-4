@@ -11,6 +11,8 @@ import {
 import { ValidationError, showError } from './js/errors';
 import { getCookie, setCookie } from './js/cookies';
 
+let messagesList;
+
 function validateIsAuthor(email) {
   if (email === 'sysoev.dev@gmail.com') {
     return true;
@@ -122,7 +124,7 @@ CONFIRM.FORM.addEventListener('submit', confirmFormHandler);
 
 function showMessage(item) {
   MESSAGE.LIST.append(item);
-  srcollToBottom();
+  // srcollToBottom();
 }
 
 function convertTime(date) {
@@ -156,10 +158,13 @@ async function getMessages() {
       },
     });
     const messages = await response.json();
+    messagesList = messages;
+    // messagesList = await response.json();
     messages.messages.reverse().forEach((item) => {
       const isAuthor = validateIsAuthor(item.user.email);
       createMessage(item.user.name, item.text, item.createdAt, isAuthor);
     });
+    srcollToBottom();
   } catch (error) {
     showError(error);
   }
@@ -180,7 +185,7 @@ function sendMessageHandler(event) {
     return;
   }
   socket.send(JSON.stringify({ text: `${messageText}` }));
-  srcollToBottom();
+  // srcollToBottom();
   event.target.reset();
 }
 
@@ -208,3 +213,11 @@ UI_ELEMENTS.BTN_CLOSE_DIALOG.forEach((item) => {
 MESSAGE.FORM.addEventListener('submit', sendMessageHandler);
 
 getMessages();
+
+setTimeout(() => {
+  console.log(messagesList);
+}, 2000);
+
+MESSAGE.LIST.addEventListener('scroll', (event) => {
+  console.log(MESSAGE.LIST_WRAPPER.scrollHeight);
+});

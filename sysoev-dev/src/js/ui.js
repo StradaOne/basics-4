@@ -54,4 +54,5 @@ export function showSuccessAuth() {
 
 export function srcollToBottom() {
   MESSAGE.LIST.scrollBy(0, MESSAGE.LIST.scrollHeight);
+  // WINDOW.scrollIntoView(false);
 }
