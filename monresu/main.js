@@ -1,4 +1,4 @@
-import { openModal, closeModal } from "./modules/functions.mjs";
+import { openModal, closeModal, converterTime } from "./modules/functions.mjs";
 import { getData, sendCode, changeName, getMessages, fetchData, token, checkCode } from "./modules/api.mjs";
 
 const settingsBtn = document.querySelector('.settings-button');
@@ -87,13 +87,13 @@ function createMessageElement(author, message, time, email, me = false) {
   const textMessage = messageBlock.querySelector('.text-message');
   const timeMessage = messageBlock.querySelector('.time-message');
   messageBlock.classList.add('message');
-  if (me) console.log(user.name)
-  authorMessage.textContent = !me ? author : user.name;
-  textMessage.textContent = ': ' + message;
+  authorMessage.textContent = (!me ? author : user.name) + ': ';
+  textMessage.textContent = message;
   timeMessage.textContent = time;
   messageBlock.classList.add(classMessage);
   return messageBlock;
 }
+
 
 
 async function renderMessages() {
@@ -103,10 +103,27 @@ async function renderMessages() {
   const messageElements = messages.map(message => {
     let me = false;
     if (message.user.email === user.email) me = true;
-    return createMessageElement(message.user.name, message.text, new Date(message.updatedAt).toLocaleTimeString('en-US'), message.user.email, me);
+    return createMessageElement(message.user.name, message.text, converterTime(message.createdAt), message.user.email, me);
   });
 
-  messageContainer.append(...messageElements);
+  messageContainer.append(...messageElements.slice(0, 30));
+  let i = 30;
+  messageContainer.addEventListener('scroll', function handler() {
+    var scrollThreshold = 10; // Погрешность
+    var isScrolledToBottom = messageContainer.scrollTop >= messageContainer.scrollHeight - messageContainer.clientHeight - scrollThreshold;
+
+    if (isScrolledToBottom) {
+      messageContainer.append(...messageElements.slice(i, i + 20));
+      i += 20;
+      messageContainer.scrollTop = messageContainer.scrollHeight;
+      console.log(i)
+    }
+
+    if (i >= messages.length) {
+      console.log('Выводить больше нечего');
+      messageContainer.removeEventListener('scroll', handler);
+    };
+  });
 }
 
 renderMessages();
