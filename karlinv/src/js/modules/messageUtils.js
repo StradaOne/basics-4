@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import { storage } from './localStorageUtils';
 
 export function createMessage(user, value, date, style) {
 	const template = document.querySelector('#copy-msg');
@@ -28,6 +29,8 @@ export async function getMessages(url, code, email) {
 		const { messages } = data;
 
 		messages.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+
+		storage.set('messages', messages);
 
 		const messageElements = messages.map(message => {
 			return createMessage(

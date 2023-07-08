@@ -6,6 +6,9 @@ import { getElement, appendElement, setElementValue, setScrollTop } from './modu
 import { openPopup, closePopup } from './modules/popup';
 import { sendRequestToAPI } from './modules/emailRequest';
 import { setName } from './modules/updateUserName';
+import { storage } from './modules/localStorageUtils';
+
+const messageHistory = storage.get('messages') || [];
 
 const Cookies = require('js-cookie');
 
@@ -92,7 +95,7 @@ document.addEventListener('click', e => {
 });
 
 function render(data) {
-	messages.innerHtml = '';
+	messages.innerHTML = '';
 	// getMessages(URL.messages, Cookies.get('token'), Cookies.get('myemail'));
 	const messageElement = createMessage(
 		data.user.name,
@@ -132,15 +135,60 @@ btnLogin.addEventListener('click', e => {
 	openPopup({ title: 'Авторизация', type: 'authorization' });
 });
 
-socket.onopen = async function () {
-	const messageElements = await getMessages(
-		URL.messages,
-		Cookies.get('token'),
-		Cookies.get('myemail'),
-	);
+console.log(messageHistory.messages);
 
-	messages.append(...messageElements);
-	setScrollTop(messages, messages.scrollHeight);
+// function handleScroll() {
+// 	const MAX_LOAD_MESSAGES = 20;
+// 	if (messages.scrollTop === 0) {
+// 		console.log('я тут', messageHistory.messages.length);
+
+// 		if (messageHistory.messages.length > 0) {
+// 			const newMessages = messageHistory.messages.splice(0, MAX_LOAD_MESSAGES);
+// 			newMessages.forEach(message => {
+// 				const element = createMessage(
+// 					message.user.name,
+// 					message.text,
+// 					format(new Date(message.createdAt), 'HH:mm'),
+// 					message.user.email === Cookies.get('myemail') ? 'my' : 'you',
+// 				);
+// 				messages.append(element);
+// 			});
+// 		} else {
+// 			console.log('Вся история загружена');
+// 		}
+// 	}
+// }
+
+function handleScroll() {
+	const MAX_LOAD_MESSAGES = 20;
+	if (messages.scrollTop === 0) {
+		console.log('я тут', messageHistory.messages.length);
+
+		if (messageHistory.messages.length > 0) {
+			const sortedMessages = messageHistory.messages.sort(
+				(a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+			);
+			const newMessages = sortedMessages.slice(0, MAX_LOAD_MESSAGES).reverse();
+			newMessages.forEach(message => {
+				const element = createMessage(
+					message.user.name,
+					message.text,
+					format(new Date(message.createdAt), 'HH:mm'),
+					message.user.email === Cookies.get('myemail') ? 'my' : 'you',
+				);
+				messages.prepend(element);
+			});
+		} else {
+			console.log('Вся история загружена');
+		}
+	}
+}
+
+messages.addEventListener('scroll', handleScroll);
+
+socket.onopen = async function () {
+	await getMessages(URL.messages, Cookies.get('token'), Cookies.get('myemail'));
+	handleScroll();
 };
 
 socket.onmessage = function (event) {
