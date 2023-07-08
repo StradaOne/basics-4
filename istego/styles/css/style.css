@@ -1,0 +1,370 @@
+@charset "UTF-8";
+/*Обнуление*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------*/
+body {
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  padding: 10px;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  min-height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.weather {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  max-height: max-content;
+  margin: 0 auto;
+  border: 1px solid #000000;
+}
+.weather__find, .weather__find-input {
+  width: 100%;
+}
+.weather__find-input::placeholder {
+  color: rgba(255, 255, 255, 0.5333333333);
+}
+.weather__find {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #000000;
+  height: 100%;
+  max-height: 40px;
+  padding: 5px;
+}
+.weather__find-input {
+  background-color: transparent;
+  border-radius: 10px;
+  height: 100%;
+  padding: 5px 15px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+.weather__find-btn {
+  width: 35px;
+  height: 35px;
+  background: url("../../source/isons/weatherFind.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35px 35px;
+}
+.weather__content {
+  display: flex;
+  height: 100%;
+}
+.weather__content-left {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #000000;
+}
+.weather__content-right {
+  width: 100%;
+}
+
+.preload-wrapper {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(44, 42, 42, 0.1960784314);
+  justify-content: center;
+  align-items: center;
+}
+
+.preload {
+  left: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.preload img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-left__content {
+  height: 100%;
+  max-height: 348px;
+  overflow: hidden;
+}
+.content-left__nav {
+  border-top: 1px solid #000000;
+}
+.content-left__nav ul {
+  display: flex;
+}
+.content-left__nav ul li {
+  width: 100%;
+  max-width: 100px;
+}
+.content-left__nav ul li:not(:last-child) {
+  border-right: 1px solid #000000;
+}
+.content-left__nav ul li a {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 12px 5px 11px 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+  transition-duration: 0.2s;
+}
+.content-left__nav ul li a:hover {
+  transition-duration: 0.2s;
+  background-color: rgba(0, 0, 0, 0.1960784314);
+}
+
+.city-name {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.now,
+.details,
+.forecast {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.now__degree {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 82px;
+  color: #000000;
+  margin-bottom: 40px;
+}
+.now__icon {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.now__icon-container {
+  width: 100%;
+  max-width: 100px;
+  height: 100%;
+  max-height: 100px;
+}
+.now__icon-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.now__city {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.now__city-favorites button {
+  width: 25px;
+  height: 25px;
+  background: url("../../source/isons/Shape.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25px 25px;
+}
+
+.details__city {
+  margin-bottom: 40px;
+}
+.details__info-list-item {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
+.details__info-list-item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.btn-nav.active-btn {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.content-right {
+  overflow: hidden;
+}
+.content-right__title {
+  border-bottom: 1px solid #000000;
+  padding: 30px 0 7px 18px;
+}
+.content-right__title p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: left;
+  color: #000000;
+}
+.content-right__list {
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 327px;
+}
+.content-right__list-item {
+  display: flex;
+  justify-content: space-between;
+  color: #000000;
+  cursor: pointer;
+}
+.content-right__list-item:hover {
+  color: #ffffff;
+}
+.content-right__list-item:not(:last-child) {
+  margin-bottom: 15px;
+}
+.content-right__list-item a {
+  width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: inherit;
+}
+.content-right__list-item:hover button {
+  display: inline-block;
+}
+.content-right__list-item button {
+  display: none;
+  width: 30px;
+  height: 28px;
+  background: url("../../source/isons/delete.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px 28px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5cd4ee;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
+
+/*# sourceMappingURL=style.css.map */

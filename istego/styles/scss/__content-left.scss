@@ -1,0 +1,185 @@
+.content-left {
+    &__content {
+        height: 100%;
+        max-height: 348px;
+        overflow: hidden;
+    }
+
+    &__nav {
+        border-top: 1px solid #000000;
+    }
+
+    &__nav ul {
+        display: flex;
+    }
+
+    &__nav ul li {
+        width: 100%;
+        max-width: 100px;
+    }
+
+    &__nav ul li:not(:last-child) {
+        border-right: 1px solid #000000;
+    }
+
+    &__nav ul li a {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        padding: 12px 5px 11px 5px;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        color: #000000;
+        transition-duration: 0.2s;
+    }
+
+    &__nav ul li a:hover {
+        transition-duration: 0.2s;
+        background-color: #00000032;
+    }
+}
+
+.city-name {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+}
+
+.now,
+.details,
+.forecast {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-right: 15px;
+}
+
+.now {
+    &__degree {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 70px;
+        line-height: 82px;
+        color: #000000;
+
+        margin-bottom: 40px;
+    }
+
+    &__icon {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__icon-container {
+        width: 100%;
+        max-width: 100px;
+        height: 100%;
+        max-height: 100px;
+    }
+
+    &__icon-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &__city {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__city-favorites button {
+        width: 25px;
+        height: 25px;
+        background: url("../../source/isons/Shape.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 25px 25px;
+    }
+}
+
+.details {
+    &__city {
+        margin-bottom: 40px;
+    }
+
+    &__info-list-item {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        color: #000000;
+    }
+
+    &__info-list-item:not(:last-child) {
+        margin-bottom: 15px;
+    }
+}
+
+.btn-nav.active-btn {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.forecast {
+    &__city {
+        height: 100%;
+    }
+    .city-name {
+        margin-bottom: 7px;
+    }
+
+    &__city-list {
+        height: 100%;
+        max-height: 300px;
+        overflow-y: auto;
+        padding-right: 5px;
+    }
+
+    .forecast-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        max-height: 120px;
+        width: 100%;
+        max-width: 265px;
+        border: 1px solid #000000;
+        padding: 6px 12px 9px 8px;
+
+        .forecast-item__date {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .forecast-item__date-day,
+        .forecast-item__date-time {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21px;
+            color: #000000;
+        }
+
+        .forecast-item__info-temperature {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-temperature {
+            margin-bottom: 3px;
+        }
+    }
+
+    .forecast-item:not(:last-child) {
+        margin-bottom: 9px;
+    }
+}

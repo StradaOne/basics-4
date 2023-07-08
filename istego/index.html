@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="apple-touch-icon" sizes="76x76" href="./source/isons/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./source/isons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./source/isons/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./source/isons/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./source/isons/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- <link rel="stylesheet" href="./styles/css/style.css"> -->
+    <link rel="stylesheet" href="./styles/scss/main.scss">
+</head>
+
+<body>
+    <div class="wrapper">
+        <main class="main">
+            <div class="weather">
+                <form class="form-find weather__find">
+                    <input type="text" name="find-city" autocomplete="off" class="weather__find-input"
+                        placeholder="Orenburg">
+                    <button type="submit" class="weather__find-btn"></button>
+                </form>
+                <div class="weather__content">
+                    <div class="weather__content-left content-left">
+                        <div class="content-left__content">
+                            <div class="now" id="now">
+                                <div class="now__degree">
+                                    <span class="now__degree-text">
+                                        ...
+                                    </span>
+                                    <span>&#176;</span>
+                                </div>
+                                <div class="now__icon">
+                                    <div class="now__icon-container">
+                                        <img src="./source/isons/iconCloud.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="now__city">
+                                    <p class="now__city-name city-name">
+                                        ...
+                                    </p>
+                                    <div class="now__city-favorites">
+                                        <button type="button" class="btn-favorites"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="details" id="details">
+                                <div class="details__city">
+                                    <p class="datails__city-name city-name">
+                                        ...
+                                    </p>
+                                </div>
+                                <div class="details__info">
+                                    <ul class="details__info-list">
+                                        <li class="details__info-list-item details-item">
+                                            <span class="details-item__title">
+                                                Temperature:
+                                            </span>
+                                            <span class="details-item__content ">
+                                                <span class="details-temperature">
+                                                    ...
+                                                </span>
+                                                <span>
+                                                    &#176;
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="details__info-list-item">
+                                            <span class="details-item__title">
+                                                Feels like:
+                                            </span>
+                                            <span class="details-item__content">
+                                                <span class="details-feels-like">
+                                                    ...
+                                                </span>
+                                                <span>
+                                                    &#176;
+                                                </span>
+                                            </span>
+                                        </li>
+                                        <li class="details__info-list-item">
+                                            <span class="details-item__title">
+                                                Weather:
+                                            </span>
+                                            <span class="details-item__content details-weather">
+                                                ...
+                                            </span>
+                                        </li>
+                                        <li class="details__info-list-item">
+                                            <span class="details-item__title">
+                                                Sunrise:
+                                            </span>
+                                            <span class="details-item__content details-sunrise">
+                                                ...
+                                            </span>
+                                        </li>
+                                        <li class="details__info-list-item">
+                                            <span class="details-item__title">
+                                                Sunset:
+                                            </span>
+                                            <span class="details-item__content details-sunset">
+                                                ...
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="forecast" id="forecast">
+                                <div class="forecast__city">
+                                    <p class="forecast__city-name city-name">
+                                        Actobe
+                                    </p>
+                                    <ul class="forecast__city-list">
+                                        <li class="forecast__city-list-item forecast-item">
+                                            <div class="forecast-item__date">
+                                                <div class="forecast-item__date-day">
+                                                    17 May
+                                                </div>
+                                                <div class="forecast-item__date-time">
+                                                    12:00
+                                                </div>
+                                            </div>
+                                            <div class="forecast-item__info">
+                                                <div class="forecast-item__info-temperature info-temperature">
+                                                    <div class="info-temperature__content">
+                                                        Temperature:
+                                                        <span class="info-temperature__content-degree">
+                                                            13
+                                                        </span>
+                                                        <span>
+                                                            &#176;
+                                                        </span>
+                                                    </div>
+                                                    <div class="info-temperature__clouds">
+                                                        Rain
+                                                    </div>
+                                                </div>
+                                                <div class="forecast-item__info-temperature info-feels">
+                                                    <div class="info-feels__content">
+                                                        Feels like:
+                                                        <span class="info-feels__content-degree">
+                                                            10
+                                                        </span>
+                                                        <span>
+                                                            &#176;
+                                                        </span>
+                                                    </div>
+                                                    <div class="info-feels__icon">
+                                                        <!-- <img src="" alt=""> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="content-left__nav">
+                            <ul>
+                                <li>
+                                    <a href="#now" class="btn-nav active-btn ">
+                                        Now
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#details" class="btn-nav">
+                                        Details
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#forecast" class="btn-nav">
+                                        Forecast
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="weather__content-right content-right">
+                        <div class="content-right__title">
+                            <p>
+                                Added Locations:
+                            </p>
+                        </div>
+                        <ul class="content-right__list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="preload-wrapper">
+        <div class="preload">
+            <img src="./source/isons/spin.svg" alt="">
+        </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
