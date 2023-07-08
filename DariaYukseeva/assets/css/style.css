@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ddd;
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../img/bg13\ \(1\).jpg') no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+}
+
+.weather {
+    width: 622px;
+    height: 462px;
+    background: rgba(0, 0, 0, .4);
+    /* background: rgba(255, 255, 255, .6); */
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.weather-search {
+    width: 100%;
+    border: 1px solid #000;
+    height: 45px;
+    display: flex;
+    align-items: center;
+
+}
+
+.weather-search form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 21px;
+}
+
+.weather-search-form-input {
+    border: none;
+    outline: none;
+    height: 21px;
+    width: 90%;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0);
+}
+
+.weather-search-form-input::-webkit-input-placeholder {
+    color: #FFFFFF;
+    opacity: .5;
+}
+.weather-search-form-input::-moz-placeholder {
+    color: #FFFFFF;
+    opacity: .5;
+}
+
+.weather-search form button {
+    cursor: pointer;
+    width: 27px;
+    height: 27px;
+    border: none;
+    background: url('../img/search2.png');
+    background-size: contain;
+    padding: 0;
+    filter: drop-shadow(4px 4px 8px 0px rgba(34, 60, 80, 0.2));
+}
+
+.weaether-big-block {
+    border: 1px solid #000;
+    border-top: none;
+    height: 390px;
+    display: flex;
+    
+}
+
+.weather-left-block {
+    border-right: 1px solid #000;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0;
+}
+
+
+.weather-now {
+    height: 344px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.temperature-wrapper {
+    padding-left: 23px;
+    padding-top: 20px;
+    font-size: 70px;
+    line-height: 82px;
+    
+}
+
+.precipitation {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.weather-now-precipitation-img {
+    height: 100px;
+}
+
+.selected-city-now-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 12px;
+    padding-right: 26px;
+    padding-bottom: 17px;
+}
+
+.selected-city-now {
+    font-size: 24px;
+    line-height: 28px;
+    
+}
+
+.favorite-btn {
+    padding-bottom: 23px;
+    border: none;
+    cursor: pointer;
+    background: url('../img/love_icon_w.png') no-repeat;
+    background-size: contain;
+    width: 22px;
+    height: 22px;
+    opacity: 0.8;
+    
+}
+
+.favorite-btn:hover {
+    width: 25px;
+    height: 25px;
+    opacity: 1;
+}
+
+.favorite-btn-for-saved-city {
+    background: url('../img/love_icon2.png') no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    opacity: 1;
+}
+
+.favorite-btn-for-saved-city:hover {
+    width: 27px;
+    height: 27px;
+}
+
+.tabs {
+    height: 45px;
+    display: flex;
+    border-top: 1px solid #000;
+}
+.tab-item {
+    border: none;
+    cursor: pointer;
+    width: calc(100%/3);
+    font-size: 18px;
+    line-height: 21px;
+    background: rgba(0, 0, 0, .2);
+    color: #FFFFFF;
+}
+
+
+.tabs button:not(:last-child) {
+    border-right: 1px solid #000;
+}
+
+.active-tab {
+    background: rgba(255, 255, 255, .5);
+    color: #000;
+}
+
+
+.weather-details {
+    max-width: 298px;
+    height: 344px;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.selected-city-details {
+    padding-left: 17px;
+    padding-top: 33px;
+}
+
+.weather-details ul {
+    margin: 0;
+    padding-left: 15px;
+    padding-top: 42px;
+    list-style: none;
+    line-height: 1.7;
+}
+
+
+.weather-forecast {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 0 18px;
+    overflow-y: auto;
+    max-width: 298px;
+    height: 344px;
+   
+}
+
+.selected-city-forecast {
+    font-size: 24px;
+    line-height: 28px;
+    padding-top: 33px;
+}
+
+.forecast-hourly-item {
+    height: 120px;
+    padding: 6px 12px 0 10px;
+    border: 1px solid #000;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+
+.date-time-block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.forecast-hourly-weather {
+    display: flex;
+    justify-content: space-between;
+}
+
+.forecast-hourly-weather-precipitation-img {
+    width: 30px;
+    height: 30px;
+}
+
+.forecast-hourly-weather-precipitation-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-right-block {
+    width: 50%;
+    font-size: 24px;
+    line-height: 28px;
+} 
+
+.added-cities-header {
+    height: 68px;
+    border-bottom: 1px solid #000;
+  
+    padding-left: 18px;
+    padding-top: 33px;
+}
+
+.favourite-cities-list-wrapper {
+    padding-left: 18px;
+    padding-top: 35px;
+    height: 322px;
+    overflow-y: auto;
+    
+}
+
+.favourite-cities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.favourite-cities-list-item {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+
+.favourite-cities-list-delete-btn {
+    border: none;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    background: transparent;
+    margin-left: auto 
+}
+
+.favourite-cities-list-item:hover > .favourite-cities-list-delete-btn {
+    background: url('../img/delete_icon3.png') no-repeat;
+    background-size: contain;
+    opacity: 0.5;
+}
+
+.favourite-cities-list-item:hover > .favourite-cities-list-delete-btn:hover {
+    opacity: 1;
+}
+
+.active-city::before {
+    /* content: '\00B7'; */
+    /* content: '⬅️'; */
+    content: '\25C1	';
+    position:absolute;
+    left: -12px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+
+.inactive-block {
+    display: none;
+}
+.invalid-city {
+    color: red;
+}
