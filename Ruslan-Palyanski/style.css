@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.main {
+    background-color: #e7e7e7;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader {
+    background-color: red;
+}
+
+.weather {
+    width: 621px;
+    height: 462px;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+.weather__block {
+    width: 600px;
+    height: 435px;
+    border: 1px solid #000;
+    margin-top: 14px;
+    margin-left: 12px;
+}
+
+.weather__form {
+    border-bottom: 1px solid #000;
+    display: flex;
+    align-items: center;
+}
+
+.weather__input {
+    border: none;
+    outline: none;
+    width: 555px;
+    height: 45px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.weather__button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: url('./img/search.svg') no-repeat;
+}
+
+.weather__button:hover {
+    cursor: pointer;
+}
+
+.weather__content {
+    display: flex;
+}
+
+.weather__information {
+    width: 50%;
+    height: 387px;
+    border-right: 1px solid #000;
+}
+
+.weather__container {
+    height: 342px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.weather__container::-webkit-scrollbar {
+    width: 0;
+}
+
+.tabs {
+    display: flex;
+    height: 45px;
+    border-top: 1px solid #000;
+}
+
+.tab {
+    width: 333.33333%;
+    height: 100%;
+    text-align: center;
+    padding-top: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.tab-1 {
+    border-right: 1px solid #000;
+}
+
+.tab-hidden {
+    min-height: 340px;
+}
+
+.tab-2 {
+    border-right: 1px solid #000;
+}
+
+#tab-2 {
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.active {
+    background-color: #000;
+    color: #fff;
+}
+
+.locations {
+    width: 50%;
+}
+
+.title-block {
+    height: 68px;
+    border-bottom: 1px solid #000;
+}
+
+.title-block div {
+    padding-top: 33px;
+    padding-left: 18px;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.list-locations {
+    font-size: 24px;
+    line-height: 28px;  
+    max-height: 318px;
+    overflow-y: auto;
+}
+
+.list {
+    list-style-type: none;
+    margin-top: 35px;
+    padding-left: 18px;
+    position: relative;
+}
+
+.list__item {
+    padding-bottom: 15px;
+}
+
+.list__item:hover {
+    opacity: .5;
+}
+
+.temperature {
+    font-size: 70px;
+    line-height: 82px;
+    padding-top: 20px;
+    margin-left: 23px;
+}
+
+.img {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.tab-block__country {
+    font-size: 24px;
+    line-height: 28px;
+    padding-left: 12px;
+}
+
+.tab-block {
+    margin-top: 98px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab-block__img {
+    margin-right: 26px;
+}
+
+.country-title {
+    padding-top: 33px;
+    margin-left: 17px;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.list-elements {
+    list-style-type: none;
+    padding-left: 15px;
+    margin-top: 42px;
+}
+
+.list-element {
+    margin-bottom: 12px;
+}
+
+.tab-3__block {
+    width: 265px;
+    height: 120px;
+    border: 1px solid #000;
+    margin-top: 7px;
+    margin-left: 17px;
+    margin-bottom: 9px;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.tab-3__data {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 6px;
+    padding-left: 8px;
+    padding-right: 12px;
+}
+
+.tab-3__weaather {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 38px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.loader {
+    color: red;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.tab-block__img:hover {
+    cursor: pointer;
+}
+
+.list__btn {
+    position: absolute;
+    right: 25px;
+    transform: rotate(45deg);
+}
+
+.list__btn:hover {
+    cursor: pointer;
+}
+
+.list__text:hover {
+    cursor: pointer;
+}
+
+.img__cloud {
+    position: relative;
+}
+
+.img__png {
+    position: absolute;
+    right: -3px;
+    top: -5px;
+}
