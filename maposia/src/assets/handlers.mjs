@@ -71,16 +71,15 @@ export function requestToken(evt) {
 export function loadMoreMessage() {
   const chatWindow = VARIABLES.ELEMENTS.MESSAGES_NODE
   const currentScroll = chatWindow.scrollTop
+  const previousMaxHeight = chatWindow.scrollHeight
   if (currentScroll === 0) {
-    // const maxHeight = chatWindow.scrollHeight
-    // console.log(maxHeight)
     const newMessage = chatHistoryData.slice(0, 20)
     const newMessagesReverse = newMessage.reverse();
     const chatNodes = newMessagesReverse.map((message) => createChatElement(message));
     VARIABLES.ELEMENTS.MESSAGES_NODE.prepend(...chatNodes);
+    const maxHeight = chatWindow.scrollHeight
     chatHistoryData.splice(0, 20)
-    // chatWindow.scrollTo(0, chatHeight)
-    console.log(chatHeight())
+    chatWindow.scrollTo(0, (maxHeight - previousMaxHeight))
   }
 
 
