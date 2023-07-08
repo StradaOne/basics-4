@@ -1,0 +1,33 @@
+.chat-nav {
+    margin-bottom: 10px;
+}
+
+.chat-nav__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .chat-nav__list-item {
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 30px 30px;
+    }
+
+    .btn-settings {
+        background-image: url("../../icons/iconSettings.svg");
+    }
+
+    .btn-exit {
+        background-image: url("../../icons/iconExitRed.svg");
+    }
+
+    .nickname {
+        color: #8d939e;
+        font-size: 18px;
+    }
+}

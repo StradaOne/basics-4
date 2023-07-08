@@ -1,0 +1,107 @@
+.chat-dialog {
+    height: 100%;
+    width: 100%;
+    background-color: #18191d;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+
+    .chat-dialog__message {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+        padding: 10px 10px;
+        width: max-content;
+        max-width: calc(240px + (380 - 240) * ((100vw - 320px) / (768 - 320)));
+        border-radius: 20px;
+
+        .chat-dialog__message-text {
+            color: #ffffff;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+            overflow: hidden;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .chat-dialog__message-time {
+            color: #7b7c7e;
+            text-align: right;
+            font-size: 12px;
+            padding-top: 15px;
+            align-self: flex-end;
+        }
+
+        @media (min-width: 768px) {
+            & {
+                max-width: 380px;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+
+    .in-message {
+        background-color: #33393f;
+        position: relative;
+    }
+
+    .in-message::before {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: -2px;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #33393f;
+        transform: rotate(-5deg);
+    }
+
+    .sent-message {
+        position: relative;
+        margin-left: auto;
+        background-color: #2a2f33;
+    }
+
+    .sent-message::before {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        right: -2px;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #2a2f33;
+        transform: rotate(5deg);
+    }
+}
+
+/* Стилизация скролла для блока*/
+.chat-dialog {
+    overflow-y: auto;
+    scrollbar-width: 7px; /* Для Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #58595a #2d2e30; /* Для Firefox */
+}
+
+.chat-dialog::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    border-radius: 10px;
+    // background-color: #2d2e30;
+}
+
+/* Фон скролла */
+.chat-dialog::-webkit-scrollbar-track {
+    background-color: #2d2e30; /* Для Chrome, Safari и Opera */
+}
+
+/* Индикатор  прокрутки */
+.chat-dialog::-webkit-scrollbar-thumb {
+    background-color: #58595a; /* Для Chrome, Safari и Opera */
+    border-radius: 10px;
+}
