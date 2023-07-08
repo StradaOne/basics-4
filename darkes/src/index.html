@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/normalize.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script defer src="./js/modules/app.js"></script>
+		<title>Chat</title>
+	</head>
+
+	<body>
+		<div class="app-container">
+			<header class="header">
+				<div class="container header__container">
+					<div class="header__text">Jeunesse éternelle</div>
+					<div>
+						<button class="settings-button btn">Настройки</button>
+						<button class="logout-button btn">Выйти</button>
+					</div>
+				</div>
+			</header>
+
+			<main class="main">
+				<div class="container main__container">
+					<ul class="main__message-list">
+						<li class="main__message-li ours-message">
+							<div class="main__message-container">
+								<div class="main__nick-name-message">Я</div>
+								<div class="main__message-text">Добрый день!</div>
+								<div class="time-of-message">18:45</div>
+							</div>
+						</li>
+						<li class="main__message-li theirs-message">
+							<div class="main__message-container">
+								<div class="main__nick-name-message">Собеседник</div>
+								<div class="main__message-text">Добрый день!</div>
+								<div class="time-of-message">18:45</div>
+							</div>
+						</li>
+						<li class="main__message-li theirs-message">
+							<div class="main__message-container">
+								<div class="main__nick-name-message">Собеседник</div>
+								<div class="main__message-text">
+									А это второе и, кажется, оно очень длинное, чтобы поместиться на одной строке
+								</div>
+								<div class="time-of-message">18:45</div>
+							</div>
+						</li>
+						<li class="main__message-li ours-message">
+							<div class="main__message-container">
+								<div class="main__nick-name-message">Я</div>
+								<div class="main__message-text">Добрый день!</div>
+								<div class="time-of-message">18:45</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</main>
+
+			<footer class="footer">
+				<div class="container footer__container">
+					<form class="footer__form form" action="" autocomplete method="post">
+						<textarea
+							id="message-textarea"
+							required
+							resize
+							placeholder="Сообщение..."
+							name="Сообщение"
+							rows="1"
+						></textarea>
+						<button class="form__send-message-button" type="submit">
+							<svg
+								class="send-icon"
+								width="30px"
+								height="30px"
+								viewBox="0 0 24 24"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									class="send-icon-path"
+									fill="#00000"
+									d="M8.8049,11.8178 L12.4619,17.7508 C12.6219,18.0108 12.8719,18.0078 12.9729,17.9938 C13.0739,17.9798 13.3169,17.9178 13.4049,17.6228 L17.9779,2.1778 C18.0579,1.9048 17.9109,1.7188 17.8449,1.6528 C17.7809,1.5868 17.5979,1.4458 17.3329,1.5208 L1.8769,6.0468 C1.5839,6.1328 1.5199,6.3788 1.5059,6.4798 C1.4919,6.5828 1.4879,6.8378 1.7469,7.0008 L7.7479,10.7538 L13.0499,5.3958 C13.3409,5.1018 13.8159,5.0988 14.1109,5.3898 C14.4059,5.6808 14.4079,6.1568 14.1169,6.4508 L8.8049,11.8178 Z M12.8949,19.4998 C12.1989,19.4998 11.5609,19.1458 11.1849,18.5378 L7.3079,12.2468 L0.9519,8.2718 C0.2669,7.8428 -0.0911,7.0788 0.0199,6.2758 C0.1299,5.4728 0.6809,4.8348 1.4549,4.6078 L16.9109,0.0818 C17.6219,-0.1262 18.3839,0.0708 18.9079,0.5928 C19.4319,1.1198 19.6269,1.8898 19.4149,2.6038 L14.8419,18.0478 C14.6129,18.8248 13.9729,19.3738 13.1719,19.4808 C13.0779,19.4928 12.9869,19.4998 12.8949,19.4998 L12.8949,19.4998 Z"
+								/>
+							</svg>
+						</button>
+					</form>
+				</div>
+			</footer>
+
+			<div id="autorization" class="modal-window show-modal-window">
+				<div class="modal-window__dialog">
+					<div class="modal-window__autorization-container container_modal-window">
+						<div class="modal-window__top-container">
+							<p class="modal-window__header">Авторизация</p>
+						</div>
+						<div class="modal-window__bottom-container">
+							<p class="modal-window__input-description">Почта:</p>
+							<form class="modal-window__form form" action="" autocomplete method="post">
+								<input
+									id="autorization-input"
+									class="form__input"
+									required
+									type="email"
+									placeholder="example@gmail.com"
+									autocomplete=""
+								/>
+								<button type="submit" class="form__get-code-button btn">Получить код</button>
+								<button type="button" class="form__input-code-button btn">Ввести код</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="settings" class="modal-window">
+				<div class="modal-window__dialog">
+					<div class="modal-window__settings container_modal-window">
+						<div class="modal-window__top-container">
+							<p class="modal-window__header">Настройки</p>
+							<button class="modal-window__close-button">
+								<svg
+									class="cross-icon"
+									width="30"
+									height="30"
+									viewBox="0 0 30 30"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										class="cross-icon-path settings-close"
+										fill-rule="evenodd"
+										clip-rule="evenodd"
+										d="M9 15H21M15 9L15 21"
+										stroke="black"
+										stroke-width="2"
+									/>
+								</svg>
+							</button>
+						</div>
+						<div class="modal-window__bottom-container">
+							<p class="modal-window__input-description">Имя в чате:</p>
+							<form class="modal-window__form form" action="" autocomplete method="post">
+								<input
+									id="settings-input"
+									class="form__input"
+									required
+									placeholder="your name"
+									autocomplete=""
+								/>
+								<button class="form__change-name-button btn btn_footer">Изменить</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="confirm" class="modal-window">
+				<div class="modal-window__dialog">
+					<div class="modal-window__confirm-code-container container_modal-window">
+						<div class="modal-window__top-container">
+							<p class="modal-window__header">Подтверждение</p>
+							<button class="modal-window__close-button">
+								<svg
+									class="cross-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 30 30"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										class="cross-icon-path confirm-close"
+										fill-rule="evenodd"
+										clip-rule="evenodd"
+										d="M9 15H21M15 9L15 21"
+										stroke="black"
+										stroke-width="2"
+									/>
+								</svg>
+							</button>
+						</div>
+						<div class="modal-window__bottom-container">
+							<p class="modal-window__input-description">Код:</p>
+							<form class="modal-window__form form" action="" autocomplete method="post">
+								<input
+									id="confirm-input"
+									class="form__input"
+									required
+									type="text"
+									placeholder="2281337"
+									autocomplete=""
+								/>
+								<button type="submit" class="form__confirm-code-button btn">Войти</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
