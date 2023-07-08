@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Чат</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+
+	<body>
+		<div class="chat">
+			<div class="container">
+				<div class="buttons">
+					<button class="btn" id="btn-settings">Настройки</button>
+					<button class="btn" id="btn-open-window-login">Войти</button>
+				</div>
+				<ul class="messages">
+					<li class="spacer"></li>
+				</ul>
+				<template id="copy-msg">
+					<li class="message">
+						<span class="message__text"></span>
+						<span class="message__time"></span>
+					</li>
+				</template>
+				<form class="input-form">
+					<textarea class="input-field" name="message" placeholder="сообщение..."></textarea>
+					<button class="btn">&rarr;</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="popup-overlay"></div>
+
+		<script src="./js/main.js" type="module"></script>
+	</body>
+</html>
