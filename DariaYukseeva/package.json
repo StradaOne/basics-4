@@ -1,0 +1,21 @@
+{
+  "name": "dariayukseeva",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@parcel/config-default": "^2.9.1",
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0",
+    "parcel-reporter-static-files-copy": "^1.5.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.1"
+  }
+}
