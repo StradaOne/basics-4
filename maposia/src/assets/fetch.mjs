@@ -1,9 +1,9 @@
 import { VARIABLES, BLOCKS } from "./varibles.mjs";
 import Cookies from "js-cookie";
 
-async function getAuthCode() {
+async function postAuthCode(email) {
   const userData = {
-    email: VARIABLES.ELEMENTS.AUTH.INPUT.value
+    email: email
   }
   const url = 'https://edu.strada.one/api/user'
   try {
@@ -74,7 +74,7 @@ async function setUserData() {
   }
 }
 
-async function loadChatData() {
+async function getChatData() {
   const token = Cookies.get('token')
   const url = 'https://edu.strada.one/api/messages/'
   try {
@@ -87,7 +87,7 @@ async function loadChatData() {
     })
     if (response.ok) {
       let result = await response.json()
-      return result.messages
+      return result
     } else {
       throw new Error('Request failed with status ' + response.status)
     }
@@ -121,4 +121,4 @@ async function authorization(token) {
   }
 }
 
-export { getAuthCode, setUserData, loadChatData, authorization }
+export { postAuthCode, setUserData, getChatData, authorization, getUserData }

@@ -17,6 +17,7 @@ const VARIABLES = {
     CHAT_INPUT: getElement('.chat__form__input'),
     SUBMIT: getElement('.chat__form'),
     MAIN_USERNAME: getElement('.chat__header__user__name'),
+    APP: getElement('.chat__app'),
     AUTH: {
       FORM: getElement('.chat__auth__form'),
       INPUT: getElement('.chat__auth__input'),

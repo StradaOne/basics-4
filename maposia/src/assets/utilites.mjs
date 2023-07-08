@@ -21,7 +21,7 @@ function createChatElement(data) {
   if (data.user.email === Cookies.get('email')) {
     template.querySelector('.chat__message').classList.add('chat__message__me');
     template.querySelector('.chat__message__text').classList.add('chat__message__text__me');
-    template.querySelector('.chat_message__avatar__img').src = './user-avatar.jpg';
+    template.querySelector('.chat_message__avatar__img').src = './user-avatar.png';
   } else {
     template.querySelector('.chat__message').classList.add('chat__message__them');
     template.querySelector('.chat__message__text').classList.add('chat__message__text__them');
@@ -33,5 +33,10 @@ function createChatElement(data) {
   return template
 }
 
+function chatHeight() {
+  const chatWindow = VARIABLES.ELEMENTS.MESSAGES_NODE
+  const maxHeight = chatWindow.scrollHeight
+  return maxHeight
+}
 
-export { currentTime, scrollChat, createChatElement }
+export { currentTime, scrollChat, createChatElement, chatHeight }
