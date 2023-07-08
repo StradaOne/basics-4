@@ -162,6 +162,7 @@ for(const form of forms){
             cookie.setCookie(token, date)
             event.target.reset()
         })
+        
     }
 }
 
