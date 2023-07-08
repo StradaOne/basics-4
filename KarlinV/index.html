@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./img/icon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Время до ...</title>
+  </head>
+  <body>
+    <div class="countdown-app" id="countdownApp">
+      <div class="date-label">Введите дату</div>
+      <div class="date-input-container">
+        <input class="date-input" type="date" id="date-input" />
+        <button class="date-btn" type="submit">Посчитать</button>
+      </div>
+      <div class="countdown-title">Осталось времени:</div>
+      <div class="countdown-display load-save-data">
+        Для начала работы, выберите или введите дату в поле ввода!
+      </div>
+    </div>
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>

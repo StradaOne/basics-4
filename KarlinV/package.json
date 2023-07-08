@@ -1,0 +1,17 @@
+{
+	"name": "time-till",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "parcel index.html",
+		"build": "parcel build ./js/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "KarlinV",
+	"license": "ISC",
+	"dependencies": {
+		"date-fns": "^2.30.0",
+		"parcel": "^2.9.2"
+	}
+}

@@ -1,0 +1,102 @@
+:root {
+	--main-text-color: #303030;
+	--additional-color: #5e55d6;
+	--white: #ffffff;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100vh;
+}
+
+body {
+	position: relative;
+	font-family: "Inter", sans-serif;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 24px;
+	color: var(--main-text-color);
+}
+
+.countdown-app {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 790px;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+}
+
+.date-label {
+	margin-bottom: 18px;
+}
+
+.date-input-container {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
+}
+
+.date-input {
+	width: 380px;
+	height: 50px;
+	padding: 14px;
+	background: var(--white);
+	border: 1px solid #e2e2e2;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	color: #d9d9d9;
+	cursor: pointer;
+}
+
+.date-input:hover {
+	outline: 1px solid var(--additional-color);
+}
+
+.date-input:focus {
+	outline: 2px solid var(--additional-color);
+}
+
+.date-btn {
+	width: 380px;
+	height: 50px;
+	background: var(--additional-color);
+	border: none;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	color: var(--white);
+	cursor: pointer;
+}
+
+.date-btn:hover {
+	box-shadow: 0 0 5px 5px rgba(217, 217, 217, 0.8);
+}
+
+.countdown-title {
+	font-size: 24px;
+	line-height: 29px;
+	margin-bottom: 10px;
+}
+
+.countdown-display {
+	font-size: 48px;
+	line-height: 58px;
+}
+
+.countdown-display.load-save-data {
+	font-size: 24px;
+	color: #d9d9d9;
+}
