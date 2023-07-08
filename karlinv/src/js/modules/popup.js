@@ -2,8 +2,15 @@ import { createElement, getElement } from './domUtils';
 
 const popupOverlay = getElement('.popup-overlay');
 
-function closePopup(e) {
-	if (!e.target.classList.contains('popup-overlay') && !e.target.classList.contains('close')) {
+export function closePopup(e) {
+	console.log(e);
+
+	if (
+		!e.target.classList.contains('popup-overlay') &&
+		!e.target.classList.contains('close') &&
+		!e.target.classList.contains('login-btn') &&
+		!e.target.classList.contains('save-btn')
+	) {
 		return;
 	}
 
@@ -41,7 +48,7 @@ function ConfirmationContent() {
 	return `
 		<label for="code">Код:</label>
 		<input type="text" id="code" />
-		<button class="btn" id="login-btn">Войти</button>
+		<button class="btn login-btn" id="login-btn">Войти</button>
 	`;
 }
 
@@ -49,7 +56,7 @@ function SettingsContent() {
 	return `
 		<label for="nickname">Имя в чате:</label>
 		<input type="text" id="nickname" />
-		<button class="btn" id="save-btn">&rarr;</button>
+		<button class="btn save-btn" id="save-btn">Сохранить</button>
 	`;
 }
 
@@ -63,8 +70,6 @@ function CreatePopup(data) {
 	popup.classList.add('popup');
 	close.innerHTML = '&times';
 	close.classList.add('close');
-
-	// close.addEventListener('click', closePopup);
 
 	if (data.type === 'authorization') {
 		content.innerHTML = AuthorizationContent();

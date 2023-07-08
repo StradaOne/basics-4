@@ -1,14 +1,23 @@
 import { getCurrentTime } from './modules/dateUtils';
 import { createMessage } from './modules/messageUtils';
 import { getElement, appendElement, setElementValue, setScrollTop } from './modules/domUtils';
-import { openPopup } from './modules/popup';
+import { openPopup, closePopup } from './modules/popup';
 import { sendRequestToAPI } from './modules/emailRequest';
+import { setName, getUserData } from './modules/updateUserName';
+
+const Cookies = require('js-cookie');
 
 const messages = getElement('.messages');
 const inputForm = getElement('.input-form');
 const inputMessage = getElement('.input-field');
 const btnLogin = getElement('#btn-open-window-login');
 const url = 'https://edu.strada.one/api/user';
+
+document.addEventListener('DOMContentLoaded', () => {
+	if (Cookies.get('token')) {
+		btnLogin.textContent = 'Выйти';
+	}
+});
 
 function getBtnCodeToEmail(elements) {
 	console.log(elements);
@@ -56,11 +65,33 @@ document.addEventListener('click', e => {
 	if (element.id === 'btn-settings') {
 		openPopup({ title: 'Настройки', type: 'settings' });
 	}
+
+	if (element.id === 'save-btn') {
+		const inputSave = getElement('#nickname').value;
+
+		console.log(inputSave);
+		if (!inputSave) return;
+		setName(inputSave, Cookies.get('token'));
+
+		closePopup(e);
+	}
+	if (element.id === 'login-btn') {
+		const code = getElement('#code').value;
+		if (!code) return;
+
+		Cookies.set('token', code);
+
+		btnLogin.textContent = 'Выйти';
+
+		closePopup(e);
+	}
 });
 
-function render() {
+async function render() {
 	const date = getCurrentTime();
-	const message = createMessage('KarinV', inputMessage.value, date, 'my');
+	const myName = await getUserData(Cookies.get('token'));
+
+	const message = createMessage(myName.name, inputMessage.value, date, 'my');
 
 	appendElement(messages, message);
 	setElementValue(inputMessage, '');
@@ -77,12 +108,18 @@ inputForm.addEventListener('submit', e => {
 inputForm.addEventListener('keydown', e => {
 	if (e.key === 'Enter') {
 		e.preventDefault();
+		if (!inputMessage.value) return;
 		render();
 	}
 });
 
 btnLogin.addEventListener('click', e => {
 	e.preventDefault();
+	if (btnLogin.textContent === 'Выйти') {
+		Cookies.remove('token');
+		btnLogin.textContent = 'Войти';
+		return;
+	}
 
 	openPopup({ title: 'Авторизация', type: 'authorization' });
 });
