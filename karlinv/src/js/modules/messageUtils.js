@@ -1,7 +1,3 @@
-const Cookies = require('js-cookie');
-
-const URL = 'https://edu.strada.one/api/messages/';
-
 export function createMessage(user, value, date, style) {
 	const template = document.querySelector('#copy-msg');
 	const copyMessage = template.content.cloneNode(true);
@@ -17,7 +13,7 @@ export function createMessage(user, value, date, style) {
 	return message;
 }
 
-export async function getMessages(url, code) {
+export async function getMessages(url, code, email) {
 	try {
 		const response = await fetch(url, {
 			headers: {
@@ -29,16 +25,20 @@ export async function getMessages(url, code) {
 
 		const { messages } = data;
 
-		const messageElements = messages.map(message =>
-			createMessage(message.user.name, message.text, message.createdAt, 'you'),
-		);
+		console.log(messages);
 
-		const messagesHtml = document.querySelector('.messages');
+		const messageElements = messages.map(message => {
+			return createMessage(
+				message.user.name,
+				message.text,
+				message.createdAt,
+				message.email === email ? 'my' : 'you',
+			);
+		});
 
-		messagesHtml.append(...messageElements);
+		return messageElements;
 	} catch (error) {
 		console.error('Ошибка получения сообщений:', error);
+		return [];
 	}
 }
-
-getMessages(URL, Cookies.get('token'));
