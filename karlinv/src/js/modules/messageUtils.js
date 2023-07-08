@@ -34,7 +34,7 @@ export async function getMessages(url, code, email) {
 				message.user.name,
 				message.text,
 				format(new Date(message.createdAt), 'HH:mm'),
-				message.email === email ? 'my' : 'you',
+				message.user.email === email ? 'my' : 'you',
 			);
 		});
 
