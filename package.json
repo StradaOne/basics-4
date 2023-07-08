@@ -1,0 +1,19 @@
+{
+  "name": "basics-4",
+  "version": "1.0.0",
+  "description": "https://strada.one/help/how-to/get-code-review",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StradaOne/basics-4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StradaOne/basics-4/issues"
+  },
+  "homepage": "https://github.com/StradaOne/basics-4#readme"
+}
