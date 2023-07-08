@@ -22,21 +22,31 @@ const dialogs = getNodeList('.dialog');
 const forms = getNodeList('form');
 const buttons = getNodeList('.button');
 
-// document.cookie = "token=token; max-age=0";
-// localStorage.clear()
+let startElement = 0;
+let lastElement = 20;
+let marker = true;;
 
 function render(){
-    const historyMessage = storage.get('historyMessage');
-
-
-    historyMessage.reverse().forEach(item => {
-        createHtmlElementMessage(item.user.name, item.text, item.createdAt, item.user.email)
-    });
-
+    if(marker){
+        const historyMessage = storage.get('historyMessage');
+        const historySlice = historyMessage.slice(startElement, lastElement);
+        historySlice.forEach(item => {
+            createHtmlElementMessage(item.user.name, item.text, item.createdAt, item.user.email, 'prepend')
+        });
+        startElement = lastElement;
+        lastElement += 20;
+        if(lastElement >= historyMessage.length){
+            const div = document.createElement('div');
+            div.style.textAlign = 'center';
+            div.innerText = 'Вся история загружена';
+            content.prepend(div)
+            marker = false;
+        }
+    }
 }
 render()
 
-function createHtmlElementMessage(userName, message, date, flag){
+function createHtmlElementMessage(userName, message, date, flag, added){
 
     if(isValid(message)){
         const blockMassage = tp.content.querySelector('.message');
@@ -55,8 +65,14 @@ function createHtmlElementMessage(userName, message, date, flag){
             time.textContent = date;
             
             const elementMessage = tp.content.cloneNode(true);
-    
-            content.append(elementMessage)
+
+            if(added === 'prepend'){
+                content.prepend(elementMessage)
+            } 
+            
+            if(added === 'append'){
+                content.append(elementMessage)
+            }
 
         content.scrollTop = content.scrollHeight
 
@@ -80,23 +96,23 @@ function addMessage(event){
     socket.onmessage = function(event) {
         const data = JSON.parse(event.data);
         const {text, createdAt , user: {name, email}} = data;
-        createHtmlElementMessage(name, text, createdAt, email)
+        createHtmlElementMessage(name, text, createdAt, email, 'append')
     };
     event.target.reset()
 }
 
-async function getNameFromServer(){
-    const token = cookie.getCookie('token');
-    const response = await fetch('https://edu.strada.one/api/user/me', {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json;charset=utf-8'
-          },   
-    });
-    const data = await response.json();
-    storage.add('name', data.name)
-}
+// async function getNameFromServer(){
+//     const token = cookie.getCookie('token');
+//     const response = await fetch('https://edu.strada.one/api/user/me', {
+//         method: 'GET',
+//         headers: {
+//             Authorization: `Bearer ${token}`,
+//             'Content-Type': 'application/json;charset=utf-8'
+//           },   
+//     });
+//     const data = await response.json();
+//     storage.add('name', data.name)
+// }
 
 for(const form of forms){
     if(form.classList.contains('addName')){
@@ -152,11 +168,10 @@ for(const form of forms){
 
 let socket = null;
 async function getWebSocket(){
-    const token = cookie.getCookie('token');
+    let token = cookie.getCookie('token');
     socket = new WebSocket(`wss://edu.strada.one/websockets?${token}`);
     socket.onopen = function(){
         wrapper.classList.remove('wrapper-height')
-        content.classList.remove('hide')
         formAddMessage.classList.remove('hide')
     }
 }
@@ -224,6 +239,17 @@ window.addEventListener('DOMContentLoaded', () => {
     content.scrollTop = content.scrollHeight;
     getHistoryMessage()
 })
+
+content.addEventListener('scroll', (event) => {
+    if(event.target.scrollTop === 0){
+        render()
+    }
+})
+
+
+
+// document.cookie = "token=token; max-age=0";
+// localStorage.clear()
 
 
 
