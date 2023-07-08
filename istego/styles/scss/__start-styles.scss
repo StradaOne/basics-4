@@ -1,0 +1,19 @@
+body {
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  padding: 10px
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  min-height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+}
