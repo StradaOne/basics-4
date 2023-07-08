@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather blyat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/index.ad91df8f.css">
+</head>
+<body>
+    <div class="container">
+        <div class="weather">
+            <form class="weather-search">
+                <input type="text" placeholder="Aboba" class="weather-search-input">
+                <button>
+                    <img src="/Shape.20a61642.svg" alt="search icon">
+                </button>
+            </form>
+
+            <div class="weather-left">
+
+                <div id="now" class="weather-left-now-info">
+                    <div class="weather-left-now-info-degree">
+                        <p class="weather-left-now-info-degree-number">0</p>
+                        <img src="/mask.52314cec.svg" alt="degree icon" class="weather-left-now-info-degree-icon">
+                    </div>
+                    <img src="/free-icon-loading-7917252.b121dbdd.png" alt="cloud icon" class="weather-left-now-info-icon">
+                    <div class="weather-left-now-info-city">
+                        <p class="weather-left-now-info-city-text">City</p>
+                        <button class="weather-left-now-info-favourite">
+                            <img src="/Shape%20(1).46fa091e.svg" alt="favourite">
+                        </button>
+                    </div>
+                </div>
+
+                <div id="details" class="weather-left-details-info hide">
+                    <div class="weather-left-details-info-city"></div>
+                    <ul class="weather-left-details-info-list">
+                        <li class="weather-left-details-info-temperature"></li>
+                        <li class="weather-left-details-info-feels"></li>
+                        <li class="weather-left-details-info-weather"></li>
+                        <li class="weather-left-details-info-sunrise"></li>
+                        <li class="weather-left-details-info-sunset"></li>
+                    </ul>
+                </div>
+
+                <div id="forecast" class="weather-left-forecasts-info hide">
+                    <div class="weather-left-forecasts-info-city">Pre-Alpha-Beta-Sigma-Delta-Test</div>
+                    <div class="weather-left-forecasts-info-details">
+                        <div class="weather-left-forecasts-info-details-block">
+                            <p class="weather-left-forecasts-info-details-block-day">17 May</p>
+                            <p class="weather-left-forecasts-info-details-block-temperature">Temperature: 13°</p>
+                            <p class="weather-left-forecasts-info-details-block-temperature-feels">Feels like: 10°</p>
+                            <p class="weather-left-forecasts-info-details-block-time">12:00</p>
+                            <div class="weather-left-forecasts-info-details-block-status">
+                                <p class="weather-left-forecasts-info-details--blockstatus-text">Rain</p>
+                                <img src="/icons8-rain-96%201.1ca1e26b.svg" alt="icon rain" class="weather-left-forecasts-info-details-block-status-img">
+                            </div>
+                        </div>
+                        <div class="weather-left-forecasts-info-details-block">
+                            <p class="weather-left-forecasts-info-details-block-day">17 May</p>
+                            <p class="weather-left-forecasts-info-details-block-temperature">Temperature: 13°</p>
+                            <p class="weather-left-forecasts-info-details-block-temperature-feels">Feels like: 10°</p>
+                            <p class="weather-left-forecasts-info-details-block-time">12:00</p>
+                            <div class="weather-left-forecasts-info-details-block-status">
+                                <p class="weather-left-forecasts-info-details--blockstatus-text">Rain</p>
+                                <img src="/icons8-rain-96%201.1ca1e26b.svg" alt="icon rain" class="weather-left-forecasts-info-details-block-status-img">
+                            </div>
+                        </div>
+                        <div class="weather-left-forecasts-info-details-block">
+                            <p class="weather-left-forecasts-info-details-block-day">17 May</p>
+                            <p class="weather-left-forecasts-info-details-block-temperature">Temperature: 13°</p>
+                            <p class="weather-left-forecasts-info-details-block-temperature-feels">Feels like: 10°</p>
+                            <p class="weather-left-forecasts-info-details-block-time">12:00</p>
+                            <div class="weather-left-forecasts-info-details-block-status">
+                                <p class="weather-left-forecasts-info-details--blockstatus-text">Rain</p>
+                                <img src="/icons8-rain-96%201.1ca1e26b.svg" alt="icon rain" class="weather-left-forecasts-info-details-block-status-img">
+                            </div>
+                        </div>
+                        <div class="weather-left-forecasts-info-details-block">
+                            <p class="weather-left-forecasts-info-details-block-day">17 May</p>
+                            <p class="weather-left-forecasts-info-details-block-temperature">Temperature: 13°</p>
+                            <p class="weather-left-forecasts-info-details-block-temperature-feels">Feels like: 10°</p>
+                            <p class="weather-left-forecasts-info-details-block-time">12:00</p>
+                            <div class="weather-left-forecasts-info-details-block-status">
+                                <p class="weather-left-forecasts-info-details--blockstatus-text">Rain</p>
+                                <img src="/icons8-rain-96%201.1ca1e26b.svg" alt="icon rain" class="weather-left-forecasts-info-details-block-status-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather-tabs">
+                <ul>
+                    <li class="weather-tabs-now check">Now</li>
+                    <li class="weather-tabs-details">Details</li>
+                    <!-- <li class="weather-tabs-forecast">Forecast</li> -->
+                </ul>
+            </div>
+
+            <div class="weather-right-info">
+                <div class="weather-right-info-added">Added Locations:</div>
+                    <ul class="weather-right-info-list"></ul>
+                </div>
+            </div>
+        </div>
+    
+    <script src="/index.4de9b498.js" defer=""></script>
+</body>
+</html>
