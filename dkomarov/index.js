@@ -17,8 +17,9 @@ import {
   BUTTON_AUTORIZATION,
   BUTTON_AUTHENTICATION,
   DISPLAY_NODE,
+  SCROLL_BUTTON
 } from "./modules/DOMelements";
-import { el } from "date-fns/locale";
+// import { el } from "date-fns/locale";
 
 const ADD_NEW_MESSAGE_FORM = document.querySelector(".form");
 const AUTHORIZATION_FORM = document.querySelector(".authorization-form__input");
@@ -115,6 +116,19 @@ SETTING_FORM.addEventListener("submit", () => {
 
 ADD_NEW_MESSAGE_FORM.addEventListener("submit", handlerMessage);
 
+DISPLAY_NODE.addEventListener('scroll', function() {
+  if (DISPLAY_NODE.scrollTop === 0) {
+    loadHistoryMessage(cookieToken)
+    test123(array)
+  }
+})
+
+SCROLL_BUTTON.addEventListener('click', () => {
+  const div = document.querySelector(".display");
+  const magicNumber = 200000;
+  div.scrollBy(0, magicNumber);
+})
+
 window.addEventListener("DOMContentLoaded", () => {
   // getData(cookieToken);
   // getHistoryMessage(cookieToken);
@@ -122,10 +136,3 @@ window.addEventListener("DOMContentLoaded", () => {
   test123(array)
   scroll()
 });
-
-DISPLAY_NODE.addEventListener('scroll', function() {
-  if (DISPLAY_NODE.scrollTop === 0) {
-    loadHistoryMessage(cookieToken)
-    test123(array)
-  }
-})
