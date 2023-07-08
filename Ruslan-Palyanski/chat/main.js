@@ -1,4 +1,3 @@
-
 import { storage } from "./modules/storage.js";
 import { cookie } from "./modules/cookie.js";
 
@@ -14,26 +13,28 @@ const formAddMessage = getElement('.form');
 const inputMessage = getElement('.input_ms');
 const content = getElement('.content');
 const tp = getElement('#tp');
+const wrapper = getElement('.wrapper ')
 const dialogName = getElement('.dialog_name');
 const dialogAutoriz = getElement('.dialog_autoriz');
 const dialogConfirm = getElement('.dialog_confirm');
-// const notice = getElement('.notice');
+const notice = getElement('.notice');
 const dialogs = getNodeList('.dialog');
 const forms = getNodeList('form');
 const buttons = getNodeList('.button');
 
+// document.cookie = "token=token; max-age=0";
+// localStorage.clear()
+
 function render(){
     const historyMessage = storage.get('historyMessage');
 
-    historyMessage.forEach(item => {
-        return (
-            createHtmlElementMessage(item.user.name, item.text, item.createdAt, item.user.email)
-        )
+
+    historyMessage.reverse().forEach(item => {
+        createHtmlElementMessage(item.user.name, item.text, item.createdAt, item.user.email)
     });
 
 }
 render()
-
 
 function createHtmlElementMessage(userName, message, date, flag){
 
@@ -45,17 +46,20 @@ function createHtmlElementMessage(userName, message, date, flag){
     
         if(flag === 'ruslapolyanski@yandex.ru'){
             blockMassage.classList.add('message_my')
+        } else {
+            blockMassage.classList.remove('message_my')
         }
+
+            user.textContent = userName;
+            text.textContent = message;
+            time.textContent = date;
+            
+            const elementMessage = tp.content.cloneNode(true);
     
-        user.textContent = userName;
-        text.textContent = message;
-        time.textContent = date;
-        
-        const elementMessage = tp.content.cloneNode(true);
+            content.append(elementMessage)
 
-        content.append(elementMessage)
+        content.scrollTop = content.scrollHeight
 
-        content.scrollTop = content.scrollHeight;
     }
 }
 
@@ -98,24 +102,23 @@ for(const form of forms){
     if(form.classList.contains('addName')){
         form.addEventListener('submit', async (event) => {
             event.preventDefault()
-            const formData = new FormData(form);
-            const name = formData.get('inputName');
             const token = cookie.getCookie('token');
+            if(token){
+                const formData = new FormData(form);
+                const name = formData.get('inputName');
+                await fetch('https://edu.strada.one/api/user', {
+                    method: 'PATCH',
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json;charset=utf-8'
+                      },        
+                    body: JSON.stringify({name})
+                })
+            } else {
+                notice.textContent = 'You need to get token';
+            }
 
-            await fetch('https://edu.strada.one/api/user', {
-                method: 'PATCH',
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json;charset=utf-8'
-                  },        
-                body: JSON.stringify({name})
-            })
-            // notice.textContent = 'Отправка имени на сервер';
-            // if(response.ok){
-            //     notice.textContent = 'Имя изменено';
-            // }
             form.reset()
-            getNameFromServer()
         })
     }
     if(form.classList.contains('autoriz')){
@@ -130,6 +133,7 @@ for(const form of forms){
                   },
                 body: JSON.stringify({email})
             });
+
             form.reset()
         })
     }
@@ -151,6 +155,8 @@ async function getWebSocket(){
     const token = cookie.getCookie('token');
     socket = new WebSocket(`wss://edu.strada.one/websockets?${token}`);
     socket.onopen = function(){
+        wrapper.classList.remove('wrapper-height')
+        content.classList.remove('hide')
         formAddMessage.classList.remove('hide')
     }
 }
@@ -176,6 +182,7 @@ async function getHistoryMessage(){
 function closeDialog(){
     for(const dialog of dialogs){
         dialog.classList.remove('dialog__show')
+        notice.textContent = '';
     }
 }
 

@@ -12,6 +12,7 @@ const storage = {
       return JSON.parse(value); 
     } catch(error) {
         console.log(error)
+        return [];
     }
 
   }
