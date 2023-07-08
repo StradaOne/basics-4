@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<title>Weather</title>
+</head>
+<body>
+	<main class="weather">
+
+		<div class="search">
+			<form action="#" class="search_form">
+				<input class="search_input" type="text" placeholder="Enter the city" autocomplete="none">
+				<button class="search_button">
+					<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M19.3775 17.5H18.385L18.04 17.1575C19.2588 15.7363 20 13.8938 20 11.875C20 7.38752 16.3625 3.75002 11.875 3.75002C7.3875 3.75002 3.75 7.38752 3.75 11.875C3.75 16.3625 7.3875 20 11.875 20C13.8938 20 15.735 19.26 17.1563 18.0425L17.5013 18.385V19.375L23.7488 25.6138L25.6125 23.75L19.3775 17.5ZM11.875 17.5C8.76751 17.5 6.25001 14.9825 6.25001 11.875C6.25001 8.76877 8.76751 6.25002 11.875 6.25002C14.9813 6.25002 17.5 8.76877 17.5 11.875C17.5 14.9825 14.9813 17.5 11.875 17.5Z" />
+					</svg>						
+				</button>
+			</form>
+		</div>
+
+		<div class="constainer">
+			<div class="main-screen">
+				<section class="now main-screen-item active-screen">
+					<div class="now_temperature">0</div>
+					<div class="now_icon"><img class="now_icon_img" src="https://openweathermap.org/img/wn/01n@4x.png" alt="cloud"></div>
+					<div class="now_city">
+						<p class="now_city_name"></p>
+						<button class="now_city_like"><svg class="like" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path  fill-rule="evenodd" clip-rule="evenodd" d="M17.5 1C15.0556 1 12.8556 2.7875 12 5.125C11.1444 2.7875 8.94444 1 6.5 1C3.44444 1 1 3.6125 1 7.1875C1 12 5.27778 16.125 12 23C18.7222 16.125 23 12 23 7.1875C23 3.6125 20.5556 1 17.5 1Z"  stroke-width="2"/>
+							</svg>
+							</button>
+					</div>
+				</section>
+
+				<section class="details main-screen-item">
+					<h1 class="details_title">Location</h1>
+					<ul class="details_list">
+						<li>Temperature: <span class="details_temperature">0</span>°</li>
+						<li>Feels like: <span class="details_fells">0</span>°</li>
+						<li>Weather: <span class="details_weather">Clouds</span></li>
+						<li>Surise <span class="details_sunrise">00:00</span></li>
+						<li>Sunset <span class="details_sunset">00:00</span></li>
+					</ul>
+				</section>
+
+				<section class="forecast main-screen-item">
+					<h1 class="forecast_title">Location</h1>
+
+					<div class="forecast_item">
+						<div class="forecast_item_title">
+							<p class="forecast_date">17 May</p>
+							<p class="forecast_time">13:00</p>
+						</div>
+						<div class="forecast_item_content">
+							<div class="forecast_weather">
+								<p>Temperature:<span class="forecast_temperature"> 0</span>°</p>
+								<p>Feels like:<span class="forecast_feels"> 0</span>°</p>
+							</div>
+							<div class="forecast_icon">
+								<p class="forecast_icon_text">Rain</p>
+								<img class="forecast_icon_img" src="https://openweathermap.org/img/wn/02n@4x.png" alt="weather">
+							</div>
+						</div>
+					</div>
+
+					<div class="forecast_item">
+						<div class="forecast_item_title">
+							<p class="forecast_date">17 May</p>
+							<p class="forecast_time">13:00</p>
+						</div>
+						<div class="forecast_item_content">
+							<div class="forecast_weather">
+								<p>Temperature:<span class="forecast_temperature"> 0</span>°</p>
+								<p>Feels like:<span class="forecast_feels"> 0</span>°</p>
+							</div>
+							<div class="forecast_icon">
+								<p class="forecast_icon_text">Rain</p>
+								<img class="forecast_icon_img" src="https://openweathermap.org/img/wn/02n@4x.png" alt="weather">
+							</div>
+						</div>
+					</div>
+
+					<div class="forecast_item">
+						<div class="forecast_item_title">
+							<p class="forecast_date">17 May</p>
+							<p class="forecast_time">13:00</p>
+						</div>
+						<div class="forecast_item_content">
+							<div class="forecast_weather">
+								<p>Temperature:<span class="forecast_temperature"> 0</span>°</p>
+								<p>Feels like:<span class="forecast_feels"> 0</span>°</p>
+							</div>
+							<div class="forecast_icon">
+								<p class="forecast_icon_text">Rain</p>
+								<img class="forecast_icon_img" src="https://openweathermap.org/img/wn/02n@4x.png" alt="weather">
+							</div>
+						</div>
+					</div>
+
+				</section>
+
+				<div class="main-screen_menu">
+					<button class="menu-button now-button active"><p>Now</p></button>
+					<button class="menu-button details-button"><p>Details</p></button>
+					<button class="menu-button forecast-button"><p>Forecast</p></button>
+				</div>
+			</div>
+
+			<aside class="added-locations">
+				<div class="added-locations_header">
+					Added Locations:
+				</div>
+		
+				<div class="added-locations_list">
+					<ul class="added-locations_list_items">
+					</ul>
+				</div>
+			</aside>
+		</div>
+
+	</main>
+
+	<script type="module" src="./js/main.js"></script>
+</body>
+</html>
