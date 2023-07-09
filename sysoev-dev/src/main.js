@@ -12,6 +12,7 @@ import { ValidationError, showError } from './js/errors';
 import { getCookie, setCookie } from './js/cookies';
 
 let messagesList;
+let countMessages = 20;
 
 function validateIsAuthor(email) {
   if (email === 'sysoev.dev@gmail.com') {
@@ -124,7 +125,6 @@ CONFIRM.FORM.addEventListener('submit', confirmFormHandler);
 
 function showMessage(item) {
   MESSAGE.LIST.append(item);
-  // srcollToBottom();
 }
 
 function convertTime(str) {
@@ -150,24 +150,28 @@ function createMessage(author, text, time, isAuthor) {
   showMessage(item);
 }
 
-function showMessages() {
-  console.log(typeof messagesList);
-  const count = 20;
-  // messagesList.messages.forEach((item) => {
-  //   const isAuthor = validateIsAuthor(item.user.email);
-  //   createMessage(item.user.name, item.text, item.createdAt, isAuthor);
-  // });
-  for (let index = 0; index < count; index++) {
-    const item = messagesList[index];
+function showCountMessages() {
+  if (countMessages > messagesList.length) {
+    const elem = document.createElement('p');
+    elem.textContent = 'История загружена';
+    MESSAGE.LIST.prepend(elem);
+    return;
+  }
+  const messages = messagesList.slice(0, countMessages).reverse();
+  messages.forEach((item) => {
     const isAuthor = validateIsAuthor(item.user.email);
     createMessage(item.user.name, item.text, item.createdAt, isAuthor);
-  }
+  });
+
+  countMessages += countMessages;
   srcollToBottom();
-  // messagesList.forEach((item) => {
-  //   // const isAuthor = validateIsAuthor(item.user.email);
-  //   // createMessage(item.user.name, item.text, item.createdAt, isAuthor);
-  // });
 }
+
+MESSAGE.LIST.addEventListener('scroll', () => {
+  if (MESSAGE.LIST.scrollTop === 0) {
+    showCountMessages();
+  }
+});
 
 async function getMessages() {
   const url = 'https://edu.strada.one/api/messages/';
@@ -181,13 +185,7 @@ async function getMessages() {
     });
     const messages = await response.json();
     messagesList = messages.messages;
-    console.log(messagesList);
-    showMessages();
-    // messages.messages.reverse().forEach((item) => {
-    //   const isAuthor = validateIsAuthor(item.user.email);
-    //   createMessage(item.user.name, item.text, item.createdAt, isAuthor);
-    // });
-    // srcollToBottom();
+    showCountMessages();
   } catch (error) {
     showError(error);
   }
