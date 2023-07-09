@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./style.css">
+	<title>Сhat</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="chat hidden">
+			<div class="chat-header">
+				<button class="chat-btn chat-btn_settings">Настройки</button>
+				<button class="chat-btn chat-btn_exit chat-btn_exit">Выйти</button>
+			</div>
+			<div class="chat__screen-wrapper">
+				<div class="chat-screen">
+				<template id="message-template">
+					<div class="chat-message message_sent">
+					<div>
+						<span class="message-sender"></span>:
+						<span class="message-text"></span>
+					</div>
+					<div class="message-time"></div>
+				</div>
+				</template>
+			</div>
+			</div>
+			<div class="chat-send">
+				<form class="chat-send_form">
+					<input type="text" class="chat-send_input" placeholder="сообщение..">
+					<button type="submit" class="chat-btn chat-btn_send">-></button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<dialog class="modal authorization">
+		<div class="modal-header">
+			<p class="modal-title">Авторизация</p>
+			<button class="modal-btn_close"></button>
+		</div>
+		<div>
+			<p class="modal-subtitle">Почта:</p>
+			<form class="modal-form modal-form_authorization">
+				<input type="email" class="modal-form-input input-authorization" autofocus>
+				<div>
+					<button class="authorization-btn authorization-btn_get chat-btn">Получить код</button>
+					<button class="authorization-btn authorization-btn_enter chat-btn" disabled type="button">Ввести код</button>
+				</div>
+			</form>
+		</div>
+	</dialog>
+	<dialog class="modal verification">
+		<div class="modal-header">
+			<p class="modal-title">Подтверждение</p>
+			<button class="modal-btn_close"></button>
+		</div>
+		<div>
+			<p class="modal-subtitle">Код:</p>
+			<form class="modal-form modal-form_verification">
+				<input type="text" class="modal-form-input input-verification" autofocus>
+				<button class="verification-btn chat-btn">Войти</button>
+			</form>
+		</div>
+	</dialog>
+	<dialog class="modal settings">
+		<div class="modal-header">
+			<p class="modal-title">Настройки</p>
+			<button class="modal-btn_close close-settings"></button>
+		</div>
+		<div>
+			<p class="modal-subtitle">Имя в чате</p>
+			<form class="modal-form modal-form_settings">
+				<input type="text" class="modal-form-input input-settings" placeholder="Анатолий" autofocus value="nickname">
+				<button class="chat-btn chat-btn_send settings-btn">-></button>
+			</form>
+		</div>
+	</dialog>
+	<script type="module" src="./js/main.js"></script>
+</body>
+</html>
