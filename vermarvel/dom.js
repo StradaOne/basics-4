@@ -54,10 +54,8 @@ const dom = {
     }
   },
 
-  //   displayConfirmationDelSet(set) {
-  //     this.confirmation.value = set;
-  //     this.confirmation.showModal();
-  //   },
+  noticeFullyLoaded: "The history is fully loaded",
+  errNameRequirementsStr: "The name should be atleast 3 letters/symbols",
 };
 
 export default dom;

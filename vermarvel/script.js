@@ -3,58 +3,43 @@
 
 import dom from "./dom.js";
 import { cookies } from "./cookie.js";
-// import state from "./state.mjs";
-// import utils from "./utils.mjs";
+import { url } from "./urls.js";
+import { user } from "./state.js";
+import { utils } from "./utils.js";
 
-let userNickName = null;
-let userEmail = null;
 let memory = [];
-// let otherNickName = "Sam";
 let socket;
-const url = `https://edu.strada.one/api/user`;
-const urlMessages = `https://edu.strada.one/api/messages/`;
-
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%  Utils  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function timeFormat(time) {
-  const date = new Date(time);
-  return date.toLocaleString().slice(11, 23);
-}
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%  Business Logic  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function uiMessage(message) {
-  const data = JSON.parse(message.data);
-  console.log(data);
-  let clone;
-  if (data.user.email !== userEmail) {
-    clone = dom.templateOtherMessage.content.cloneNode(true);
-  } else {
-    clone = dom.templateUserMessage.content.cloneNode(true);
-  }
+function saveCode() {
+  user.token = dom.inputDialogConfirm.value;
+  dom.inputDialogConfirm.value = "";
+  cookies.cookify("token", user.token);
+  dom.closeDialog("settings");
+}
 
-  const name = clone.querySelector(".name");
-  name.textContent = data.user.name;
-  const stamp = clone.querySelector("em");
-  stamp.textContent = timeFormat(data.updatedAt);
-  const messageText = clone.querySelector(".message-text");
-  messageText.textContent = data.text;
-  dom.tape.appendChild(clone);
-  // // Scroll to the uptodate messages
-  // dom.parentMessages.scrollTo(0, dom.parentMessages.scrollHeight);
+async function sendUserMessage() {
+  try {
+    const textMessage = dom.inputMessage.value.trim();
+
+    socket.send(JSON.stringify({ text: textMessage }));
+  } catch (error) {
+    console.error(error);
+  } finally {
+    dom.inputMessage.value = "";
+    setTimeout(utils.scrollToBottom, 100);
+  }
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%  REQUESTS TO SERVER  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function changeName(event) {
-  event.preventDefault();
-
-  userNickName = dom.inputDialogName.value.trim();
+function changeName() {
+  user.name = dom.inputDialogName.value.trim();
 
   dom.inputDialogConfirm.value = "";
-  if (userNickName.length < 3) {
-    dom.errorSettings.textContent =
-      "The name should be atleast 3 letters/symbols";
+  if (user.name.length < 3) {
+    dom.errorSettings.textContent = dom.errNameRequirementsStr;
 
     dom.errorSettings.classList.remove("hidden");
     return;
@@ -68,10 +53,10 @@ function changeName(event) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name: userNickName }),
+    body: JSON.stringify({ name: user.name }),
   };
 
-  fetch(url, requestOptions)
+  fetch(url.user, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -87,12 +72,11 @@ function changeName(event) {
   getHistory();
 }
 
-function submitUserEmail(event) {
-  event.preventDefault();
+function submitUserEmail() {
+  dom.errorAuth.classList.add("hidden");
+  user.email = dom.inputDialogEmail.value.trim();
 
-  userEmail = dom.inputDialogEmail.value.trim();
-
-  if (!userEmail) {
+  if (!user.email) {
     dom.errorAuth.textContent = "Please fill in your email to authorize";
     dom.errorAuth.classList.remove("hidden");
     return;
@@ -104,10 +88,10 @@ function submitUserEmail(event) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email: userEmail }),
+    body: JSON.stringify({ email: user.email }),
   };
 
-  fetch(url, requestOptions)
+  fetch(url.user, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -127,21 +111,18 @@ function getHistory() {
     },
   };
 
-  fetch(urlMessages, requestOptions)
+  fetch(url.messages, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       const array = data.messages.map(({ text, createdAt: time, user }) => ({
         text,
-        time: timeFormat(time),
+        time: utils.timeFormat(time),
         user: user.name,
         email: user.email,
       }));
-
-      const chunkSize = 20;
-      for (let i = 0; i < array.length; i += chunkSize) {
-        const element = array.slice(i, i + chunkSize);
-        memory.push(element.reverse());
-      }
+      console.log(memory);
+      memory = utils.splitArray(20, array);
+      console.log(memory);
 
       renderHistory();
     })
@@ -150,17 +131,17 @@ function getHistory() {
     });
 }
 
+//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& RENDERS &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
 function renderHistory(mode = "initial") {
   if (!memory.length) {
-    const notice = "The history is fully loaded";
-    dom.notice.textContent = notice;
+    dom.notice.textContent = dom.noticeFullyLoaded;
     return;
   }
-  console.log(mode);
-  console.log(memory);
+
   const toBeRenderedNow = memory.at(0);
   memory.shift();
-  console.log(toBeRenderedNow);
+
   const nodes = toBeRenderedNow.map((m) => prepareHTML(m));
   const strings = nodes.map((fragment) => {
     const div = document.createElement("div");
@@ -173,47 +154,59 @@ function renderHistory(mode = "initial") {
   dom.tape.insertAdjacentHTML("afterbegin", html);
 
   // Scroll down if the history download is at the chat openning
-  if (mode === "initial") {
-    setTimeout(scrollToBottom, 1000);
-  }
-}
 
-function scrollToBottom() {
-  dom.parentMessages.scrollTo(0, dom.parentMessages.scrollHeight);
+  if (mode === "initial") {
+    setTimeout(utils.scrollToBottom, 1000);
+  }
 }
 
 function prepareHTML(obj) {
-  if (obj.email !== userEmail) {
-    const clone = dom.templateOtherMessage.content.cloneNode(true);
-    const name = clone.querySelector(".other-name");
+  let clone;
+  obj.email !== user.email
+    ? (clone = dom.templateOtherMessage.content.cloneNode(true))
+    : (clone = dom.templateUserMessage.content.cloneNode(true));
 
-    name.textContent = obj.user;
-    const stamp = clone.querySelector("em");
-    stamp.textContent = obj.time;
-    const messageText = clone.querySelector(".other-message-text");
-    messageText.textContent = obj.text;
-    return clone;
+  const name = clone.querySelector(".name");
+  name.textContent = obj.user;
+  const stamp = clone.querySelector("em");
+  stamp.textContent = obj.time;
+  const messageText = clone.querySelector(".message-text");
+  messageText.textContent = obj.text;
+  return clone;
+}
+
+function uiMessage(message) {
+  const data = JSON.parse(message.data);
+  console.log(data);
+  let clone;
+  if (data.user.email !== user.email) {
+    clone = dom.templateOtherMessage.content.cloneNode(true);
   } else {
-    const clone = dom.templateUserMessage.content.cloneNode(true);
-    const name = clone.querySelector(".name");
+    clone = dom.templateUserMessage.content.cloneNode(true);
+  }
 
-    name.textContent = obj.user;
-    const stamp = clone.querySelector("em");
-    stamp.textContent = obj.time;
-    const messageText = clone.querySelector(".user-message-text");
-    messageText.textContent = obj.text;
-    return clone;
+  const name = clone.querySelector(".name");
+  name.textContent = data.user.name;
+  const stamp = clone.querySelector("em");
+  stamp.textContent = utils.timeFormat(data.updatedAt);
+  const messageText = clone.querySelector(".message-text");
+  messageText.textContent = data.text;
+  dom.tape.appendChild(clone);
+  // // Scroll to the uptodate messages
+  dom.parentMessages.scrollTo(0, dom.parentMessages.scrollHeight);
+}
+
+function loadMore() {
+  // Reaching coord in Y of the chat
+  const approach = 0;
+  const scrollSpot = dom.tape.offsetTop - dom.parentMessages.scrollTop;
+  if (scrollSpot >= approach) {
+    renderHistory("loadMore");
+  } else {
+    dom.notice.textContent = "";
   }
 }
-
-function saveCode(event) {
-  event.preventDefault();
-  const token = dom.inputDialogConfirm.value;
-  dom.inputDialogConfirm.value = "";
-  cookies.cookify("token", token);
-
-  dom.closeDialog("settings");
-}
+// &&&&&&&&&&&&&&&&&&&&&&& WEB-SOCKET &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 function connect(token) {
   return new Promise((resolve, reject) => {
@@ -237,70 +230,32 @@ function disonnect() {
   }
 }
 
-async function sendUserMessage(event) {
-  event.preventDefault();
-  try {
-    const textMessage = dom.inputMessage.value.trim();
-
-    socket.send(JSON.stringify({ text: textMessage }));
-  } catch (error) {
-    console.error(error);
-  } finally {
-    dom.inputMessage.value = "";
-    setTimeout(scrollToBottom, 100);
-  }
-}
-
 //&&&&&&&&&&&&&&&&&&&&&& LISTENERS &&&&&&&&&&&&&&&&&&&&&&
-
-dom.tape.addEventListener(
-  "scroll",
-  function (e) {
-    console.log(e);
-  },
-  true
-);
-
-dom.parentMessages.addEventListener("scroll", function (e) {
-  const approach = 0;
-  const scrollSpot = dom.tape.offsetTop - dom.parentMessages.scrollTop;
-  if (scrollSpot >= approach) {
-    renderHistory("loadMore");
-  } else {
-    dom.notice.textContent = "";
-  }
-});
-
-dom.tape.addEventListener("scroll", function () {
-  console.log(scrollY + "px");
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   dom.closeDialog("auth");
 });
 
-dom.tape.addEventListener("scroll", () => {
-  console.log("SCROLL", scrollTOP);
-});
+dom.parentMessages.addEventListener("scroll", loadMore);
 
-dom.formMessage.addEventListener("submit", (event) => {
-  sendUserMessage(event);
-});
+dom.main.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const target = event.target;
+  if (target.classList.contains("form-message")) {
+    sendUserMessage();
+  }
 
-dom.formAuthEmail.addEventListener("submit", (event) => {
-  submitUserEmail(event);
-});
+  if (target.classList.contains("form-email")) {
+    submitUserEmail();
+  }
 
-dom.formConfirm.addEventListener("submit", (event) => {
-  saveCode(event);
-});
+  if (target.classList.contains("form-confirm")) {
+    saveCode();
+  }
 
-dom.formName.addEventListener("submit", (event) => {
-  changeName(event);
-});
-
-dom.btnSubmitCode.addEventListener("click", (event) => {
-  dom.closeDialog("confirm");
+  if (target.classList.contains("form-name")) {
+    changeName();
+  }
 });
 
 dom.main.addEventListener("click", (event) => {
@@ -321,10 +276,12 @@ dom.main.addEventListener("click", (event) => {
     target.classList.contains("btn-exit") ||
     target.classList.contains("icon-exit-settings")
   ) {
-    console.log("exit");
     disonnect();
     dom.tape.innerHTML = "";
     dom.closeDialog("auth");
+  }
+  if (target.classList.contains("btn-submit-code")) {
+    dom.closeDialog("confirm");
   }
 });
 
@@ -333,9 +290,13 @@ dom.main.addEventListener("click", (event) => {
 // UI:
 // check for unconnected ws: ws reconnect
 
-// Ref: Listeners
+// ws Module?
 // Errors UI
 
 // Bugs:
+//Confirm x mark not working
 
 // DONE today:
+// Ref: Listeners (submit delegation)
+// Scroll after each message
+// user object
