@@ -31,11 +31,16 @@ function validateIsAuthor(email) {
 
 const socket = new WebSocket(`wss://edu.strada.one/websockets?${getCookie()}`);
 
+socket.onopen = function () {
+  AUTH.BTN_OPEN.textContent = 'Выйти';
+};
+
 socket.onmessage = (event) => {
   try {
     const data = JSON.parse(event.data);
     const isAuthor = validateIsAuthor(data.user.email);
     createMessage(data.user.name, data.text, data.createdAt, isAuthor);
+    srcollToBottom();
   } catch (error) {
     showError(error);
   }
