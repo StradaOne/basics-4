@@ -1,5 +1,6 @@
 import { storage } from "./modules/storage.js";
 import { cookie } from "./modules/cookie.js";
+import { logic } from "./modules/BLL/logic.js";
 
 function getElement(selector){
     return document.querySelector(selector);
@@ -9,6 +10,9 @@ function getNodeList(selector){
     return document.querySelectorAll(selector);
 }
 
+const loginMessage = getElement('.login-message');
+const buttonSettings = getElement('.button_settings');
+const buttonExit = getElement('.button_exit');
 const formAddMessage = getElement('.form');
 const inputMessage = getElement('.input_ms');
 const content = getElement('.content');
@@ -24,7 +28,7 @@ const buttons = getNodeList('.button');
 
 let startElement = 0;
 let lastElement = 20;
-let marker = true;;
+let marker = true;
 
 function render(){
     if(marker){
@@ -44,7 +48,6 @@ function render(){
         }
     }
 }
-render()
 
 function createHtmlElementMessage(userName, message, date, flag, added){
 
@@ -89,7 +92,6 @@ function isValid(message){
 
 function addMessage(event){
     event.preventDefault()
-    const name = storage.get('name');
     socket.send(
         JSON.stringify({ text: inputMessage.value })
     );
@@ -101,39 +103,19 @@ function addMessage(event){
     event.target.reset()
 }
 
-// async function getNameFromServer(){
-//     const token = cookie.getCookie('token');
-//     const response = await fetch('https://edu.strada.one/api/user/me', {
-//         method: 'GET',
-//         headers: {
-//             Authorization: `Bearer ${token}`,
-//             'Content-Type': 'application/json;charset=utf-8'
-//           },   
-//     });
-//     const data = await response.json();
-//     storage.add('name', data.name)
-// }
-
 for(const form of forms){
     if(form.classList.contains('addName')){
         form.addEventListener('submit', async (event) => {
             event.preventDefault()
-            const token = cookie.getCookie('token');
-            if(token){
-                const formData = new FormData(form);
-                const name = formData.get('inputName');
-                await fetch('https://edu.strada.one/api/user', {
-                    method: 'PATCH',
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json;charset=utf-8'
-                      },        
-                    body: JSON.stringify({name})
-                })
+            const formData = new FormData(form);
+            const name = formData.get('inputName');
+            notice.textContent = 'Новое имя отправляется';
+            const result = await logic.setName(name);
+            if(result){
+                notice.textContent = 'Имя успешно изменено';
             } else {
-                notice.textContent = 'You need to get token';
+                notice.textContent = 'Ошибка, попробуйте позже';
             }
-
             form.reset()
         })
     }
@@ -142,24 +124,28 @@ for(const form of forms){
             event.preventDefault()
             const formData = new FormData(form);
             const email = formData.get('inputEmail');
-            await fetch('https://edu.strada.one/api/user', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                  },
-                body: JSON.stringify({email})
-            });
-
+            notice.textContent = 'Запрос отправляется';
+            const result = await logic.getTokenOnEmail(email);
+            if(result){
+                notice.textContent = 'Токен отправлен вам на почту';
+            } else {
+                notice.textContent = 'Вы ввели не корректный email';
+            }
             form.reset()
         })
     }
     if(form.classList.contains('confirm')){
-        form.addEventListener('submit', (event) => {
+        form.addEventListener('submit', async (event) => {
             event.preventDefault()
-            const date = new Date(Date.now() +  604800e3);
             const formData = new FormData(form);
             const token = formData.get('inputToken');
-            cookie.setCookie(token, date)
+            notice.textContent = 'Проверка токена';
+            const result = await logic.saveTokenToCookieAndInitialithation(token);
+            if(result){
+                notice.textContent = 'Токен подтвержден';
+            } else {
+                notice.textContent = 'Вы ввели не верный токен';
+            }
             event.target.reset()
         })
         
@@ -173,12 +159,10 @@ async function getWebSocket(){
     socket = new WebSocket(`wss://edu.strada.one/websockets?${token}`);
     socket.onopen = function(){
         wrapper.classList.remove('wrapper-height')
+        content.classList.remove('hide-border')
         formAddMessage.classList.remove('hide')
     }
 }
-getWebSocket()
-
-
 
 async function getHistoryMessage(){
     const token = cookie.getCookie('token');
@@ -193,7 +177,6 @@ async function getHistoryMessage(){
     const data = await response.json();
     storage.add('historyMessage', data.messages)
 }
-
 
 function closeDialog(){
     for(const dialog of dialogs){
@@ -236,9 +219,17 @@ for(const button of buttons){
 
 formAddMessage.addEventListener('submit', addMessage)
 
-window.addEventListener('DOMContentLoaded', () => {
-    content.scrollTop = content.scrollHeight;
-    getHistoryMessage()
+window.addEventListener('DOMContentLoaded', async () => {
+    const result = await logic.initializationApp();
+    if(result){
+        loginMessage.classList.add('hide')
+        buttonSettings.classList.remove('hide')
+        buttonExit.textContent = 'Exit';
+        await getWebSocket()
+        getHistoryMessage()
+        render()
+    }
+    // content.scrollTop = content.scrollHeight;
 })
 
 content.addEventListener('scroll', (event) => {

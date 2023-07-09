@@ -12,10 +12,11 @@
     <div class="wrapper wrapper-height">
         <div class="chat">
             <div class="menu">
-                <button class="button button_settings">Settings</button>
+                <button class="button button_settings hide">Settings</button>
                 <button class="button button_exit">Login</button>
+                <div class="login-message">You must text token</div>
             </div>
-            <div class="content">
+            <div class="content hide-border">
                 <template id="tp">
                     <div class="message message_delivered">
                         <div class="ms">
@@ -45,7 +46,6 @@
                     <button class="button button_ms">-></button>
                 </div>
             </form>
-            <div class="notice"></div>
         </div>
     </div>
     <div class="dialog dialog_autoriz">
@@ -58,11 +58,10 @@
                 <label for="">Email:</label>
                     <input class="input input__email" type="email" name="inputEmail">
                     <div class="input__block">
-                        <button class="button button_autoriz">Get code</button>
+                        <button class="button button_autoriz">Get token</button>
                     </div>
             </form>
-            <button class="button button_text-code">Text code</button>
-            <div class="notice"></div>
+            <button class="button button_text-code">Text token</button>
         </div>
     </div>
     <div class="dialog dialog_confirm">
@@ -76,8 +75,8 @@
                 <input class="input input__confirm" type="text" name="inputToken">
                 <button class="button button_confirm">Login</button>
             </form>
-            <div class="notice"></div>
         </div>
     </div>
+    <div class="notice"></div>
 </body>
 </html>

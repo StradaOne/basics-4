@@ -47,6 +47,7 @@
 
   body {
     background-color: rgb(240, 240, 240);
+    overflow: hidden;
   }
 
   .wrapper {
@@ -187,4 +188,22 @@
 
   .hide {
     display: none;
+  }
+
+  .hide-border {
+    border: none;
+  }
+
+  .login-message {
+    margin-top: 7px;
+    margin-right: 50px;
+    color: red;
+  }
+
+  .notice {
+    color: red;
+    text-align: center;
+    position: relative;
+    margin-top: 200px;
+    z-index: 100;
   }

@@ -11,7 +11,7 @@ const storage = {
       const value = localStorage[key];
       return JSON.parse(value); 
     } catch(error) {
-        console.log(error)
+        console.log(error.message)
         return [];
     }
 
