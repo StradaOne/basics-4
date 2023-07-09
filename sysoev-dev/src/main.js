@@ -14,6 +14,14 @@ import { getCookie, setCookie } from './js/cookies';
 let messagesList;
 let countMessages = 20;
 
+class User {
+  constructor(name) {
+    this.name = null;
+    this.email = null;
+    this.token = null;
+  }
+}
+
 function validateIsAuthor(email) {
   if (email === 'sysoev.dev@gmail.com') {
     return true;
@@ -206,7 +214,6 @@ function sendMessageHandler(event) {
     return;
   }
   socket.send(JSON.stringify({ text: `${messageText}` }));
-  // srcollToBottom();
   event.target.reset();
 }
 
@@ -232,14 +239,6 @@ UI_ELEMENTS.BTN_CLOSE_DIALOG.forEach((item) => {
 });
 
 MESSAGE.FORM.addEventListener('submit', sendMessageHandler);
-
-// setTimeout(() => {
-//   console.log(messagesList);
-// }, 2000);
-
-// MESSAGE.LIST.addEventListener('scroll', (event) => {
-//   // console.log(MESSAGE.LIST_WRAPPER.scrollHeight);
-// });
 
 window.addEventListener('DOMContentLoaded', () => {
   getMessages();
