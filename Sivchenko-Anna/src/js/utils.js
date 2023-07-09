@@ -17,8 +17,8 @@ export function clearInput(value) {
 
 // * функция проверки пустой строки
 
-export function isMessageEmpty(message) {
-	return !message.trim();
+export function isValueEmpty(value) {
+	return !value.trim();
 }
 
 // * функция смены модального окна
@@ -35,6 +35,13 @@ export function isEmailValid(value) {
 		/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 	return EMAIL_REGEXP.test(value);
 }
+
+// // * функция проверки валидности email
+
+// export function isCodeValid(value) {
+// 	const regex = /^[а-яА-ЯёЁ]+$/;
+// 	return regex.test(value);
+// }
 
 // * функция прокрутки скролла вниз
 

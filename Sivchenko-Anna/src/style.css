@@ -90,12 +90,12 @@ body {
 	max-width: 90%;
 }
 
-.chat-message_user {
-	align-self: flex-end;
-}
-
 .chat-message_companion {
 	align-self: start;
+}
+
+.chat-message_user {
+	align-self: flex-end;
 }
 
 .message-text {
@@ -198,11 +198,11 @@ body {
 	width: 85%;
 }
 
-.invalid-email {
+.invalid-value {
 	border: 1px solid red;
 }
 
-.valid-email {
+.valid-value {
 	border: 1px solid green;
 }
 

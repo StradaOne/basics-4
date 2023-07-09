@@ -1,5 +1,7 @@
 export const VARIABLES = {
+	CHAT: document.querySelector(".chat"),
 	SETTINGS_BTN: document.querySelector(".chat-btn_settings"),
+	EXIT_BTN: document.querySelector(".chat-btn_exit"),
 	MESSAGE_FORM: document.querySelector(".chat-send_form"),
 	CHAT_SCREEN: document.querySelector(".chat-screen"),
 	MESSAGE_TEMPLATE: document.querySelector("#message-template"),

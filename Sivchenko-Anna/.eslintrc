@@ -15,7 +15,6 @@
 		],
 		"no-unused-vars": "warn",
 		"no-console": "off",
-		"no-alert": "off",
 		"func-names": "off",
 		"object-shorthand": "off",
 		"max-classes-per-file": ["error", 10],

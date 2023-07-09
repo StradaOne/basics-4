@@ -11,10 +11,10 @@
 </head>
 <body>
 	<div class="wrapper">
-		<div class="chat">
+		<div class="chat hidden">
 			<div class="chat-header">
 				<button class="chat-btn chat-btn_settings">Настройки</button>
-				<button class="chat-btn chat-btn_exit chat-btn_sign-in">Войти</button>
+				<button class="chat-btn chat-btn_exit chat-btn_exit">Выйти</button>
 			</div>
 			<div class="chat__screen-wrapper">
 				<div class="chat-screen">
@@ -45,7 +45,7 @@
 		<div>
 			<p class="modal-subtitle">Почта:</p>
 			<form class="modal-form modal-form_authorization">
-				<input type="email" class="modal-form-input input-authorization">
+				<input type="email" class="modal-form-input input-authorization" autofocus>
 				<div>
 					<button class="authorization-btn authorization-btn_get chat-btn">Получить код</button>
 					<button class="authorization-btn authorization-btn_enter chat-btn" disabled type="button">Ввести код</button>
@@ -61,7 +61,7 @@
 		<div>
 			<p class="modal-subtitle">Код:</p>
 			<form class="modal-form modal-form_verification">
-				<input type="text" class="modal-form-input input-verification">
+				<input type="text" class="modal-form-input input-verification" autofocus>
 				<button class="verification-btn chat-btn">Войти</button>
 			</form>
 		</div>
@@ -74,7 +74,7 @@
 		<div>
 			<p class="modal-subtitle">Имя в чате</p>
 			<form class="modal-form modal-form_settings">
-				<input type="text" class="modal-form-input input-settings" placeholder="Анатолий">
+				<input type="text" class="modal-form-input input-settings" placeholder="Анатолий" autofocus value="nickname">
 				<button class="chat-btn chat-btn_send settings-btn">-></button>
 			</form>
 		</div>
