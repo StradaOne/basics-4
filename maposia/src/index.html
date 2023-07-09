@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+    <title>Chat App</title>
+</head>
+<body>
+<div class="preloader">
+    <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+</div>
+<div class="chat__app">
+    <div class="chat__wrapper hide">
+        <div class="chat__header" >
+            <div class="chat__header__wrap">
+                <div class="chat__header__setting">
+                    <svg class="chat__header__setting__icon" width="32" height="32" viewBox="0 0 16 16" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.14667 1.33333H7.85333C7.49971 1.33333 7.16057 1.47381 6.91053 1.72386C6.66048 1.97391 6.52 2.31304 6.52 2.66667V2.78667C6.51976 3.02048 6.45804 3.25013 6.34103 3.45256C6.22401 3.65499 6.05583 3.82309 5.85333 3.94L5.56667 4.10667C5.36398 4.22369 5.13405 4.2853 4.9 4.2853C4.66595 4.2853 4.43603 4.22369 4.23333 4.10667L4.13333 4.05333C3.82738 3.87684 3.46389 3.82896 3.12267 3.92021C2.78145 4.01145 2.49037 4.23436 2.31333 4.54L2.16667 4.79333C1.99018 5.09929 1.9423 5.46278 2.03354 5.804C2.12478 6.14522 2.34769 6.4363 2.65333 6.61333L2.75333 6.68C2.95485 6.79634 3.12241 6.96339 3.23937 7.16455C3.35632 7.36572 3.4186 7.59398 3.42 7.82667V8.16667C3.42093 8.40161 3.35977 8.63263 3.2427 8.83634C3.12563 9.04004 2.95681 9.20919 2.75333 9.32667L2.65333 9.38667C2.34769 9.5637 2.12478 9.85478 2.03354 10.196C1.9423 10.5372 1.99018 10.9007 2.16667 11.2067L2.31333 11.46C2.49037 11.7656 2.78145 11.9886 3.12267 12.0798C3.46389 12.171 3.82738 12.1232 4.13333 11.9467L4.23333 11.8933C4.43603 11.7763 4.66595 11.7147 4.9 11.7147C5.13405 11.7147 5.36398 11.7763 5.56667 11.8933L5.85333 12.06C6.05583 12.1769 6.22401 12.345 6.34103 12.5474C6.45804 12.7499 6.51976 12.9795 6.52 13.2133V13.3333C6.52 13.687 6.66048 14.0261 6.91053 14.2761C7.16057 14.5262 7.49971 14.6667 7.85333 14.6667H8.14667C8.50029 14.6667 8.83943 14.5262 9.08948 14.2761C9.33952 14.0261 9.48 13.687 9.48 13.3333V13.2133C9.48024 12.9795 9.54196 12.7499 9.65898 12.5474C9.77599 12.345 9.94418 12.1769 10.1467 12.06L10.4333 11.8933C10.636 11.7763 10.866 11.7147 11.1 11.7147C11.334 11.7147 11.564 11.7763 11.7667 11.8933L11.8667 11.9467C12.1726 12.1232 12.5361 12.171 12.8773 12.0798C13.2186 11.9886 13.5096 11.7656 13.6867 11.46L13.8333 11.2C14.0098 10.894 14.0577 10.5306 13.9665 10.1893C13.8752 9.84811 13.6523 9.55703 13.3467 9.38L13.2467 9.32667C13.0432 9.20919 12.8744 9.04004 12.7573 8.83634C12.6402 8.63263 12.5791 8.40161 12.58 8.16667V7.83333C12.5791 7.59839 12.6402 7.36736 12.7573 7.16366C12.8744 6.95996 13.0432 6.79081 13.2467 6.67333L13.3467 6.61333C13.6523 6.4363 13.8752 6.14522 13.9665 5.804C14.0577 5.46278 14.0098 5.09929 13.8333 4.79333L13.6867 4.54C13.5096 4.23436 13.2186 4.01145 12.8773 3.92021C12.5361 3.82896 12.1726 3.87684 11.8667 4.05333L11.7667 4.10667C11.564 4.22369 11.334 4.2853 11.1 4.2853C10.866 4.2853 10.636 4.22369 10.4333 4.10667L10.1467 3.94C9.94418 3.82309 9.77599 3.65499 9.65898 3.45256C9.54196 3.25013 9.48024 3.02048 9.48 2.78667V2.66667C9.48 2.31304 9.33952 1.97391 9.08948 1.72386C8.83943 1.47381 8.50029 1.33333 8.14667 1.33333V1.33333Z"
+                              stroke="#555758" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 10C9.10457 10 10 9.10457 10 8C10 6.89543 9.10457 6 8 6C6.89543 6 6 6.89543 6 8C6 9.10457 6.89543 10 8 10Z"
+                              stroke="#555758" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="chat__header__user">
+                    <img src="./img/user-avatar.png" alt="" class="chat__header__user__avatar">
+                    <div class="chat__header__user__name"></div>
+                </div>
+            </div>
+
+            <div class="chat__header__logout">
+                <svg class="chat__header__logout__icon" width="32" height="32" viewBox="0 0 16 16" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V3.33333C2 2.97971 2.14048 2.64057 2.39052 2.39052C2.64057 2.14048 2.97971 2 3.33333 2H6"
+                          stroke="#555758" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.6667 11.3333L14 8L10.6667 4.66666" stroke="#555758" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                    <path d="M14 8H6" stroke="#555758" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="chat__window">
+            <div class="chat__messages">
+                <template id="template_chat_message">
+                    <div class="chat__message">
+                        <div class="chat__message__avatar">
+                            <img src="./img/user2-avatar.png" alt="" class="chat_message__avatar__img">
+                        </div>
+                        <div class="chat__message__wrap">
+                            <span class="chat__message__username"></span>
+                            <p class="chat__message__text">
+                            </p>
+                            <span class="chat__message__time"></span>
+                        </div>
+                    </div>
+                </template>
+
+            </div>
+            <form class="chat__form">
+                <input class="chat__form__input" value="" placeholder="Сообщение">
+                <button class="chat__form__btn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="send" clip-path="url(#clip0_101_224)">
+                            <path id="Vector" d="M14.6667 1.33334L7.33334 8.66668" stroke="white" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path id="Vector_2"
+                                  d="M14.6667 1.33334L10 14.6667L7.33334 8.66668L1.33334 6.00001L14.6667 1.33334Z"
+                                  stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_101_224">
+                                <rect width="16" height="16" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+<dialog class="chat__modal chat__setting" >
+    <div class="chat__modal__header chat__setting__header">
+        <div class="chat__modal__title chat__setting__title">
+            Настройки
+        </div>
+        <div class="chat__modal__close chat__setting__close">
+            <svg height="16px" viewBox="0 0 512 512" width="16px"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z"/>
+            </svg>
+        </div>
+    </div>
+    <div class="chat__modal__field chat__setting__field">
+        <form class="chat__setting__form">
+            <label for="chat__setting__input" class="chat__setting__label chat__modal__label">Имя в чате</label>
+            <div class="chat__modal__input__wrap chat__setting__input__wrap">
+                <input type="text" class="chat__modal__input chat__setting__input" id="chat__setting__input"
+                       placeholder="Введите новое имя" name="name">
+                <button class="chat__modal__submit chat__setting__submit">
+                    <span>Изменить</span>
+                </button>
+            </div>
+        </form>
+        <div class="chat__setting__theme">
+            <div class="chat__setting__theme__header">Выберите тему</div>
+            <div class='chat__setting__theme__toggle-switch'>
+                <label class="chat__setting__theme__label">
+                    <input type='checkbox' class="chat__setting__theme__input" checked>
+                    <span class='chat__setting__theme__slider'></span>
+                </label>
+            </div>
+            <div class="chat__setting__theme__current-label">Светлая тема</div>
+        </div>
+    </div>
+</dialog>
+
+<dialog class="chat__modal chat__auth">
+    <div class="chat__modal__header">
+        <div class="chat__modal__title">
+            Авторизация
+        </div>
+
+    </div>
+    <div class="chat__modal__field">
+        <form class="chat__modal__form chat__auth__form">
+            <label for="chat__auth__input" class="chat__modal__label">Введите почту:</label>
+            <div class="chat__modal__input__wrap">
+                <input type="text" class="chat__modal__input chat__auth__input" id="chat__auth__input"
+                       placeholder="Введите email">
+
+                <button class="chat__modal__submit chat__auth__btn">
+                    <span>Получить код</span>
+                </button>
+
+            </div>
+            <small class="chat__auth__input__message"></small>
+        </form>
+        <form class="chat__modal__form chat__login__form hide">
+            <label for="chat__login__input" class="chat__modal__label">Введите код:</label>
+            <div class="chat__modal__input__wrap">
+                <input type="text" class="chat__modal__input chat__login__input" id="chat__login__input"
+                       placeholder="Укажите код из сообщения">
+                <button class="chat__modal__submit chat__login__btn">
+                    <span>Войти</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</dialog>
+
+<script src="./index.js" type="module"></script>
+</body>
+</html>
