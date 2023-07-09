@@ -49,7 +49,7 @@ main.form.addEventListener("submit", function (event) {
     event.preventDefault();
 
     setTimeout(function () {
-        main.message_my.innerHTML = "";
+        // main.message_my.innerHTML = "";
         console.log("socked = ", socked);
         socked.send(JSON.stringify({ text: main.input_message.value }));
         socked.onclose = function () {
@@ -58,7 +58,7 @@ main.form.addEventListener("submit", function (event) {
         socked.onerror = function () {
             console.log("Ошибка веб-сокета.");
         };
-        render();
+        // render();
     }, 2000)
     // generatorTemplate(main.input_message.value, main.modal_input_settings.value, presentTime(), "message_my");
 });
