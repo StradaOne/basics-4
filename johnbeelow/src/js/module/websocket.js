@@ -1,7 +1,9 @@
 import { parseMessage } from './message.js'
 import { ERROR, WEB_SOCKET, LOG, SETTING_CONSOLE } from './confing.js'
 import { WebSocketError } from './errors.js'
+import { TYPE } from './confing.js'
 
+const { MESSAGE } = TYPE
 const { URL } = WEB_SOCKET
 const { HEADING, COLOR } = SETTING_CONSOLE
 
@@ -17,7 +19,7 @@ const connectWebSocket = (token) => {
 
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data)
-      parseMessage(data)
+      parseMessage(data, MESSAGE.UP)
     }
 
     socket.onclose = (event) => {

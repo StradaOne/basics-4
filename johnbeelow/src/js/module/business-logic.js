@@ -2,8 +2,10 @@ import { getHistoryChat } from './api.js'
 import { updateScroll } from './ui.js'
 import { isEmptyArray } from './validation.js'
 import { SYSTEM_MESSAGE } from './confing.js'
-import { renderSystemMessage, parseHistoryMessage } from './message.js'
+import { renderSystemMessage, parseMessage } from './message.js'
+import { TYPE } from './confing.js'
 
+const { MESSAGE } = TYPE
 const { STORY_IS_UPLOADED } = SYSTEM_MESSAGE
 
 let paginatedData = []
@@ -16,7 +18,7 @@ const appendHistory = async () => {
 
   const showList = () => {
     paginatedData = data.reverse().slice(start, end)
-    paginatedData.map((messages) => parseHistoryMessage(messages))
+    paginatedData.map((messages) => parseMessage(messages, MESSAGE.DOWN))
 
     start += 20
     end += 20

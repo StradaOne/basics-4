@@ -43,6 +43,7 @@ const SYSTEM_MESSAGE = {
   STORY_IS_UPLOADED: 'Вся история загружена.',
 }
 
+
 const ERROR = {
   WEB_SOCKET: {
     DISCONECTED: '[WebSocket] Потеряна связь с сервером.',
@@ -69,6 +70,13 @@ const USER_STATE = {
   GUEST: 'Гость',
 }
 
+const TYPE = {
+  MESSAGE: {
+    UP: 'append',
+    DOWN: 'prepend',
+  },
+}
+
 export {
   API,
   WEB_SOCKET,
@@ -78,4 +86,5 @@ export {
   LOG,
   SETTING_CONSOLE,
   USER_STATE,
+  TYPE,
 }
