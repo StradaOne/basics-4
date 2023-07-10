@@ -1,19 +1,41 @@
 import {
   UI_ELEMENTS,
   clearInput,
-  showModal,
-  updateScroll,
   showLoader,
-} from './module/ui_components.js'
+  replaceIcon,
+} from './module/ui.js'
+
+import {
+  connectWebSocket,
+  sendMassage,
+  closeWebSocket,
+} from './module/websocket.js'
+
+import { showModal } from './module/modals.js'
 
 import { getUserCode, changeUserName } from './module/api.js'
+
 import { cookies } from './module/storage.js'
 
-import { handleContentLoaded } from './module/logic.js'
+import { appendHistory } from './module/business-logic.js'
 
-import { updateWebSocket, closeWebSocket } from './module/websocket.js'
+import { SYSTEM_MESSAGE } from './module/confing.js'
 
-import { validationEmail } from './module/ui_components.js'
+import { renderSystemMessage } from './module/message.js'
+
+import { validationEmail } from './module/validation.js'
+
+const handleContentLoaded = () => {
+  const token = cookies.getCode()
+  if (token) {
+    replaceIcon(UI_ELEMENTS.EXIT_BTN, UI_ELEMENTS.ENTER_BTN)
+    connectWebSocket(token)
+    appendHistory()
+  }
+  if (!token) {
+    renderSystemMessage(SYSTEM_MESSAGE.NO_ENTRY)
+  }
+}
 
 document.addEventListener('DOMContentLoaded', handleContentLoaded)
 
@@ -21,11 +43,16 @@ window.addEventListener('online', showLoader.online)
 
 window.addEventListener('offline', showLoader.offline)
 
+UI_ELEMENTS.WINDOW_CHAT.addEventListener('scroll', () => {
+  if (UI_ELEMENTS.WINDOW_CHAT.scrollTop === 0) {
+    appendHistory()
+  }
+})
+
 UI_ELEMENTS.INPUT_FORM.addEventListener('submit', (event) => {
   event.preventDefault()
-  updateWebSocket(UI_ELEMENTS.INPUT_TEXT.value)
+  sendMassage(UI_ELEMENTS.INPUT_TEXT.value)
   clearInput(event)
-  updateScroll()
 })
 
 UI_ELEMENTS.MODAL_CONTAINER.addEventListener('click', showModal.close)
@@ -53,7 +80,7 @@ UI_ELEMENTS.ENTER_MESSENGER.addEventListener('click', (event) => {
 
 UI_ELEMENTS.GET_CODE.addEventListener('click', (event) => {
   event.preventDefault()
-  validationEmail()
+  validationEmail(UI_ELEMENTS.AUTH_IMPUT_TEXT, UI_ELEMENTS.ERROR_EMAIL)
   cookies.saveEmail(UI_ELEMENTS.AUTH_IMPUT_TEXT.value)
   getUserCode(UI_ELEMENTS.AUTH_IMPUT_TEXT.value)
 })

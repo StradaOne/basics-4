@@ -1,3 +1,5 @@
+import { CLASS } from './confing'
+
 const UI_ELEMENTS = {
   SCROLL_FIX: document.querySelector('.window_container'),
   WINDOW_CHAT: document.querySelector('.window_container'),
@@ -26,19 +28,7 @@ const UI_ELEMENTS = {
   LOADER: document.querySelector('.loader'),
   LOADER_DISCONECTED: document.querySelector('.loader-disconected'),
   ERROR_EMAIL: document.querySelector('.email-error'),
-}
-
-const CLASS = {
-  SHOW: 'show',
-  CLOSE: 'close',
-  MESSAGE_TEXT: '.message-text',
-  MESSAGE_DATE: '.message-date',
-  MESSAGE_MAIN: '.message-text--main-user',
-  MESSAGE_ONLY: '.message-text--users',
-  BTN_CLOSE: '.modal-btn-close',
-  MODAL_CONTAINER: '.modal-container',
-  MODAL_BOX: '.modal-box',
-  INVALID: 'invalid',
+  MESSAGE_SYSTEM: document.querySelector('#template--system-message'),
 }
 
 const clearInput = (event) => {
@@ -47,35 +37,8 @@ const clearInput = (event) => {
 }
 
 const updateScroll = () => {
-  UI_ELEMENTS.SCROLL_FIX.scrollTop = UI_ELEMENTS.SCROLL_FIX.scrollHeight
-}
-
-const showModal = {
-  close: (event) => {
-    const target = event.target
-    const closeButton = target.closest(CLASS.BTN_CLOSE)
-    const container = target.closest(CLASS.MODAL_CONTAINER)
-    const box = target.closest(CLASS.MODAL_BOX)
-
-    if (target === closeButton) {
-      container.classList.remove(CLASS.SHOW)
-      box.classList.remove(CLASS.SHOW)
-    }
-  },
-
-  open: (box) => {
-    UI_ELEMENTS.MODAL_CONTAINER.classList.add(CLASS.SHOW)
-    box.classList.add(CLASS.SHOW)
-  },
-
-  clear: (event) => {
-    const target = event.target
-    const box = target.closest(CLASS.MODAL_BOX)
-    const container = target.closest(CLASS.MODAL_CONTAINER)
-
-    container.classList.remove(CLASS.SHOW)
-    box.classList.remove(CLASS.SHOW)
-  },
+  const scroll = UI_ELEMENTS.SCROLL_FIX
+  scroll.scrollTop = scroll.scrollHeight
 }
 
 const replaceIcon = (openIcon, closeIcon) => {
@@ -107,33 +70,12 @@ const showLoader = {
   offline: () => UI_ELEMENTS.LOADER_DISCONECTED.classList.add(CLASS.SHOW),
 }
 
-const validationEmail = () => {
-  const input = UI_ELEMENTS.AUTH_IMPUT_TEXT
-  const text = UI_ELEMENTS.ERROR_EMAIL
-
-  input.onblur = () => {
-    if (!input.validity.valid) {
-      input.classList.add(CLASS.INVALID)
-      text.classList.add(CLASS.SHOW)
-    }
-  }
-
-  input.onfocus = () => {
-    if (input.classList.contains(CLASS.INVALID)) {
-      input.classList.remove(CLASS.INVALID)
-      text.classList.remove(CLASS.SHOW)
-    }
-  }
-}
-
 export {
   UI_ELEMENTS,
   CLASS,
   updateScroll,
   clearInput,
   replaceIcon,
-  showModal,
   showStatus,
   showLoader,
-  validationEmail,
 }
