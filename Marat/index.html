@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="header_content">
+                <button class="seting_button">Настройки</button>
+                <button>Выйти</button>
+            </div>
+            <div class="message_content">
+                <div class="message_my">
+                    <!-- <li class="message">
+                        <span class="message_text">Я: добрый день</span>
+                        <span class="message_time">12:34</span>
+                    </li> -->
+                </div>
+                <!-- <div class="message_you">
+                    <li class="message">
+                        <span class="message_text">Собеседник: добрый день</span>
+                        <span class="message_time">12:54</span>
+                    </li> 
+                </div> -->
+                
+                <template class="template">
+                    <li class="message">
+                        <span class="message_text"></span>
+                        <span class="message_time"></span>
+                    </li>
+                </template>
+            </div>
+            
+            <form action="" class="bottom_content">
+                <input class="input_message" type="text" placeholder="сообщение">
+                <button class="sendMessage">-></button>
+            </form>
+        </div>
+    </div>
+    <dialog class="modal_settings">
+        <div class="modal_container">
+            <div class="modal_content_header">
+                <p>Настройки</p>
+                <p class="close_settings">&#215</p>
+            </div>
+            <p>Имя в чате</p>
+            <form class="modal_content_main">
+                <input class="modal_input" type="text">
+                <button class="modal_button">-></button>
+
+            </form>
+           
+        </div>
+    </dialog>
+
+    <dialog open class="modal_autorisation">
+        <div class="modal_container">
+            <div class="modal_content_header">
+                <p>Авторизация</p>
+                <p class="close_autorisation">&#215</p>
+            </div>
+            <form class="pochta">
+                <p>Почта</p>
+                <input class="modal_input autorisation" type="email" >
+                <button class="modal_button get_code">Получить код</button>
+                <button class="modal_button enter_code">Ввести код</button>
+            </form>
+        </div>
+    </dialog>
+    <dialog  class="modal_confirmation">
+        <div class="modal_container">
+            <div class="modal_content_header">
+                <p>Подтверждение</p>
+                <p class="close_confirmation">&#215</p>
+            </div>
+            <form class="form_confirmation">
+                <p>Код</p>
+                <input class="modal_input  code" type="text" >
+                <button class="modal_button">Войти</button>
+            </form>
+        </div>
+    </dialog>
+    <!-- <h1>DIALOG</h1>
+    <dialog class="module">
+        <div class="module_inner">
+            <h2>dialog</h2>
+            <p>определяет дилоговое окно</p>
+            <button class="closeModule">Закрыть</button>
+        </div>
+
+    </dialog>
+    <button class="open_module">Открыть</button> -->
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
