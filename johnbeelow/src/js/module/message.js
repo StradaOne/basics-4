@@ -24,7 +24,6 @@ const parseMessage = (massage, type) => {
 }
 
 const renderMessage = ({ user, email, text, time, type } ) => {
-
   const userMain = UI_ELEMENTS.MESSAGE_MAIN.content.cloneNode(true)
   const userOnly = UI_ELEMENTS.MESSAGE_ONLY.content.cloneNode(true)
   const userValidation = cookies.getEmail()
@@ -58,6 +57,5 @@ const renderMessage = ({ user, email, text, time, type } ) => {
     }
   }
 }
-
 
 export { renderSystemMessage, parseMessage }

@@ -15,8 +15,6 @@ import { showModal } from './module/modals.js'
 
 import { getUserCode, changeUserName } from './module/api.js'
 
-import { cookies } from './module/storage.js'
-
 import { appendHistory } from './module/business-logic.js'
 
 import { SYSTEM_MESSAGE, USER_STATE } from './module/confing.js'
@@ -25,26 +23,21 @@ import { renderSystemMessage } from './module/message.js'
 
 import { validationEmail } from './module/ui.js'
 
-import { createUser, userMain } from './module/user.js'
+import { userMain } from './module/user.js'
 
 const handleContentLoaded = () => {
-  const token = cookies.getCode()
-  const email = cookies.getEmail()
-  const user = cookies.getUser()
-  
-  if (token && email) {
-    createUser(token, email, user)
+  if (userMain.token && userMain.email) {
     replaceIcon(UI_ELEMENTS.EXIT_BTN, UI_ELEMENTS.ENTER_BTN)
-    connectWebSocket(token)
+    connectWebSocket(userMain.token)
     appendHistory()
 
-    if (!user) {
+    if (!userMain.name) {
       changeUserName(USER_STATE.GUEST)
       renderSystemMessage(SYSTEM_MESSAGE.NO_NAME)
     }
   }
 
-  if (!token || !email) {
+  if (!userMain.token || !userMain.email) {
     renderSystemMessage(SYSTEM_MESSAGE.NO_ENTRY)
   }
 }
@@ -85,7 +78,7 @@ UI_ELEMENTS.ENTER_CODE_BTN.addEventListener('click', (event) => {
 })
 
 UI_ELEMENTS.ENTER_MESSENGER.addEventListener('click', (event) => {
-  cookies.saveCode(UI_ELEMENTS.VALIDATION_INPUT_TEXT.value)
+  userMain.setToken(UI_ELEMENTS.VALIDATION_INPUT_TEXT.value)
   showModal.clear(event)
   location.reload()
 })
@@ -93,22 +86,19 @@ UI_ELEMENTS.ENTER_MESSENGER.addEventListener('click', (event) => {
 UI_ELEMENTS.GET_CODE.addEventListener('click', (event) => {
   event.preventDefault()
   validationEmail(UI_ELEMENTS.AUTH_IMPUT_TEXT, UI_ELEMENTS.ERROR_EMAIL)
-  cookies.saveEmail(UI_ELEMENTS.AUTH_IMPUT_TEXT.value)
+  userMain.setEmail(UI_ELEMENTS.AUTH_IMPUT_TEXT.value)
   getUserCode(UI_ELEMENTS.AUTH_IMPUT_TEXT.value)
 })
 
 UI_ELEMENTS.INPUT_SETTING_FORM.addEventListener('submit', (event) => {
   event.preventDefault()
   changeUserName(UI_ELEMENTS.INPUT_SETTING_TEXT.value)
-  cookies.saveUser(UI_ELEMENTS.INPUT_SETTING_TEXT.value)
   userMain.setName(UI_ELEMENTS.INPUT_SETTING_TEXT.value)
 })
 
-UI_ELEMENTS.EXIT_BTN.addEventListener('click', () => {
-  cookies.removeCode()
-  cookies.removeEmail()
-  cookies.removeUser()
-  userMain.logaut
+UI_ELEMENTS.EXIT_BTN.addEventListener('click', (event) => {
+  event.preventDefault()
+  userMain.logout()
   closeWebSocket()
   location.reload()
 })

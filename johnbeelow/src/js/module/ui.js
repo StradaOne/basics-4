@@ -72,13 +72,11 @@ const showLoader = {
 }
 
 const validationEmail = (input, text) => {
-  input.onblur = () => {
-    if (!isInputValidation(input)) {
-      input.classList.add(CLASS.INVALID)
-      text.classList.add(CLASS.SHOW)
-    }
+  if (!isInputValidation(input)) {
+    input.classList.add(CLASS.INVALID)
+    text.classList.add(CLASS.SHOW)
   }
-
+  
   input.onfocus = () => {
     if (input.classList.contains(CLASS.INVALID)) {
       input.classList.remove(CLASS.INVALID)
