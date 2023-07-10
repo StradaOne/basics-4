@@ -43,7 +43,6 @@ const SYSTEM_MESSAGE = {
   STORY_IS_UPLOADED: 'Вся история загружена.',
 }
 
-
 const ERROR = {
   WEB_SOCKET: {
     DISCONECTED: '[WebSocket] Потеряна связь с сервером.',

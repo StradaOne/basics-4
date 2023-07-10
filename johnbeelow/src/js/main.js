@@ -11,19 +11,19 @@ import {
   closeWebSocket,
 } from './module/websocket.js'
 
+import { userMain } from './module/user.js'
+
 import { showModal } from './module/modals.js'
-
-import { getUserCode, changeUserName } from './module/api.js'
-
-import { appendHistory } from './module/business-logic.js'
-
-import { SYSTEM_MESSAGE, USER_STATE } from './module/confing.js'
-
-import { renderSystemMessage } from './module/message.js'
 
 import { validationEmail } from './module/ui.js'
 
-import { userMain } from './module/user.js'
+import { renderSystemMessage } from './module/message.js'
+
+import { appendHistory } from './module/business-logic.js'
+
+import { getUserCode, changeUserName } from './module/api.js'
+
+import { SYSTEM_MESSAGE, USER_STATE } from './module/confing.js'
 
 const handleContentLoaded = () => {
   if (userMain.token && userMain.email) {
