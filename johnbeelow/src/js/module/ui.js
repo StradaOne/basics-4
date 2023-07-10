@@ -1,4 +1,5 @@
 import { CLASS } from './confing'
+import { isInputValidation } from './validation'
 
 const UI_ELEMENTS = {
   SCROLL_FIX: document.querySelector('.window_container'),
@@ -70,6 +71,22 @@ const showLoader = {
   offline: () => UI_ELEMENTS.LOADER_DISCONECTED.classList.add(CLASS.SHOW),
 }
 
+const validationEmail = (input, text) => {
+  input.onblur = () => {
+    if (!isInputValidation(input)) {
+      input.classList.add(CLASS.INVALID)
+      text.classList.add(CLASS.SHOW)
+    }
+  }
+
+  input.onfocus = () => {
+    if (input.classList.contains(CLASS.INVALID)) {
+      input.classList.remove(CLASS.INVALID)
+      text.classList.remove(CLASS.SHOW)
+    }
+  }
+}
+
 export {
   UI_ELEMENTS,
   CLASS,
@@ -78,4 +95,5 @@ export {
   replaceIcon,
   showStatus,
   showLoader,
+  validationEmail,
 }

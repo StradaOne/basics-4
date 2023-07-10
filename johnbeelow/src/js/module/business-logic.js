@@ -4,6 +4,8 @@ import { isEmptyArray } from './validation.js'
 import { SYSTEM_MESSAGE } from './confing.js'
 import { renderSystemMessage, parseHistoryMessage } from './message.js'
 
+const { STORY_IS_UPLOADED } = SYSTEM_MESSAGE
+
 let paginatedData = []
 let start = 0
 let end = 20
@@ -20,7 +22,7 @@ const appendHistory = async () => {
     end += 20
 
     if (isEmptyArray(paginatedData) && !isSucces) {
-      renderSystemMessage(SYSTEM_MESSAGE.STORY_IS_UPLOADED)
+      renderSystemMessage(STORY_IS_UPLOADED)
       isSucces = true
     }
 
@@ -31,5 +33,6 @@ const appendHistory = async () => {
 
   showList()
 }
+
 
 export { appendHistory }

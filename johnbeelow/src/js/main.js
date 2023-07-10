@@ -19,20 +19,32 @@ import { cookies } from './module/storage.js'
 
 import { appendHistory } from './module/business-logic.js'
 
-import { SYSTEM_MESSAGE } from './module/confing.js'
+import { SYSTEM_MESSAGE, USER_STATE } from './module/confing.js'
 
 import { renderSystemMessage } from './module/message.js'
 
-import { validationEmail } from './module/validation.js'
+import { validationEmail } from './module/ui.js'
+
+import { createUser, userMain } from './module/user.js'
 
 const handleContentLoaded = () => {
   const token = cookies.getCode()
-  if (token) {
+  const email = cookies.getEmail()
+  const user = cookies.getUser()
+  
+  if (token && email) {
+    createUser(token, email, user)
     replaceIcon(UI_ELEMENTS.EXIT_BTN, UI_ELEMENTS.ENTER_BTN)
     connectWebSocket(token)
     appendHistory()
+
+    if (!user) {
+      changeUserName(USER_STATE.GUEST)
+      renderSystemMessage(SYSTEM_MESSAGE.NO_NAME)
+    }
   }
-  if (!token) {
+
+  if (!token || !email) {
     renderSystemMessage(SYSTEM_MESSAGE.NO_ENTRY)
   }
 }
@@ -88,11 +100,15 @@ UI_ELEMENTS.GET_CODE.addEventListener('click', (event) => {
 UI_ELEMENTS.INPUT_SETTING_FORM.addEventListener('submit', (event) => {
   event.preventDefault()
   changeUserName(UI_ELEMENTS.INPUT_SETTING_TEXT.value)
+  cookies.saveUser(UI_ELEMENTS.INPUT_SETTING_TEXT.value)
+  userMain.setName(UI_ELEMENTS.INPUT_SETTING_TEXT.value)
 })
 
 UI_ELEMENTS.EXIT_BTN.addEventListener('click', () => {
   cookies.removeCode()
   cookies.removeEmail()
+  cookies.removeUser()
+  userMain.logaut
   closeWebSocket()
   location.reload()
 })

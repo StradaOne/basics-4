@@ -65,13 +65,12 @@ input[type='text'] {
 .loader .bar {
   position: relative;
 
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
   border-radius: 100%;
-  border: 5px solid rgba(255, 255, 255, 0.062);
+  border: 3px solid rgba(255, 255, 255, 0.062);
   border-top-color: #8b8980;
   animation: spin 0.8s infinite linear;
-  top: 0.5%;
 }
 
 @keyframes loadingBar {
@@ -119,13 +118,12 @@ input[type='text'] {
 .loader-disconected .bar-dis {
   position: relative;
 
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
   border-radius: 100%;
-  border: 5px solid rgba(255, 255, 255, 0.062);
+  border: 3px solid rgba(255, 255, 255, 0.062);
   border-top-color: #f75d5d;
   animation: spin 0.8s infinite linear;
-  top: 0.5%;
 }
 
 @keyframes loadingBar {
@@ -180,7 +178,7 @@ input[type='text'] {
 .img-exit {
   margin-left: 8px;
   margin-right: 8px;
-  margin-top: 9px;
+  margin-top: 8px;
   width: 26px;
   height: 26px;
   filter: invert(42%);
@@ -256,6 +254,7 @@ input[type='text'] {
   margin-right: 8px;
   margin-bottom: 8px;
   max-width: 88%;
+  min-width: 30%;
   padding: 8px;
   width: fit-content;
   height: fit-content;
@@ -271,6 +270,7 @@ input[type='text'] {
   margin-right: 8px;
   margin-bottom: 8px;
   max-width: 88%;
+  min-width: 30%;
   padding: 8px;
   width: fit-content;
   height: fit-content;
@@ -303,15 +303,15 @@ input[type='text'] {
 }
 
 .message-date {
-  font-size: 11px;
+  font-size: 10px;
   font-style: italic;
   color: rgba(255, 255, 255, 0.295);
 }
 
 .message-check {
   margin-left: 3px;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   filter: invert(100%);
 }
 
@@ -326,7 +326,7 @@ input[type='text'] {
 .btn-emoji-form {
   margin-left: 10px;
   margin-right: 4px;
-  margin-top: 13px;
+  margin-top: 15px;
   margin-bottom: 8px;
   width: 21px;
   height: 21px;

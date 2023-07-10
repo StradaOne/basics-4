@@ -69,6 +69,7 @@ const getUserInfo = async () => {
 
 const getHistoryChat = async () => {
   try {
+    showLoader.open()
     const response = await fetch(`${LINK.URL}/${LINK.MESSAGES}/`, {
       method: METHOD.GET,
       headers: {
@@ -82,6 +83,8 @@ const getHistoryChat = async () => {
     }
   } catch (error) {
     showStatus.error()
+  } finally {
+    showLoader.close()
   }
 }
 

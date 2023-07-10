@@ -36,8 +36,11 @@ const CLASS = {
 }
 
 const SYSTEM_MESSAGE = {
-  NO_ENTRY: 'Войдите',
-  STORY_IS_UPLOADED: 'Вся история загружена',
+  NO_ENTRY: 'Войдите.',
+  NO_EMAIL: 'Введите почту.',
+  NO_NAME: 'Привет, Гость. Поменять имя можно в настройках.',
+  HI: 'Привет',
+  STORY_IS_UPLOADED: 'Вся история загружена.',
 }
 
 const ERROR = {
@@ -62,4 +65,17 @@ const SETTING_CONSOLE = {
   },
 }
 
-export { API, WEB_SOCKET, CLASS, SYSTEM_MESSAGE, ERROR, LOG, SETTING_CONSOLE }
+const USER_STATE = {
+  GUEST: 'Гость',
+}
+
+export {
+  API,
+  WEB_SOCKET,
+  CLASS,
+  SYSTEM_MESSAGE,
+  ERROR,
+  LOG,
+  SETTING_CONSOLE,
+  USER_STATE,
+}

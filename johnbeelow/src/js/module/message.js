@@ -1,7 +1,7 @@
 import { convertTime } from './utils'
 import { UI_ELEMENTS, updateScroll } from './ui'
 import { CLASS } from './confing.js'
-import { cookies } from './storage'
+import { cookies } from './storage.js'
 
 const renderSystemMessage = (text) => {
   const message = UI_ELEMENTS.MESSAGE_SYSTEM.content.cloneNode(true)
@@ -25,6 +25,7 @@ const renderHistory = ({ user, email, text, time }) => {
   const userValidation = cookies.getEmail()
 
   if (userValidation === email) {
+    userMain.querySelector(CLASS.MESSAGE_MAIN).textContent = user
     userMain.querySelector(CLASS.MESSAGE_TEXT).textContent = text
     userMain.querySelector(CLASS.MESSAGE_DATE).textContent = convertTime(time)
     UI_ELEMENTS.WINDOW_CHAT.prepend(userMain)
@@ -54,6 +55,7 @@ const renderMassages = ({ user, email, text, time }) => {
   const userValidation = cookies.getEmail()
 
   if (userValidation === email) {
+    userMain.querySelector(CLASS.MESSAGE_MAIN).textContent = user
     userMain.querySelector(CLASS.MESSAGE_TEXT).textContent = text
     userMain.querySelector(CLASS.MESSAGE_DATE).textContent = convertTime(time)
     UI_ELEMENTS.WINDOW_CHAT.append(userMain)
