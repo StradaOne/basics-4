@@ -15,7 +15,7 @@ import { userMain } from './module/user.js'
 
 import { showModal } from './module/modals.js'
 
-import { validationEmail } from './module/ui.js'
+import { showInvalidEmail } from './module/ui.js'
 
 import { renderSystemMessage } from './module/message.js'
 
@@ -85,7 +85,7 @@ UI_ELEMENTS.ENTER_MESSENGER.addEventListener('click', (event) => {
 
 UI_ELEMENTS.GET_CODE.addEventListener('click', (event) => {
   event.preventDefault()
-  validationEmail(UI_ELEMENTS.AUTH_IMPUT_TEXT, UI_ELEMENTS.ERROR_EMAIL)
+  showInvalidEmail(UI_ELEMENTS.AUTH_IMPUT_TEXT, UI_ELEMENTS.ERROR_EMAIL)
   userMain.setEmail(UI_ELEMENTS.AUTH_IMPUT_TEXT.value)
   getUserCode(UI_ELEMENTS.AUTH_IMPUT_TEXT.value)
 })

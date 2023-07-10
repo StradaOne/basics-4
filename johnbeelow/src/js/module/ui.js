@@ -32,21 +32,11 @@ const UI_ELEMENTS = {
   MESSAGE_SYSTEM: document.querySelector('#template--system-message'),
 }
 
-const clearInput = (event) => {
-  const target = event.target
-  target.reset()
-}
-
-const updateScroll = () => {
-  const scroll = UI_ELEMENTS.SCROLL_FIX
-  scroll.scrollTop = scroll.scrollHeight
-}
-
-const replaceIcon = (openIcon, closeIcon) => {
-  openIcon.classList.add(CLASS.SHOW)
-  openIcon.classList.remove(CLASS.CLOSE)
-  closeIcon.classList.remove(CLASS.SHOW)
-  closeIcon.classList.add(CLASS.CLOSE)
+const showLoader = {
+  open: () => UI_ELEMENTS.LOADER.classList.add(CLASS.SHOW),
+  close: () => UI_ELEMENTS.LOADER.classList.remove(CLASS.SHOW),
+  online: () => UI_ELEMENTS.LOADER_DISCONECTED.classList.remove(CLASS.SHOW),
+  offline: () => UI_ELEMENTS.LOADER_DISCONECTED.classList.add(CLASS.SHOW),
 }
 
 const showStatus = {
@@ -56,6 +46,7 @@ const showStatus = {
       UI_ELEMENTS.IMG_COMPLETE.classList.remove(CLASS.SHOW)
     }, 1000)
   },
+
   error: () => {
     UI_ELEMENTS.IMG_ERROR.classList.add(CLASS.SHOW)
     setTimeout(() => {
@@ -64,14 +55,7 @@ const showStatus = {
   },
 }
 
-const showLoader = {
-  open: () => UI_ELEMENTS.LOADER.classList.add(CLASS.SHOW),
-  close: () => UI_ELEMENTS.LOADER.classList.remove(CLASS.SHOW),
-  online: () => UI_ELEMENTS.LOADER_DISCONECTED.classList.remove(CLASS.SHOW),
-  offline: () => UI_ELEMENTS.LOADER_DISCONECTED.classList.add(CLASS.SHOW),
-}
-
-const validationEmail = (input, text) => {
+const showInvalidEmail = (input, text) => {
   if (!isInputValidation(input)) {
     input.classList.add(CLASS.INVALID)
     text.classList.add(CLASS.SHOW)
@@ -85,13 +69,30 @@ const validationEmail = (input, text) => {
   }
 }
 
+const replaceIcon = (openIcon, closeIcon) => {
+  openIcon.classList.add(CLASS.SHOW)
+  openIcon.classList.remove(CLASS.CLOSE)
+  closeIcon.classList.remove(CLASS.SHOW)
+  closeIcon.classList.add(CLASS.CLOSE)
+}
+
+const updateScroll = () => {
+  const scroll = UI_ELEMENTS.SCROLL_FIX
+  scroll.scrollTop = scroll.scrollHeight
+}
+
+const clearInput = (event) => {
+  const target = event.target
+  target.reset()
+}
+
 export {
-  UI_ELEMENTS,
-  CLASS,
+  showInvalidEmail,
   updateScroll,
-  clearInput,
+  UI_ELEMENTS,
   replaceIcon,
+  clearInput,
   showStatus,
   showLoader,
-  validationEmail,
+  CLASS,
 }
