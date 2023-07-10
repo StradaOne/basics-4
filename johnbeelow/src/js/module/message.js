@@ -1,7 +1,7 @@
 import { convertTime } from './utils'
 import { UI_ELEMENTS, updateScroll } from './ui'
 import { CLASS } from './confing.js'
-import { cookies } from './storage.js'
+import { userMain } from './user.js'
 import { TYPE } from './confing.js'
 
 const { MESSAGE } = TYPE
@@ -18,44 +18,31 @@ const parseMessage = (massage, type) => {
     email: massage.user.email,
     text: massage.text,
     time: massage.createdAt,
-    type: type
+    type: type,
   }
   renderMessage(data)
 }
 
 const renderMessage = ({ user, email, text, time, type }) => {
-  const userMain = UI_ELEMENTS.MESSAGE_MAIN.content.cloneNode(true)
-  const userOnly = UI_ELEMENTS.MESSAGE_ONLY.content.cloneNode(true)
-  const userValidation = cookies.getEmail()
+  const userRight = UI_ELEMENTS.MESSAGE_MAIN.content.cloneNode(true);
+  const userLeft = UI_ELEMENTS.MESSAGE_ONLY.content.cloneNode(true);
+  const userValidation = userMain.email;
+  const message = userValidation === email ? userRight : userLeft;
 
-  if (userValidation === email) {
-    userMain.querySelector(CLASS.MESSAGE_MAIN).textContent = user
-    userMain.querySelector(CLASS.MESSAGE_TEXT).textContent = text
-    userMain.querySelector(CLASS.MESSAGE_DATE).textContent = convertTime(time)
+  userRight.querySelector(CLASS.MESSAGE_MAIN).textContent = user;
+  userLeft.querySelector(CLASS.MESSAGE_ONLY).textContent = user
+  message.querySelector(CLASS.MESSAGE_TEXT).textContent = text;
+  message.querySelector(CLASS.MESSAGE_DATE).textContent = convertTime(time);
 
-    if (type === MESSAGE.UP) {
-      UI_ELEMENTS.WINDOW_CHAT.append(userMain)
-      updateScroll()
-    }
-
-    if (type === MESSAGE.DOWN) {
-      UI_ELEMENTS.WINDOW_CHAT.prepend(userMain)
-    }
+  if (type === MESSAGE.UP) {
+    UI_ELEMENTS.WINDOW_CHAT.append(message);
+    updateScroll();
   }
 
-  if (userValidation !== email) {
-    userOnly.querySelector(CLASS.MESSAGE_ONLY).textContent = user
-    userOnly.querySelector(CLASS.MESSAGE_TEXT).textContent = text
-    userOnly.querySelector(CLASS.MESSAGE_DATE).textContent = convertTime(time)
-
-    if (type === MESSAGE.UP) {
-      UI_ELEMENTS.WINDOW_CHAT.append(userOnly)
-    }
-
-    if (type === MESSAGE.DOWN) {
-      UI_ELEMENTS.WINDOW_CHAT.prepend(userOnly)
-    }
+  if (type === MESSAGE.DOWN) {
+    UI_ELEMENTS.WINDOW_CHAT.prepend(message);
   }
 }
 
 export { renderSystemMessage, parseMessage }
+

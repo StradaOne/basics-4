@@ -92,8 +92,10 @@ UI_ELEMENTS.GET_CODE.addEventListener('click', (event) => {
 
 UI_ELEMENTS.INPUT_SETTING_FORM.addEventListener('submit', (event) => {
   event.preventDefault()
-  changeUserName(UI_ELEMENTS.INPUT_SETTING_TEXT.value)
-  userMain.setName(UI_ELEMENTS.INPUT_SETTING_TEXT.value)
+  if (userMain.token && userMain.email) {
+    changeUserName(UI_ELEMENTS.INPUT_SETTING_TEXT.value)
+    userMain.setName(UI_ELEMENTS.INPUT_SETTING_TEXT.value)
+  }
 })
 
 UI_ELEMENTS.EXIT_BTN.addEventListener('click', (event) => {
