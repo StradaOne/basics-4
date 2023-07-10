@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Stradagram Web</title>
+</head>
+
+<body>
+    <main class="main">
+        <div class="container">
+            <section class="utils">
+                <div class="utils__wrapper">
+                    <img class="utils__btn" src="./images/three_dots_vertical_icon_159806.svg" alt="Настройки"
+                        draggable="false" onclick="window.authorizationModal.showModal();">
+                    <img class="utils__btn" src="./images/logout_exit_icon_176185.svg" alt="Выход" draggable="false">
+                </div>
+            </section>
+            <div class="chat__wrapper">
+                <section class="chat">
+                    <div class="message" id="message__sender">
+                        <p class="message__name">Я</p>
+                        <p class="message__text">
+                            Добрый день!
+                        </p>
+                        <p class="message__time">18:45</p>
+                    </div>
+                    <div class="message" id="message__recipient">
+                        <p class="message__name">Собеседник</p>
+                        <p class="message__text">
+                            Добрый день!
+                        </p>
+                        <p class="message__time">18:45</p>
+                    </div>
+                </section>
+            </div>
+            <section class="send">
+                <form class="send__form">
+                    <div class="send__form-wrapper">
+                        <input contenteditable="true" class="send__form-input" type="text" placeholder="сообщение..">
+                        <button class="send__form-btn">
+                            <img class="send__form-btn-img" src="./images/ic-send_97591.svg" alt="Отправить">
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+    <dialog class="dialog" id="settingsModal">
+        <div class="dialog__wrapper">
+            <div class="dialog__head">
+                <p class="dialog__text">Настройки</p>
+                <img class="dialog__img" src="./images/+.svg" alt="Выйти" onclick="window.settingsModal.close();">
+            </div>
+            <div class="dialog__main">
+                <p class="dialog__text">Имя в чате</p>
+                <form class="send__form" method="dialog">
+                    <div class="send__form-wrapper">
+                        <input contenteditable="true" class="send__form-input" type="text" placeholder="сообщение..">
+                        <button class="send__form-btn">
+                            <img class="send__form-btn-img" src="./images/ic-send_97591.svg" alt="Отправить">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dialog>
+    <dialog class="dialog" id="authorizationModal">
+        <div class="dialog__wrapper">
+            <div class="dialog__head">
+                <p class="dialog__text">Авторизация</p>
+                <img class="dialog__img" src="./images/+.svg" alt="Выйти" onclick="window.settingsModal.close();">
+            </div>
+            <div class="dialog__main">
+                <p class="dialog__text">Почта:</p>
+                <form class="send__form" id="authorizationForm">
+                    <div class="send__form-wrapper">
+                        <input contenteditable="true" class="send__form-input" id="authorizationInput" type="text" placeholder="сообщение..">
+                        <button class="send__form-btn" id="authorizationBtn">Ввести код</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dialog>
+    <dialog class="dialog" id="confirmModal">
+        <div class="dialog__wrapper">
+            <div class="dialog__head">
+                <p class="dialog__text">Подтверждение</p>
+                <img class="dialog__img" src="./images/+.svg" alt="Выйти" onclick="window.settingsModal.close();">
+            </div>
+            <div class="dialog__main">
+                <p class="dialog__text">Код:</p>
+                <form class="send__form" method="dialog">
+                    <div class="send__form-wrapper">
+                        <input contenteditable="true" class="send__form-input" type="text" placeholder="сообщение..">
+                        <button class="send__form-btn">Войти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dialog>
+    <template id="msgTemplate">
+        <div class="message">
+            <p class="message__name">Я</p>
+            <p class="message__text"></p>
+            <p class="message__time">18:45</p>
+        </div>
+    </template>
+
+    <script src="./JS/main.js" type="module" defer></script>
