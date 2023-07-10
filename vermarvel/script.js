@@ -4,54 +4,54 @@
 import dom from "./dom.js";
 import { cookies } from "./cookie.js";
 import { url } from "./urls.js";
-import { user } from "./state.js";
+import { updateUser, getUser } from "./user.js";
+import { updateMemory, getMemory } from "./memory.js";
 import { utils } from "./utils.js";
 
-let memory = [];
 let socket;
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%  Business Logic  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//%%%%%%%%%%%%%%% Business Logic  %%%%%%%%%%%%%%%%%%
 
-function saveCode() {
-  user.token = dom.inputDialogConfirm.value;
-  dom.inputDialogConfirm.value = "";
-  cookies.cookify("token", user.token);
-  dom.closeDialog("settings");
-}
+function collectInput(type) {
+  let user = getUser();
+  if (type === "name") {
+    user.name = dom.inputDialogName.value.trim();
+    dom.inputDialogConfirm.value = "";
+    updateUser(user);
+    changeName(user);
+  }
+  if (type === "email") {
+    dom.errorAuth.classList.add("hidden");
+    user.email = dom.inputDialogEmail.value.trim();
 
-async function sendUserMessage() {
-  try {
+    dom.inputDialogEmail.value = "";
+    dom.btnSubmitCode.classList.remove("hidden");
+    dom.authWrapper.classList.add("hidden");
+    updateUser(user);
+    submitEmail(user.email);
+  }
+  if (type === "token") {
+    user.token = dom.inputDialogConfirm.value;
+    dom.inputDialogConfirm.value = "";
+    dom.closeDialog("settings");
+    updateUser(user);
+    cookies.cookify("user", user);
+  }
+  if (type === "message") {
     const textMessage = dom.inputMessage.value.trim();
-
-    socket.send(JSON.stringify({ text: textMessage }));
-  } catch (error) {
-    console.error(error);
-  } finally {
+    submitMessage(textMessage);
     dom.inputMessage.value = "";
-    setTimeout(utils.scrollToBottom, 100);
   }
 }
+//%%%%%%%%%%%%%%  REQUESTS TO SERVER  %%%%%%%%%%%%%%%
 
-//%%%%%%%%%%%%%%%%%%%%%%%%  REQUESTS TO SERVER  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function changeName() {
-  user.name = dom.inputDialogName.value.trim();
-
-  dom.inputDialogConfirm.value = "";
-  if (user.name.length < 3) {
-    dom.errorSettings.textContent = dom.errNameRequirementsStr;
-
-    dom.errorSettings.classList.remove("hidden");
-    return;
-  } else {
-    dom.errorSettings.classList.add("hidden");
-  }
-  let token = cookies.uncookify("token");
+function changeName(user) {
+  renderError("nameInvalid");
   const requestOptions = {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${user.token}`,
     },
     body: JSON.stringify({ name: user.name }),
   };
@@ -60,35 +60,25 @@ function changeName() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      // reconnect as a crutch to work around a PATCH bug of backend:
+      disonnect();
+      connect(user.token);
+      dom.closeDialog();
+      getHistory();
     })
     .catch((error) => {
       console.error(error);
     });
-
-  disonnect();
-
-  connect(token);
-  dom.closeDialog();
-  getHistory();
 }
 
-function submitUserEmail() {
-  dom.errorAuth.classList.add("hidden");
-  user.email = dom.inputDialogEmail.value.trim();
-
-  if (!user.email) {
-    dom.errorAuth.textContent = "Please fill in your email to authorize";
-    dom.errorAuth.classList.remove("hidden");
-    return;
-  }
-  dom.btnSubmitCode.classList.remove("hidden");
-  dom.authWrapper.classList.add("hidden");
+function submitEmail(userEmail) {
+  renderError("emailInvalid");
   const requestOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email: user.email }),
+    body: JSON.stringify({ email: userEmail }),
   };
 
   fetch(url.user, requestOptions)
@@ -102,7 +92,8 @@ function submitUserEmail() {
 }
 
 function getHistory() {
-  const token = cookies.uncookify("token");
+  let user = getUser();
+  let token = user.token;
   const requestOptions = {
     method: "GET",
     headers: {
@@ -120,10 +111,9 @@ function getHistory() {
         user: user.name,
         email: user.email,
       }));
-      console.log(memory);
-      memory = utils.splitArray(20, array);
-      console.log(memory);
 
+      let memory = utils.splitArray(20, array);
+      updateMemory(memory);
       renderHistory();
     })
     .catch((error) => {
@@ -131,36 +121,16 @@ function getHistory() {
     });
 }
 
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& RENDERS &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
-function renderHistory(mode = "initial") {
-  if (!memory.length) {
-    dom.notice.textContent = dom.noticeFullyLoaded;
-    return;
-  }
-
-  const toBeRenderedNow = memory.at(0);
-  memory.shift();
-
-  const nodes = toBeRenderedNow.map((m) => prepareHTML(m));
-  const strings = nodes.map((fragment) => {
-    const div = document.createElement("div");
-    div.appendChild(fragment.cloneNode("true"));
-
-    return div.innerHTML;
-  });
-  const html = strings.join("");
-
-  dom.tape.insertAdjacentHTML("afterbegin", html);
-
-  // Scroll down if the history download is at the chat openning
-
-  if (mode === "initial") {
-    setTimeout(utils.scrollToBottom, 1000);
+function submitMessage(textMessage) {
+  try {
+    socket.send(JSON.stringify({ text: textMessage }));
+  } catch (error) {
+    console.error(error);
   }
 }
+//&&&&&&&&&&&&&&&&&&& RENDERS &&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-function prepareHTML(obj) {
+function prepareHTML(obj, user) {
   let clone;
   obj.email !== user.email
     ? (clone = dom.templateOtherMessage.content.cloneNode(true))
@@ -175,9 +145,9 @@ function prepareHTML(obj) {
   return clone;
 }
 
-function uiMessage(message) {
+function renderMessage(message) {
+  let user = getUser();
   const data = JSON.parse(message.data);
-  console.log(data);
   let clone;
   if (data.user.email !== user.email) {
     clone = dom.templateOtherMessage.content.cloneNode(true);
@@ -196,8 +166,37 @@ function uiMessage(message) {
   dom.parentMessages.scrollTo(0, dom.parentMessages.scrollHeight);
 }
 
+function renderHistory(mode = "initial") {
+  let memory = getMemory();
+  let user = getUser();
+  if (!memory.length) {
+    dom.notice.textContent = dom.noticeFullyLoaded;
+    return;
+  }
+
+  const toBeRenderedNow = memory.at(0);
+  memory.shift();
+  updateMemory(memory);
+
+  const nodes = toBeRenderedNow.map((m) => prepareHTML(m, user));
+  const strings = nodes.map((fragment) => {
+    const div = document.createElement("div");
+    div.appendChild(fragment.cloneNode("true"));
+
+    return div.innerHTML;
+  });
+  const html = strings.join("");
+  dom.tape.insertAdjacentHTML("afterbegin", html);
+
+  // Scroll down if the history download is at the chat openning
+
+  if (mode === "initial") {
+    setTimeout(utils.scrollToBottom, 1000);
+  }
+}
+
 function loadMore() {
-  // Reaching coord in Y of the chat
+  // Reaching coord in Y of the chat: approach (point)
   const approach = 0;
   const scrollSpot = dom.tape.offsetTop - dom.parentMessages.scrollTop;
   if (scrollSpot >= approach) {
@@ -206,14 +205,38 @@ function loadMore() {
     dom.notice.textContent = "";
   }
 }
-// &&&&&&&&&&&&&&&&&&&&&&& WEB-SOCKET &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-function connect(token) {
+function renderError(errorType) {
+  let user = getUser();
+  if (errorType === "nameInvalid") {
+    if (user.name.length < 3) {
+      dom.errorSettings.textContent = dom.errNameRequirementsStr;
+      dom.errorSettings.classList.remove("hidden");
+      return;
+    } else {
+      dom.errorSettings.classList.add("hidden");
+    }
+  }
+
+  if (errorType === "emailInvalid") {
+    if (!user.email) {
+      dom.errorAuth.textContent = "Please fill in your email to authorize";
+      dom.errorAuth.classList.remove("hidden");
+      return;
+    }
+  }
+}
+
+// &&&&&&&&&&&&&&&&&&&&& WEB-SOCKET &&&&&&&&&&&&&&&&&&&&&&&&
+
+function connect() {
+  let user = getUser();
+  let token = user.token;
   return new Promise((resolve, reject) => {
     socket = new WebSocket(`wss://edu.strada.one/websockets?${token}`);
     socket.onopen = () => {
       resolve();
-      socket.addEventListener("message", uiMessage);
+      socket.addEventListener("message", renderMessage);
     };
     socket.onerror = (error) => {
       reject(error);
@@ -230,6 +253,7 @@ function disonnect() {
   }
 }
 
+//
 //&&&&&&&&&&&&&&&&&&&&&& LISTENERS &&&&&&&&&&&&&&&&&&&&&&
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -242,19 +266,19 @@ dom.main.addEventListener("submit", (event) => {
   event.preventDefault();
   const target = event.target;
   if (target.classList.contains("form-message")) {
-    sendUserMessage();
+    collectInput("message");
   }
 
   if (target.classList.contains("form-email")) {
-    submitUserEmail();
+    collectInput("email");
   }
 
   if (target.classList.contains("form-confirm")) {
-    saveCode();
+    collectInput("token");
   }
 
   if (target.classList.contains("form-name")) {
-    changeName();
+    collectInput("name");
   }
 });
 
@@ -286,17 +310,13 @@ dom.main.addEventListener("click", (event) => {
 });
 
 // Tasks
-
-// UI:
+// let user = uncookify("user") - apply cookies
+// UI:-
 // check for unconnected ws: ws reconnect
-
-// ws Module?
-// Errors UI
 
 // Bugs:
 //Confirm x mark not working
+// Reconnect history reload corrupted
 
 // DONE today:
-// Ref: Listeners (submit delegation)
-// Scroll after each message
-// user object
+// Ref: improved responsibilities

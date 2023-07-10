@@ -9,7 +9,7 @@ const dom = {
   tape: getEl(".chat-tape"),
 
   formMessage: getEl(".form-message"),
-  formName: getEl(".form-nickname"),
+  formName: getEl(".form-name"),
   formAuthEmail: getEl(".form-email"),
   formConfirm: getEl(".form-confirm"),
 

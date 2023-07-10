@@ -225,7 +225,7 @@ dialog {
   align-self: center;
 }
 
-.form-nickname {
+.form-name {
   height: 50%;
   width: 100%;
   display: flex;
@@ -317,8 +317,8 @@ button:active {
   background-color: rgb(242, 239, 244);
   border: 1px solid rgb(108, 67, 244);
   border-radius: 5px;
-  padding: 5px;
-  align-self: flex-end;
+  margin-left: 25px;
+
   box-shadow: 0 0 15px rgba(247, 247, 247, 0.2);
 }
 
