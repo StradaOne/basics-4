@@ -116,7 +116,6 @@ async function renderMessages() {
       messageContainer.append(...messageElements.slice(i, i + 20));
       i += 20;
       messageContainer.scrollTop = messageContainer.scrollHeight;
-      console.log(i)
     }
 
     if (i >= messages.length) {
@@ -134,7 +133,7 @@ socket.onmessage = function (event) {
   const author = data.user.name;
   const email = data.user.email;
   const text = data.text;
-  const timeMessage = new Date().toLocaleTimeString('en-US');
+  const timeMessage = converterTime(data.createdAt);
   let me = false;
   if (data.user.email === user.email) me = true;
   const elem = createMessageElement(author, text, timeMessage, email, me);
