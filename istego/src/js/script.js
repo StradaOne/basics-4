@@ -2,22 +2,19 @@ import {
     UI,
     UI_MODAL,
     ICONS,
-    TEMPLATE,
     MODAL_TITLE,
-    CLASS,
-    tempContainer,
     textarea,
     URL,
     API_METHOD,
-} from "./modules/variables.mjs";
-import { setCookie, getCookie, removeCookie } from "./modules/cookie.mjs";
-import { getDataServer } from "./modules/api.mjs";
+} from './modules/variables.mjs';
+import { setCookie, getCookie, removeCookie } from './modules/cookie.mjs';
+import { getDataServer } from './modules/api.mjs';
 import {
     modalDelegationClick,
     showModal,
     hideModal,
     renderModal,
-} from "./modules/modal-functions.mjs";
+} from './modules/modal-functions.mjs';
 import {
     renderNicknameProfile,
     scrollBottomDialog,
@@ -27,13 +24,20 @@ import {
     clearField,
     getValueField,
     isEmptyField,
-    correctDate,
     changeIconBtn,
     showHidePreload,
     showNotificationModal,
-    containsCyrillic
-} from "./modules/help-functions.mjs";
-import "emoji-picker-element";
+    containsCyrillic,
+    addMessage,
+    clearUiDialogChat
+} from './modules/help-functions.mjs';
+import 'emoji-picker-element';
+import { setStorage, getStorage, removeStorage } from './modules/storage.mjs';
+import {
+    limitMessages,
+    virtualScrollMessages,
+    clearIndexMessage,
+} from './modules/virtualization.mjs';
 
 // Для webSocket
 let socket;
@@ -41,22 +45,22 @@ let socket;
 chekAuthorization();
 
 // Обработка клика ПОЛУЧИТЬ КОД
-UI_MODAL.btnGiveCode.addEventListener("click", getCode);
+UI_MODAL.btnGiveCode.addEventListener('click', getCode);
 
 // Обработка поля ввода Получить код
-UI_MODAL.enterFieldModal.addEventListener("input", actionInputGetCode);
+UI_MODAL.enterFieldModal.addEventListener('input', actionInputGetCode);
 
 // Обработка кнопки Войти
-UI_MODAL.btnSingIn.addEventListener("click", getConfirmAuthorization);
+UI_MODAL.btnSingIn.addEventListener('click', getConfirmAuthorization);
 
 // Обработка кнопки Выйти
-UI.btnSignOut.addEventListener("click", leaveTheChat);
+UI.btnSignOut.addEventListener('click', leaveTheChat);
 
 // Слушатель кнопки настройки
-UI.btnSettings.addEventListener("click", showModal);
+UI.btnSettings.addEventListener('click', showModal);
 
 // Обработка поля ввода в чате
-UI.enterFieldChat.addEventListener("input", () => {
+UI.enterFieldChat.addEventListener('input', () => {
     changeIconBtn(
         UI.enterFieldChat,
         UI.btnSend,
@@ -67,17 +71,17 @@ UI.enterFieldChat.addEventListener("input", () => {
 });
 
 //Слушатель кнопки отправить сообщение
-UI.form.addEventListener("submit", sendingMessage);
+UI.form.addEventListener('submit', sendingMessage);
 
 //Слушатель клавиши enter отправить сообщение
-document.addEventListener("keydown", (event) => {
-    if (event.code === "Enter" && !event.ctrlKey && !event.shiftKey) {
+document.addEventListener('keydown', (event) => {
+    if (event.code === 'Enter' && !event.ctrlKey && !event.shiftKey) {
         sendingMessage(event);
     }
 });
 
 // Обработка клика по emodji
-UI.emoji.addEventListener("emoji-click", (event) => {
+UI.emoji.addEventListener('emoji-click', (event) => {
     UI.enterFieldChat.textContent += event.detail.unicode;
     changeIconBtn(
         UI.enterFieldChat,
@@ -94,29 +98,35 @@ UI.emoji.addEventListener("emoji-click", (event) => {
     textarea.value = getValueField(UI.enterFieldChat);
 });
 
+// Событие на скролл диалога чата
+UI.dialogWindow.addEventListener('scroll', virtualScrollMessages);
+
 // ==========================ФУНКЦИИ============================
 // =============================================================
 
 //Проверка на авторизацию при запуске приложения
 function chekAuthorization() {
-    if (getCookie("token")) {
+    if (getCookie('token')) {
         hideModal();
+        clearIndexMessage();
         connectionWebSocket();
-        UI_MODAL.modal.addEventListener("click", modalDelegationClick);
+        UI_MODAL.modal.addEventListener('click', modalDelegationClick);
         renderModal(
             MODAL_TITLE.settings.title,
             MODAL_TITLE.settings.inputTitle,
             MODAL_TITLE.settings.placeholder
         );
-        showHideBtn(UI_MODAL.btnGiveCode, "hide");
-        showHideBtn(UI_MODAL.btnEnterCode, "hide");
-        showHideBtn(UI_MODAL.btnSingIn, "hide");
-        showHideBtn(UI_MODAL.btnRename, "show");
+        showHideBtn(UI_MODAL.btnGiveCode, 'hide');
+        showHideBtn(UI_MODAL.btnEnterCode, 'hide');
+        showHideBtn(UI_MODAL.btnSingIn, 'hide');
+        showHideBtn(UI_MODAL.btnRename, 'show');
         // Обработка поля input в смене имени
-        UI_MODAL.enterFieldModal.addEventListener("input", actionInputRename);
+        UI_MODAL.enterFieldModal.addEventListener('input', actionInputRename);
         // Обработка кнопки сменить имя
-        UI_MODAL.btnRename.addEventListener("click", renameNickname);
-        renderNicknameProfile(getCookie("nickname"));
+        UI_MODAL.btnRename.addEventListener('click', renameNickname);
+        // Событие на скролл диалога чата
+        UI.dialogWindow.addEventListener('scroll', virtualScrollMessages);
+        renderNicknameProfile(getCookie('nickname'));
     } else {
         renderModal(
             MODAL_TITLE.authorization.title,
@@ -124,22 +134,23 @@ function chekAuthorization() {
             MODAL_TITLE.authorization.placeholder
         );
         showModal();
-        UI_MODAL.modal.removeEventListener("click", modalDelegationClick);
+        UI_MODAL.modal.removeEventListener('click', modalDelegationClick);
         UI_MODAL.enterFieldModal.removeEventListener(
-            "input",
+            'input',
             actionInputRename
         );
-        UI_MODAL.btnRename.removeEventListener("click", renameNickname);
+        UI_MODAL.btnRename.removeEventListener('click', renameNickname);
+        UI.dialogWindow.removeEventListener('scroll', virtualScrollMessages);
         // Обработка кнопки ввести код
-        UI_MODAL.btnEnterCode.addEventListener("click", actionBtnEnterCode);
-        showHideBtn(UI_MODAL.btnRename, "hide");
+        UI_MODAL.btnEnterCode.addEventListener('click', actionBtnEnterCode);
+        showHideBtn(UI_MODAL.btnRename, 'hide');
     }
 }
 
 // ввести код
 function actionBtnEnterCode() {
     clearField(UI_MODAL.enterFieldModal);
-    UI_MODAL.enterFieldModal.removeEventListener("input", actionInputGetCode);
+    UI_MODAL.enterFieldModal.removeEventListener('input', actionInputGetCode);
     showNotificationModal();
 
     renderModal(
@@ -148,13 +159,13 @@ function actionBtnEnterCode() {
         MODAL_TITLE.confirmation.placeholder
     );
 
-    showHideBtn(UI_MODAL.btnGiveCode, "hide");
-    showHideBtn(UI_MODAL.btnEnterCode, "hide");
-    showHideBtn(UI_MODAL.btnSingIn, "show");
-    showHideBtn(UI_MODAL.btnBack, "show");
+    showHideBtn(UI_MODAL.btnGiveCode, 'hide');
+    showHideBtn(UI_MODAL.btnEnterCode, 'hide');
+    showHideBtn(UI_MODAL.btnSingIn, 'show');
+    showHideBtn(UI_MODAL.btnBack, 'show');
 
-    UI_MODAL.enterFieldModal.addEventListener("input", actionInputSignIn);
-    UI_MODAL.btnBack.addEventListener("click", clickBtnBack);
+    UI_MODAL.enterFieldModal.addEventListener('input', actionInputSignIn);
+    UI_MODAL.btnBack.addEventListener('click', clickBtnBack);
 }
 
 // Получить код
@@ -165,19 +176,19 @@ function getCode() {
         email: getValueField(UI_MODAL.enterFieldModal),
     })
         .then((answer) => {
-            if (answer.status === "true") {
+            if (answer.status === 'true') {
                 clearField(UI_MODAL.enterFieldModal);
-                activeDisableBtn(UI_MODAL.btnGiveCode, "disabled");
-                showNotificationModal("Авторизация", "ok");
-            } else if (answer.status === "false") {
-                activeDisableBtn(UI_MODAL.btnGiveCode, "disabled");
-                showNotificationModal("Авторизация", "error");
+                activeDisableBtn(UI_MODAL.btnGiveCode, 'disabled');
+                showNotificationModal('Авторизация', 'ok');
+            } else if (answer.status === 'false') {
+                activeDisableBtn(UI_MODAL.btnGiveCode, 'disabled');
+                showNotificationModal('Авторизация', 'error');
             }
         })
         .catch((error) => {
             console.log(`Error: ${error.message}`);
-            activeDisableBtn(UI_MODAL.btnGiveCode, "disabled");
-            showNotificationModal("Авторизация", "error");
+            activeDisableBtn(UI_MODAL.btnGiveCode, 'disabled');
+            showNotificationModal('Авторизация', 'error');
         });
 }
 
@@ -189,9 +200,9 @@ function actionInputGetCode() {
         validateEmail(valueField) &&
         !containsCyrillic(getValueField(UI_MODAL.enterFieldModal))
     ) {
-        activeDisableBtn(UI_MODAL.btnGiveCode, "active");
+        activeDisableBtn(UI_MODAL.btnGiveCode, 'active');
     } else {
-        activeDisableBtn(UI_MODAL.btnGiveCode, "disabled");
+        activeDisableBtn(UI_MODAL.btnGiveCode, 'disabled');
     }
 }
 
@@ -199,39 +210,39 @@ function actionInputGetCode() {
 function getConfirmAuthorization() {
     if (isEmptyField(UI_MODAL.enterFieldModal)) return;
 
-    setCookie("token", `${getValueField(UI_MODAL.enterFieldModal)}`);
+    setCookie('token', `${getValueField(UI_MODAL.enterFieldModal)}`);
     getDataServer(URL.urlDataProfile, API_METHOD.get, true)
         .then((answer) => {
-            if (answer.status === "true") {
+            if (answer.status === 'true') {
                 clearField(UI_MODAL.enterFieldModal);
-                activeDisableBtn(UI_MODAL.btnSingIn, "disabled");
-                showHideBtn(UI_MODAL.btnBack, "hide");
-                chekAuthorization();
+                activeDisableBtn(UI_MODAL.btnSingIn, 'disabled');
+                showHideBtn(UI_MODAL.btnBack, 'hide');
                 UI_MODAL.enterFieldModal.removeEventListener(
-                    "input",
+                    'input',
                     actionInputSignIn
                 );
-                setCookie("nickname", answer.answer.name);
-                setCookie("email", answer.answer.email);
-                renderNicknameProfile(getCookie("nickname"));
+                setCookie('nickname', answer.answer.name);
+                setCookie('email', answer.answer.email);
+                renderNicknameProfile(getCookie('nickname'));
+                chekAuthorization();
                 UI_MODAL.btnEnterCode.removeEventListener(
-                    "click",
+                    'click',
                     actionBtnEnterCode
                 );
-                UI_MODAL.btnGiveCode.removeEventListener("click", getCode);
+                UI_MODAL.btnGiveCode.removeEventListener('click', getCode);
                 showNotificationModal();
-            } else if (answer.status === "false") {
+            } else if (answer.status === 'false') {
                 console.log(answer);
-                removeCookie("token");
+                removeCookie('token');
                 showNotificationModal(
                     MODAL_TITLE.confirmation.title,
-                    "errorCode"
+                    'errorCode'
                 );
                 return;
             }
         })
         .catch((error) => {
-            showNotificationModal(MODAL_TITLE.confirmation.title, "error");
+            showNotificationModal(MODAL_TITLE.confirmation.title, 'error');
             console.log(`Error!!!!: ${error.message}`);
         });
 }
@@ -242,9 +253,9 @@ function actionInputSignIn() {
         isEmptyField(UI_MODAL.enterFieldModal) ||
         containsCyrillic(getValueField(UI_MODAL.enterFieldModal))
     ) {
-        activeDisableBtn(UI_MODAL.btnSingIn, "disabled");
+        activeDisableBtn(UI_MODAL.btnSingIn, 'disabled');
     } else {
-        activeDisableBtn(UI_MODAL.btnSingIn, "active");
+        activeDisableBtn(UI_MODAL.btnSingIn, 'active');
     }
 }
 
@@ -256,11 +267,10 @@ function renameNickname() {
         name: getValueField(UI_MODAL.enterFieldModal),
     })
         .then((result) => {
-            console.log("результат1", result);
-            setCookie("nickname", result.answer.name);
-            renderNicknameProfile(getCookie("nickname"));
-            UI_MODAL.notificationName.textContent = getCookie("nickname");
-            socket.close(1000, "работа закончена");
+            setCookie('nickname', result.answer.name);
+            renderNicknameProfile(getCookie('nickname'));
+            UI_MODAL.notificationName.textContent = getCookie('nickname');
+            socket.close(1000, 'работа закончена');
             connectionWebSocket();
             clearField(UI_MODAL.enterFieldModal);
             changeIconBtn(
@@ -269,17 +279,16 @@ function renameNickname() {
                 ICONS.srcBtnRenameActive,
                 ICONS.srcBtnRenameDisabled
             );
-            showNotificationModal("Настройки", "ok");
+            showNotificationModal('Настройки', 'ok');
             setTimeout(() => {
                 showNotificationModal();
             }, 2000);
         })
         .catch((error) => {
             console.log(error);
-            showNotificationModal("Настройки", "error");
+            showNotificationModal('Настройки', 'error');
         });
 }
-
 // Действия при вводе в input СМЕНЫ ИМЕНИ
 function actionInputRename() {
     changeIconBtn(
@@ -292,21 +301,24 @@ function actionInputRename() {
 
 // Выход из чата
 function leaveTheChat() {
-    removeCookie("token");
-    removeCookie("nickname");
-    removeCookie("email");
-    socket.close(1000, "работа закончена");
+    UI.dialogWindow.removeEventListener('scroll', virtualScrollMessages);
+    removeCookie('token');
+    removeCookie('nickname');
+    removeCookie('email');
+    socket.close(1000, 'работа закончена');
+    removeStorage('messages');
+    clearUiDialogChat();
     chekAuthorization();
     renderModal(
         MODAL_TITLE.authorization.title,
         MODAL_TITLE.authorization.inputTitle,
         MODAL_TITLE.authorization.placeholder
     );
-    showHideBtn(UI_MODAL.btnGiveCode, "show");
-    showHideBtn(UI_MODAL.btnEnterCode, "show");
-    showHideBtn(UI_MODAL.btnSingIn, "hide");
-    UI_MODAL.enterFieldModal.addEventListener("input", actionInputGetCode);
-    UI_MODAL.btnGiveCode.addEventListener("click", getCode);
+    showHideBtn(UI_MODAL.btnGiveCode, 'show');
+    showHideBtn(UI_MODAL.btnEnterCode, 'show');
+    showHideBtn(UI_MODAL.btnSingIn, 'hide');
+    UI_MODAL.enterFieldModal.addEventListener('input', actionInputGetCode);
+    UI_MODAL.btnGiveCode.addEventListener('click', getCode);
 }
 
 // Отправка сообщения
@@ -326,55 +338,42 @@ function sendingMessage(event) {
 // Данные(текст сообщения) из формы
 function getValueMessageForm() {
     const formData = new FormData(UI.form);
-    return formData.get("message");
-}
-
-// Добавление сообщения
-function addMessage(textMessage, name, time, classMessage) {
-    TEMPLATE.messageTextTemlate.textContent = textMessage;
-    TEMPLATE.messageTimeTemplate.textContent = correctDate(time);
-    TEMPLATE.messageNicknameTemlate.textContent = name;
-
-    let message = tempContainer.content.cloneNode(true);
-
-    const massageContainerTemp = message.querySelector(".chat-dialog__message");
-    massageContainerTemp.classList.add(classMessage);
-    UI.dialogWindow.append(message);
-    scrollBottomDialog();
+    return formData.get('message');
 }
 
 // Загрузка истории сообщений
-function renderHistory() {
+function getHistoryMessages() {
     getDataServer(URL.urlHistoryMessages, API_METHOD.get, true)
         .then((result) => result.answer.messages)
         .then((messages) => {
-            messages.reverse().map((message) => {
-                leftRightMessages(message);
-            });
+            setStorage('messages', messages);
+            limitMessages(getStorage('messages'), 20);
+            scrollBottomDialog();
         });
 }
 
 // Установка соединения с WebSocket
 function connectionWebSocket() {
     socket = new WebSocket(
-        `wss://edu.strada.one/websockets?${getCookie("token")}`
+        `wss://edu.strada.one/websockets?${getCookie('token')}`
     );
 
     socket.onopen = function (e) {
-        console.log("[open] Соединение установлено");
         if (socket.readyState === 0) {
-            showHidePreload("none");
-            alert("соединение не установлено!");
+            showHidePreload('none');
+            alert('соединение не установлено!');
         } else if (socket.readyState === 1) {
-            renderHistory();
+            console.log('[open] Соединение установлено');
+            getHistoryMessages();
         }
     };
 
     socket.onmessage = function (event) {
         const serverAnswer = JSON.parse(event.data);
-        console.log(serverAnswer);
+        // console.log(serverAnswer);
 
-        leftRightMessages(serverAnswer);
+        addMessage(serverAnswer, 'append');
+        scrollBottomDialog();
     };
 
     socket.onclose = function (event) {
@@ -382,9 +381,11 @@ function connectionWebSocket() {
             console.log(
                 `[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`
             );
+            removeStorage('messages');
         } else {
-            showHidePreload("flex");
-            console.log("[close] Соединение прервано");
+            showHidePreload('flex');
+            console.log('[close] Соединение прервано');
+            removeStorage('messages');
             connectionWebSocket();
         }
     };
@@ -396,41 +397,24 @@ function connectionWebSocket() {
 
 // Клик по кнопке назад
 function clickBtnBack() {
-    showHideBtn(UI_MODAL.btnBack, "hide");
-    showHideBtn(UI_MODAL.btnSingIn, "hide");
-    showHideBtn(UI_MODAL.btnGiveCode, "show");
-    showHideBtn(UI_MODAL.btnEnterCode, "show");
+    activeDisableBtn(UI_MODAL.btnGiveCode, 'disabled');
+    activeDisableBtn(UI_MODAL.btnSingIn, 'disabled');
+    showHideBtn(UI_MODAL.btnBack, 'hide');
+    showHideBtn(UI_MODAL.btnSingIn, 'hide');
+    showHideBtn(UI_MODAL.btnGiveCode, 'show');
+    showHideBtn(UI_MODAL.btnEnterCode, 'show');
     renderModal(
         MODAL_TITLE.authorization.title,
         MODAL_TITLE.authorization.inputTitle,
         MODAL_TITLE.authorization.placeholder
     );
-    UI_MODAL.enterFieldModal.addEventListener("input", actionInputGetCode);
-    UI_MODAL.btnBack.removeEventListener("click", clickBtnBack);
+    UI_MODAL.enterFieldModal.addEventListener('input', actionInputGetCode);
+    UI_MODAL.btnBack.removeEventListener('click', clickBtnBack);
+    UI_MODAL.enterFieldModal.removeEventListener('input', actionInputSignIn);
     clearField(UI_MODAL.enterFieldModal);
     showNotificationModal();
 }
 
-// Распределение сообщений налево или право 
-function leftRightMessages(data) {
-    if (data.user.email === getCookie("email")) {
-        addMessage(
-            data.text,
-            data.user.name,
-            data.updatedAt,
-            CLASS.sendingMessage
-        );
-    } else {
-        addMessage(
-            data.text,
-            data.user.name,
-            data.updatedAt,
-            CLASS.inboxMessage
-        );
-    }
-}
-
-// Локалсторедж
-// Добавление сообщений из локалсторедж
+// Рефакторинг
 // функцию рендер
 // обработка ctrl + enter и shift + enter для переноса строки.

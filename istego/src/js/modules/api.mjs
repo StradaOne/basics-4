@@ -18,8 +18,6 @@ async function getDataServer(url, method, moreHeader = null, value = null) {
         });
         const answer = await response.json();
         if (response.status === 200) {
-            console.log(answer);
-
             return { status: "true", answer };
         } else {
             console.log("ошибка", answer);
