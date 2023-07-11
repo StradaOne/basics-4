@@ -42,7 +42,8 @@ import {
 // Для webSocket
 let socket;
 
-chekAuthorization();
+// chekAuthorization();
+getConfirmAuthorization();
 
 // Обработка клика ПОЛУЧИТЬ КОД
 UI_MODAL.btnGiveCode.addEventListener('click', getCode);
@@ -51,7 +52,12 @@ UI_MODAL.btnGiveCode.addEventListener('click', getCode);
 UI_MODAL.enterFieldModal.addEventListener('input', actionInputGetCode);
 
 // Обработка кнопки Войти
-UI_MODAL.btnSingIn.addEventListener('click', getConfirmAuthorization);
+UI_MODAL.btnSingIn.addEventListener('click', () => {
+    if (isEmptyField(UI_MODAL.enterFieldModal)) return;
+
+    setCookie('token', `${getValueField(UI_MODAL.enterFieldModal)}`);
+    getConfirmAuthorization();
+});
 
 // Обработка кнопки Выйти
 UI.btnSignOut.addEventListener('click', leaveTheChat);
@@ -208,12 +214,10 @@ function actionInputGetCode() {
 
 // Получить подтверждение авторизации кнопка ВОЙТИ
 function getConfirmAuthorization() {
-    if (isEmptyField(UI_MODAL.enterFieldModal)) return;
-
-    setCookie('token', `${getValueField(UI_MODAL.enterFieldModal)}`);
     getDataServer(URL.urlDataProfile, API_METHOD.get, true)
         .then((answer) => {
             if (answer.status === 'true') {
+                console.log(answer);
                 clearField(UI_MODAL.enterFieldModal);
                 activeDisableBtn(UI_MODAL.btnSingIn, 'disabled');
                 showHideBtn(UI_MODAL.btnBack, 'hide');
@@ -234,10 +238,8 @@ function getConfirmAuthorization() {
             } else if (answer.status === 'false') {
                 console.log(answer);
                 removeCookie('token');
-                showNotificationModal(
-                    MODAL_TITLE.confirmation.title,
-                    'errorCode'
-                );
+                chekAuthorization();
+                showNotificationModal();
                 return;
             }
         })
@@ -301,11 +303,11 @@ function actionInputRename() {
 
 // Выход из чата
 function leaveTheChat() {
+    socket.close(1000, 'работа закончена');
     UI.dialogWindow.removeEventListener('scroll', virtualScrollMessages);
     removeCookie('token');
     removeCookie('nickname');
     removeCookie('email');
-    socket.close(1000, 'работа закончена');
     removeStorage('messages');
     clearUiDialogChat();
     chekAuthorization();
