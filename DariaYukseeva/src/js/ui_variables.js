@@ -18,3 +18,7 @@ export const apiVariables = {
 	nickname: "nickname_for_chat",
 	email: "user_email_for_chat",
 };
+
+export const lockalStorageVariables = {
+	lastUploadedMessageTime: "lastMessageForChat",
+};

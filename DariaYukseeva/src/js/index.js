@@ -1,10 +1,10 @@
 import Cookies from "js-cookie";
 import { setTheme, popupSettings, popupAuthorization, theme } from "./popups";
-import { variables, apiVariables } from "./ui_variables";
-import { showMessageHistory } from "./message";
+import { variables, apiVariables, lockalStorageVariables } from "./ui_variables";
+import { showMessageHistory, saveMessagesHistory, messageHistory } from "./message";
 import { render } from "./DOM_render";
 import { connectWs, sendMessageByWs } from "./websocket";
-import { isEmpty } from "./utiles";
+import { isEmpty, saveToLocalStorage, loadFromLocalStorage } from "./utiles";
 
 const settingsBtnHandler = () => {
 	render(popupSettings, variables.popupWindow);
@@ -44,15 +44,30 @@ const logoutBtnHandler = () => {
 	inputEmail.focus();
 };
 
+const scrollHandler = () => {
+	if (variables.messagesField.scrollTop === 0) {
+		const firstMessageNode = variables.messagesField.firstElementChild;
+		showMessageHistory();
+		firstMessageNode.scrollIntoView();
+	}
+};
+
 variables.settingsBtn.addEventListener("click", settingsBtnHandler);
 
 variables.btnSendMessage.addEventListener("click", btnSendingMessageHandler);
 
 variables.exitEnterBtn.addEventListener("click", logoutBtnHandler);
 
-function init() {
+variables.messagesField.addEventListener("scroll", scrollHandler);
+
+async function init() {
 	setTheme();
 	const token = Cookies.get(apiVariables.tokenCookieName);
+	// messageHistory.lastUploadedMessageTime = loadFromLocalStorage(
+	// 	lockalStorageVariables.lastUploadedMessageTime,
+	// )
+	// 	? loadFromLocalStorage(lockalStorageVariables.lastUploadedMessageTime)
+	// 	: null;
 	if (!token) {
 		render(popupAuthorization, variables.popupWindow);
 		const authorizationMessageNode = document.querySelector(".authorization-message");
@@ -62,6 +77,7 @@ function init() {
 	}
 	if (token) {
 		connectWs(token);
+		await saveMessagesHistory();
 		showMessageHistory();
 		variables.messagesField.scrollTop += 1e9;
 	}

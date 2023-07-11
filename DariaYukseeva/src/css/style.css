@@ -139,10 +139,8 @@ button {
 .sent-message {
 	margin-left: auto;
 	border-radius: 15px 15px 0px 15px;
-	display: flex;
-	flex-direction: column;
-	align-items: end;
-	
+	margin-left: auto;
+	word-wrap: break-word;
 }
 
 .time-mark-wrapper {
@@ -186,6 +184,16 @@ button {
 .time-for-received {
 	margin-left: auto;
 	width: 50px;
+}
+
+.final-mes {
+	color: var(--message-color);
+	margin: auto;
+	background:var(--message-bg);
+	max-width: 70%;
+	border-radius: 15px;
+	padding: 10px;
+	cursor: default;
 }
 
 .form {

@@ -1,8 +1,9 @@
 import Cookies from "js-cookie";
-import { creatMessageNode, processData } from "./message";
-import { apiVariables, variables } from "./ui_variables";
+import { creatMessageNode, processData, messageHistory } from "./message";
+import { apiVariables, variables, lockalStorageVariables } from "./ui_variables";
 import { popupAuthorization } from "./popups";
 import { render } from "./DOM_render";
+import { saveToLocalStorage } from "./utiles";
 
 let socket = null;
 
@@ -14,7 +15,16 @@ const gettingMessageHandler = (event) => {
 		const processedData = processData(data);
 		const messageNode = creatMessageNode(processedData);
 		variables.messagesField.append(messageNode);
-		variables.messagesField.scrollTop += 1e9;
+		console.log(variables.messagesField.scrollTop);
+		console.log(variables.messagesField.scrollHeight);
+		console.log(variables.messagesField.clientHeight);
+		if (
+			variables.messagesField.scrollTop >=
+			variables.messagesField.scrollHeight - variables.messagesField.clientHeight - 150
+		) {
+			console.log("down");
+			variables.messagesField.scrollTop += 1e9;
+		}
 	} catch (error) {
 		console.log(error);
 	}

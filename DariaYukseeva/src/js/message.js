@@ -1,7 +1,14 @@
 import Cookies from "js-cookie";
-import { variables, apiVariables } from "./ui_variables";
-import { getTime } from "./utiles";
+import { variables, apiVariables, lockalStorageVariables } from "./ui_variables";
+import { getTime, saveToLocalStorage, loadFromLocalStorage } from "./utiles";
 import { getMessagesFetch } from "./api_requests";
+
+export const messageHistory = {
+	messageArray: [],
+	firstShownMessage: 0,
+	lastShownMessage: 19,
+	// lastUploadedMessageTime: "",
+};
 
 export function creatMessageNode({ createdAt, text, updatedAt, userEmail, userNickname }) {
 	let messageTemplate = null;
@@ -20,14 +27,34 @@ export function creatMessageNode({ createdAt, text, updatedAt, userEmail, userNi
 }
 
 export function renderMessages(node) {
-	variables.messagesField.append(...node);
+	variables.messagesField.prepend(...node);
+}
+
+export async function saveMessagesHistory() {
+	const data = await getMessagesFetch();
+	messageHistory.messageArray = data.messages;
 }
 
 export async function showMessageHistory() {
-	const data = await getMessagesFetch();
-	const messagesArray = getProcessedMessageHistory(data);
-	renderMessages(messagesArray);
-	variables.messagesField.scrollTop += 1e9;
+	const messagesForRender = messageHistory.messageArray.slice(
+		messageHistory.firstShownMessage,
+		messageHistory.lastShownMessage + 1,
+	);
+	if (messagesForRender.length > 0) {
+		const nodesWithMessages = getProcessedMessageHistory(messagesForRender);
+		renderMessages(nodesWithMessages.reverse());
+		messageHistory.firstShownMessage += 20;
+		messageHistory.lastShownMessage += 20;
+	} else if (
+		variables.messagesField.firstElementChild.classList.contains("message") ||
+		variables.messagesField.firstElementChild.classList.contains("received-message-wrapper")
+	) {
+		console.log("Вся история загружена");
+		const finalMessage = document.createElement("div");
+		finalMessage.textContent = "Вся история загружена";
+		finalMessage.classList.add("final-mes");
+		variables.messagesField.prepend(finalMessage);
+	}
 }
 
 export function processData(data) {
@@ -48,12 +75,20 @@ export function processData(data) {
 }
 
 export function getProcessedMessageHistory(data) {
-	const { messages } = data;
+	// const { messages } = data;
 	const messagesArray = [];
-	messages.forEach((el) => {
+	data.forEach((el) => {
 		const processedData = processData(el);
 		const messageNode = creatMessageNode(processedData);
 		messagesArray.push(messageNode);
 	});
-	return messagesArray.reverse();
+	return messagesArray;
 }
+
+// export function saveLastMessageTime(date) {
+// 	messageHistory.lastUploadedMessageTime = date.createdAt;
+// 	saveToLocalStorage(
+// 		lockalStorageVariables.lastUploadedMessage,
+// 		messageHistory.lastUploadedMessageTime,
+// 	);
+// }
