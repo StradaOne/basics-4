@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatroom</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/light.css" id="theme-link"> -->
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <button class="settings"></button>
+            <button class="exit"></button>
+        </div>
+        <div class="message-field">
+            <!-- <div class="sent-message message">
+                <div class="text">Привет</div>
+                <div class="time-mark-wrapper">
+                    <div class="time">18:45</div>
+                    <div class="message-mark"></div>
+                </div>
+            </div> -->
+            <!-- <div class="received-message-wrapper">
+                <img src="assets/img/avatar_icon.svg" alt="" class="avatar">
+                <div class="received-message message">
+                    <div class="nickname">собеседник</div>
+                    <div class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores sequi libero, temporibus distinctio dolorem dignissimos expedita natus autem aliquam, tempore sint cumque, magnam dolore doloremque? Minima maxime beatae amet fugiat!</div>
+                    <div class="time time-for-received">18:45</div>
+                </div>
+                
+            </div>
+            <div class="received-message-wrapper">
+                <img src="assets/img/avatar_icon.svg" alt="" class="avatar">
+                <div class="received-message message">
+                    <div class="nickname">собеседник</div>
+                    <div class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores sequi libero, </div>
+                    <div class="time time-for-received">18:45</div>
+                </div>
+            </div>
+            <div class="sent-message message">
+                <div class="text">dfkjgdfkjgb Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores sequi libero,</div>
+                <div class="time-mark-wrapper">
+                    <div class="time">18:45</div>
+                    <div class="message-mark"></div>
+                </div>
+            </div>
+            <div class="received-message-wrapper">
+                <img src="assets/img/avatar_icon.svg" alt="" class="avatar">
+                <div class="received-message message">
+                    <div class="nickname">собеседник</div>
+                    <div class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores sequi libero, </div>
+                    <div class="time time-for-received">18:45</div>
+                </div>
+            </div> -->
+            <template id="temp-for-my-mes">
+                <div class="sent-message message">
+                    <div class="text"></div>
+                    <div class="time-mark-wrapper">
+                        <div class="time"></div>
+                        <!-- <img class="message-mark" src="assets/img/mark_icon.png"> -->
+                    </div>
+                </div>
+            </template>
+
+            <template id="temp-for-outside-mes">
+                <div class="received-message-wrapper">
+                    <img src="assets/img/avatar_icon.svg" alt="avatar" class="avatar">
+                    <div class="received-message message">
+                        <div class="nickname"></div>
+                        <div class="text"></div>
+                        <div class="time time-for-received"></div>
+                    </div>
+                </div>
+            </template>
+            
+        </div>
+        <form class="form">
+            <div class="entry-wrapper">
+                <input class="entry-field" placeholder="Введите сообщение..." rows="1" contenteditable="true" autofocus></input>
+                <button class="btn-sending-message" type="submit"></button>
+            </div>
+        </form>
+    </div>
+    <div class="popup" id="popup" >
+        <div class="popup-content"></div>
+            <!-- <div class="popup-header">
+                <p class="head">Подтверждение</p>
+                <button class="popup-close-btn"></button>
+            </div>
+            <form class="popup-form authorization-form">
+                <div>Код:</div>
+                <input type="text" class="email-input">
+                <button class="popup-send-code-btn" type="submit">Войти</button>
+                
+                
+            </form>   -->
+        
+        
+        <!-- <div class="popup-content">
+            <div class="popup-header">
+                <p class="head">Авторизация</p>
+                <button class="popup-close-btn"></button>
+            </div>
+            <form class="popup-form authorization-form">
+                <div>Почта:</div>
+                <input type="email" class="email-input">
+                <div class="btn-wrapper">
+                    <button class="popup-get-code-btn">Получить код</button>
+                    <button class="popup-send-code-btn" type="submit">Ввести код</button>
+                </div>
+                
+            </form>
+        </div> -->
+        <!-- <div class="popup-content">
+            <div class="popup-header">
+                <p class="head">Настройки</p>
+                <button class="popup-close-btn"></button>
+            </div>
+            
+            <form class="popup-form">
+                <div>Имя в чате:</div>
+                <input type="text" class="nickname-input">
+                <button class="popup-nickname-btn" type="submit"></button>
+            </form>
+
+            <label>
+                Тёмная тема
+                <input type="checkbox" id="theme-btn" class="theme-btn">
+            </label>
+        </div> -->
+    </div>
+    <script src="js/index.js" type="module"></script>
+</body>
+</html>
