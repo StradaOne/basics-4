@@ -15,12 +15,12 @@ const gettingMessageHandler = (event) => {
 		const processedData = processData(data);
 		const messageNode = creatMessageNode(processedData);
 		variables.messagesField.append(messageNode);
-		console.log(variables.messagesField.scrollTop);
-		console.log(variables.messagesField.scrollHeight);
-		console.log(variables.messagesField.clientHeight);
+		const deviationOnScroll = 150;
 		if (
 			variables.messagesField.scrollTop >=
-			variables.messagesField.scrollHeight - variables.messagesField.clientHeight - 150
+			variables.messagesField.scrollHeight -
+				variables.messagesField.clientHeight -
+				deviationOnScroll
 		) {
 			console.log("down");
 			variables.messagesField.scrollTop += 1e9;
