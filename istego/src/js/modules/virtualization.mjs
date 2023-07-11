@@ -21,10 +21,14 @@ function limitMessages(arrayHistoryMessages, limitCount) {
     }
 }
 
+
 function virtualScrollMessages() {
     if (UI.dialogWindow.scrollTop === 0) {
+        
         limitMessages(getStorage('messages'), 20);
-        UI.dialogWindow.scrollTop = 50;
+        
+        UI.dialogWindow.scrollTop = 1394;
+        
     }
 }
 
