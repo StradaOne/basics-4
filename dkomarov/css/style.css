@@ -57,18 +57,7 @@ body {
     overflow-y: auto;
 }
 
-.down-scroll-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #000000;
-    color: #ffffff;
-    position: fixed;
-    left: 1080px;
-    bottom: 140px;
-    z-index: 999;
-    padding: 12px;
-}
+
 
 .btn-down-img {
     width: 25px;
@@ -301,6 +290,19 @@ dialog::backdrop {
     background: #7575f8;
 }
 
+
+.down-scroll-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #000000;
+    color: #ffffff;
+    position: absolute;
+    left: 1080px;
+    bottom: 140px;
+    /* z-index: 1; */
+    padding: 12px;
+}
 
 @media (max-width: 770px) {
    .wrapper {

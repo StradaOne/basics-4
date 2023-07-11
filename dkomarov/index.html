@@ -17,13 +17,20 @@
   </head>
   <body>
     <div class="wrapper">
+      
       <div class="header">
         <button class="header__btn-settings">
           <img src="./static/icons8-settings-25.svg" alt="" />
         </button>
         <button class="header__btn-out">выйти</button>
       </div>
+      
       <div id="display" class="display">
+        <button class="down-scroll-btn">
+          <div class="btn-down-img">
+            <img src="./static/icons8-down-64.png" alt="">
+          </div>
+        </button>
         <template id="template">
           <div>
             <span class="message-nickname">Никнейм:</span>
@@ -31,12 +38,8 @@
             <span class="message-date">18:45</span>
           </div>
         </template>
-        <button class="down-scroll-btn">
-          <div class="btn-down-img">
-            <img src="./static/icons8-down-64.png" alt="">
-          </div>
-        </button>
       </div>
+      
       <form action="#" class="form">
         <input class="form__input" type="text" placeholder="сообщение..." />
         <button class="form__button-send">-></button>

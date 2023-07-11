@@ -7,7 +7,8 @@ import {
   postData,
   changeName,
   getData,
-  getNewHistoryMessage
+  getNewHistoryMessage,
+  getHistoryMessage
 } from "./modules/apiAction";
 
 import {
