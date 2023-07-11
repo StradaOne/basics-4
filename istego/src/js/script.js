@@ -29,7 +29,7 @@ import {
     showNotificationModal,
     containsCyrillic,
     addMessage,
-    clearUiDialogChat
+    clearUiDialogChat,
 } from './modules/help-functions.mjs';
 import 'emoji-picker-element';
 import { setStorage, getStorage, removeStorage } from './modules/storage.mjs';
@@ -134,6 +134,9 @@ function chekAuthorization() {
         UI.dialogWindow.addEventListener('scroll', virtualScrollMessages);
         renderNicknameProfile(getCookie('nickname'));
     } else {
+        removeCookie('nickname');
+        removeCookie('email');
+        removeStorage('messages');
         renderModal(
             MODAL_TITLE.authorization.title,
             MODAL_TITLE.authorization.inputTitle,
