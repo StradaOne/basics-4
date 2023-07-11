@@ -1,3 +1,19 @@
+
+const form = document.querySelector('.form');
+const input = document.querySelector('.form__input');
+const text = document.querySelector('.text');
+
+function showGreeting(value: number) {
+  console.log(`you ${value} age`);
+  
+}
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  
+  showGreeting(12)
+})
+
 class Student {
   fullName: string;
   constructor(
@@ -20,22 +36,4 @@ function greeter(person: Person) {
 }
 
 let user = new Student('Vadim', 'Sysoev', 28);
-document.body.textContent = greeter(user);
-
-// interface Person {
-//   firstName: string;
-//   lastName: string;
-//   age: number
-// }
-
-// function greeter(person: Person) {
-//   return "Hello, " + person.firstName + " " + person.lastName + ' ' + person.age;
-// }
- 
-// const user = { 
-//   firstName: 'Vadim',
-//   lastName: 'Sysoev',
-//   age: 28,
-// };
- 
-// document.body.textContent = greeter(user);
+text.textContent = greeter(user);
