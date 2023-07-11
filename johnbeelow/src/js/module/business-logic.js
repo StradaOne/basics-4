@@ -15,24 +15,25 @@ let isSucces = false
 
 const appendHistory = async () => {
   const data = await getHistoryChat()
+  const counter = 20
 
   const showList = () => {
     paginatedData = data.reverse().slice(start, end)
     paginatedData.map((messages) => parseMessage(messages, MESSAGE.DOWN))
 
-    start += 20
-    end += 20
+    start += counter
+    end += counter
 
     if (isEmptyArray(paginatedData) && !isSucces) {
       renderSystemMessage(STORY_IS_UPLOADED)
       isSucces = true
     }
 
-    if (start === 20) {
+    if (start === counter) {
       updateScroll()
     }
   }
-  
+
   showList()
 }
 
