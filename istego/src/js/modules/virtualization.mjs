@@ -22,13 +22,29 @@ function limitMessages(arrayHistoryMessages, limitCount) {
 }
 
 
+// function virtualScrollMessages() {
+//     if (UI.dialogWindow.scrollTop === 0) {
+        
+//         limitMessages(getStorage('messages'), 20);
+        
+//         UI.dialogWindow.scrollTop = 1394;
+        
+//     }
+// }
+
 function virtualScrollMessages() {
+    // начальная высота
+    let prevScrollHeight = UI.dialogWindow.scrollHeight;
+
     if (UI.dialogWindow.scrollTop === 0) {
-        
         limitMessages(getStorage('messages'), 20);
-        
-        UI.dialogWindow.scrollTop = 1394;
-        
+
+        // Рассчитываем разницу в высоте контейнера после подгрузки сообщений
+        let newScrollHeight = UI.dialogWindow.scrollHeight;
+        let scrollDiff = newScrollHeight - prevScrollHeight;
+
+        // Устанавливаем новую прокрутку для сохранения позиции отображаемого контента
+        UI.dialogWindow.scrollTop = scrollDiff;
     }
 }
 
