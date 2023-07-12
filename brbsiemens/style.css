@@ -1,0 +1,11 @@
+
+.form{
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid black;
+  display: flex;
+}
+
+.inputName{
+  width: 170px;
+}
