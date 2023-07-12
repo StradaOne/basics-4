@@ -1,11 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Chat Layout</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://unpkg.com/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 </head>
+
 <body>
-  <script src="./main.js"></script>
+  <div class="container">
+    <div class="header">
+      <button class="settings-button">Настройки</button>
+      <button class="auth-button">Войти</button>
+    </div>
+
+    <div class="message-container">
+      <div class="message other-message">
+      </div>
+    </div>
+
+    <div class="footer">
+      <form class="message-form">
+        <input type="text" class="message-input" placeholder="Введите сообщение" required name="message" autofocus>
+        <button type="submit" class="send-button">Отправить</button>
+      </form>
+    </div>
+
+    <div class="modal hidden settings-modal">
+      <div class="modal-content">
+        <span class="close-button close-settings">&times;</span>
+        <h2>Настройки</h2>
+        <form class="chat-name-input-form">
+          <input type="text" class="chat-name-input" placeholder="Введите имя в чате" name="name" required>
+          <button class="ok-button">ОК</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal hidden authrozation-modal">
+      <div class="modal-content">
+        <span class="close-button close-auth">&times;</span>
+        <h2>Авторизация</h2>
+        <form class="email-input-form">
+          <input type="email" class="email-input" placeholder="Введите почту" name='email' required>
+          <button class="sent-code">ПОЛУЧИТЬ КОД</button>
+        </form>
+        <button class="input-code">Ввести код</button>
+      </div>
+    </div>
+    <div class="modal hidden submit-modal">
+      <div class="modal-content">
+        <span class="close-button close-submit">&times;</span>
+        <h2>Подтверждение </h2>
+        <form class="code-input-form">
+          <input type="text" class="code-input" placeholder="Введите код" name="code" required>
+          <button class="login">Войти</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <template class="template-message">
+    <span class="author-message"></span>
+    <span class="text-message"></span>
+    <span class="time-message"></span>
+  </template>
+
+  <script src="./modules/functions.mjs" type="module"></script>
+  <script src="./modules/api.mjs" type="module"></script>
+  <script src="./main.js" type="module"></script>
 </body>
+
 </html>

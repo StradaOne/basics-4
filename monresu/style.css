@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 750px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+.settings-button, .exit-button {
+  font-size: 16px;
+}
+
+.message-container {
+  border: 1px solid #000;
+  max-width: 75%;
+  margin: 20px auto 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: rgba(255, 255, 255, 0.0);
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 5px;
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+}
+
+.my-message {
+  background-color: #e2f0ff;
+  align-self: flex-end;
+}
+
+.other-message {
+  background-color: #f7f7f7;
+  align-self: flex-start;
+}
+
+.footer {
+  padding: 10px;
+}
+
+.message-form {
+  display: flex;
+}
+
+.message-input {
+  flex: 1;
+  padding: 5px;
+}
+
+.send-button {
+  padding: 5px 10px;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.hidden {
+  display: none;
+}
