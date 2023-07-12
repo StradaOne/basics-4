@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+	background: radial-gradient(76.75% 76.75% at 70% 8%, #BCEEEB 0%, #E1EEBC 0.01%, #BCD9EE 100%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.task-container {
+	margin: 0 auto;
+	width: 476px;
+	min-height: 688px;
+	background: #FFFFFF;
+	border-radius: 20px;
+	box-shadow: 0px 7px 20px 20px rgba(34, 60, 80, 0.12);
+	background: linear-gradient(152.97deg, rgba(21, 21, 21, 0.2) 0%, rgba(21, 21, 21, 0) 100%);
+	backdrop-filter: blur(21px);
+
+	.priority-container {
+		position: relative;
+		font-family: 'Roboto';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 21px;
+		color: #FFFFFF;
+		text-align: center;
+
+		&__title {
+			margin: 25px 0 12px 0;
+			&-mt12{
+				margin: 12px 0 12px 0;
+			}
+		}
+
+		&__form{
+			display: flex;
+			width: 460px;
+			height: 45px;
+			background: #FFFFFF;
+			border-radius: 6px;
+			margin: 0 auto 8px auto;
+			box-shadow: 0px 7px 20px -1px rgba(34, 60, 80, 0.12);
+			background: rgba(255,255,255,0.05);
+			backdrop-filter: blur(10px);
+
+			&-input {
+				font-family: 'Roboto';
+				font-style: normal;
+				font-weight: 400;
+				font-size: 18px;
+				line-height: 21px;
+				color: #FFFFFF;
+				width: 430px;
+				height: 45px;
+				border-radius: 6px;
+				border: none;
+				background: transparent;
+				padding: 0 0 0 12px;
+				outline: none;
+				appearance: none;
+				&::placeholder {
+					color: #FFFFFF;
+				}
+			}
+
+			&-button {
+				width: 17px;
+				height: 16px;
+				border: none;
+				background-color: transparent;
+				cursor: pointer;
+				padding: 0;
+				transform: rotate(-45deg);
+				margin: 14px 12px 0 0;
+				img {
+					max-width: none;
+				}
+			}
+		}
+
+		&__task {
+			display: flex;
+			width: 460px;
+			min-height: 45px;
+			background: #FFFFFF;
+			border-radius: 6px;
+			margin: 0 auto 7px auto;
+			position: relative;
+			box-shadow: 0px 7px 20px -1px rgba(34, 60, 80, 0.12);
+			background: rgba(255,255,255,0.05);
+			backdrop-filter: blur(10px);
+			&-text {
+				margin: 12px 45px 11px 22px;
+				width: 370px;
+				font-family: 'Roboto';
+				font-style: normal;
+				font-weight: 400;
+				font-size: 18px;
+				line-height: 21px;
+				color: #FFFFFF;
+				text-align: left;
+			}
+			&--done{
+				background: rgba(75, 75, 75, 0.25);
+				backdrop-filter: blur(10px);
+				text-decoration: line-through;
+				color: #FFFFFF;
+				box-shadow: none;
+				opacity: 0.9;
+			}
+		}
+
+		&__checkbox {
+			appearance: none;
+			min-width: 22px;
+			height: 22px;
+			border: 1px solid #FFFFFF;
+			border-radius: 50%;
+			position: relative;
+			outline: none;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			margin: 0;
+			top: 13px;
+			left: 11px;
+			&:checked::before {
+				content: "";
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background-color: #FFFFFF;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		&__delete {
+			position: absolute;
+			top: 14px;
+			right: 10px;
+			cursor: pointer;
+		}
+	}
+}	
