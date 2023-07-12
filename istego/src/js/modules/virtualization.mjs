@@ -21,17 +21,6 @@ function limitMessages(arrayHistoryMessages, limitCount) {
     }
 }
 
-
-// function virtualScrollMessages() {
-//     if (UI.dialogWindow.scrollTop === 0) {
-        
-//         limitMessages(getStorage('messages'), 20);
-        
-//         UI.dialogWindow.scrollTop = 1394;
-        
-//     }
-// }
-
 function virtualScrollMessages() {
     // начальная высота
     let prevScrollHeight = UI.dialogWindow.scrollHeight;
