@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.form {
+  padding-top: 100px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.form__input {
+  margin-bottom: 10px;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.form__btn {
+  margin-bottom: 20px;
+  font-size: 16px;
+  padding: 3px;
+}
+
+.form__output {
+  text-align: center;
+  font-size: 20px;
+}
