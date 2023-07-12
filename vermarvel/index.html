@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genderize</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="error-msg hidden">
+        <p class="error-text"></p>
+      </div>
+      <form type="submit" class="form">
+        <div class="form-div">
+          <label>
+            <input class="inp" type="text" pattern="^[a-zA-Z]+[\-a-zA-Z]*$"/>
+
+            <button type="submit" class="btn">Genderize</button>
+          </label>
+        </form>
+        </div>
+      
+      <div class="memory">
+        <div class="result hidden source female male">
+          <p class="text-inside"></p>
+        </div>
+      </div>
+      <div class="clear-btn-container">
+        <button class="clear">Restart / Clear</button>
+      </div>
+ 
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
