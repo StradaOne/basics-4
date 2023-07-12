@@ -77,13 +77,13 @@ const TYPE = {
 }
 
 export {
-  API,
-  WEB_SOCKET,
-  CLASS,
-  SYSTEM_MESSAGE,
-  ERROR,
-  LOG,
   SETTING_CONSOLE,
+  SYSTEM_MESSAGE,
+  WEB_SOCKET,
   USER_STATE,
+  CLASS,
+  ERROR,
   TYPE,
+  API,
+  LOG,
 }

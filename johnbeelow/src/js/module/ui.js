@@ -76,7 +76,7 @@ const validationEmail = (input, text) => {
     input.classList.add(CLASS.INVALID)
     text.classList.add(CLASS.SHOW)
   }
-  
+
   input.onfocus = () => {
     if (input.classList.contains(CLASS.INVALID)) {
       input.classList.remove(CLASS.INVALID)
@@ -86,12 +86,12 @@ const validationEmail = (input, text) => {
 }
 
 export {
-  UI_ELEMENTS,
-  CLASS,
+  validationEmail,
   updateScroll,
-  clearInput,
   replaceIcon,
+  UI_ELEMENTS,
+  clearInput,
   showStatus,
   showLoader,
-  validationEmail,
+  CLASS,
 }
