@@ -1,6 +1,6 @@
 {
   "name": "stradagram",
-  "version": "0.0.7",
+  "version": "0.5.0",
   "description": "messanger by johnbeelow",
   "main": "main.js",
   "type": "module",
