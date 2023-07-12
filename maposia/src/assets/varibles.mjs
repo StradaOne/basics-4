@@ -10,7 +10,8 @@ const VARIABLES = {
       NODE: getElement('.chat__setting'),
       CLOSE: getElement('.chat__setting__close'),
       FORM: getElement('.chat__setting'),
-      INPUT: getElement('.chat__setting__input')
+      INPUT: getElement('.chat__setting__input'),
+      THEME_NAME: getElement('.chat__setting__theme__current-label')
     },
     MESSAGES_NODE: getElement('.chat__messages'),
     TEMPLATE: getElement('#template_chat_message'),
@@ -23,6 +24,7 @@ const VARIABLES = {
       INPUT: getElement('.chat__auth__input'),
       NODE: getElement('.chat__auth'),
       MESSAGE: getElement('.chat__auth__input__message'),
+      FORMS_NODE: getElement('.chat__auth__field'),
       VERIFICATION: {
         FORM: getElement('.chat__login__form'),
         INPUT: getElement('.chat__login__input')

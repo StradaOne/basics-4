@@ -120,14 +120,13 @@
     </div>
 </dialog>
 
-<dialog class="chat__modal chat__auth">
-    <div class="chat__modal__header">
+<dialog class="chat__modal chat__auth" open>
+    <div class="chat__modal__header chat__auth__header">
         <div class="chat__modal__title">
             Авторизация
         </div>
-
     </div>
-    <div class="chat__modal__field">
+    <div class="chat__modal__field chat__auth__field">
         <form class="chat__modal__form chat__auth__form">
             <label for="chat__auth__input" class="chat__modal__label">Введите почту:</label>
             <div class="chat__modal__input__wrap">
@@ -137,7 +136,6 @@
                 <button class="chat__modal__submit chat__auth__btn">
                     <span>Получить код</span>
                 </button>
-
             </div>
             <small class="chat__auth__input__message"></small>
         </form>

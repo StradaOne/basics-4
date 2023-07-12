@@ -54,8 +54,10 @@ VARIABLES.ELEMENTS.SETTING.FORM.addEventListener('submit', changeNameHandler);
 VARIABLES.ELEMENTS.MESSAGES_NODE.addEventListener('scroll', loadMoreMessage);
 document.querySelector('.chat__setting__theme__input').addEventListener('change', function () {
   if (this.checked) {
+    VARIABLES.ELEMENTS.SETTING.THEME_NAME.textContent = 'Светлая тема';
     document.querySelector('body').classList.remove('dark');
   } else {
+    VARIABLES.ELEMENTS.SETTING.THEME_NAME.textContent = 'Тёмная тема';
     document.querySelector('body').classList.add('dark');
   }
 });

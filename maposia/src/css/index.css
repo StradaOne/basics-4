@@ -376,6 +376,11 @@ body {
   backdrop-filter: blur(5px);
 }
 
+.chat__auth__header {
+  display: flex;
+  justify-content: center;
+}
+
 dialog {
   position: fixed;
   inset-block-start: 0;
@@ -477,4 +482,29 @@ dialog::backdrop {
   visibility: hidden;
   opacity: 0;
   transition: opacity 1s, visibility 0s 1s;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #3971D2;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinner_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -33,10 +33,5 @@ function createChatElement(data) {
   return template
 }
 
-function chatHeight() {
-  const chatWindow = VARIABLES.ELEMENTS.MESSAGES_NODE
-  const maxHeight = chatWindow.scrollHeight
-  return maxHeight
-}
 
-export { currentTime, scrollChat, createChatElement, chatHeight }
+export { currentTime, scrollChat, createChatElement }

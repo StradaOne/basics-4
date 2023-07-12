@@ -1,5 +1,5 @@
 import { setupWebSocket, socket } from "./websocket.mjs";
-import { VARIABLES } from "./varibles.mjs";
+import { BLOCKS, VARIABLES } from "./varibles.mjs";
 import { createChatElement, scrollChat, chatHeight } from "./utilites.mjs";
 import { authorization, postAuthCode, setUserData } from "./fetch.mjs";
 import { chatHistoryData, render } from "../index.js";
@@ -37,6 +37,11 @@ export async function changeNameHandler(evt) {
 export async function checkTokenHandler(evt) {
   evt.preventDefault()
   const token = VARIABLES.ELEMENTS.AUTH.VERIFICATION.INPUT.value;
+  const spinner = document.createElement('span')
+  spinner.classList.add('loader');
+  BLOCKS.VERIFICATION.classList.add('hide')
+  VARIABLES.ELEMENTS.AUTH.FORMS_NODE.classList.add('spinner_center')
+  VARIABLES.ELEMENTS.AUTH.FORMS_NODE.appendChild(spinner)
   try {
     const response = await authorization(token);
     if (response.ok) {
@@ -46,8 +51,11 @@ export async function checkTokenHandler(evt) {
       await render()
     }
   } catch (error) {
+    BLOCKS.VERIFICATION.classList.remove('hide')
     console.error('Ошибка авторизации, не верный токен');
   }
+  VARIABLES.ELEMENTS.AUTH.FORMS_NODE.classList.remove('spinner_center')
+  document.querySelector('.loader').remove()
 }
 
 export function openSettingModal(evt) {
@@ -64,6 +72,11 @@ export function requestToken(evt) {
   evt.preventDefault()
   const email = VARIABLES.ELEMENTS.AUTH.INPUT.value
   if (isCorrectEmail(email)) {
+    const spinner = document.createElement('span')
+    spinner.classList.add('loader');
+    BLOCKS.AUTH.classList.add('hide')
+    VARIABLES.ELEMENTS.AUTH.FORMS_NODE.classList.add('spinner_center')
+    VARIABLES.ELEMENTS.AUTH.FORMS_NODE.appendChild(spinner)
     postAuthCode(email)
   }
 }

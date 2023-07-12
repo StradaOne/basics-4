@@ -16,14 +16,16 @@ async function postAuthCode(email) {
     });
     if (response.ok) {
       let result = await response
-      BLOCKS.AUTH.classList.add('hide')
       BLOCKS.VERIFICATION.classList.remove('hide')
     } else {
+      BLOCKS.AUTH.classList.remove('hide')
       throw new Error('Request failed with status ' + response.status)
     }
   } catch (error) {
     console.error('Error:', error.message)
   }
+  VARIABLES.ELEMENTS.AUTH.FORMS_NODE.classList.remove('spinner_center')
+  document.querySelector('.loader').remove()
 }
 
 async function getUserData() {
