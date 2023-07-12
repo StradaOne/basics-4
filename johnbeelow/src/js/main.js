@@ -1,14 +1,14 @@
 import {
-  UI_ELEMENTS,
-  clearInput,
   showLoader,
+  clearInput,
   replaceIcon,
+  UI_ELEMENTS,
 } from './module/ui.js'
 
 import {
-  connectWebSocket,
   sendMassage,
   closeWebSocket,
+  connectWebSocket,
 } from './module/websocket.js'
 
 import { userMain } from './module/user.js'
